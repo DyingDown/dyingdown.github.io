@@ -15,22 +15,17 @@
 
 
 
-<meta name="description" content="Last time I‘ve talked about how to build your own blog, however, the original theme might not very beautiful to you. So this time I would write how to change your blog theme and others.">
-<meta name="keywords" content="theme">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Change-Blog-Theme">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/Change-Blog-Theme/index.html">
+<meta name="description" content="Do some free learning.">
+<meta name="keywords" content="Computer Science">
+<meta property="og:type" content="website">
+<meta property="og:title" content="o_oyao Blog">
+<meta property="og:url" content="http://yoursite.com/tags/build/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Last time I‘ve talked about how to build your own blog, however, the original theme might not very beautiful to you. So this time I would write how to change your blog theme and others.">
+<meta property="og:description" content="Do some free learning.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/15/mVr7yF.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/15/mV6Sqe.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/15/mVcvHe.png">
-<meta property="og:updated_time" content="2019-08-15T15:56:30.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Change-Blog-Theme">
-<meta name="twitter:description" content="Last time I‘ve talked about how to build your own blog, however, the original theme might not very beautiful to you. So this time I would write how to change your blog theme and others.">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/08/15/mVr7yF.png">
+<meta name="twitter:title" content="o_oyao Blog">
+<meta name="twitter:description" content="Do some free learning.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -62,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Change-Blog-Theme | o_oyao Blog</title>
+<title>Tag: build | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -72,9 +67,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
-        isTag: false,
+        isTag: true,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -299,263 +294,60 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Change-Blog-Theme" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2019/08/15/Change-Blog-Theme/" class="article-date">
-      <time datetime="2019-08-15T14:12:16.000Z" itemprop="datePublished">2019-08-15</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2019/08/13/Build-Blog/" class="archive-article-date">
+      <time datetime="2019-08-13T09:49:05.000Z" itemprop="datePublished">08-13</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Change-Blog-Theme
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/13/Build-Blog/">How to build a blog</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-archive">
+          
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Blog/">Blog</a>
     </div>
 
 
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/theme/">theme</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
           
-        <p>Last time I‘ve talked about how to build your own blog, however, the original theme might not very beautiful to you. So this time I would write how to change your blog theme and others.</p>
-<a id="more"></a>
-<p>The first thing is to find a beautiful theme of hexo, find it’s repo on github. </p>
-<p><img src="https://s2.ax1x.com/2019/08/15/mVr7yF.png" alt></p>
-<p>This is the theme my blog based on. Then click the green button <strong>Clone or download</strong>. Then copy the url.</p>
-<p><img src="https://s2.ax1x.com/2019/08/15/mV6Sqe.png" alt></p>
-<p>Click the button to copy the url.</p>
-<p>Then open the Cmder, find the directory of your blog and type:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">λ git <span class="built_in">clone</span> url</span><br></pre></td></tr></table></figure>
-<p>Now you can find the file of the blog under the file themes.  Remember the name and open the _config.yml and find themes.</p>
-<p><img src="https://s2.ax1x.com/2019/08/15/mVcvHe.png" alt></p>
-<p>Change landscape into your theme name. hexo s to preview and hexo g and hexo d.</p>
-<p>If you are still not very satisfy with your theme, you can looks in its files and modify the css or js files.</p>
-
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-08-15, 22:12:16</p>
-        <p><span>Updated:</span>2019-08-15, 23:56:30</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/08/15/Change-Blog-Theme/" title="Change-Blog-Theme">http://yoursite.com/2019/08/15/Change-Blog-Theme/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2019/08/15/Change-Blog-Theme/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/">build</a></li></ul>
     </div>
 
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/15/Add-Comments/">
-                    Add-Comments
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/15/Inclusion-Exclusion-Principle/">
-                    Inclusion-Exclusion-Principle
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-
-  
-    <div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           ↑<br>
-           Helpful?~\(≧▽≦)/~
-        </span>
-        <br>
-      </div>
-    <div id="donate_guide" class="donate_bar center hidden" >
-         <!-- 支付宝打赏图案 -->
-        <img src="/img/Alipay.jpg" alt="支付宝打赏">
-        <!-- 微信打赏图案 -->
-        <img src="/img/Wechat.jpg" alt="微信打赏">
-    </div>
-    <script type="text/javascript">
-        document.getElementById('btn_donate').onclick = function(){
-            $('#donate_board').addClass('hidden');
-            $('#donate_guide').removeClass('hidden');
-        }
-    </script>
-</div>
-  
-
-
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-4 i,
-        .toc-level-4 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Change-Blog-Theme　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2019/08/15/Change-Blog-Theme/';
-            this.page.identifier = '2019/08/15/Change-Blog-Theme/';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
-
-</section>
-
-
-    
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
-  <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzM5MC85OTQ2">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-
+  
+    </div></section>
   
 
+    
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2019/08/15/Add-Comments/" title="Pre: Add-Comments">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2019/08/15/Inclusion-Exclusion-Principle/" title="Next: Inclusion-Exclusion-Principle">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Add-Comments/">Add-Comments</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Inclusion-Exclusion-Principle/">Inclusion-Exclusion-Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Prime-factor-of-n/">prime-factor-of-n</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Build-Blog/">How to build a blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Logic-proposition/">Logic-proposition</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/learning-classification/">Learning classification</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/What-is-machine-learning/">What is machine learning</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
