@@ -24,7 +24,7 @@
 <meta property="og:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/17/mmHQXD.png">
-<meta property="og:updated_time" content="2019-09-02T04:57:39.453Z">
+<meta property="og:updated_time" content="2019-09-02T07:01:32.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP">
 <meta name="twitter:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
@@ -353,6 +353,8 @@
 <p>Given a string s which length is n, it’s longest common prefix-suffix function is fix[i]. That means from the first element to the ith element ( include i ), the length of the common prefix-suffix is fix[i].</p>
 <p>Assume that we have looped to the ith element.</p>
 <p><img src="https://s2.ax1x.com/2019/08/17/mmHQXD.png" alt></p>
+<p>If the next point of both point is the same, then we found the answer.</p>
+<p>If not, then we move the point fix[i] to fix[fix[i]] and do the step above until we find the answer.</p>
 
       
     </div>
@@ -364,7 +366,7 @@
         <p><span>Title:</span><a href="/2019/08/16/KMP/">KMP</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
         <p><span>Created:</span>2019-08-16, 13:42:14</p>
-        <p><span>Updated:</span>2019-09-02, 12:57:39</p>
+        <p><span>Updated:</span>2019-09-02, 15:01:32</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2019/08/16/KMP/" title="KMP">http://dyingdown.github.io/2019/08/16/KMP/</a>
             <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/16/KMP/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
