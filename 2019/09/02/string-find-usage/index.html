@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Any given natural number n can be written as a format of the multiplication of sum prime numbers. For example:  4937775= 3*5*5*65837">
-<meta name="keywords" content="prime factor">
+<meta name="description" content="Every time I use find function in C++ , I always search its usage after using it for so many times. So I decide to make a summary of some commonly used usages.">
+<meta name="keywords" content="usage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="prime-factor-of-n">
-<meta property="og:url" content="http://dyingdown.github.io/2019/08/15/Prime-factor-of-n/index.html">
+<meta property="og:title" content="usage">
+<meta property="og:url" content="http://dyingdown.github.io/2019/09/02/string-find-usage/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Any given natural number n can be written as a format of the multiplication of sum prime numbers. For example:  4937775= 3*5*5*65837">
+<meta property="og:description" content="Every time I use find function in C++ , I always search its usage after using it for so many times. So I decide to make a summary of some commonly used usages.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-15T15:59:03.707Z">
+<meta property="og:updated_time" content="2019-09-02T05:09:29.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prime-factor-of-n">
-<meta name="twitter:description" content="Any given natural number n can be written as a format of the multiplication of sum prime numbers. For example:  4937775= 3*5*5*65837">
+<meta name="twitter:title" content="usage">
+<meta name="twitter:description" content="Every time I use find function in C++ , I always search its usage after using it for so many times. So I decide to make a summary of some commonly used usages.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>prime-factor-of-n | o_oyao Blog</title>
+<title>usage | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -299,11 +299,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Prime-factor-of-n" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="string-find-string-find-usage" class="article article-type-string-find" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/15/Prime-factor-of-n/" class="article-date">
-      <time datetime="2019-08-15T13:43:06.000Z" itemprop="datePublished">2019-08-15</time>
+      <a href="/2019/09/02/string-find-usage/" class="article-date">
+      <time datetime="2019-09-02T00:34:38.000Z" itemprop="datePublished">2019-09-02</time>
 </a>
 
 
@@ -318,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      prime-factor-of-n
+      usage
     </h1>
   
 
@@ -327,13 +327,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    <a class="article-category-link" href="/categories/C/">C++</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prime-factor/">prime factor</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usage/">usage</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -343,20 +343,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Any given natural number n can be written as a format of the multiplication of sum prime numbers. For example:</p>
-<script type="math/tex; mode=display">
-4937775= 3*5*5*65837</script><a id="more"></a>
-<h1 id="Prime-factors-of-N"><a href="#Prime-factors-of-N" class="headerlink" title="Prime factors of N"></a>Prime factors of N</h1><p>Here is the directly algorithm</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">100000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">prime_factor</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= n; i ++)&#123; </span><br><span class="line">		<span class="keyword">if</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">			count ++;</span><br><span class="line">			arr[count] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">			n /= i;</span><br><span class="line">            <span class="comment">// count ++;</span></span><br><span class="line">            <span class="comment">// arr[count] = i; if you don't want to de-duplicate the factors</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n != <span class="number">1</span>)&#123;</span><br><span class="line">		count ++;</span><br><span class="line">		arr[count] = n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Smith-Numbers"><a href="#Smith-Numbers" class="headerlink" title="Smith Numbers"></a>Smith Numbers</h3><p>​        While skimming his phone directory in 1982, Albert Wilansky, a mathematician of Lehigh University,noticed that the telephone number of his brother-in-law H. Smith had the following peculiar property: The sum of the digits of that number was equal to the sum of the digits of the prime factors of that number. Got it? Smith’s telephone number was 493-7775. This number can be written as the product of its prime factors in the following way: </p>
-<script type="math/tex; mode=display">
-4937775= 3*5*5*65837</script><p>​        The sum of all digits of the telephone number is 4+9+3+7+7+7+5= 42,and the sum of the digits of its prime factors is equally 3+5+5+6+5+8+3+7=42. Wilansky was so amazed by his discovery that he named this kind of numbers after his brother-in-law: Smith numbers.<br>As this observation is also true for every prime number, Wilansky decided later that a (simple and unsophisticated) prime number is not worth being a Smith number, so he excluded them from the definition.<br>Wilansky published an article about Smith numbers in the Two Year College Mathematics Journal and was able to present a whole collection of different Smith numbers: For example, 9985 is a Smith number and so is 6036. However,Wilansky was not able to find a Smith number that was larger than the telephone number of his brother-in-law. It is your task to find Smith numbers that are larger than 4937775!</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>​        The input file consists of a sequence of positive integers, one integer per line. Each integer will have at most 8 digits. The input is terminated by a line containing the number 0.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>​        For every number n &gt; 0 in the input, you are to compute the smallest Smith number which is larger than n,and print it on a line by itself. You can assume that such a number exists.</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4937774</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4937775</span><br></pre></td></tr></table></figure>
-<p>This is a simple application of prime factors of n. And n can’t be a prime number.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll pri[<span class="number">200000000</span>], k;</span><br><span class="line"><span class="function">ll <span class="title">resolve</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">	k = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> N = n;</span><br><span class="line">	<span class="keyword">for</span>(ll i = <span class="number">2</span>; i * i &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(N % i == <span class="number">0</span>)&#123;</span><br><span class="line">			N /= i;</span><br><span class="line">	        pri[k ++] = i;</span><br><span class="line">	        <span class="keyword">while</span>(N % i == <span class="number">0</span>)&#123;</span><br><span class="line">	        	pri[k ++] = i;</span><br><span class="line">	        	N /= i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(N &gt; <span class="number">1</span> &amp;&amp; N != n) <span class="comment">// n is n's factor which can't be counted</span></span><br><span class="line">		pri[k ++]= N;</span><br><span class="line">	<span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll a)</span></span>&#123;</span><br><span class="line">	ll s = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(a)&#123;</span><br><span class="line">		s += a % <span class="number">10</span>;</span><br><span class="line">		a /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(ll k, ll i)</span></span>&#123; <span class="comment">// check if sum of every digit of k and i are equal</span></span><br><span class="line">	ll sumi = sum(i);</span><br><span class="line">	ll sumk = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j ++)&#123;</span><br><span class="line">		sumk += sum(pri[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(sumk == sumi) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n)&#123;</span><br><span class="line">		ll i = n;</span><br><span class="line">		<span class="keyword">while</span>(i ++)&#123;</span><br><span class="line">			ll k = resolve(i);</span><br><span class="line">			<span class="keyword">if</span>(check(k, i))&#123; </span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Every time I use find function in C++ , I always search its usage after using it for so many times. So I decide to make a summary of some commonly used usages.</p>
+<a id="more"></a>
+<h1 id="C-string-find"><a href="#C-string-find" class="headerlink" title="C++ string.find()"></a>C++ string.find()</h1><p>Before seeing the usage directly, we need to know a data type <strong>size_type</strong>.</p>
+<blockquote>
+<p>Size_type is a type defined by the string class type and the vector class type to hold the length of any string object or vector object. The standard library type defines size_type as unsigned. The abstract meaning of string is a string, the abstract meaning of size() is the size of a string, and the abstract meaning of string::size_type is a unit of size unit.</p>
+</blockquote>
+<p>The followings are the usage.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">string</span> flag;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="built_in">string</span>::size_type position;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="the-subscript-position-of-flag-in-s"><a href="#the-subscript-position-of-flag-in-s" class="headerlink" title="the subscript position of flag in s"></a>the subscript position of flag in s</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">position = s.find(flag);</span><br><span class="line"><span class="keyword">if</span>(position != s.npos)&#123;</span><br><span class="line">    <span class="comment">// the position exists</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// the position does not exist</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Subscript-position-of-flag-in-s-start-from-3-subscript"><a href="#Subscript-position-of-flag-in-s-start-from-3-subscript" class="headerlink" title="Subscript position of flag in s start from 3 subscript"></a>Subscript position of flag in s start from 3 subscript</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = s.find(flag, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="First-occurrence-of-the-subscript-position-of-character-a-in-s"><a href="#First-occurrence-of-the-subscript-position-of-character-a-in-s" class="headerlink" title="First occurrence of the subscript position of character a in s"></a>First occurrence of the subscript position of character a in s</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = s.find_first_of(a);</span><br></pre></td></tr></table></figure>
+<h4 id="All-locations-where-a-appears-in-s"><a href="#All-locations-where-a-appears-in-s" class="headerlink" title="All locations where a appears in s"></a>All locations where a appears in s</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">position = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(position = s.find_fisrt_of(a, position)) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">    ...</span><br><span class="line">    position ++;</span><br><span class="line">    i ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Find-the-position-in-the-flag-that-does-not-match-the-first-one-of-s"><a href="#Find-the-position-in-the-flag-that-does-not-match-the-first-one-of-s" class="headerlink" title="Find the position in the flag that does not match the first one of s"></a>Find the position in the flag that does not match the first one of s</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = flag.find_first_not_of(s);</span><br></pre></td></tr></table></figure>
+<h4 id="Last-occurrence-of-flag-in-s"><a href="#Last-occurrence-of-flag-in-s" class="headerlink" title="Last occurrence of flag in s"></a>Last occurrence of flag in s</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position = s.rfind(flag)</span><br></pre></td></tr></table></figure>
+<p>The reason why I use this function is that I came cross a problem on LuoGu <a href="https://www.luogu.org/problem/P1553" target="_blank" rel="noopener">P1533 number reversion</a> and I have another article that solve this problem.</p>
 
       
     </div>
@@ -365,13 +366,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/08/15/Prime-factor-of-n/">prime-factor-of-n</a></p>
+        <p><span>Title:</span><a href="/2019/09/02/string-find-usage/">usage</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-08-15, 21:43:06</p>
-        <p><span>Updated:</span>2019-08-15, 23:59:03</p>
+        <p><span>Created:</span>2019-09-02, 08:34:38</p>
+        <p><span>Updated:</span>2019-09-02, 13:09:29</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/08/15/Prime-factor-of-n/" title="prime-factor-of-n">http://dyingdown.github.io/2019/08/15/Prime-factor-of-n/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/15/Prime-factor-of-n/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/09/02/string-find-usage/" title="usage">http://dyingdown.github.io/2019/09/02/string-find-usage/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/02/string-find-usage/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -383,16 +384,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/15/Inclusion-Exclusion-Principle/">
-                    Inclusion-Exclusion-Principle
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/14/Extended-Euclid-and-Inverse-element/">
-                    Extended-Euclid-and-Inverse-element
+                <a href="/2019/08/16/KMP/">
+                    KMP
                 </a>
             </div>
         
@@ -432,7 +427,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prime-factors-of-N"><span class="toc-number">1.</span> <span class="toc-text">Prime factors of N</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">1.1.</span> <span class="toc-text">Example</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Smith-Numbers"><span class="toc-number">1.1.1.</span> <span class="toc-text">Smith Numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.1.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-string-find"><span class="toc-number">1.</span> <span class="toc-text">C++ string.find()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#the-subscript-position-of-flag-in-s"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">the subscript position of flag in s</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subscript-position-of-flag-in-s-start-from-3-subscript"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">Subscript position of flag in s start from 3 subscript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#First-occurrence-of-the-subscript-position-of-character-a-in-s"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">First occurrence of the subscript position of character a in s</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#All-locations-where-a-appears-in-s"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">All locations where a appears in s</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Find-the-position-in-the-flag-that-does-not-match-the-first-one-of-s"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">Find the position in the flag that does not match the first one of s</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Last-occurrence-of-flag-in-s"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">Last occurrence of flag in s</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -468,7 +463,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"prime-factor-of-n　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"usage　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -487,8 +482,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/08/15/Prime-factor-of-n/';
-            this.page.identifier = '2019/08/15/Prime-factor-of-n/';
+            this.page.url = 'http://dyingdown.github.io/2019/09/02/string-find-usage/';
+            this.page.identifier = '2019/09/02/string-find-usage/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -535,15 +530,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/15/Inclusion-Exclusion-Principle/" title="Pre: Inclusion-Exclusion-Principle">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/14/Extended-Euclid-and-Inverse-element/" title="Next: Extended-Euclid-and-Inverse-element">
+            <a href="/2019/08/16/KMP/" title="Next: KMP">
                 <i class="fa fa-angle-right"></i>
             </a>
         
