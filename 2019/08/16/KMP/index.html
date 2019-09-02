@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="Knuth-Morris-Pratt AlgorithmKMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time">
+<meta name="description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
 <meta name="keywords" content="string match">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KMP">
 <meta property="og:url" content="http://dyingdown.github.io/2019/08/16/KMP/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Knuth-Morris-Pratt AlgorithmKMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time">
+<meta property="og:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/17/mmHQXD.png">
-<meta property="og:updated_time" content="2019-08-16T16:31:00.350Z">
+<meta property="og:updated_time" content="2019-09-02T04:57:39.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP">
-<meta name="twitter:description" content="Knuth-Morris-Pratt AlgorithmKMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time">
+<meta name="twitter:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/08/17/mmHQXD.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -208,7 +208,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euclid/">Euclid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inclusion-exclusion/">inclusion-exclusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduction/">introduction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/learning-method/">learning method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prime-factor/">prime factor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string-match/">string match</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euclid/">Euclid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inclusion-exclusion/">inclusion-exclusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduction/">introduction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/learning-method/">learning method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prime-factor/">prime factor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string-match/">string match</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li></ul>
                     </div>
                 </section>
                 
@@ -345,9 +345,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Knuth-Morris-Pratt-Algorithm"><a href="#Knuth-Morris-Pratt-Algorithm" class="headerlink" title="Knuth-Morris-Pratt Algorithm"></a>Knuth-Morris-Pratt Algorithm</h1><p>KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method is O(n)~O(mn). So the KMP can cut the times of loop.</p>
+        <p>KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method is O(n)~O(mn). So the KMP can cut the times of loop.</p>
 <a id="more"></a>
-<p>Here is the code of violent traversing.</p>
+<h1 id="Knuth-Morris-Pratt-Algorithm"><a href="#Knuth-Morris-Pratt-Algorithm" class="headerlink" title="Knuth-Morris-Pratt Algorithm"></a>Knuth-Morris-Pratt Algorithm</h1><p>Here is the code of violent traversing.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; match(<span class="built_in">string</span> a, <span class="built_in">string</span> b, <span class="keyword">int</span> n, <span class="keyword">int</span> m) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; m; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i + j] != b[j]) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == m) ans.push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The followings are the main ideas of KMP.</p>
 <p>Given a string s which length is n, it’s longest common prefix-suffix function is fix[i]. That means from the first element to the ith element ( include i ), the length of the common prefix-suffix is fix[i].</p>
@@ -364,7 +364,7 @@
         <p><span>Title:</span><a href="/2019/08/16/KMP/">KMP</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
         <p><span>Created:</span>2019-08-16, 13:42:14</p>
-        <p><span>Updated:</span>2019-08-17, 00:31:00</p>
+        <p><span>Updated:</span>2019-09-02, 12:57:39</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2019/08/16/KMP/" title="KMP">http://dyingdown.github.io/2019/08/16/KMP/</a>
             <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/16/KMP/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -378,6 +378,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/09/02/string-find_usage/">
+                    usage
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -525,7 +531,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/2019/09/02/string-find_usage/" title="Pre: usage">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -537,7 +545,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/KMP/">KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Add-Comments/">Add-Comments</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Inclusion-Exclusion-Principle/">Inclusion-Exclusion-Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Prime-factor-of-n/">prime-factor-of-n</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Build-Blog/">How to build a blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Logic-proposition/">Logic-proposition</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/learning-classification/">Learning classification</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/What-is-machine-learning/">What is machine learning</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/string-find_usage/">usage</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/KMP/">KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Add-Comments/">Add-Comments</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Inclusion-Exclusion-Principle/">Inclusion-Exclusion-Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Prime-factor-of-n/">prime-factor-of-n</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Build-Blog/">How to build a blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Logic-proposition/">Logic-proposition</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/learning-classification/">Learning classification</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/What-is-machine-learning/">What is machine learning</a></li></ul>
 
 
 
