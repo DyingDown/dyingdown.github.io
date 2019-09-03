@@ -15,20 +15,18 @@
 
 
 
-<meta name="description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
-<meta name="keywords" content="Knowledge points">
+<meta name="description" content="In order to post my note of linear algebra, I need to know how to put matrix using LaTex. The followings are the usage.">
+<meta name="keywords" content="math notation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KMP">
-<meta property="og:url" content="http://dyingdown.github.io/2019/08/16/KMP/index.html">
+<meta property="og:title" content="Matrix of LaTex">
+<meta property="og:url" content="http://dyingdown.github.io/2019/09/03/LaTex-matrix/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
+<meta property="og:description" content="In order to post my note of linear algebra, I need to know how to put matrix using LaTex. The followings are the usage.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/17/mmHQXD.png">
-<meta property="og:updated_time" content="2019-09-02T07:10:33.527Z">
+<meta property="og:updated_time" content="2019-09-03T06:37:13.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KMP">
-<meta name="twitter:description" content="KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method i">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/08/17/mmHQXD.png">
+<meta name="twitter:title" content="Matrix of LaTex">
+<meta name="twitter:description" content="In order to post my note of linear algebra, I need to know how to put matrix using LaTex. The followings are the usage.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -60,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>KMP | o_oyao Blog</title>
+<title>Matrix of LaTex | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -301,11 +299,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-KMP" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LaTex-matrix" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/16/KMP/" class="article-date">
-      <time datetime="2019-08-16T05:42:14.000Z" itemprop="datePublished">2019-08-16</time>
+      <a href="/2019/09/03/LaTex-matrix/" class="article-date">
+      <time datetime="2019-09-03T06:05:50.000Z" itemprop="datePublished">2019-09-03</time>
 </a>
 
 
@@ -320,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      KMP
+      Matrix of LaTex
     </h1>
   
 
@@ -329,13 +327,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    <a class="article-category-link" href="/categories/LaTex/">LaTex</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math-notation/">math notation</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -345,16 +343,53 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>KMP is an algorithm that find the given pattern string in the pending string.  Usually we would think of violent traversing the two strings using for loop. However the time complexity of this method is O(n)~O(mn). So the KMP can cut the times of loop.</p>
+        <p>In order to post my note of linear algebra, I need to know how to put matrix using LaTex. The followings are the usage.</p>
 <a id="more"></a>
-<h1 id="Knuth-Morris-Pratt-Algorithm"><a href="#Knuth-Morris-Pratt-Algorithm" class="headerlink" title="Knuth-Morris-Pratt Algorithm"></a>Knuth-Morris-Pratt Algorithm</h1><p>Here is the code of violent traversing.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; match(<span class="built_in">string</span> a, <span class="built_in">string</span> b, <span class="keyword">int</span> n, <span class="keyword">int</span> m) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; m; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i + j] != b[j]) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == m) ans.push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The followings are the main ideas of KMP.</p>
-<p>Given a string s which length is n, it’s longest common prefix-suffix function is fix[i]. That means from the first element to the ith element ( include i ), the length of the common prefix-suffix is fix[i].</p>
-<p>Assume that we have looped to the ith element.</p>
-<p><img src="https://s2.ax1x.com/2019/08/17/mmHQXD.png" alt></p>
-<p>If the next point of both point is the same, then we found the answer.</p>
-<p>If not, then we move the point fix[i] to fix[fix[i]] and do the step above until we find the answer.</p>
+<h3 id="Simple-matrix"><a href="#Simple-matrix" class="headerlink" title="Simple matrix"></a>Simple matrix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">	\begin&#123;matrix&#125;</span><br><span class="line">        7 &amp; 8 &amp; 9 \\</span><br><span class="line">        4 &amp; 5 &amp; 6 \\</span><br><span class="line">        1 &amp; 2 &amp; 3</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>Display:</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+    7 & 8 & 9 \\
+    4 & 5 & 6 \\
+    1 & 2 & 3
+    \end{matrix}</script><h3 id="Matrix-with-brackets"><a href="#Matrix-with-brackets" class="headerlink" title="Matrix with brackets"></a>Matrix with brackets</h3><h5 id="Curly-braces-…"><a href="#Curly-braces-…" class="headerlink" title="Curly  braces {…}"></a>Curly  braces {…}</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">	\left\&#123;</span><br><span class="line">	\begin&#123;matrix&#125;</span><br><span class="line">        7 &amp; 8 &amp; 9 \\</span><br><span class="line">        4 &amp; 5 &amp; 6 \\</span><br><span class="line">        1 &amp; 2 &amp; 3</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">    \right\&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>Display:</p>
+<script type="math/tex; mode=display">
+\left\{
+    \begin{matrix}
+        7 & 8 & 9 \\
+        4 & 5 & 6 \\
+        1 & 2 & 3
+    \end{matrix}
+    \right\}</script><h5 id="Square-brackets-…"><a href="#Square-brackets-…" class="headerlink" title="Square brackets […]"></a>Square brackets […]</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">	\left[</span><br><span class="line">	\begin&#123;matrix&#125;</span><br><span class="line">        7 &amp; 8 &amp; 9 \\</span><br><span class="line">        4 &amp; 5 &amp; 6 \\</span><br><span class="line">        1 &amp; 2 &amp; 3</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">    \right]</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>Display:</p>
+<script type="math/tex; mode=display">
+\left[
+    \begin{matrix}
+        7 & 8 & 9 \\
+        4 & 5 & 6 \\
+        1 & 2 & 3
+    \end{matrix}
+    \right]</script><h3 id="Matrix-with-dots"><a href="#Matrix-with-dots" class="headerlink" title="Matrix with dots"></a>Matrix with dots</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \left[</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">         a_&#123;11&#125;    &amp; a_&#123;12&#125;    &amp; \cdots   &amp; a_&#123;1n&#125;     \\</span><br><span class="line">         a_&#123;21&#125;    &amp; a_&#123;22&#125;    &amp; \cdots   &amp; a_&#123;2n&#125;     \\</span><br><span class="line">         \vdots    &amp; \vdots    &amp; \ddots   &amp; \vdots     \\</span><br><span class="line">         a_&#123;n1&#125;    &amp; a_&#123;n2&#125;    &amp; \cdots   &amp; a_&#123;nn&#125;     \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">    \right]</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>Display:</p>
+<script type="math/tex; mode=display">
+\left[
+    \begin{matrix}
+         a_{11}    & a_{12}    & \cdots   & a_{1n}      \\
+         a_{21}    & a_{22}    & \cdots   & a_{2n}      \\
+         \vdots    & \vdots    & \ddots   & \vdots      \\
+         a_{n1}    & a_{n2}    & \cdots   & a_{nn}      \\
+    \end{matrix}
+    \right]</script><h3 id="Matrix-with-parameter"><a href="#Matrix-with-parameter" class="headerlink" title="Matrix with parameter"></a>Matrix with parameter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$$ </span><br><span class="line">    \left[</span><br><span class="line">        \begin&#123;array&#125;&#123;cc|c&#125;</span><br><span class="line">          2 &amp; 5 &amp; 6 \\</span><br><span class="line">          9 &amp; 3 &amp; 7</span><br><span class="line">        \end&#123;array&#125;</span><br><span class="line">    \right]</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>Display:</p>
+<script type="math/tex; mode=display">
+\left[
+        \begin{array}{cc|c}
+          2 & 5 & 6 \\
+          9 & 3 & 7
+        \end{array}
+    \right]</script><h3 id="Inline-matrix"><a href="#Inline-matrix" class="headerlink" title="Inline matrix"></a>Inline matrix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is an example of inline matrix $\bigl( \begin&#123;smallmatrix&#125; a &amp; b \\ c &amp; d \end&#123;smallmatrix&#125; \bigr)$ and the display is below.</span><br></pre></td></tr></table></figure>
+<p>This is an example of inline matrix $\bigl( \begin{smallmatrix} a &amp; b \ c &amp; d \end{smallmatrix} \bigr)$ and the display is below.</p>
 
       
     </div>
@@ -363,13 +398,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/08/16/KMP/">KMP</a></p>
+        <p><span>Title:</span><a href="/2019/09/03/LaTex-matrix/">Matrix of LaTex</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-08-16, 13:42:14</p>
-        <p><span>Updated:</span>2019-09-02, 15:10:33</p>
+        <p><span>Created:</span>2019-09-03, 14:05:50</p>
+        <p><span>Updated:</span>2019-09-03, 14:37:13</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/08/16/KMP/" title="KMP">http://dyingdown.github.io/2019/08/16/KMP/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/16/KMP/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/09/03/LaTex-matrix/" title="Matrix of LaTex">http://dyingdown.github.io/2019/09/03/LaTex-matrix/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/03/LaTex-matrix/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -381,16 +416,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/02/string-find-usage/">
-                    Usage of string.find()
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/15/Add-Comments/">
-                    Add-Comments
+                <a href="/2019/09/03/Vectors-and-space/">
+                    Vectors-and-space
                 </a>
             </div>
         
@@ -430,7 +459,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Knuth-Morris-Pratt-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Knuth-Morris-Pratt Algorithm</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-matrix"><span class="toc-number">1.</span> <span class="toc-text">Simple matrix</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-with-brackets"><span class="toc-number">2.</span> <span class="toc-text">Matrix with brackets</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Curly-braces-…"><span class="toc-number">2.0.1.</span> <span class="toc-text">Curly  braces {…}</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Square-brackets-…"><span class="toc-number">2.0.2.</span> <span class="toc-text">Square brackets […]</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-with-dots"><span class="toc-number">3.</span> <span class="toc-text">Matrix with dots</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-with-parameter"><span class="toc-number">4.</span> <span class="toc-text">Matrix with parameter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inline-matrix"><span class="toc-number">5.</span> <span class="toc-text">Inline matrix</span></a></li></ol>
         
     </div>
     <style>
@@ -466,7 +495,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"KMP　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Matrix of LaTex　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -485,8 +514,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/08/16/KMP/';
-            this.page.identifier = '2019/08/16/KMP/';
+            this.page.url = 'http://dyingdown.github.io/2019/09/03/LaTex-matrix/';
+            this.page.identifier = '2019/09/03/LaTex-matrix/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -533,15 +562,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/02/string-find-usage/" title="Pre: Usage of string.find()">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/15/Add-Comments/" title="Next: Add-Comments">
+            <a href="/2019/09/03/Vectors-and-space/" title="Next: Vectors-and-space">
                 <i class="fa fa-angle-right"></i>
             </a>
         
