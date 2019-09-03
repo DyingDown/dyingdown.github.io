@@ -15,21 +15,18 @@
 
 
 
-<meta name="description" content="Because of my first theme was so incomplete that I need to add many features myself. So I’ve looked for how to add comment system on the blog.">
-<meta name="keywords" content="comment">
+<meta name="description" content="Do some free learning.">
+<meta name="keywords" content="Computer Science">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Add-Comments">
-<meta property="og:url" content="http://dyingdown.github.io/2019/08/15/Add-Comments/index.html">
+<meta property="og:title" content="Linear-dependence-and-independence">
+<meta property="og:url" content="http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Because of my first theme was so incomplete that I need to add many features myself. So I’ve looked for how to add comment system on the blog.">
+<meta property="og:description" content="Do some free learning.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/15/mVf9Z8.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/08/15/mVf1JJ.png">
-<meta property="og:updated_time" content="2019-08-15T15:55:35.308Z">
+<meta property="og:updated_time" content="2019-09-03T16:01:36.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Add-Comments">
-<meta name="twitter:description" content="Because of my first theme was so incomplete that I need to add many features myself. So I’ve looked for how to add comment system on the blog.">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/08/15/mVf9Z8.png">
+<meta name="twitter:title" content="Linear-dependence-and-independence">
+<meta name="twitter:description" content="Do some free learning.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -61,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Add-Comments | o_oyao Blog</title>
+<title>Linear-dependence-and-independence | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -304,11 +301,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Add-Comments" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linear-dependence-and-independence" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/15/Add-Comments/" class="article-date">
-      <time datetime="2019-08-15T15:21:26.000Z" itemprop="datePublished">2019-08-15</time>
+      <a href="/2019/09/04/Linear-dependence-and-independence/" class="article-date">
+      <time datetime="2019-09-03T16:01:36.000Z" itemprop="datePublished">2019-09-04</time>
 </a>
 
 
@@ -323,7 +320,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Add-Comments
+      Linear-dependence-and-independence
     </h1>
   
 
@@ -331,16 +328,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/comment/">comment</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -348,18 +337,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Because of my first theme was so incomplete that I need to add many features myself. So I’ve looked for how to add comment system on the blog.</p>
-<a id="more"></a>
-<p>By asking many friends and searching, I first used gitment. When I finally make it work which is initial the comment, I found that the gitment is no longer served. So I changed to disqus but I can’t make it work because it has the code in ejs but my theme is written in jade. I don’t know how to exactly change ejs to jade, so I change my theme again. And Finally, I used <a href="[https://www.livere.com](https://www.livere.com/">LiveRe</a>).</p>
-<p>First register. And click install.</p>
-<p><img src="https://s2.ax1x.com/2019/08/15/mVf9Z8.png" alt></p>
-<p>Choose the free version and install. Fill the blanks.</p>
-<p><img src="https://s2.ax1x.com/2019/08/15/mVf1JJ.png" alt> </p>
-<p>My LiveRe name is arbitrary and the site URL is your blog URL. And you can choose SNS.</p>
-<p>Then you will get a piece of code. Like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- LiveRe City install code --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;MTAyMC80NTk3NS8yMjQ4Ng==&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt;Please activate JavaScript for write a comment in LiveRe&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- completed City install code --&gt;</span><br></pre></td></tr></table></figure>
-<p>Then place your code in a certain place of your blog setting files.  Usually you just need to change your original blog’s comment code.</p>
-
+        
       
     </div>
     
@@ -367,13 +345,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/08/15/Add-Comments/">Add-Comments</a></p>
+        <p><span>Title:</span><a href="/2019/09/04/Linear-dependence-and-independence/">Linear-dependence-and-independence</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-08-15, 23:21:26</p>
-        <p><span>Updated:</span>2019-08-15, 23:55:35</p>
+        <p><span>Created:</span>2019-09-04, 00:01:36</p>
+        <p><span>Updated:</span>2019-09-04, 00:01:36</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/08/15/Add-Comments/" title="Add-Comments">http://dyingdown.github.io/2019/08/15/Add-Comments/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/15/Add-Comments/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/09/04/Linear-dependence-and-independence/" title="Linear-dependence-and-independence">http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -385,16 +363,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/16/KMP/">
-                    KMP
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/15/Change-Blog-Theme/">
-                    Change-Blog-Theme
+                <a href="/2019/09/03/Linear-combination-and-spam/">
+                    Linear combination and spam
                 </a>
             </div>
         
@@ -470,7 +442,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Add-Comments　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linear-dependence-and-independence　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -489,8 +461,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/08/15/Add-Comments/';
-            this.page.identifier = '2019/08/15/Add-Comments/';
+            this.page.url = 'http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/';
+            this.page.identifier = '2019/09/04/Linear-dependence-and-independence/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -537,15 +509,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/16/KMP/" title="Pre: KMP">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/15/Change-Blog-Theme/" title="Next: Change-Blog-Theme">
+            <a href="/2019/09/03/Linear-combination-and-spam/" title="Next: Linear combination and spam">
                 <i class="fa fa-angle-right"></i>
             </a>
         
