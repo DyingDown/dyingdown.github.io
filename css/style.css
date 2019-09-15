@@ -2210,9 +2210,7 @@ aside.comment-bar:active {
 }
 .article-entry .highlight {
   border-radius: 2px;
-/*
-    max-height: 50em
-    */
+  max-height: 5000em;
   margin-top: 0.5emsss;
   margin-bottom: 1em;
   overflow: auto;

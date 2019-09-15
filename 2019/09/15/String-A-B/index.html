@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
-<meta name="keywords" content="Problem,LuoGu">
+<meta name="description" content="The problem A+B is probably the easiest problem, however,  the maxim number C/C++ can calculate is between -9223372036854775808~9223372036854775807. The bigger number can’t be calculate unless you use">
+<meta name="keywords" content="Knowledge points,Problem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1533-number-reverse">
-<meta property="og:url" content="http://dyingdown.github.io/2019/09/02/P1533-number-reverse/index.html">
+<meta property="og:title" content="Big number A+B">
+<meta property="og:url" content="http://dyingdown.github.io/2019/09/15/String-A-B/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta property="og:description" content="The problem A+B is probably the easiest problem, however,  the maxim number C/C++ can calculate is between -9223372036854775808~9223372036854775807. The bigger number can’t be calculate unless you use">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-02T15:35:30.341Z">
+<meta property="og:updated_time" content="2019-09-15T06:46:16.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P1533-number-reverse">
-<meta name="twitter:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta name="twitter:title" content="Big number A+B">
+<meta name="twitter:description" content="The problem A+B is probably the easiest problem, however,  the maxim number C/C++ can calculate is between -9223372036854775808~9223372036854775807. The bigger number can’t be calculate unless you use">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>P1533-number-reverse | o_oyao Blog</title>
+<title>Big number A+B | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -301,11 +301,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-P1533-number-reverse" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-String-A-B" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/02/P1533-number-reverse/" class="article-date">
-      <time datetime="2019-09-02T07:03:16.000Z" itemprop="datePublished">2019-09-02</time>
+      <a href="/2019/09/15/String-A-B/" class="article-date">
+      <time datetime="2019-09-15T05:32:24.000Z" itemprop="datePublished">2019-09-15</time>
 </a>
 
 
@@ -320,7 +320,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      P1533-number-reverse
+      Big number A+B
     </h1>
   
 
@@ -335,7 +335,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -345,33 +345,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Number-reversion"><a href="#Number-reversion" class="headerlink" title="Number reversion"></a><a href="https://www.luogu.org/problem/P1553" target="_blank" rel="noopener">Number reversion</a></h3><p>Given a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Given a number, reverse the number on each digit of the number to get a new number.</p>
+        <p>The problem A+B is probably the easiest problem, however,  the maxim number C/C++ can calculate is between -9223372036854775808~9223372036854775807. The bigger number can’t be calculate unless you use Python or Java. So I’m going to introduce a way to calculate the big number of A+B.</p>
 <a id="more"></a>
-<h3 id="Input-sample"><a href="#Input-sample" class="headerlink" title="Input sample"></a>Input sample</h3><p>a number s</p>
-<h3 id="Output-sample"><a href="#Output-sample" class="headerlink" title="Output sample"></a>Output sample</h3><p>a number, the reverse number of number s</p>
-<h3 id="Input-Output-sample"><a href="#Input-Output-sample" class="headerlink" title="Input Output sample"></a>Input Output sample</h3><p><strong>输入 #1</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5087462</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #1</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2647805</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #2</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">600.084</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #2</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.48</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #3</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">700/27</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #3</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7/72</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #4</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8670%</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #4</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">768%</span><br></pre></td></tr></table></figure>
-<h3 id="Explanation-Hint"><a href="#Explanation-Hint" class="headerlink" title="Explanation/Hint"></a>Explanation/Hint</h3><p>All data: 25% s is an integer, no more than 20 digits</p>
-<p>25% s is a decimal, and the integer part and the decimal part are no more than 10 digits</p>
-<p>25% s is the score, and the numerator and denominator are no more than 10 digits</p>
-<p>25% s is a percentage and the molecule is no more than 19 digits</p>
-<p>(20 datas)</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is an easy problem, we just find the position of the character ‘.’  and ‘/‘ and ‘%’ and reverse the string before and after the character and omit the front zeros.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span> &lt;<span class="keyword">char</span>&gt; f, b; <span class="comment">//reverse the order of string f is front, b is back</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> a; <span class="comment">// the input</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">int</span> pos; <span class="comment">// the position of the character</span></span><br><span class="line">	pos = a.find(<span class="string">'/'</span>); <span class="comment">// find the character . / %</span></span><br><span class="line">	<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if / does not exists</span></span><br><span class="line">		pos = a.find(<span class="string">'%'</span>); <span class="comment">// look for %</span></span><br><span class="line">		<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if % does not exists</span></span><br><span class="line">			pos = a.find(<span class="string">'.'</span>); <span class="comment">// find .</span></span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>; <span class="comment">// flag is to determine whether it is the first some 0s</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pos; i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != pos - <span class="number">1</span>)&#123; <span class="comment">// if still the first some 0s</span></span><br><span class="line">			a[i] = <span class="string">'s'</span>; <span class="comment">// mark the 0 to a diffrent charater</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>; <span class="comment">// some first 0s are end</span></span><br><span class="line">			f.push(a[i]); <span class="comment">// push a[i] to stack</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos + <span class="number">1</span>; i &lt; a.length(); i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != a.length() - <span class="number">1</span>)&#123;</span><br><span class="line">			a[i] = <span class="string">'s'</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			b.push(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	if(b.empty() &amp;&amp; pos != a.npos) b.push('0');</span></span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!f.empty())&#123; </span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = f.top();</span><br><span class="line">		f.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !f.empty()) <span class="keyword">continue</span>; <span class="comment">// if there is only one 0, we must save it</span></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(pos != a.npos)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[pos]; <span class="comment">// output the character if exists</span></span><br><span class="line">	<span class="keyword">while</span>(!b.empty())&#123;</span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = b.top();</span><br><span class="line">		b.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !b.empty()) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Since we can’t use the type int , long int or long long, we can use string to store the big number.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> a, b;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br></pre></td></tr></table></figure>
+<p>With string, we can operate <strong>bitwise addition</strong> we learnt when we are in kindergarten. Started from the last bit and align the ends. It’s easier to insert characters in the front of a string then insert at the end. So we reverse the string.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(), a.end());</span><br><span class="line">reverse(b.begin(), b.end());</span><br></pre></td></tr></table></figure>
+<p>Then we need to know how many digits is the difference between the two numbers and make up the difference with character ‘0’.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> diff = <span class="built_in">abs</span>((<span class="keyword">int</span>)(a.length() - b.length()));</span><br><span class="line"><span class="keyword">if</span> (a.length() &lt; b.length()) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; diff; i ++)&#123;</span><br><span class="line">         a += <span class="string">'0'</span>;</span><br><span class="line">     &#125;   </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; diff; i ++)&#123;</span><br><span class="line">        b += <span class="string">'0'</span>;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Note that .length() returns a type - unsigned long long, if we directly operate the minus operation, the answer will overflow because unsigned long long can’t be negative.</strong></p>
+<p>Then we start to calculate each digit, every digit consist of three element: a[i], b[i], carryIn.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> carryIn = <span class="number">0</span>, digit;</span><br><span class="line"><span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length(); i ++)&#123;</span><br><span class="line">    digit = (a[i] - <span class="string">'0'</span>) + (b[i] - <span class="string">'0'</span>) + carryIn; <span class="comment">// convert char to int</span></span><br><span class="line">    carryIn = digit / <span class="number">10</span>;</span><br><span class="line">    digit %= <span class="number">10</span>;</span><br><span class="line">    ans += digit + <span class="string">'0'</span>; <span class="comment">// convert int to char</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If there is still a carryIn when we calculated all the digit, we add a new digit to the number.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(carryIn)&#123;</span><br><span class="line">    ans += carryIn + <span class="string">'0'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And don’t forget to reverse the answer back.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse(ans.begin(), ans.end());</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>Here is a problem of the A+B  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1002" target="_blank" rel="noopener">A + B Problem II</a></p>
+<h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>I have a very simple problem for you. Given two integers A and B, your job is to calculate the Sum of A + B.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line of the input contains an integer T(1&lt;=T&lt;=20) which means the number of test cases. Then T lines follow, each line consists of two positive integers, A and B. Notice that the integers are very large, that means you should not process them by using 32-bit integer. You may assume the length of each integer will not exceed 1000.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, you should output two lines. The first line is “Case #:”, # means the number of the test case. The second line is the an equation “A + B = Sum”, Sum means the result of A + B. Note there are some spaces int the equation. Output a blank line between two test cases.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">112233445566778899 998877665544332211</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Case 1:</span><br><span class="line">1 + 2 = 3</span><br><span class="line"></span><br><span class="line">Case 2:</span><br><span class="line">112233445566778899 + 998877665544332211 = 1111111111111111110</span><br></pre></td></tr></table></figure>
+<h3 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t; </span><br><span class="line">	<span class="built_in">string</span> a, b, ans, mid, first;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; i ++)&#123;</span><br><span class="line">		ans = <span class="string">""</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Case "</span> &lt;&lt; i &lt;&lt; <span class="string">":"</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; a &lt;&lt; <span class="string">" + "</span> &lt;&lt; b &lt;&lt; <span class="string">" = "</span>;</span><br><span class="line">		reverse(a.begin(), a.end());</span><br><span class="line">        reverse(b.begin(), b.end());</span><br><span class="line">        <span class="keyword">if</span>(a.length() &lt; b.length())&#123;</span><br><span class="line">            mid = a;</span><br><span class="line">            first = b;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            mid = b;</span><br><span class="line">            first = a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> diff = <span class="built_in">abs</span>((<span class="keyword">int</span>)(a.length() - b.length()));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; diff; j ++)&#123;</span><br><span class="line">            mid += <span class="string">'0'</span>;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">int</span> carryIN = <span class="number">0</span>, digit;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; mid.length(); j ++)&#123;</span><br><span class="line">            digit = (first[j] - <span class="string">'0'</span>) + (mid[j] - <span class="string">'0'</span>) + carryIN;</span><br><span class="line">            carryIN = digit / <span class="number">10</span>;</span><br><span class="line">            digit %= <span class="number">10</span>;</span><br><span class="line">            ans += digit + <span class="string">'0'</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span>(carryIN)&#123;</span><br><span class="line">            ans += carryIN + <span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(ans.begin(), ans.end());</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span>(i != t) <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,13 +375,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/09/02/P1533-number-reverse/">P1533-number-reverse</a></p>
+        <p><span>Title:</span><a href="/2019/09/15/String-A-B/">Big number A+B</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-09-02, 15:03:16</p>
-        <p><span>Updated:</span>2019-09-02, 23:35:30</p>
+        <p><span>Created:</span>2019-09-15, 13:32:24</p>
+        <p><span>Updated:</span>2019-09-15, 14:46:16</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/09/02/P1533-number-reverse/" title="P1533-number-reverse">http://dyingdown.github.io/2019/09/02/P1533-number-reverse/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/02/P1533-number-reverse/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/09/15/String-A-B/" title="Big number A+B">http://dyingdown.github.io/2019/09/15/String-A-B/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/15/String-A-B/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -398,16 +393,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/02/is-alphabet/">
-                    Check for alphabet characters
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/02/string-find-usage/">
-                    Usage of string.find()
+                <a href="/2019/09/04/LaTex-Symbols/">
+                    LaTex-Symbols
                 </a>
             </div>
         
@@ -447,7 +436,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Number-reversion"><span class="toc-number">1.</span> <span class="toc-text">Number reversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-sample"><span class="toc-number">2.</span> <span class="toc-text">Input sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-sample"><span class="toc-number">3.</span> <span class="toc-text">Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Output-sample"><span class="toc-number">4.</span> <span class="toc-text">Input Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation-Hint"><span class="toc-number">5.</span> <span class="toc-text">Explanation/Hint</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number"></span> <span class="toc-text">Solution</span></a>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC-Code"><span class="toc-number">6.</span> <span class="toc-text">AC Code</span></a></li></ol>
         
     </div>
     <style>
@@ -483,7 +472,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"P1533-number-reverse　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Big number A+B　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -502,8 +491,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/09/02/P1533-number-reverse/';
-            this.page.identifier = '2019/09/02/P1533-number-reverse/';
+            this.page.url = 'http://dyingdown.github.io/2019/09/15/String-A-B/';
+            this.page.identifier = '2019/09/15/String-A-B/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -550,15 +539,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/02/is-alphabet/" title="Pre: Check for alphabet characters">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/02/string-find-usage/" title="Next: Usage of string.find()">
+            <a href="/2019/09/04/LaTex-Symbols/" title="Next: LaTex-Symbols">
                 <i class="fa fa-angle-right"></i>
             </a>
         
