@@ -23,17 +23,26 @@
 <meta property="og:site_name" content="o_oyao Blog">
 <meta property="og:description" content="Assume that we have a bunch of points, each point has a number means the occurrence times of the point.  If we want to label these points with a unique code for each, what do we do?">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KK8IEt.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KuzzDI.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKpZWD.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKpyfU.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KK9icQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KK9M3F.png">
-<meta property="og:updated_time" content="2019-10-20T07:33:19.652Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKaXWt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKD0Df.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKyS9H.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKy0Dx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KKchAf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KK2SdP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KM3VjH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMJdUI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMNaVJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMNPUA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMNsxK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMN5Gt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMUyYn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMNQ5n.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/20/KMtkXF.png">
+<meta property="og:updated_time" content="2019-10-20T12:42:48.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Haffman Coding">
 <meta name="twitter:description" content="Assume that we have a bunch of points, each point has a number means the occurrence times of the point.  If we want to label these points with a unique code for each, what do we do?">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/20/KK8IEt.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/20/KKaXWt.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -353,28 +362,37 @@
       
           
         <p>Assume that we have a bunch of points, each point has a number means the occurrence times of the point.</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KK8IEt.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KKaXWt.png" alt></p>
 <p>If we want to label these points with a unique code for each, what do we do?</p>
 <a id="more"></a>
-<p>Well, there are many ways, but I’m just going to show how the Haffman coding.</p>
+<p>Well, there are many ways, but I’m just going to show the Haffman coding method.</p>
 <h3 id="What-is-Haffman-Coding"><a href="#What-is-Haffman-Coding" class="headerlink" title="What is Haffman Coding"></a>What is Haffman Coding</h3><blockquote>
 <p>In <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank" rel="noopener">computer science</a> and <a href="https://en.wikipedia.org/wiki/Information_theory" target="_blank" rel="noopener">information theory</a>, a <strong>Huffman code</strong> is a particular type of optimal <a href="https://en.wikipedia.org/wiki/Prefix_code" target="_blank" rel="noopener">prefix code</a> that is commonly used for <a href="https://en.wikipedia.org/wiki/Lossless_data_compression" target="_blank" rel="noopener">lossless data compression</a>. The process of finding or using such a code proceeds by means of <strong>Huffman coding</strong>, an algorithm developed by <a href="https://en.wikipedia.org/wiki/David_A._Huffman" target="_blank" rel="noopener">David A. Huffman</a> while he was a <a href="https://en.wikipedia.org/wiki/Doctor_of_Science" target="_blank" rel="noopener">Sc.D.</a> student at <a href="https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology" target="_blank" rel="noopener">MIT</a>, and published in the 1952 paper “A Method for the Construction of Minimum-Redundancy Codes”.<a href="https://en.wikipedia.org/wiki/Huffman_coding#cite_note-1" target="_blank" rel="noopener">[1]</a>                               ——From Wikipedia</p>
 </blockquote>
 <h3 id="Illustration"><a href="#Illustration" class="headerlink" title="Illustration"></a>Illustration</h3><ol>
 <li><p>First we pick up two smallest points and make it one point.</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KuzzDI.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KKD0Df.png" alt></p>
 </li>
 <li><p>Do the same as 1</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KKpZWD.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KKyS9H.png" alt></p>
 </li>
 <li><p>Same to 1</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KKpyfU.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KKy0Dx.png" alt></p>
 </li>
 <li><p>Same to 1</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KK9icQ.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KKchAf.png" alt></p>
 </li>
 <li><p>Same to 1</p>
-<p><img src="https://s2.ax1x.com/2019/10/20/KK9M3F.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KK2SdP.png" alt></p>
+</li>
+<li><p>Same to 1</p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KM3VjH.png" alt></p>
+</li>
+<li><p>Finally we start label  the nodes. From the root to the bottom, the code add one digit when the layer is also one deeper. The left is 0 and right is 1.</p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KMJdUI.png" alt></p>
+</li>
+<li><p>So we got the haffman code of all the nodes.</p>
+<p>| <img src="https://s2.ax1x.com/2019/10/20/KMNaVJ.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMNPUA.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMNsxK.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMN5Gt.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMUyYn.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMNQ5n.png" alt> | <img src="https://s2.ax1x.com/2019/10/20/KMtkXF.png" alt> |<br>| :——————————————————————: | ——————————————————————— | :——————————————————————: | :——————————————————————: | :——————————————————————: | :——————————————————————: | :——————————————————————: |<br>|                    <strong>100</strong>                     | <strong>101010</strong>                                     |                     <strong>11</strong>                     |                   <strong>10100</strong>                    |                    <strong>1011</strong>                    |                   <strong>101011</strong>                   |                     <strong>0</strong>                      |</p>
 </li>
 </ol>
 
@@ -388,7 +406,7 @@
         <p><span>Title:</span><a href="/2019/10/20/Haffman-Code/">Haffman Coding</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
         <p><span>Created:</span>2019-10-20, 12:44:31</p>
-        <p><span>Updated:</span>2019-10-20, 15:33:19</p>
+        <p><span>Updated:</span>2019-10-20, 20:42:48</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2019/10/20/Haffman-Code/" title="Haffman Coding">http://dyingdown.github.io/2019/10/20/Haffman-Code/</a>
             <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/10/20/Haffman-Code/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
