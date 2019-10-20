@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="Do some free learning.">
-<meta name="keywords" content="Computer Science">
+<meta name="description" content="Problem DescriptionJoon has a midterm exam tomorrow, but he hasn’t studied anything. So he decided to stay up all night to study. He promised himself that he will not stop studying before the sun rise">
+<meta name="keywords" content="Problem,GYM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linear-dependence-and-independence">
-<meta property="og:url" content="http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/index.html">
+<meta property="og:title" content="Rising Sun">
+<meta property="og:url" content="http://dyingdown.github.io/2019/10/20/Rising-Sun/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Do some free learning.">
+<meta property="og:description" content="Problem DescriptionJoon has a midterm exam tomorrow, but he hasn’t studied anything. So he decided to stay up all night to study. He promised himself that he will not stop studying before the sun rise">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-03T16:01:36.114Z">
+<meta property="og:image" content="https://codeforces.com/predownloaded/8b/e0/8be0461e7a430519f72111c9e200113847dc258e.png">
+<meta property="og:updated_time" content="2019-10-20T02:42:04.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linear-dependence-and-independence">
-<meta name="twitter:description" content="Do some free learning.">
+<meta name="twitter:title" content="Rising Sun">
+<meta name="twitter:description" content="Problem DescriptionJoon has a midterm exam tomorrow, but he hasn’t studied anything. So he decided to stay up all night to study. He promised himself that he will not stop studying before the sun rise">
+<meta name="twitter:image" content="https://codeforces.com/predownloaded/8b/e0/8be0461e7a430519f72111c9e200113847dc258e.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linear-dependence-and-independence | o_oyao Blog</title>
+<title>Rising Sun | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -301,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Linear-dependence-and-independence" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Rising-Sun" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/04/Linear-dependence-and-independence/" class="article-date">
-      <time datetime="2019-09-03T16:01:36.000Z" itemprop="datePublished">2019-09-04</time>
+      <a href="/2019/10/20/Rising-Sun/" class="article-date">
+      <time datetime="2019-10-20T02:21:53.000Z" itemprop="datePublished">2019-10-20</time>
 </a>
 
 
@@ -320,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linear-dependence-and-independence
+      Rising Sun
     </h1>
   
 
@@ -328,8 +330,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GYM/">GYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -337,7 +347,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Joon has a midterm exam tomorrow, but he hasn’t studied anything. So he decided to stay up all night to study. He promised himself that he will not stop studying before the sun rises.</p>
+<a id="more"></a>
+<p>Joon’s house is in some mountains. For convenience, let’s say that Joon is living in a 2-dimensional coordinate system. The mountains are in the region y≥0y≥0, starting at x=a0x=a0, and the boundary of them consists of 2n2n line segments parallel to either y=xy=x or y=−xy=−x.</p>
+<p>More precisely, the boundary of the mountains can be described by (2n−1)(2n−1) additional integers, where the iith number aiai of them is the xx-coordinate of the iith cusp of the mountains. The boundary line starts at (a0,0)(a0,0), proceeds parallel to y=xy=x until its xx-coordinate reaches a1a1, then proceeds parallel to y=−xy=−x until its xx-coordinate reaches a2a2, and so on. After the last step, the line proceeds parallel to y=−xy=−x until it meets the xx-axis.</p>
+<p>The interior of the mountains is the region below the boundary and above the xx-axis. Thus, the interior and the boundary are disjoint.</p>
+<p>At some point between x=a0x=a0 and x=a2n−1x=a2n−1, there is Joon’s house on the boundary of the mountains. The size of his house is neglectable compared to the mountains.</p>
+<p>Currently, the sun is at the origin and it rises vertically (+y+y direction), 1 per minute. Joon can see the sun if the interior of the mountains does not intersect the straight line segment connecting Joon’s house and the sun. Joon is completely exhausted and wants to know when can he stop studying. But as you may expect, he is out of his mind, so he cannot do such difficult math. Help him!</p>
+<p><img src="https://codeforces.com/predownloaded/8b/e0/8be0461e7a430519f72111c9e200113847dc258e.png" alt="img"></p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line of the input contains an integer nn (1≤n≤1031≤n≤103).</p>
+<p>The next line contains 2n2n integers, the iith of which is the integer ai−1ai−1 (1≤a0&lt;⋯&lt;a2n−1≤1061≤a0&lt;⋯&lt;a2n−1≤106).</p>
+<p>The last line contains an integer xx, the xx-coordinate of Joon’s house (a0≤x≤a2n−1a0≤x≤a2n−1).</p>
+<p>It is guaranteed that the boundary of the mountains is in the region y≥0y≥0.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print exactly one integer mm, the smallest integer such that Joon can see the sun after mm minutes.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">21 4 6 77</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+<h4 id="input-1"><a href="#input-1" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">23 4 5 77</span><br></pre></td></tr></table></figure>
+<h4 id="output-1"><a href="#output-1" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<h4 id="input-2"><a href="#input-2" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">34 9 12 13 14 1615</span><br></pre></td></tr></table></figure>
+<p>output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+<h3 id="Analysis-the-Problem"><a href="#Analysis-the-Problem" class="headerlink" title="Analysis the Problem"></a>Analysis the Problem</h3><p>Position of the house can be divided into two situation: Uphill slope and Downhill slope. And the two situations are used to calculate the Y position of the house.</p>
+<ol>
+<li><p>We firstly calculate some of the Y position of the given points. From the first point to the point before or equal to the point of house.  </p>
+</li>
+<li><p>And then the Y position of house. </p>
+</li>
+<li>Then traverse the points between the start point and the house, find a tallest point.</li>
+<li>The tallest point is the point to block the sunshine.</li>
+<li>Use the information of the tallest point and the house point to calculate a function Y = aX + b.</li>
+<li>b is the answer.</li>
+</ol>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">30000</span>]; <span class="comment">// x positions</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; y; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">int</span> housex, housey;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n * <span class="number">2</span>;i ++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; housex;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;arr[i] &lt;= housex <span class="keyword">and</span> i &lt; n * <span class="number">2</span>; i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &amp; <span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i  - <span class="number">2</span> &gt;= <span class="number">0</span>)</span><br><span class="line">				y[arr[i]] = y[arr[i - <span class="number">2</span>]]  - arr[i - <span class="number">1</span>] + arr[i<span class="number">-2</span>] + arr[i] - arr[i - <span class="number">1</span>];</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				y[arr[i]] = arr[i] - arr[i - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>((i &amp; <span class="number">1</span>)) &#123; <span class="comment">// up</span></span><br><span class="line">		<span class="keyword">if</span>(i - <span class="number">2</span> &gt;= <span class="number">0</span>)</span><br><span class="line">			housey = y[arr[i - <span class="number">2</span>]]  - arr[i - <span class="number">1</span>] + arr[i<span class="number">-2</span>] + housex - arr[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">else</span> housey = housex - arr[i - <span class="number">1</span>];</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">// down</span></span><br><span class="line">		housey = y[arr[i - <span class="number">1</span>]] - (housex - arr[i - <span class="number">1</span>]) ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it = y.begin();</span><br><span class="line">	<span class="keyword">double</span> k = <span class="number">1e9</span>;</span><br><span class="line">	<span class="keyword">for</span>(; it != y.end(); it ++)&#123;</span><br><span class="line">		k = min(k, (it-&gt;second - housey) * <span class="number">1.0</span> / (it-&gt;first - housex));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> m = <span class="built_in">ceil</span>(housey - k * housex);</span><br><span class="line">	<span class="keyword">if</span>(m &lt;= <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">endl</span>;;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -345,13 +387,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/09/04/Linear-dependence-and-independence/">Linear-dependence-and-independence</a></p>
+        <p><span>Title:</span><a href="/2019/10/20/Rising-Sun/">Rising Sun</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-09-04, 00:01:36</p>
-        <p><span>Updated:</span>2019-09-04, 00:01:36</p>
+        <p><span>Created:</span>2019-10-20, 10:21:53</p>
+        <p><span>Updated:</span>2019-10-20, 10:42:04</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/09/04/Linear-dependence-and-independence/" title="Linear-dependence-and-independence">http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/10/20/Rising-Sun/" title="Rising Sun">http://dyingdown.github.io/2019/10/20/Rising-Sun/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/10/20/Rising-Sun/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -363,16 +405,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/04/LaTex-Symbols/">
-                    LaTex-Symbols
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/03/Linear-combination-and-spam/">
-                    Linear combination and spam
+                <a href="/2019/10/20/Voronoi-Diagram-Returns/">
+                    Voronoi Diagram Returns
                 </a>
             </div>
         
@@ -412,7 +448,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples"><span class="toc-number">4.</span> <span class="toc-text">Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">4.1.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output"><span class="toc-number">4.2.</span> <span class="toc-text">output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input-1"><span class="toc-number">4.3.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output-1"><span class="toc-number">4.4.</span> <span class="toc-text">output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input-2"><span class="toc-number">4.5.</span> <span class="toc-text">input</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Analysis-the-Problem"><span class="toc-number">5.</span> <span class="toc-text">Analysis the Problem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-number">6.</span> <span class="toc-text">Code</span></a></li></ol>
         
     </div>
     <style>
@@ -448,7 +484,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linear-dependence-and-independence　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Rising Sun　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -467,8 +503,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/09/04/Linear-dependence-and-independence/';
-            this.page.identifier = '2019/09/04/Linear-dependence-and-independence/';
+            this.page.url = 'http://dyingdown.github.io/2019/10/20/Rising-Sun/';
+            this.page.identifier = '2019/10/20/Rising-Sun/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -515,15 +551,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/04/LaTex-Symbols/" title="Pre: LaTex-Symbols">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/03/Linear-combination-and-spam/" title="Next: Linear combination and spam">
+            <a href="/2019/10/20/Voronoi-Diagram-Returns/" title="Next: Voronoi Diagram Returns">
                 <i class="fa fa-angle-right"></i>
             </a>
         
