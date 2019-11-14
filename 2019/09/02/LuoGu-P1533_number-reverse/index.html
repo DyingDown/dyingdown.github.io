@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="o_oyao">
+
+
+
+<meta name="description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta name="keywords" content="Problem,LuoGu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1533-number-reverse">
+<meta property="og:url" content="http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/index.html">
+<meta property="og:site_name" content="o_oyao Blog">
+<meta property="og:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-02T15:35:30.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="P1533-number-reverse">
+<meta name="twitter:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="o_oyao Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>P1533-number-reverse | o_oyao Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay" style="background-color: black; opacity: 0.7;"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">o_oyao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">All artiles</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/about/">About me</a></li>
+                        
+                            <li><a href="/novel/">novel</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/o_oyao@outlook.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/DyingDown" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="/" title="CSDN"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=1502502789" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="#" title="Facebook"></a>
+                            
+                                <a class="fa Google" href="#" title="Google"></a>
+                            
+                                <a class="fa Twitter" href="#" title="Twitter"></a>
+                            
+                                <a class="fa QQ" href="/690075085" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="/o__-__o" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://cndrew.cn/">Drew</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blogzhy.cn/">一Wa哇一天</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://www.cnblogs.com/Friends-A/">友人A</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://sqdxwz.com">越狱猫在线遛狗</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://angelnh.coding.me">Sky</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://proape000.github.io">小店打烊了</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Love algorithms and has participated IPCP in Henan Province</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">o_oyao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">o_oyao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">All artiles</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/about/">About me</a></li>
+                
+                    <li><a href="/novel/">novel</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/o_oyao@outlook.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/DyingDown" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="/" title="CSDN"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=1502502789" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="#" title="Facebook"></a>
+                            
+                                <a class="fa Google" target="_blank" href="#" title="Google"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="#" title="Twitter"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/690075085" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="/o__-__o" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-LuoGu-P1533_number-reverse" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/02/LuoGu-P1533_number-reverse/" class="article-date">
+      <time datetime="2019-09-02T07:03:16.000Z" itemprop="datePublished">2019-09-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      P1533-number-reverse
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="Number-reversion"><a href="#Number-reversion" class="headerlink" title="Number reversion"></a><a href="https://www.luogu.org/problem/P1553" target="_blank" rel="noopener">Number reversion</a></h3><p>Given a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Given a number, reverse the number on each digit of the number to get a new number.</p>
+<a id="more"></a>
+<h3 id="Input-sample"><a href="#Input-sample" class="headerlink" title="Input sample"></a>Input sample</h3><p>a number s</p>
+<h3 id="Output-sample"><a href="#Output-sample" class="headerlink" title="Output sample"></a>Output sample</h3><p>a number, the reverse number of number s</p>
+<h3 id="Input-Output-sample"><a href="#Input-Output-sample" class="headerlink" title="Input Output sample"></a>Input Output sample</h3><p><strong>输入 #1</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5087462</span><br></pre></td></tr></table></figure>
+<p><strong>输出 #1</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2647805</span><br></pre></td></tr></table></figure>
+<p><strong>输入 #2</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">600.084</span><br></pre></td></tr></table></figure>
+<p><strong>输出 #2</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.48</span><br></pre></td></tr></table></figure>
+<p><strong>输入 #3</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">700/27</span><br></pre></td></tr></table></figure>
+<p><strong>输出 #3</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7/72</span><br></pre></td></tr></table></figure>
+<p><strong>输入 #4</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8670%</span><br></pre></td></tr></table></figure>
+<p><strong>输出 #4</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">768%</span><br></pre></td></tr></table></figure>
+<h3 id="Explanation-Hint"><a href="#Explanation-Hint" class="headerlink" title="Explanation/Hint"></a>Explanation/Hint</h3><p>All data: 25% s is an integer, no more than 20 digits</p>
+<p>25% s is a decimal, and the integer part and the decimal part are no more than 10 digits</p>
+<p>25% s is the score, and the numerator and denominator are no more than 10 digits</p>
+<p>25% s is a percentage and the molecule is no more than 19 digits</p>
+<p>(20 datas)</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is an easy problem, we just find the position of the character ‘.’  and ‘/‘ and ‘%’ and reverse the string before and after the character and omit the front zeros.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span> &lt;<span class="keyword">char</span>&gt; f, b; <span class="comment">//reverse the order of string f is front, b is back</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> a; <span class="comment">// the input</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">int</span> pos; <span class="comment">// the position of the character</span></span><br><span class="line">	pos = a.find(<span class="string">'/'</span>); <span class="comment">// find the character . / %</span></span><br><span class="line">	<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if / does not exists</span></span><br><span class="line">		pos = a.find(<span class="string">'%'</span>); <span class="comment">// look for %</span></span><br><span class="line">		<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if % does not exists</span></span><br><span class="line">			pos = a.find(<span class="string">'.'</span>); <span class="comment">// find .</span></span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>; <span class="comment">// flag is to determine whether it is the first some 0s</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pos; i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != pos - <span class="number">1</span>)&#123; <span class="comment">// if still the first some 0s</span></span><br><span class="line">			a[i] = <span class="string">'s'</span>; <span class="comment">// mark the 0 to a diffrent charater</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>; <span class="comment">// some first 0s are end</span></span><br><span class="line">			f.push(a[i]); <span class="comment">// push a[i] to stack</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos + <span class="number">1</span>; i &lt; a.length(); i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != a.length() - <span class="number">1</span>)&#123;</span><br><span class="line">			a[i] = <span class="string">'s'</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			b.push(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	if(b.empty() &amp;&amp; pos != a.npos) b.push('0');</span></span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!f.empty())&#123; </span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = f.top();</span><br><span class="line">		f.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !f.empty()) <span class="keyword">continue</span>; <span class="comment">// if there is only one 0, we must save it</span></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(pos != a.npos)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[pos]; <span class="comment">// output the character if exists</span></span><br><span class="line">	<span class="keyword">while</span>(!b.empty())&#123;</span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = b.top();</span><br><span class="line">		b.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !b.empty()) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2019/09/02/LuoGu-P1533_number-reverse/">P1533-number-reverse</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
+        <p><span>Created:</span>2019-09-02, 15:03:16</p>
+        <p><span>Updated:</span>2019-09-02, 23:35:30</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2019/09/02/LuoGu-P1533_number-reverse/" title="P1533-number-reverse">http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/09/02/is-alphabet/">
+                    Check for alphabet characters
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/09/02/string-find-usage/">
+                    Usage of string.find()
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+
+  
+    <div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           Helpful?~\(≧▽≦)/~
+        </span>
+        <br>
+      </div>
+    <div id="donate_guide" class="donate_bar center hidden" >
+         <!-- 支付宝打赏图案 -->
+        <img src="/img/Alipay.jpg" alt="支付宝打赏">
+        <!-- 微信打赏图案 -->
+        <img src="/img/Wechat.jpg" alt="微信打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+  
+
+
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Number-reversion"><span class="toc-number">1.</span> <span class="toc-text">Number reversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-sample"><span class="toc-number">2.</span> <span class="toc-text">Input sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-sample"><span class="toc-number">3.</span> <span class="toc-text">Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Output-sample"><span class="toc-number">4.</span> <span class="toc-text">Input Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation-Hint"><span class="toc-number">5.</span> <span class="toc-text">Explanation/Hint</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number"></span> <span class="toc-text">Solution</span></a>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-4 i,
+        .toc-level-4 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"P1533-number-reverse　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/';
+            this.page.identifier = '2019/09/02/LuoGu-P1533_number-reverse/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzM5MC85OTQ2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+  
+
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/09/02/is-alphabet/" title="Pre: Check for alphabet characters">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/09/02/string-find-usage/" title="Next: Usage of string.find()">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/12/Calculator/">Calculator</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6572_String/">String HDU-6572</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6573_Traffic/">Traffic HDU-6573</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6575_Budget/">Budget HDU-6575</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6576_Worker/">Worker HDU-6576</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Kruskal/">Kruskal</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/21/Binary-Tree-Traverse/">Binary Tree Traversal</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/Haffman-Code/">Haffman Coding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/List-Summary/">List Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Xiongnu-s-Land/">Xiongnu's Land</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_World-Cup/">World Cup</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Rising-Sun/">Rising Sun</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Voronoi-Diagram-Returns/">Voronoi Diagram Returns</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/17/HDU-1042_Big-factorial-of-n/">Big N!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/HDU-1002_String-A+B/">Big number A+B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/04/LaTex-Symbols/">LaTex-Symbols</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/04/Linear-dependence-and-independence/">Linear-dependence-and-independence</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Linear-combination-and-spam/">Linear combination and spam</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/JS-project-with-code/">JS-project-with-code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/JS-project/">JS projects</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/LaTex-matrix/">Matrix of LaTex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Vectors-and-space/">vectors and spaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Model-representation/">Model representation</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/is-alphabet/">Check for alphabet characters</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/LuoGu-P1533_number-reverse/">P1533-number-reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/string-find-usage/">Usage of string.find()</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/KMP/">KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Add-Comments/">Add-Comments</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Inclusion-Exclusion-Principle/">Inclusion-Exclusion-Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Prime-factor-of-n/">Prime factor of n</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Build-Blog/">How to build a blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Logic-proposition/">Logic-proposition</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/learning-classification/">Learning classification</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/What-is-machine-learning/">What is machine learning</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 o_oyao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
