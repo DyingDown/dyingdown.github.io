@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="StringProblem DescriptionAvin has a string. He would like to uniform-randomly select four characters (selecting the same character is allowed) from it. You are asked to calculate the probability of th">
-<meta name="keywords" content="Problem,HDU">
+<meta name="description" content="ModSumProblem StatementFor an integer N, we will choose a permutation ${P_1,P_2,\cdots,P_N}$ of ${1,2,\cdots,N}$. Then, for each $i =1,2,\cdots,N$, let $M_i$ be the remainder when $i$ is divided by $P">
+<meta name="keywords" content="Problem,AtCoder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String HDU-6572">
-<meta property="og:url" content="http://dyingdown.github.io/2019/11/11/HDU-6572_String/index.html">
+<meta property="og:title" content="AtCoder-4873_ModSum">
+<meta property="og:url" content="http://dyingdown.github.io/2019/11/17/AtCoder-4873-ModSum/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="StringProblem DescriptionAvin has a string. He would like to uniform-randomly select four characters (selecting the same character is allowed) from it. You are asked to calculate the probability of th">
+<meta property="og:description" content="ModSumProblem StatementFor an integer N, we will choose a permutation ${P_1,P_2,\cdots,P_N}$ of ${1,2,\cdots,N}$. Then, for each $i =1,2,\cdots,N$, let $M_i$ be the remainder when $i$ is divided by $P">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-14T12:11:38.930Z">
+<meta property="og:updated_time" content="2019-11-17T09:22:23.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String HDU-6572">
-<meta name="twitter:description" content="StringProblem DescriptionAvin has a string. He would like to uniform-randomly select four characters (selecting the same character is allowed) from it. You are asked to calculate the probability of th">
+<meta name="twitter:title" content="AtCoder-4873_ModSum">
+<meta name="twitter:description" content="ModSumProblem StatementFor an integer N, we will choose a permutation ${P_1,P_2,\cdots,P_N}$ of ${1,2,\cdots,N}$. Then, for each $i =1,2,\cdots,N$, let $M_i$ be the remainder when $i$ is divided by $P">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>String HDU-6572 | o_oyao Blog</title>
+<title>AtCoder-4873_ModSum | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -301,11 +301,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDU-6572_String" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-AtCoder-4873-ModSum" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/11/11/HDU-6572_String/" class="article-date">
-      <time datetime="2019-11-11T15:05:28.000Z" itemprop="datePublished">2019-11-11</time>
+      <a href="/2019/11/17/AtCoder-4873-ModSum/" class="article-date">
+      <time datetime="2019-11-17T09:04:47.000Z" itemprop="datePublished">2019-11-17</time>
 </a>
 
 
@@ -320,7 +320,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      String HDU-6572
+      AtCoder-4873_ModSum
     </h1>
   
 
@@ -335,7 +335,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -345,17 +345,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="String"><a href="#String" class="headerlink" title="String"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6572" target="_blank" rel="noopener">String</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Avin has a string. He would like to uniform-randomly select four characters (selecting the same character is allowed) from it. You are asked to calculate the probability of the four characters being ”avin” in order.</p>
+        <h1 id="ModSum"><a href="#ModSum" class="headerlink" title="ModSum"></a><a href="https://abc139.contest.atcoder.jp/tasks/abc139_d?lang=en" target="_blank" rel="noopener">ModSum</a></h1><h3 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h3><p>For an integer <em>N</em>, we will choose a permutation ${P_1,P_2,\cdots,P_N}$ of ${1,2,\cdots,N}$.</p>
+<p>Then, for each $i =1,2,\cdots,N$, let $M_i$ be the remainder when $i$ is divided by $P_i$.</p>
+<p>Find the maximum possible value of $M_1+M_2+\cdots+M_N$.</p>
 <a id="more"></a>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains n (1 ≤ n ≤ 100), the length of the string. The second line contains the string. To simplify the problem, the characters of the string are from ’a’, ’v’, ’i’, ’n’.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the reduced fraction (the greatest common divisor of the numerator and denominator is 1), representing the probability. If the answer is 0, you should output “0/1”.</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">avin</span><br><span class="line">4</span><br><span class="line">aaaa</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1/256</span><br><span class="line">0/1</span><br></pre></td></tr></table></figure>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Because of selecting the same character is allowed, so the probability of one character is</p>
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul>
+<li><em>N</em> is an integer satisfying 1≤<em>N</em>≤109.</li>
+</ul>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input is given from Standard Input in the following format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the maximum possible value of $M<em>1+M_2+\cdots+M</em>{N}$.</p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>When the permutation ${P_1,P_2}={2,1}$ is chosen, $M_1+M_2=1+0=1$.</p>
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">78</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input 3"></a>Sample Input 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output 3"></a>Sample Output 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>The biggest answer is that after the operation the number can remain it self. To make this satisfy the most, you just need to mode this number by this number plus 1.  $ 1 \space mod \space 2, 2,\space mod \space 3, \cdots, n-1 \space mod \space n$ . So The left number $n$ is mode by $1$ which is always equal to $1$ .</p>
+<p>And you can easily find that the answer is </p>
 <script type="math/tex; mode=display">
-P_{a_i}=\frac{1}{a.length}</script><p>And if there are more than one ‘a’ or ‘v’ or so on, like n ‘a’, the probability is </p>
-<script type="math/tex; mode=display">
-P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; num;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; s;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">		num[s[i]] ++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ga = __gcd(num[<span class="string">'a'</span>], n);</span><br><span class="line">	<span class="keyword">int</span> gv = __gcd(num[<span class="string">'v'</span>], n);</span><br><span class="line">	<span class="keyword">int</span> gi = __gcd(num[<span class="string">'i'</span>], n);</span><br><span class="line">	<span class="keyword">int</span> gn = __gcd(num[<span class="string">'n'</span>], n);</span><br><span class="line">	<span class="keyword">int</span> na = n / ga; num[<span class="string">'a'</span>] /= ga;</span><br><span class="line">	<span class="keyword">int</span> nv = n / gv; num[<span class="string">'v'</span>] /= gv;</span><br><span class="line">	<span class="keyword">int</span> ni = n / gi; num[<span class="string">'i'</span>] /= gi;</span><br><span class="line">	<span class="keyword">int</span> nn = n / gn; num[<span class="string">'n'</span>] /= gn;</span><br><span class="line">	<span class="keyword">int</span> son = num[<span class="string">'a'</span>] * num[<span class="string">'v'</span>] * num[<span class="string">'i'</span>] * num[<span class="string">'n'</span>];</span><br><span class="line">	<span class="keyword">int</span> fa = na * nv * ni * nn;</span><br><span class="line">	<span class="keyword">int</span> g = __gcd(son, fa);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; son / g &lt;&lt; <span class="string">'/'</span> &lt;&lt; fa / g &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+1+2+3+\cdots+(n-1)+1 \\
+= \frac{(1+(n-1))*(n-1)}{2} + 1 \\
+= \frac{n*(n-1)}{2} + 1</script><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; n * (n - <span class="number">1</span>) / <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,13 +376,13 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/11/11/HDU-6572_String/">String HDU-6572</a></p>
+        <p><span>Title:</span><a href="/2019/11/17/AtCoder-4873-ModSum/">AtCoder-4873_ModSum</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-11-11, 23:05:28</p>
-        <p><span>Updated:</span>2019-11-14, 20:11:38</p>
+        <p><span>Created:</span>2019-11-17, 17:04:47</p>
+        <p><span>Updated:</span>2019-11-17, 17:22:23</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/11/11/HDU-6572_String/" title="String HDU-6572">http://dyingdown.github.io/2019/11/11/HDU-6572_String/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/11/11/HDU-6572_String/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/11/17/AtCoder-4873-ModSum/" title="AtCoder-4873_ModSum">http://dyingdown.github.io/2019/11/17/AtCoder-4873-ModSum/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/11/17/AtCoder-4873-ModSum/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -382,16 +394,10 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/11/12/Calculator/">
-                    Calculator
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/11/11/HDU-6573_Traffic/">
-                    Traffic HDU-6573
+                <a href="/2019/11/17/AtCoder-5037-Consecutive-Integers/">
+                    AtCoder-5037 Consecutive Integers
                 </a>
             </div>
         
@@ -431,7 +437,7 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.0.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.0.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.0.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ModSum"><span class="toc-number">1.</span> <span class="toc-text">ModSum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Statement"><span class="toc-number">1.0.1.</span> <span class="toc-text">Problem Statement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constraints"><span class="toc-number">1.0.2.</span> <span class="toc-text">Constraints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.3.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.4.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">Sample Input 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-1"><span class="toc-number">1.0.6.</span> <span class="toc-text">Sample Output 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-2"><span class="toc-number">1.0.7.</span> <span class="toc-text">Sample Input 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-2"><span class="toc-number">1.0.8.</span> <span class="toc-text">Sample Output 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-3"><span class="toc-number">1.0.9.</span> <span class="toc-text">Sample Input 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-3"><span class="toc-number">1.0.10.</span> <span class="toc-text">Sample Output 3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
         
     </div>
     <style>
@@ -467,7 +473,7 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"String HDU-6572　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"AtCoder-4873_ModSum　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -486,8 +492,8 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/11/11/HDU-6572_String/';
-            this.page.identifier = '2019/11/11/HDU-6572_String/';
+            this.page.url = 'http://dyingdown.github.io/2019/11/17/AtCoder-4873-ModSum/';
+            this.page.identifier = '2019/11/17/AtCoder-4873-ModSum/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -534,15 +540,13 @@ P_{'a'}=\frac{n}{a.length}</script><h1 id="Code"><a href="#Code" class="headerli
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/11/12/Calculator/" title="Pre: Calculator">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/11/11/HDU-6573_Traffic/" title="Next: Traffic HDU-6573">
+            <a href="/2019/11/17/AtCoder-5037-Consecutive-Integers/" title="Next: AtCoder-5037 Consecutive Integers">
                 <i class="fa fa-angle-right"></i>
             </a>
         
