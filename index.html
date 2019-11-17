@@ -345,35 +345,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Monsters-Battle-Royale"><a href="#Monsters-Battle-Royale" class="headerlink" title="Monsters Battle Royale"></a><a href="https://abc118.contest.atcoder.jp/tasks/abc118_c?lang=en" target="_blank" rel="noopener">Monsters Battle Royale</a></h1><h3 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h3><p>There are <em>N</em> monsters, numbered 1,2,…,<em>N</em>.</p>
+              <h1 id="Monsters-Battle-Royale"><a href="#Monsters-Battle-Royale" class="headerlink" title="Monsters Battle Royale"></a><a href="https://abc118.contest.atcoder.jp/tasks/abc118_c?lang=en" target="_blank" rel="noopener">Monsters Battle Royale</a></h1><h3 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h3><p>There are <em>N</em> monsters, numbered 1,2,…,<em>N</em>.</p>
 <p>Initially, the health of Monster $i$ is $A_i$.</p>
 <p>Below, a monster with at least 1 health is called alive.</p>
-<p>Until there is only one alive monster, the following is repeated:</p>
-<ul>
-<li>A random alive monster attacks another random alive monster.</li>
-<li>As a result, the health of the monster attacked is reduced by the amount equal to the current health of the monster attacking.</li>
-</ul>
-<p>Find the minimum possible final health of the last monster alive.</p>
-<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul>
-<li>All values in input are integers.</li>
-<li>2≤<em>N</em>≤105</li>
-<li>1≤$A_i$≤109</li>
-</ul>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input is given from Standard Input in the following format:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">N</span><br><span class="line">A1 A2 … AN</span><br></pre></td></tr></table></figure>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the minimum possible final health of the last monster alive.</p>
-<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2 10 8 40</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<p>When only the first monster keeps on attacking, the final health of the last monster will be 2, which is minimum.</p>
-<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5 13 8 1000000000</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input 3"></a>Sample Input 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1000000000 1000000000 1000000000</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output 3"></a>Sample Output 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000000000</span><br></pre></td></tr></table></figure>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Assume we have only two numbers $A_1 = 5, A_2 = 8$, we let them attack each other which means we let $A_1-A_2 $ or $A_2-A_1$. First we let $A_2= A_2-A_1=3$, then let $A_1 = A_1-A_2=2$, and then $A_2= A_2-A_1 = 1$. Once the $1$ occurs, we let it to attack other monsters until they all die and the rest is $1$.</p>
-<p>Seeing the operation, we can easily think of Euclidean algorithm which is the way to calculate GCD.</p>
-<p>So the answer is the GCD of these numbers.</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">110000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n; i ++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> gcd = a[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n; i++)&#123;</span><br><span class="line">		gcd = __gcd(gcd, a[i]);</span><br><span class="line">		<span class="keyword">if</span>(gcd == <span class="number">1</span>) <span class="keyword">break</span>; <span class="comment">// once 1 occurs, the answer must be 1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; gcd &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          
       
     </div>
     
@@ -390,6 +365,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/11/17/AtCoder-4297-Monsters-Battle-Royale/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
