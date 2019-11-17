@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
-<meta name="keywords" content="Problem,LuoGu">
+<meta name="description" content="AB SubstringProblem StatementSnuke has $N$ strings. The $i-th$ string is $s_i$. Let us concatenate these strings into one string after arranging them in some order. Find the maximum possible number of">
+<meta name="keywords" content="Problem,AtCoder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1533-number-reverse">
-<meta property="og:url" content="http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/index.html">
+<meta property="og:title" content="AtCoder-5039 AB Substrings">
+<meta property="og:url" content="http://dyingdown.github.io/2019/11/17/AtCoder-5039-AB-Substrings/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta property="og:description" content="AB SubstringProblem StatementSnuke has $N$ strings. The $i-th$ string is $s_i$. Let us concatenate these strings into one string after arranging them in some order. Find the maximum possible number of">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-02T15:35:30.341Z">
+<meta property="og:updated_time" content="2019-11-17T12:19:22.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P1533-number-reverse">
-<meta name="twitter:description" content="Number reversionGiven a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Give">
+<meta name="twitter:title" content="AtCoder-5039 AB Substrings">
+<meta name="twitter:description" content="AB SubstringProblem StatementSnuke has $N$ strings. The $i-th$ string is $s_i$. Let us concatenate these strings into one string after arranging them in some order. Find the maximum possible number of">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>P1533-number-reverse | o_oyao Blog</title>
+<title>AtCoder-5039 AB Substrings | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -301,11 +301,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-LuoGu-P1533_number-reverse" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-AtCoder-5039-AB-Substrings" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/02/LuoGu-P1533_number-reverse/" class="article-date">
-      <time datetime="2019-09-02T07:03:16.000Z" itemprop="datePublished">2019-09-02</time>
+      <a href="/2019/11/17/AtCoder-5039-AB-Substrings/" class="article-date">
+      <time datetime="2019-11-17T11:32:55.000Z" itemprop="datePublished">2019-11-17</time>
 </a>
 
 
@@ -320,7 +320,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      P1533-number-reverse
+      AtCoder-5039 AB Substrings
     </h1>
   
 
@@ -335,7 +335,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -345,33 +345,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Number-reversion"><a href="#Number-reversion" class="headerlink" title="Number reversion"></a><a href="https://www.luogu.org/problem/P1553" target="_blank" rel="noopener">Number reversion</a></h3><p>Given a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Given a number, reverse the number on each digit of the number to get a new number.</p>
+        <h1 id="AB-Substring"><a href="#AB-Substring" class="headerlink" title="AB Substring"></a><a href="https://diverta2019.contest.atcoder.jp/tasks/diverta2019_c?lang=en" target="_blank" rel="noopener">AB Substring</a></h1><h3 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h3><p>Snuke has $N$ strings. The $i-th$ string is $s_i$.</p>
+<p>Let us concatenate these strings into one string after arranging them in some order. Find the maximum possible number of occurrences of <code>AB</code> in the resulting string.</p>
 <a id="more"></a>
-<h3 id="Input-sample"><a href="#Input-sample" class="headerlink" title="Input sample"></a>Input sample</h3><p>a number s</p>
-<h3 id="Output-sample"><a href="#Output-sample" class="headerlink" title="Output sample"></a>Output sample</h3><p>a number, the reverse number of number s</p>
-<h3 id="Input-Output-sample"><a href="#Input-Output-sample" class="headerlink" title="Input Output sample"></a>Input Output sample</h3><p><strong>输入 #1</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5087462</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #1</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2647805</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #2</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">600.084</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #2</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.48</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #3</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">700/27</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #3</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7/72</span><br></pre></td></tr></table></figure>
-<p><strong>输入 #4</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8670%</span><br></pre></td></tr></table></figure>
-<p><strong>输出 #4</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">768%</span><br></pre></td></tr></table></figure>
-<h3 id="Explanation-Hint"><a href="#Explanation-Hint" class="headerlink" title="Explanation/Hint"></a>Explanation/Hint</h3><p>All data: 25% s is an integer, no more than 20 digits</p>
-<p>25% s is a decimal, and the integer part and the decimal part are no more than 10 digits</p>
-<p>25% s is the score, and the numerator and denominator are no more than 10 digits</p>
-<p>25% s is a percentage and the molecule is no more than 19 digits</p>
-<p>(20 datas)</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is an easy problem, we just find the position of the character ‘.’  and ‘/‘ and ‘%’ and reverse the string before and after the character and omit the front zeros.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span> &lt;<span class="keyword">char</span>&gt; f, b; <span class="comment">//reverse the order of string f is front, b is back</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> a; <span class="comment">// the input</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">int</span> pos; <span class="comment">// the position of the character</span></span><br><span class="line">	pos = a.find(<span class="string">'/'</span>); <span class="comment">// find the character . / %</span></span><br><span class="line">	<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if / does not exists</span></span><br><span class="line">		pos = a.find(<span class="string">'%'</span>); <span class="comment">// look for %</span></span><br><span class="line">		<span class="keyword">if</span>(pos == a.npos)&#123; <span class="comment">// if % does not exists</span></span><br><span class="line">			pos = a.find(<span class="string">'.'</span>); <span class="comment">// find .</span></span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>; <span class="comment">// flag is to determine whether it is the first some 0s</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pos; i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != pos - <span class="number">1</span>)&#123; <span class="comment">// if still the first some 0s</span></span><br><span class="line">			a[i] = <span class="string">'s'</span>; <span class="comment">// mark the 0 to a diffrent charater</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>; <span class="comment">// some first 0s are end</span></span><br><span class="line">			f.push(a[i]); <span class="comment">// push a[i] to stack</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos + <span class="number">1</span>; i &lt; a.length(); i ++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; i != a.length() - <span class="number">1</span>)&#123;</span><br><span class="line">			a[i] = <span class="string">'s'</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			b.push(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	if(b.empty() &amp;&amp; pos != a.npos) b.push('0');</span></span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!f.empty())&#123; </span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = f.top();</span><br><span class="line">		f.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !f.empty()) <span class="keyword">continue</span>; <span class="comment">// if there is only one 0, we must save it</span></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(pos != a.npos)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[pos]; <span class="comment">// output the character if exists</span></span><br><span class="line">	<span class="keyword">while</span>(!b.empty())&#123;</span><br><span class="line">		<span class="keyword">char</span> t;</span><br><span class="line">		t = b.top();</span><br><span class="line">		b.pop();</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="string">'0'</span> &amp;&amp; flag == <span class="number">0</span> &amp;&amp; !b.empty()) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul>
+<li>1≤$N$≤104</li>
+<li>2≤|$s_i$|≤10</li>
+<li>$s_i$ consists of uppercase English letters.</li>
+</ul>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input is given from Standard Input in the following format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N</span><br><span class="line">s1</span><br><span class="line">\dots</span><br><span class="line">s_N</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the answer.</p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">ABCA</span><br><span class="line">XBAZ</span><br><span class="line">BAD</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>For example, if we concatenate <code>ABCA</code>, <code>BAD</code> and <code>XBAZ</code> in this order, the resulting string <code>ABCABADXBAZ</code> has two occurrences of <code>AB</code>.</p>
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">BEWPVCRWH</span><br><span class="line">ZZNQYIJX</span><br><span class="line">BAVREA</span><br><span class="line">PA</span><br><span class="line">HJMYITEOX</span><br><span class="line">BCJHMRMNK</span><br><span class="line">BP</span><br><span class="line">QVFABZ</span><br><span class="line">PRGKSPUNA</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input 3"></a>Sample Input 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">RABYBBE</span><br><span class="line">JOZ</span><br><span class="line">BMHQUVA</span><br><span class="line">BPA</span><br><span class="line">ISU</span><br><span class="line">MCMABAOBHZ</span><br><span class="line">SZMEHMA</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output 3"></a>Sample Output 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>This is to find how many strings that starts with A and ends with B and the number of AB inside the string. Since strings start with A and end with B has coincidence, so the number of AB that comes from concatenation is min(number of strings start with A, number of string end with B). </p>
+<p><strong>Note: If all the strings that satisfy the above statement and satisfy both (start with A <em>and</em> start with B) , the answer should be -1</strong> because if strings are BA and BA, it can only be concatenated to BABA, which has only one AB.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> a = <span class="number">0</span>, b = <span class="number">0</span>, all = <span class="number">0</span>, count = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">string</span> temp;</span><br><span class="line">	<span class="keyword">while</span>(n --) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> l = temp.length();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i &lt; l; i ++ ) &#123;</span><br><span class="line">			<span class="keyword">if</span>(temp[i - <span class="number">1</span>] == <span class="string">'A'</span> <span class="keyword">and</span> temp[i] == <span class="string">'B'</span>) &#123;</span><br><span class="line">				count ++; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(temp[<span class="number">0</span>] == <span class="string">'B'</span> <span class="keyword">and</span> temp[l - <span class="number">1</span>] == <span class="string">'A'</span>) all ++;</span><br><span class="line">		<span class="keyword">if</span>(temp[l - <span class="number">1</span>] == <span class="string">'A'</span>) a ++;</span><br><span class="line">		<span class="keyword">if</span>(temp[<span class="number">0</span>] == <span class="string">'B'</span>) b ++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(b == all <span class="keyword">and</span> a == all <span class="keyword">and</span> all != <span class="number">0</span>) count --;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; min(a, b) + count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,13 +374,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/09/02/LuoGu-P1533_number-reverse/">P1533-number-reverse</a></p>
+        <p><span>Title:</span><a href="/2019/11/17/AtCoder-5039-AB-Substrings/">AtCoder-5039 AB Substrings</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-09-02, 15:03:16</p>
-        <p><span>Updated:</span>2019-09-02, 23:35:30</p>
+        <p><span>Created:</span>2019-11-17, 19:32:55</p>
+        <p><span>Updated:</span>2019-11-17, 20:19:22</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/09/02/LuoGu-P1533_number-reverse/" title="P1533-number-reverse">http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/11/17/AtCoder-5039-AB-Substrings/" title="AtCoder-5039 AB Substrings">http://dyingdown.github.io/2019/11/17/AtCoder-5039-AB-Substrings/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/11/17/AtCoder-5039-AB-Substrings/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -398,16 +392,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/02/is-alphabet/">
-                    Check for alphabet characters
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/02/string-find-usage/">
-                    Usage of string.find()
+                <a href="/2019/11/17/AtCoder-4871-Lower/">
+                    AtCoder-4871 Lower
                 </a>
             </div>
         
@@ -447,7 +435,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Number-reversion"><span class="toc-number">1.</span> <span class="toc-text">Number reversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-sample"><span class="toc-number">2.</span> <span class="toc-text">Input sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-sample"><span class="toc-number">3.</span> <span class="toc-text">Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Output-sample"><span class="toc-number">4.</span> <span class="toc-text">Input Output sample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation-Hint"><span class="toc-number">5.</span> <span class="toc-text">Explanation/Hint</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number"></span> <span class="toc-text">Solution</span></a>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AB-Substring"><span class="toc-number">1.</span> <span class="toc-text">AB Substring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Statement"><span class="toc-number">1.0.1.</span> <span class="toc-text">Problem Statement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constraints"><span class="toc-number">1.0.2.</span> <span class="toc-text">Constraints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.3.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.4.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">Sample Input 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-1"><span class="toc-number">1.0.6.</span> <span class="toc-text">Sample Output 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-2"><span class="toc-number">1.0.7.</span> <span class="toc-text">Sample Input 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-2"><span class="toc-number">1.0.8.</span> <span class="toc-text">Sample Output 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-3"><span class="toc-number">1.0.9.</span> <span class="toc-text">Sample Input 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-3"><span class="toc-number">1.0.10.</span> <span class="toc-text">Sample Output 3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
         
     </div>
     <style>
@@ -483,7 +471,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"P1533-number-reverse　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"AtCoder-5039 AB Substrings　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -502,8 +490,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/09/02/LuoGu-P1533_number-reverse/';
-            this.page.identifier = '2019/09/02/LuoGu-P1533_number-reverse/';
+            this.page.url = 'http://dyingdown.github.io/2019/11/17/AtCoder-5039-AB-Substrings/';
+            this.page.identifier = '2019/11/17/AtCoder-5039-AB-Substrings/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -550,15 +538,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/02/is-alphabet/" title="Pre: Check for alphabet characters">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/02/string-find-usage/" title="Next: Usage of string.find()">
+            <a href="/2019/11/17/AtCoder-4871-Lower/" title="Next: AtCoder-4871 Lower">
                 <i class="fa fa-angle-right"></i>
             </a>
         
