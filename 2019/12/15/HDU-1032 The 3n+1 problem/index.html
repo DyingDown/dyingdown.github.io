@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Today’s importance is inverse element, however, inverse element calculation is based on the extended Euclid algorithm. At first, we need to know the Euclid’s algorithm.">
-<meta name="keywords" content="Knowledge points">
+<meta name="description" content="The 3n+1 problemProblems in Computer Science are often classified as belonging to a certain class of problems (e.g., NP, Unsolvable, Recursive). In this problem you will be analyzing a property of an">
+<meta name="keywords" content="Problem,HDU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Extended-Euclid-and-Inverse-element">
-<meta property="og:url" content="http://dyingdown.github.io/2019/08/14/Extended-Euclid-and-Inverse-element/index.html">
+<meta property="og:title" content="HDU-1032 The 3n+1 problem">
+<meta property="og:url" content="http://dyingdown.github.io/2019/12/15/HDU-1032 The 3n+1 problem/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Today’s importance is inverse element, however, inverse element calculation is based on the extended Euclid algorithm. At first, we need to know the Euclid’s algorithm.">
+<meta property="og:description" content="The 3n+1 problemProblems in Computer Science are often classified as belonging to a certain class of problems (e.g., NP, Unsolvable, Recursive). In this problem you will be analyzing a property of an">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-02T07:10:18.466Z">
+<meta property="og:updated_time" content="2019-12-14T19:02:03.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Extended-Euclid-and-Inverse-element">
-<meta name="twitter:description" content="Today’s importance is inverse element, however, inverse element calculation is based on the extended Euclid algorithm. At first, we need to know the Euclid’s algorithm.">
+<meta name="twitter:title" content="HDU-1032 The 3n+1 problem">
+<meta name="twitter:description" content="The 3n+1 problemProblems in Computer Science are often classified as belonging to a certain class of problems (e.g., NP, Unsolvable, Recursive). In this problem you will be analyzing a property of an">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Extended-Euclid-and-Inverse-element | o_oyao Blog</title>
+<title>HDU-1032 The 3n+1 problem | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Extended-Euclid-and-Inverse-element" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HDU-1032 The 3n+1 problem" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/14/Extended-Euclid-and-Inverse-element/" class="article-date">
-      <time datetime="2019-08-14T13:27:06.000Z" itemprop="datePublished">2019-08-14</time>
+      <a href="/2019/12/15/HDU-1032 The 3n+1 problem/" class="article-date">
+      <time datetime="2019-12-14T18:52:18.000Z" itemprop="datePublished">2019-12-15</time>
 </a>
 
 
@@ -322,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Extended-Euclid-and-Inverse-element
+      HDU-1032 The 3n+1 problem
     </h1>
   
 
@@ -337,7 +337,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -347,42 +347,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Today’s importance is inverse element, however, inverse element calculation is based on the extended Euclid algorithm. At first, we need to know the Euclid’s algorithm.</p>
+        <h1 id="The-3n-1-problem"><a href="#The-3n-1-problem" class="headerlink" title="The 3n+1 problem"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1032" target="_blank" rel="noopener">The 3n+1 problem</a></h1><p>Problems in Computer Science are often classified as belonging to a certain class of problems (e.g., NP, Unsolvable, Recursive). In this problem you will be analyzing a property of an algorithm whose classification is not known for all possible inputs.</p>
 <a id="more"></a>
-<h1 id="Extended-Euclid-and-Inverse-Element"><a href="#Extended-Euclid-and-Inverse-Element" class="headerlink" title="Extended Euclid and Inverse Element"></a>Extended Euclid and Inverse Element</h1><blockquote>
-<p>A much more efficient method is the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm" target="_blank" rel="noopener">Euclidean algorithm</a>, which uses a <a href="https://en.wikipedia.org/wiki/Division_algorithm" target="_blank" rel="noopener">division algorithm</a> such as <a href="https://en.wikipedia.org/wiki/Long_division" target="_blank" rel="noopener">long division</a> in combination with the observation that the gcd of two numbers also divides their difference.            —from Wikipedia</p>
-</blockquote>
-<h2 id="Extended-Euclided"><a href="#Extended-Euclided" class="headerlink" title="Extended Euclided"></a>Extended Euclided</h2><script type="math/tex; mode=display">
-ax+by = gcd(a, b)</script><p>From the Euclid Method of calculating gcd, we know that </p>
-<script type="math/tex; mode=display">
-gcd(a, b) = gcd(b,a \% b)</script><p>We set another function</p>
-<script type="math/tex; mode=display">
-bx_1 + (a\%b)y_1 = gcd(b, a \% b)</script><p>So, combine the first function with the third function we got</p>
-<script type="math/tex; mode=display">
-ax+by = bx_1+(a\%b)y_1\\
-\Rightarrow ax+by=bx_1+(a-a /b \times b)y_1\\
-\Rightarrow ax+by=bx_1+ay_1-b\times(a/b)y_1\\
-\Rightarrow ax + by = ay_1+ b(x_1-a/b\times y_1)\\
-\Rightarrow \left\{
-\begin{aligned}
-x & =  y_1 \\
-y & =  (x_1) - a / b \times y_1)
-\end{aligned}
-\right.</script><p>We define that if </p>
-<script type="math/tex; mode=display">
-b = 0:x = 1 , y = 0</script><p>So we can write our function in this way</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="function">P <span class="title">gcdEx</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>) <span class="keyword">return</span> P(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        P p = gcdEx(b, a % b);</span><br><span class="line">        <span class="keyword">return</span> P(t.second, t.first - (a / b) * t.second);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The previous one is the direct one we can get from the mathematical function. Here is a better way of writing it.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gcdEx</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>; y = <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        gcdEx(b, a % b, y, x);</span><br><span class="line">        y -= a / b * x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Inverse-Element"><a href="#Inverse-Element" class="headerlink" title="Inverse Element"></a>Inverse Element</h2><script type="math/tex; mode=display">
-ax \equiv 1 (mod \space b)</script><p>There is a inverse element only if a and b are <strong>both prime numbers</strong>. The equation above means both side mod b at the same time is equal. <strong>x is a reverse element of a under mod b</strong>.</p>
-<p>We can change the equation into this.</p>
-<script type="math/tex; mode=display">
-ax \space mod \space m = 1\\
-ax -my = 1</script><p>y is the middle element used to solve x.</p>
-<p>So the code looks like this.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x, y;</span><br><span class="line">gcdEx(a, m, x, y);</span><br><span class="line">x = (x % m + m) % m;</span><br></pre></td></tr></table></figure>
-<p>x is the inverse element of a.</p>
+<p>Consider the following algorithm:</p>
+<ol>
+<li><p>input n</p>
+</li>
+<li><p>print n</p>
+</li>
+<li><p>if n = 1 then STOP</p>
+</li>
+<li><p>if n is odd then n &lt;- 3n + 1</p>
+</li>
+<li><p>else n &lt;- n / 2</p>
+</li>
+<li><p>GOTO 2</p>
+</li>
+</ol>
+<p>Given the input 22, the following sequence of numbers will be printed 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1</p>
+<p>It is conjectured that the algorithm above will terminate (when a 1 is printed) for any integral input value. Despite the simplicity of the algorithm, it is unknown whether this conjecture is true. It has been verified, however, for all integers n such that 0 &lt; n &lt; 1,000,000 (and, in fact, for many more numbers than this.)</p>
+<p>Given an input n, it is possible to determine the number of numbers printed (including the 1). For a given n this is called the cycle-length of n. In the example above, the cycle length of 22 is 16.</p>
+<p>For any two numbers i and j you are to determine the maximum cycle length over all numbers between i and j.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The input will consist of a series of pairs of integers i and j, one pair of integers per line. All integers will be less than 1,000,000 and greater than 0.</p>
+<p>You should process all pairs of integers and for each pair determine the maximum cycle length over all integers between and including i and j.</p>
+<p>You can assume that no operation overflows a 32-bit integer.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each pair of input integers i and j you should output i, j, and the maximum cycle length for integers between and including i and j. These three numbers should be separated by at least one space with all three numbers on one line and with one line of output for each line of input. The integers i and j must appear in the output in the same order in which they appeared in the input and should be followed by the maximum cycle length (on the same line).</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 10</span><br><span class="line">100 200</span><br><span class="line">201 210</span><br><span class="line">900 1000</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 10 20</span><br><span class="line">100 200 125</span><br><span class="line">201 210 89</span><br><span class="line">900 1000 174</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Turn the pseudo code in to real code. And an important thing is that the value of i and j is not fixed that i &lt; j. So we have to judge the value of i j.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; i &gt;&gt; j) &#123;</span><br><span class="line">		<span class="keyword">int</span> maxn = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span>; </span><br><span class="line">		<span class="keyword">if</span>(i &gt; j) swap(i, j);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k = i; k &lt;= j; k ++) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = k;</span><br><span class="line">			<span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(temp != <span class="number">1</span>) &#123;</span><br><span class="line">				count ++;</span><br><span class="line">				<span class="keyword">if</span>(temp &amp; <span class="number">1</span>) temp = <span class="number">3</span> * temp + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> temp /= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			maxn = max(maxn, count);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; maxn &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -391,13 +384,13 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></p>
+        <p><span>Title:</span><a href="/2019/12/15/HDU-1032 The 3n+1 problem/">HDU-1032 The 3n+1 problem</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-08-14, 21:27:06</p>
-        <p><span>Updated:</span>2019-09-02, 15:10:18</p>
+        <p><span>Created:</span>2019-12-15, 02:52:18</p>
+        <p><span>Updated:</span>2019-12-15, 03:02:03</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/08/14/Extended-Euclid-and-Inverse-element/" title="Extended-Euclid-and-Inverse-element">http://dyingdown.github.io/2019/08/14/Extended-Euclid-and-Inverse-element/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/08/14/Extended-Euclid-and-Inverse-element/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/12/15/HDU-1032 The 3n+1 problem/" title="HDU-1032 The 3n+1 problem">http://dyingdown.github.io/2019/12/15/HDU-1032 The 3n+1 problem/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/12/15/HDU-1032 The 3n+1 problem/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -409,16 +402,10 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/15/Prime-factor-of-n/">
-                    Prime factor of n
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/13/Build-Blog/">
-                    How to build a blog
+                <a href="/2019/12/15/HDU-1012 u-Calculate-e/">
+                    HDU-1012 u Calculate e
                 </a>
             </div>
         
@@ -458,7 +445,7 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Extended-Euclid-and-Inverse-Element"><span class="toc-number">1.</span> <span class="toc-text">Extended Euclid and Inverse Element</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Extended-Euclided"><span class="toc-number">1.1.</span> <span class="toc-text">Extended Euclided</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inverse-Element"><span class="toc-number">1.2.</span> <span class="toc-text">Inverse Element</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-3n-1-problem"><span class="toc-number">1.</span> <span class="toc-text">The 3n+1 problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.0.3.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.0.4.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
         
     </div>
     <style>
@@ -494,7 +481,7 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Extended-Euclid-and-Inverse-element　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HDU-1032 The 3n+1 problem　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -513,8 +500,8 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/08/14/Extended-Euclid-and-Inverse-element/';
-            this.page.identifier = '2019/08/14/Extended-Euclid-and-Inverse-element/';
+            this.page.url = 'http://dyingdown.github.io/2019/12/15/HDU-1032 The 3n+1 problem/';
+            this.page.identifier = '2019/12/15/HDU-1032 The 3n+1 problem/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -561,15 +548,13 @@ ax -my = 1</script><p>y is the middle element used to solve x.</p>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/15/Prime-factor-of-n/" title="Pre: Prime factor of n">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/13/Build-Blog/" title="Next: How to build a blog">
+            <a href="/2019/12/15/HDU-1012 u-Calculate-e/" title="Next: HDU-1012 u Calculate e">
                 <i class="fa fa-angle-right"></i>
             </a>
         
