@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="LowerProblem StatementThere are $N$ squares arranged in a row from left to right. The height of the $i-th$ square from the left is $H_i$. You will land on a square of your choice, then repeat moving t">
-<meta name="keywords" content="Problem,AtCoder">
+<meta name="description" content="ElevatorThe highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It cos">
+<meta name="keywords" content="Problem,HDU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AtCoder-4871 Lower">
-<meta property="og:url" content="http://dyingdown.github.io/2019/11/17/AtCoder-4871-Lower/index.html">
+<meta property="og:title" content="HDU-1008 Elevator">
+<meta property="og:url" content="http://dyingdown.github.io/2019/12/15/HDU-1008 Elevator/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="LowerProblem StatementThere are $N$ squares arranged in a row from left to right. The height of the $i-th$ square from the left is $H_i$. You will land on a square of your choice, then repeat moving t">
+<meta property="og:description" content="ElevatorThe highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It cos">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-17T11:27:30.962Z">
+<meta property="og:updated_time" content="2019-12-14T17:01:54.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AtCoder-4871 Lower">
-<meta name="twitter:description" content="LowerProblem StatementThere are $N$ squares arranged in a row from left to right. The height of the $i-th$ square from the left is $H_i$. You will land on a square of your choice, then repeat moving t">
+<meta name="twitter:title" content="HDU-1008 Elevator">
+<meta name="twitter:description" content="ElevatorThe highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It cos">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>AtCoder-4871 Lower | o_oyao Blog</title>
+<title>HDU-1008 Elevator | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-AtCoder-4871-Lower" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HDU-1008 Elevator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/11/17/AtCoder-4871-Lower/" class="article-date">
-      <time datetime="2019-11-17T11:16:44.000Z" itemprop="datePublished">2019-11-17</time>
+      <a href="/2019/12/15/HDU-1008 Elevator/" class="article-date">
+      <time datetime="2019-12-14T16:37:28.000Z" itemprop="datePublished">2019-12-15</time>
 </a>
 
 
@@ -322,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AtCoder-4871 Lower
+      HDU-1008 Elevator
     </h1>
   
 
@@ -337,7 +337,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -347,32 +347,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Lower"><a href="#Lower" class="headerlink" title="Lower"></a><a href="https://abc139.contest.atcoder.jp/tasks/abc139_c?lang=en" target="_blank" rel="noopener">Lower</a></h1><h3 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h3><p>There are $N$ squares arranged in a row from left to right.</p>
-<p>The height of the $i-th$ square from the left is $H_i$.</p>
-<p>You will land on a square of your choice, then repeat moving to the adjacent square <strong>on the right</strong> as long as the height of the next square is not greater than that of the current square.</p>
+        <h1 id="Elevator"><a href="#Elevator" class="headerlink" title="Elevator"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1008" target="_blank" rel="noopener">Elevator</a></h1><p>The highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It costs 6 seconds to move the elevator up one floor, and 4 seconds to move down one floor. The elevator will stay for 5 seconds at each stop.</p>
 <a id="more"></a>
-<p>Find the maximum number of times you can move.</p>
-<ul>
-<li>All values in input are integers.</li>
-<li>1≤$N$≤105</li>
-<li>1≤$H_i$≤109</li>
-</ul>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input is given from Standard Input in the following format:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">N</span><br><span class="line">H1 H2 … HN</span><br></pre></td></tr></table></figure>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the maximum number of times you can move.</p>
-<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">10 4 8 7 3</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<p>By landing on the third square from the left, you can move to the right twice.</p>
-<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">4 4 5 6 6 5 5</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
-<p>By landing on the fourth square from the left, you can move to the right three times.</p>
-<h3 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input 3"></a>Sample Input 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 3 4</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output 3"></a>Sample Output 3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Since the data is small and the time is long, you can  use violent methods. </p>
-<p>If the this number is no smaller than the previous number, answer = answer + 1;</p>
-<p>Else answer = 0</p>
-<p>The max number = max(max number, answer).</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">int</span> pre = <span class="number">0</span>, now = <span class="number">0</span>, count = <span class="number">0</span>, maxn = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; pre;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i ++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; now;</span><br><span class="line">		<span class="keyword">if</span>(now &lt;= pre) &#123;</span><br><span class="line">			count ++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			maxn = max(maxn, count);</span><br><span class="line">			count = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		pre = now;</span><br><span class="line">	&#125;</span><br><span class="line">	maxn = max(maxn, count);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; maxn &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For a given request list, you are to compute the total time spent to fulfill the requests on the list. The elevator is on the 0th floor at the beginning and does not have to return to the ground floor when the requests are fulfilled.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>There are multiple test cases. Each case contains a positive integer N, followed by N positive numbers. All the numbers in the input are less than 100. A test case with N = 0 denotes the end of input. This test case is not to be processed.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the total time on a single line for each test case.</p>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">3 2 3 1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">17</span><br><span class="line">41</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>This is an easy problem and you just need to stimulate the hole process.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n <span class="keyword">and</span> n) &#123;</span><br><span class="line">		<span class="keyword">int</span> pre = <span class="number">0</span>, now = <span class="number">0</span>, dif, ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; now;</span><br><span class="line">			dif = now - pre;</span><br><span class="line">			<span class="keyword">if</span>(dif &gt; <span class="number">0</span>) </span><br><span class="line">				ans += dif * <span class="number">6</span> + <span class="number">5</span>;</span><br><span class="line">			<span class="keyword">else</span> ans += dif * (<span class="number">-4</span>) + <span class="number">5</span>;</span><br><span class="line">			pre = now;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,13 +364,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/11/17/AtCoder-4871-Lower/">AtCoder-4871 Lower</a></p>
+        <p><span>Title:</span><a href="/2019/12/15/HDU-1008 Elevator/">HDU-1008 Elevator</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-11-17, 19:16:44</p>
-        <p><span>Updated:</span>2019-11-17, 19:27:30</p>
+        <p><span>Created:</span>2019-12-15, 00:37:28</p>
+        <p><span>Updated:</span>2019-12-15, 01:01:54</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/11/17/AtCoder-4871-Lower/" title="AtCoder-4871 Lower">http://dyingdown.github.io/2019/11/17/AtCoder-4871-Lower/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/11/17/AtCoder-4871-Lower/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2019/12/15/HDU-1008 Elevator/" title="HDU-1008 Elevator">http://dyingdown.github.io/2019/12/15/HDU-1008 Elevator/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/12/15/HDU-1008 Elevator/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -400,15 +383,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/11/17/AtCoder-5039-AB-Substrings/">
-                    AtCoder-5039 AB Substrings
+                <a href="/2019/12/15/HDU-1012 u-Calculate-e/">
+                    HDU-1012 u Calculate e
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/11/17/AtCoder-4870-Attack-Survival/">
-                    AtCoder-4870 Attack Survival
+                <a href="/2019/12/14/HDU-1000 A-B-Problem/">
+                    HDU-1000 A+B Problem
                 </a>
             </div>
         
@@ -448,7 +431,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lower"><span class="toc-number">1.</span> <span class="toc-text">Lower</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Statement"><span class="toc-number">1.0.1.</span> <span class="toc-text">Problem Statement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-1"><span class="toc-number">1.0.4.</span> <span class="toc-text">Sample Input 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">Sample Output 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-2"><span class="toc-number">1.0.6.</span> <span class="toc-text">Sample Input 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-2"><span class="toc-number">1.0.7.</span> <span class="toc-text">Sample Output 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input-3"><span class="toc-number">1.0.8.</span> <span class="toc-text">Sample Input 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output-3"><span class="toc-number">1.0.9.</span> <span class="toc-text">Sample Output 3</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Elevator"><span class="toc-number">1.</span> <span class="toc-text">Elevator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.2.</span> <span class="toc-text">Output</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
         
     </div>
     <style>
@@ -484,7 +467,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"AtCoder-4871 Lower　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HDU-1008 Elevator　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -503,8 +486,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/11/17/AtCoder-4871-Lower/';
-            this.page.identifier = '2019/11/17/AtCoder-4871-Lower/';
+            this.page.url = 'http://dyingdown.github.io/2019/12/15/HDU-1008 Elevator/';
+            this.page.identifier = '2019/12/15/HDU-1008 Elevator/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -551,7 +534,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/11/17/AtCoder-5039-AB-Substrings/" title="Pre: AtCoder-5039 AB Substrings">
+            <a href="/2019/12/15/HDU-1012 u-Calculate-e/" title="Pre: HDU-1012 u Calculate e">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -559,7 +542,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/11/17/AtCoder-4870-Attack-Survival/" title="Next: AtCoder-4870 Attack Survival">
+            <a href="/2019/12/14/HDU-1000 A-B-Problem/" title="Next: HDU-1000 A+B Problem">
                 <i class="fa fa-angle-right"></i>
             </a>
         
