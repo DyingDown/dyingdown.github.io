@@ -309,20 +309,20 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-HDU-1037-Keep-on-Truckin" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HDU-1222 Wolf-and-Rabbit" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/12/15/HDU-1037-Keep-on-Truckin/" class="article-date">
-      <time datetime="2019-12-15T06:09:39.000Z" itemprop="datePublished">2019-12-15</time>
+      <a href="/2019/12/15/HDU-1222 Wolf-and-Rabbit/" class="article-date">
+      <time datetime="2019-12-15T14:36:20.000Z" itemprop="datePublished">2019-12-15</time>
 </a>
 
  
-    <a href="/2019/12/15/HDU-1037-Keep-on-Truckin/#comments" title="Comments">
+    <a href="/2019/12/15/HDU-1222 Wolf-and-Rabbit/#comments" title="Comments">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
         
-            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1037-Keep-on-Truckin/"></span>
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1222 Wolf-and-Rabbit/"></span>
         
     </a>
 
@@ -337,7 +337,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/HDU-1037-Keep-on-Truckin/">HDU-1037 Keep on Truckin&#39;</a>
+      <a class="article-title" href="/2019/12/15/HDU-1222 Wolf-and-Rabbit/">HDU-1222_Wolf-and-Rabbit</a>
     </h1>
   
 
@@ -347,8 +347,184 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="Keep-on-Truckin’"><a href="#Keep-on-Truckin’" class="headerlink" title="Keep on Truckin’"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1037" target="_blank" rel="noopener">Keep on Truckin’</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Boudreaux and Thibodeaux are on the road again . . .</p>
-<p>“Boudreaux, we have to get this shipment of mudbugs to Baton Rouge by tonight!”</p>
+        <h1 id="Wolf-and-Rabbit"><a href="#Wolf-and-Rabbit" class="headerlink" title="Wolf and Rabbit"></a><a href="https://vjudge.net/problem/18342/origin" target="_blank" rel="noopener">Wolf and Rabbit</a></h1><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p> There is a hill with n holes around. The holes are signed from 0 to n-1. </p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuLzI0MzRmZTg3ZmJmOWM4ZTlmOGE5NDYzZDc3NTA1ZDVk?x-oss-process=image/format,png" alt="img"></p>
+<p>A rabbit must hide in one of the holes. A wolf searches the rabbit in anticlockwise order. The first hole he get into is the one signed with 0. Then he will get into the hole every m holes. For example, m=2 and n=6, the wolf will get into the holes which are signed 0,2,4,0. If the rabbit hides in the hole which signed 1,3 or 5, she will survive. So we call these holes the safe holes.  </p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p> The input starts with a positive integer P which indicates the number of test cases. Then on the following P lines,each line consists 2 positive integer m and n(0&lt;m,n&lt;2147483648).  </p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each input m n, if safe holes exist, you should output “YES”, else output “NO” in a single line. </p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">2 2</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>This problem is to judge whether the two numbers are relatively prime.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t --)&#123;</span><br><span class="line">		<span class="keyword">int</span> a, b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="keyword">if</span>(__gcd(a, b) == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1157 Who&#39;s-in-the-Middle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/15/HDU-1157 Who's-in-the-Middle/" class="article-date">
+      <time datetime="2019-12-15T14:16:23.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+
+ 
+    <a href="/2019/12/15/HDU-1157 Who's-in-the-Middle/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1157 Who&#39;s-in-the-Middle/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/HDU-1157 Who's-in-the-Middle/">HDU-1157 Who&#39;s in the Middle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Who’s-in-the-Middle"><a href="#Who’s-in-the-Middle" class="headerlink" title="Who’s in the Middle"></a><a href>Who’s in the Middle</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>FJ is surveying his herd to find the most average cow. He wants to know how much milk this ‘median’ cow gives: half of the cows give as much or more than the median; half give as much or less.</p>
+<p>Given an odd number of cows N (1 &lt;= N &lt; 10,000) and their milk output (1..1,000,000), find the median amount of milk given such that at least half the cows give the same amount of milk or more and at least half give the same or less.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>* Line 1: A single integer N</p>
+<p>* Lines 2..N+1: Each line contains a single integer that is the milk output of one cow.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>* Line 1: A single integer that is the median milk output.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Just sort all the numbers, since the input numbers are odds, so the middle number is n / 2 + 1.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2000000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		sort(a, a + n);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[n / <span class="number">2</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1056 HangOver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/15/HDU-1056 HangOver/" class="article-date">
+      <time datetime="2019-12-15T11:51:22.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+
+ 
+    <a href="/2019/12/15/HDU-1056 HangOver/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1056 HangOver/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/HDU-1056 HangOver/">HDU-1056 HangOver</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="HangOver"><a href="#HangOver" class="headerlink" title="HangOver"></a><a href>HangOver</a></h1><p>How far can you make a stack of cards overhang a table? If you have one card, you can create a maximum overhang of half a card length. (We’re assuming that the cards must be perpendicular to the table.) With two cards you can make the top card overhang the bottom one by half a card length, and the bottom one overhang the table by a third of a card length, for a total maximum overhang of 1/2 + 1/3 = 5/6 card lengths. In general you can make n cards overhang by 1/2 + 1/3 + 1/4 + … + 1/(n + 1) card lengths, where the top card overhangs the second by 1/2, the second overhangs tha third by 1/3, the third overhangs the fourth by 1/4, etc., and the bottom card overhangs the table by 1/(n + 1). This is illustrated in the figure below.</p>
           
       
     </div>
@@ -368,8 +544,180 @@
 
       
         <p class="article-more-link">
-          <a href="/2019/12/15/HDU-1037-Keep-on-Truckin/#more">more >></a>
+          <a href="/2019/12/15/HDU-1056 HangOver/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1048 The-Hardest-Problem-Ever" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/15/HDU-1048 The-Hardest-Problem-Ever/" class="article-date">
+      <time datetime="2019-12-15T11:50:13.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+
+ 
+    <a href="/2019/12/15/HDU-1048 The-Hardest-Problem-Ever/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1048 The-Hardest-Problem-Ever/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/HDU-1048 The-Hardest-Problem-Ever/">HDU-1048 The Hardest Problem Ever</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="The-Hardest-Problem-Ever"><a href="#The-Hardest-Problem-Ever" class="headerlink" title="The Hardest Problem Ever"></a><a href>The Hardest Problem Ever</a></h1><p>Julius Caesar lived in a time of danger and intrigue. The hardest situation Caesar ever faced was keeping himself alive. In order for him to survive, he decided to create one of the first ciphers. This cipher was so incredibly sound, that no one could figure it out without knowing how it worked.<br>You are a sub captain of Caesar’s army. It is your job to decipher the messages sent by Caesar and provide to your general. The code is simple. For each letter in a plaintext message, you shift it five places to the right to create the secure message (i.e., if the letter is ‘A’, the cipher text would be ‘F’). Since you are creating plain text out of Caesar’s messages, you will do the opposite:</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/12/15/HDU-1048 The-Hardest-Problem-Ever/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1040 As-Easy-As-A+B" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/15/HDU-1040 As-Easy-As-A+B/" class="article-date">
+      <time datetime="2019-12-15T08:22:07.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+
+ 
+    <a href="/2019/12/15/HDU-1040 As-Easy-As-A+B/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1040 As-Easy-As-A+B/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/HDU-1040 As-Easy-As-A+B/">HDU-1040 As Easy As A+B</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="As-Easy-As-A-B"><a href="#As-Easy-As-A-B" class="headerlink" title="As Easy As A+B"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1040" target="_blank" rel="noopener">As Easy As A+B</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>These days, I am thinking about a question, how can I get a problem as easy as A+B? It is fairly difficulty to do such a thing. Of course, I got it after many waking nights.<br>Give you some integers, your task is to sort these number ascending (升序).<br>You should know how easy the problem is now!<br>Good luck!</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input contains multiple test cases. The first line of the input is a single integer T which is the number of test cases. T test cases follow. Each test case contains an integer N (1&lt;=N&lt;=1000 the number of integers to be sorted) and then N integers follow in the same line.<br>It is guarantied that all integers are in the range of 32-int.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each case, print the sorting result, and one line one case.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3 2 1 3</span><br><span class="line">9 1 4 7 2 5 8 3 6 9</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>This is a sorting problem, you can either use quick sort or bubble sort or other sorts.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &gt;= end) <span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">int</span> l = start, r = end;</span><br><span class="line">	<span class="keyword">int</span> pivot = a[(end + start) / <span class="number">2</span>];</span><br><span class="line">	<span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">		<span class="keyword">while</span>(l &lt;= r &amp;&amp; a[r] &gt; pivot) r --;</span><br><span class="line">		<span class="keyword">while</span>(l &lt;= r &amp;&amp; a[l] &lt; pivot) l ++;</span><br><span class="line">		<span class="keyword">if</span>(l &lt;= r) swap(a[l ++], a[r --]);</span><br><span class="line">	&#125;</span><br><span class="line">	quick_sort(a, start, r);</span><br><span class="line">	quick_sort(a, l, end);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t --) &#123;</span><br><span class="line">		<span class="keyword">int</span> n;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		quick_sort(a, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(i == n - <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -423,7 +771,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/HDU-1037 Keep-on-Truckin/">HDU-1037_Keep-on-Truckin&#39;</a>
+      <a class="article-title" href="/2019/12/15/HDU-1037 Keep-on-Truckin/">HDU-1037 Keep on Truckin&#39;</a>
     </h1>
   
 
@@ -433,7 +781,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+              <h1 id="Keep-on-Truckin’"><a href="#Keep-on-Truckin’" class="headerlink" title="Keep on Truckin’"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1037" target="_blank" rel="noopener">Keep on Truckin’</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Boudreaux and Thibodeaux are on the road again . . .</p>
+<p>“Boudreaux, we have to get this shipment of mudbugs to Baton Rouge by tonight!”</p>
+          
       
     </div>
     
@@ -450,6 +800,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/12/15/HDU-1037 Keep-on-Truckin/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -790,350 +1144,6 @@
       
         <p class="article-more-link">
           <a href="/2019/12/14/HDU-1000 A+B-Problem/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeForces-1169B-Pairs" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/24/CodeForces-1169B-Pairs/" class="article-date">
-      <time datetime="2019-11-24T10:01:32.000Z" itemprop="datePublished">2019-11-24</time>
-</a>
-
- 
-    <a href="/2019/11/24/CodeForces-1169B-Pairs/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/11/24/CodeForces-1169B-Pairs/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/24/CodeForces-1169B-Pairs/">CodeForces-1169B Pairs</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Pairs"><a href="#Pairs" class="headerlink" title="Pairs"></a><a href="http://codeforces.com/problemset/problem/1169/B" target="_blank" rel="noopener">Pairs</a></h1><h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Toad Ivan has mm pairs of integers, each integer is between 11 and n, inclusive. The pairs are $(a_1,b_1),(a_2,b_2),…,(a_m,b_m)$.</p>
-<p>He asks you to check if there exist two integers xx and $y (1≤x&lt;y≤n)$ such that in each given pair at least one integer is equal to x or y.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/11/24/CodeForces-1169B-Pairs/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeForces-1180B-Nick-and-Array" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/24/CodeForces-1180B-Nick-and-Array/" class="article-date">
-      <time datetime="2019-11-24T09:57:45.000Z" itemprop="datePublished">2019-11-24</time>
-</a>
-
- 
-    <a href="/2019/11/24/CodeForces-1180B-Nick-and-Array/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/11/24/CodeForces-1180B-Nick-and-Array/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/24/CodeForces-1180B-Nick-and-Array/">CodeForces-1180B Nick and Array</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Nick-and-Array"><a href="#Nick-and-Array" class="headerlink" title="Nick and Array"></a><a href="http://codeforces.com/problemset/problem/1180/B" target="_blank" rel="noopener">Nick and Array</a></h1><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Nick had received an awesome array of integers $a=[a_1,a_2, \cdots ,a_n]$ as a gift for his 5 birthday from his mother. He was already going to explore its various properties but after unpacking he was disappointed a lot because the product $a_1,a_2 \cdots a_n$ of its elements seemed to him not large enough.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/11/24/CodeForces-1180B-Nick-and-Array/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeForces-1180A-Alex-and-a-Rhombus" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/" class="article-date">
-      <time datetime="2019-11-24T09:55:47.000Z" itemprop="datePublished">2019-11-24</time>
-</a>
-
- 
-    <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/">CodeForces-1180A Alex and a Rhombus</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Alex-and-a-Rhombus"><a href="#Alex-and-a-Rhombus" class="headerlink" title="Alex and a Rhombus"></a><a href="https://codeforces.com/problemset/problem/1180/A" target="_blank" rel="noopener">Alex and a Rhombus</a></h1><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>While playing with geometric figures Alex has accidentally invented a concept of a n-th order rhombus in a cell grid.</p>
-<p>A 1-st order rhombus is just a square 1×1 (i.e just a cell).</p>
-<p>A n-th order rhombus for all n≥2n≥2 one obtains from a n−1n−1-th order rhombus adding all cells which have a common side with it to it (look at the picture to understand it better).</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeForces-580C-Kefa-and-Park" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/24/CodeForces-580C-Kefa-and-Park/" class="article-date">
-      <time datetime="2019-11-24T09:53:22.000Z" itemprop="datePublished">2019-11-24</time>
-</a>
-
- 
-    <a href="/2019/11/24/CodeForces-580C-Kefa-and-Park/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/11/24/CodeForces-580C-Kefa-and-Park/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/24/CodeForces-580C-Kefa-and-Park/">CodeForces-580C Kefa and Park</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Kafa-and-Park"><a href="#Kafa-and-Park" class="headerlink" title="Kafa and Park"></a><a href="http://codeforces.com/problemset/problem/580/C" target="_blank" rel="noopener">Kafa and Park</a></h1><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Kefa decided to celebrate his first big salary by going to the restaurant.</p>
-<p>He lives by an unusual park. The park is a rooted tree consisting of <em>n</em> vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunately for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/11/24/CodeForces-580C-Kefa-and-Park/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
