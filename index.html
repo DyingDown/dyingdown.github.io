@@ -347,23 +347,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>第六章 数理统计的基本概念</p>
+              <p>第六章 数理统计的基本概念</p>
 <p>一、随机样本</p>
 <p>   （1）总体与个体</p>
 <p>​         a. 一批灯泡的全体组成一个总体，其中每一个灯泡都是一个个体。</p>
 <p>​        b. 一个随机变量X或其相应的分布函数$F(x)$成为一个总体。</p>
-<p>   （2）样本与样本值</p>
-<p>​         a. 样本容量$n$，样本值是每个具体的值</p>
-<p>​         b. 简单随机抽样：机会均等（代表性），个体相互独立（独立性）</p>
-<p>​         c. 简单随机样本$(X_n)$，简称样本，观测值称样本值</p>
-<p>   （3）定理</p>
-<p>​         a. 若总体X的分布函数为F(x)，则样本$X<em>{1}, X</em>{2}, \cdots, X_{n}$的联合分布函数为</p>
-<script type="math/tex; mode=display">
-F\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} F\left(x_{i}\right)</script><p>​       b. 若总体X的概率密度为f(x)，则样本$X<em>{1}, X</em>{2}, \cdots, X_{n}$的联合概率密度为</p>
-<script type="math/tex; mode=display">
-f\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} f\left(x_{i}\right)</script><p>​         c. 若总体的分布律为p(x)，则样本$X<em>{1}, X</em>{2}, \cdots, X_{n}$的联合分布律为</p>
-<script type="math/tex; mode=display">
-p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} p\left(x_{i}\right)</script>
+          
       
     </div>
     
@@ -380,6 +369,10 @@ p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} p\left(x_{i}\right)</s
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2020/01/15/Mathematical-Statistics-Concepts/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -443,44 +436,13 @@ p\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\prod_{i=1}^{n} p\left(x_{i}\right)</s
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>第五章 大数定律和中心极限定理</p>
+              <p>第五章 大数定律和中心极限定理</p>
 <p>一、*大数定律</p>
 <p>   （1）切比雪夫不等式</p>
 <p>​         $X$有数学期望$E(X)=\mu,D(X=\sigma^2)$, 则对任意正整数$\varepsilon$</p>
 <p>​        $P{\left| x - \mu \right| \geq \varepsilon } \leq \frac{\sigma ^2}{\varepsilon ^ 2}$</p>
 <p>​          $P{\left| x - \mu \right| &lt; \varepsilon } \geq 1-\frac{\sigma ^2}{\varepsilon ^ 2}$</p>
-<p>​         此不等式说明$D(X)$越小，$P{\left| x - \mu \right| \geq \varepsilon }$越小；反之，$P{\left| x - \mu \right| &lt; \varepsilon }$越大。也就是$D(X)$很小时，随机变量取值基本集中在$E(X)$附近。</p>
-<p>   （2）定义</p>
-<p>​         设${X_n}$为一随机变量序列，$a$是一个常数，若对任意正整数$\varepsilon$有</p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} P\left\{\left|x_{n}-a\right|<\varepsilon\right\}=1</script><p>​         则称${X<em>n}$依概率收敛于$a$，即为$X</em>{n} \stackrel{p}{\rightarrow} a(n \rightarrow \infty)$</p>
-<p>​         有如下性质：</p>
-<p>​            $X<em>{n} \stackrel{p}{\rightarrow} a, Y</em>{n} \stackrel{p}{\rightarrow} b$， 设$g(x,y)$ 在$(a,b)$点连续，则</p>
-<script type="math/tex; mode=display">
-g\left(X_{n}, Y_{n}\right) \stackrel{P}{\rightarrow} g(a, b)</script><p>   （3）切比雪夫大数定律</p>
-<p>​         设$\left(X<em>{1}, X</em>{2}, \cdots, X_{n},\cdots \right)$是一列相互独立的随机变量序列，并且$E(X_i),D(X_i)$均存在，同时存在$C$，$D(X_i) \leq C(i=1,2,\cdots)$，则对任意的$\varepsilon&gt;0$，有</p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} P\left\{\left|\frac{1}{n} \sum_{i=1}^{n} X_{i}-\frac{1}{n} \sum_{i=1}^{n} E\left(X_{i}\right)\right|<\varepsilon\right\}=1</script><p>​         也即</p>
-<script type="math/tex; mode=display">
-\frac{1}{n} \sum_{i=1}^{n} X_{i}-\frac{1}{n} \sum_{i=1}^{n} E\left(X_{i}\right) \stackrel{p}{\rightarrow} 0(n \rightarrow \infty)</script><p>   （4）辛钦大数定律</p>
-<p>​         设$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n},\cdots \right)$是一列相互独立且服从同一分布的随机变量序列，$E(X)=\mu(1,2,\cdots)$，则$\frac{1}{n} \sum</em>{i=1}^{n} X_{i}$依概率收敛与$\mu$，即</p>
-<script type="math/tex; mode=display">
-\frac{1}{n} \sum_{i=1}^{n} X_{i} \stackrel{p}{\rightarrow} \mu(n \rightarrow \infty)</script><p>   （5）伯努利大数定律</p>
-<p>​         $n_A$是$n$次独立重复复实验中$A$发生的次数，$p$是事件$A$在每次实验中发生的概率，则对任意正整数，有$\varepsilon$</p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} P\left\{\left|\frac{n_{A}}{n}-p\right|<\varepsilon\right\}=1</script><p>​         即 $\frac{n_{A} p}{n} \rightarrow p(n \rightarrow \infty)$</p>
-<p>二、中心极限定理</p>
-<p>   （1）独立同分布中心极限定理</p>
-<p>​         设${X<em>{1}, X</em>{2}, \cdots, X<em>{n},\cdots }$是一列相互独立且服从同一分布的随机变量序列，有数学期望$E(X_i)=\mu,D(X_i)=\sigma^2&gt;0(i=1,2,\cdots)$，则随机变量和$\sum</em>{i=1}^{n} X_{i}$的标准变化量</p>
-<script type="math/tex; mode=display">
-Z_n=\frac{\sum_{1=1}^{n} x_{i}-E\left(\sum_{i=1}^{n} x_{i}\right)}{\sqrt{D\left(\sum_{i=1}^{n} x_{i}\right)}}=\frac{\sum_{i=1}^{n} x_{i}-n \mu}{\sqrt{n} \sigma}</script><p>​         的分布函数$F_n(x)$对于任意$x$满足</p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} F_{n}(x)=\lim _{n \rightarrow \infty} P\left\{\frac{\sum_{i=1}^{n} x_{i}-n \mu}{\sqrt{n} \sigma} \leq x\right\}=\int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e^{-\frac{t}{2}} d t=\phi(x)</script><p>​         该定理说明当$n \rightarrow \infty$时，随机变量$Z<em>n$的分布函数收敛于标准正态分布函数。不论${X</em>{1}, X<em>{2}, \cdots, X</em>{n},\cdots }$服从什么分布，只要满足定理条件，$n$充分大时$\sum<em>{i=1}^{n} X</em>{i}$，可以近似服从正态分布。</p>
-<p>   （2）蒂莫夫-拉普拉斯中心极限定理</p>
-<p>​         设随机变量$\eta_{n}(n=1,2, \cdots)$服从参数为$n,p(0&lt;p&lt;1)$的二项分布，则对任意实数$x$有</p>
-<script type="math/tex; mode=display">
-\lim _{n \rightarrow \infty} P\left\{\frac{\eta_{n}-n p}{\sqrt{n p}(1-p)} \leq x\right\}=\int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e^{-\frac{t}{2}} d t=\phi(x)</script><p>​         此定理表明，二项分布的极限时正态分布，当$n$充分大时，可以近似计算二项分布的概率。当$n$充分大时，二项分布的随机变量近似服从正态分布。</p>
-
+          
       
     </div>
     
@@ -497,6 +459,10 @@ Z_n=\frac{\sum_{1=1}^{n} x_{i}-E\left(\sum_{i=1}^{n} x_{i}\right)}{\sqrt{D\left(
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2020/01/15/Law-of-Large-Numbers/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -526,7 +492,7 @@ Z_n=\frac{\sum_{1=1}^{n} x_{i}-E\left(\sum_{i=1}^{n} x_{i}\right)}{\sqrt{D\left(
   
     <div class="article-meta">
       <a href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/" class="article-date">
-      <time datetime="2020-01-02T10:23:46.995Z" itemprop="datePublished">2020-01-02</time>
+      <time datetime="2020-01-02T10:23:46.000Z" itemprop="datePublished">2020-01-02</time>
 </a>
 
  
@@ -546,170 +512,47 @@ Z_n=\frac{\sum_{1=1}^{n} x_{i}-E\left(\sum_{i=1}^{n} x_{i}\right)}{\sqrt{D\left(
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/">Numerical-Characteristics-of-Rando-variables</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: Numerical-Characteristics-of-Rando-variables<br>date: 2020-01-02 18:23:46<br>category: Probability and Statistics<br>tags: Knowledge points</p>
-<p>第四章 随机变量的数字特征</p>
+              <p>第四章 随机变量的数字特征</p>
 <p>一、数学期望</p>
 <ol>
 <li><p>离散型</p>
 <script type="math/tex; mode=display">
-E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}</script><p>当上式发散时，$X$的数学期望不存在。</p>
-</li>
-<li><p>连续型</p>
-</li>
-</ol>
-<script type="math/tex; mode=display">
-E(X)=\int_{-\infty}^{+\infty} x f(x) d x</script><pre><code>   发散时，$X$的数学期望不存在
-</code></pre><ol>
-<li><p>随机变量函数</p>
-<p>（1） 一维</p>
-</li>
-</ol>
-<p>​        $Y=g(X)$ ($g$是连续函数）$X$是随机变量。$\sum<em>{k=1}^{\infty} g\left(x</em>{k}\right) \rho_{k}$绝对收敛，则</p>
-<pre><code>   连续型：
-</code></pre><script type="math/tex; mode=display">
-E(Y)=E[g(X)]=\sum_{k=1}^{\infty} g\left(x_{k}\right) P_{k}</script><p>​      离散型：</p>
-<script type="math/tex; mode=display">
-E(Y)=E[g(X)]=\int_{-\infty}^{+\infty} g(x) f(x) dx</script><p>（2） 二维</p>
-<p>​      离散型: </p>
-<script type="math/tex; mode=display">
-E(Z)=E[g(X, Y)]=\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g\left(x_{i}, y_{j}\right) p_{i j}</script><p>​      连续型：</p>
-<script type="math/tex; mode=display">
-E(Z)=E[g(X, Y)]=\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x, y) f(x, y) d x d y</script><ol>
-<li>数学期望的性质</li>
-</ol>
-<p>​      （1）$C$是常数 $E(C)=C$</p>
-<p>​      （2）$E(CX)=CE(X)$</p>
-<p>​      （3）任意两个随机变量$X，Y$ $E(X+Y)=E(X)+E(Y)$</p>
-<p>​          有限个 $E\left(X<em>{1}+E</em>{2}+\cdots+X<em>{n}\right)=E\left(X</em>{1}\right)+E\left(X<em>{2}\right)+\cdots+E\left(X</em>{n}\right)$</p>
-<p>​      （4）相互独立的$X，Y$ $E(X Y)=E(X) E(Y)$</p>
-<p>​          有限个 $E\left(X<em>{1} X</em>{2} \cdots X<em>{n}\right)=E\left(X</em>{1}\right) E\left(X<em>{2}\right) \cdots E\left(X</em>{n}\right)$</p>
-<p>二、方差</p>
-<ol>
-<li><p>定义</p>
-<p>   $D(X)=\operatorname{Var}(X)=E\left{[X-E(X)]^{2}\right}$</p>
-<p>   $\sqrt{D(X)}$ 标准差 or 均方差</p>
-</li>
-<li><p>计算</p>
-<p>   离散型   $D(X)=\sum<em>{k=1}^{\infty}\left[x</em>{k}-E(x)\right]^{2} p_{k}$</p>
-<pre><code>连续型 $D(X)=\int_{-\infty}^{+\infty}[x-E(x)]^{2} f(x) d x$
-
-重要公式 $D(X)=E\left(X^{2}\right)-[E(X)]^{2}$
-</code></pre></li>
-<li><p>标准化</p>
-<p>X有数学期望$E(X)=\mu$，方差 $D(X)=\sigma ^ 2 \neq$0 , $X*=\frac{X- \mu}{\sigma}$ 则，</p>
-<script type="math/tex; mode=display">
-E(X*)=\frac{1}{\sigma}E(X-u)=\frac{1}{\sigma}[E(X)-\mu]=0 \\
-D(X =1*)=E\left[(X *)^{2}\right]-[E(X *)]^{2}=E\left[\left(\frac{X-\mu}{0}\right)^{2}\right]=\frac{1}{\sigma^{2}} E\left[(X-\mu)^{2}\right]=1</script><p>   $X*$称为$X$的标准量变</p>
-</li>
-<li><p>性质</p>
-</li>
-</ol>
-<p>​      （1）$D(C)=0$</p>
-<p>​      （2）$D(CY)=C^2D(X),D(X+C)=D(X)$</p>
-<p>​      （3）任意两个随机变 $D(X\pm Y)=D(X)+D(Y) \pm 2E{[X-E(X)][Y-E(Y)]}$</p>
-<p>​          $X Y$ 相互独立$D(X \pm Y)=D(X)+D(Y)$</p>
-<p>​          $N$个随机变量相互独立</p>
-<script type="math/tex; mode=display">
-D\left(X_{1}+X_{2}+\cdots+X_{n}\right)=D(X-1)+D\left(X_{2}\right)+\cdots+D\left(X_{n}\right) \\
-D\left(\sum_{i=1}^{n} C_{i} X_{i}\right)=\sum_{i=1}^{n} C_{i}^{2} D\left(X_{i}\right)</script><p>​      （4）$D(X)=0$的充要条件是$P{X=C}=1,C=E(X)$</p>
-<ol>
-<li>常用数学期望和方差</li>
-</ol>
-<p>​      （1）0-1分布</p>
-<p>​             $E(X)=p$</p>
-<p>​            $D(X)=p(1-p)$</p>
-<p>​      （2）二项分布</p>
-<p>​             $E(X)=np$</p>
-<p>​            $D(X)=np(1-p)$</p>
-<p>​      （3）泊松分布</p>
-<p>​            $E(X)=\lambda$</p>
-<p>​            $D(X)=\lambda$</p>
-<p>​      （4）指数分布</p>
-<p>​            $E(X)=\frac{1}{\lambda}$</p>
-<p>​            $D(X)=\frac{1}{\lambda^2}$</p>
-<p>​      （5）正态分布</p>
-<p>​            标准：$D(X)=1$</p>
-<pre><code>        非标准：$E(X)=\mu \space D(X)=\sigma^2$
-</code></pre><ol>
-<li><p>由数学期望和方差性质知</p>
-<p>$\begin{aligned}<br>&amp;E(\bar{x})=\frac{1}{n} E\left(\sum<em>{i=1}^{n} X</em>{i}\right)=\frac{1}{n} \sum<em>{i=1}^{n} E\left(X</em>{i}\right)=\mu\<br>&amp;D(\bar{X})=D\left(\frac{1}{n} \sum<em>{i=1}^{n} X i\right)=\frac{1}{n^{2}} \sum</em>{i=1}^{n} D\left(X_{i}\right)=\frac{\sigma^{2}}{n}<br>\end{aligned}$</p>
-</li>
-</ol>
-<p>三、协方差与相关系数</p>
-<ol>
-<li>协方差</li>
-</ol>
-<p>​      （1）定义：随机变量X与Y的协方差 $Cov(X,Y)$，即                                </p>
-<script type="math/tex; mode=display">
-Cov(X,Y)=E[X-E(X)][Y-E(Y)]=E(XY)+E(X)E(Y)</script><p>​      （2）性质：</p>
-<p>​            a.$Cov(X,Y)=Cov(Y,X)$</p>
-<p>​            b. $Cov(X,Y)=D(X)$</p>
-<p>​            d. $Coc(aX,bY)=abCov(X,Y)$</p>
-<p>​            d. $Cov(C,Y)=0$</p>
-<p>​            e. $Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)$</p>
-<p>​            f. 随机变量相互独立 $Cov(X,Y)=0$</p>
-<p>​      （3）定理：</p>
-<script type="math/tex; mode=display">
-[E(XY)]^2\leq E(X^2)E(Y^2)</script><p>​      （4）算式</p>
-<script type="math/tex; mode=display">
-D(X \pm Y)=D(X)+D(Y) \pm 2Cov(X,Y) \\
-D(X+Y+Z)=D(X)+D(Y)+D(Z)+2Cov(X,Y)+2Cov(X,Z)+2Cov(Y,Z)</script><ol>
-<li>相关系数</li>
-</ol>
-<p>​      （1）定义：随机变量的相关系数 $\rho_{xy}$</p>
-<script type="math/tex; mode=display">
-\rho_{x y}=\frac{\operatorname{cov}(X-Y)}{\sqrt{D(X)} \sqrt{D(Y)}}</script><p>​                当 $\rho<em>{xy}=0$ 时，$X，Y$不相关；当 $\rho</em>{xy}=1$ 时，$X，Y$正线性相关；当 $\rho_{xy}=-1$ 时，$X，Y$负线性相关。</p>
-<p>​      （2）定理</p>
-<p>​            a. $\left|\rho_{x y}\right| \leq 1$</p>
-<p>​            b. $\left|\rho_{x y}\right|= 1$ 的充要条件是存在$a，b$使 $P{Y=a+bX}=1$ </p>
-<p>​          由上可知，$\rho<em>{xy}$的实际意义是：$X，Y$之间的线性近似程度。$\left|\rho</em>{x y}\right|$越接近于$1$越近似的有线性关系。$X，Y$之间有密切的曲线关系时，$\left|\rho<em>{x y}\right|$的值可能很小。如$X$服从$N(0,1),Y=X^2$，此时$X，Y$有密切的曲线关系但是$\left|\rho</em>{x y}\right|=0$</p>
-<p>​            c. 若$X$与$Y$相互独立，则$\left|\rho_{x y}\right|=0$，即$X$与$Y$不相关。反之不真。</p>
-<p>​      （3）随机变量$(X,Y)$服从二维正态分布，公式为$f(x, y)=\frac{1}{2 \pi \sigma<em>{1} o</em>{2} \sqrt{1-\rho^{2}}} \exp \left{\frac{-1}{2\left(1-\rho^{2}\right)}\left[\frac{\left(x-u<em>{1}\right)^{2}}{\sigma</em>{1}^{2}}-2 \rho \frac{\left(x-\mu<em>{1}\right)\left(y-\mu</em>{2}\right)}{\sigma<em>{1} \sigma</em>{2}}+\frac{\left(y-\mu<em>{2}\right)^{2}}{\sigma</em>{2}^{2}}\right]\right}$，相关系数$\rho_{xy}=\rho$</p>
-<p>四、矩、协方差矩阵</p>
-<ol>
-<li>定义</li>
-</ol>
-<p>​      （1）设$X$和$Y$是随机变量，若</p>
-<script type="math/tex; mode=display">
-E(X^k), k=1,2,\cdots</script><p>​             存在，成它为$X$的$k$阶原点矩，简称$k$阶矩</p>
-<p>​                a.  若$E[X-E(X)]^k,k=2,3,\cdots$存在，称它为$X$的$k$阶中心矩</p>
-<p>​                b.  若$E(X^kY^l),k,l=1,2,\cdots$ 存在，称它为$X$和$Y$的$k+l$阶混合矩</p>
-<p>​                c.  若$E{[X-E(X)]^k[Y-E(Y)]^l},k,l=1,2,\cdots$存在，称它为$X$和$Y$的$k+l$阶混合中心矩</p>
-<p>​                d.  $E(X)$是$X$的一阶原点矩，$D(X)$是$X$的二阶中心矩，$Cov(X，Y)$是$X，Y$的二阶混合中心矩。</p>
-<p>​                e.   $X$的$k$阶原点矩存在，低于$k$的各阶原点矩都存在，$k$阶和低于$k$阶的中心矩也存在。同样，$X$的中心矩存在，$k$阶和低于$k$阶的中心距也存在.</p>
-<p>​    （2）设$n$维随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$的二阶混合中心矩</p>
-<script type="math/tex; mode=display">
-C_{ij}=C_{ij}(i,j=1,2,\cdots,n)</script><p>​            都存在，则称矩阵</p>
-<script type="math/tex; mode=display">
-C=\left[\begin{array}{cccc}
-{C_{11}} & {c_{11}} & {\dots} & {C_{1 n}} \\
-{C_{21}} & {C_{22}} & {\dots} & {C_{2 n}} \\
-{\vdots} & {\vdots} & {\ddots} & {\vdots} \\
-{C_{n 1}} & {C_{n 2}} & {\dots} & {C_{n n}}
-\end{array}\right]</script><pre><code>       为$n$维随机变量$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$的协方差矩阵，上述矩阵为对称矩阵。
-</code></pre><ol>
-<li><p>$n$维正态分布的性质</p>
-<p>（1）$n$维正态随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$的每一个分量$X_i(i=1,2,\cdots,n)$都是正态随机变量；反之都是$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$正态随机变量，且相互独立，则$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$是$n$维正态随机变量</p>
-<p>（2）$n$随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布的充要条件是$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$的任意线性组合：</p>
-<script type="math/tex; mode=display">
-l_1X_1+l_2X_2+\cdots+l_nX_n</script><p>​      服从一维正态分布，（其中$l_1,l_2,\cdots,l_n$不全为$0$）</p>
-<p>（3）若$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布，设$\left(Y</em>{1}, Y<em>{2}, \cdots, Y</em>{n}\right)$是$X_j(j=1,2,\cdots,n)$</p>
-</li>
-</ol>
-<p>的线性函数，则$\left(Y<em>{1}, Y</em>{2}, \cdots, Y_{n}\right)$服从$k$维正态分布</p>
-<p>   （4）设$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布，则“$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$相互独立“与”$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$“两两不相关”等价</p>
-
+E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}</script>
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Probability-and-Statistics/">Probability and Statistics</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
