@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="B. Yet Another Meme Problem  time limit per test  1 second  memory limit per test  256 megabytes  input: standard input  output: standard output">
+<meta name="description" content="B. Yet Another Meme Problem time limit per test 1 second memory limit per test 256 megabytes input: standard input output: standard output">
 <meta name="keywords" content="Problem,Codeforces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces-1288 B Yet Another Meme Problem">
 <meta property="og:url" content="http://dyingdown.github.io/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="B. Yet Another Meme Problem  time limit per test  1 second  memory limit per test  256 megabytes  input: standard input  output: standard output">
+<meta property="og:description" content="B. Yet Another Meme Problem time limit per test 1 second memory limit per test 256 megabytes input: standard input output: standard output">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-15T09:05:46.003Z">
+<meta property="og:updated_time" content="2020-01-15T10:06:07.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeForces-1288 B Yet Another Meme Problem">
-<meta name="twitter:description" content="B. Yet Another Meme Problem  time limit per test  1 second  memory limit per test  256 megabytes  input: standard input  output: standard output">
+<meta name="twitter:description" content="B. Yet Another Meme Problem time limit per test 1 second memory limit per test 256 megabytes input: standard input output: standard output">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -347,21 +347,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <center><a href="https://codeforces.com/contest/1288/problem/B" < a target="_blank" rel="noopener"><font size="5">B. Yet Another Meme Problem</font></a></center>
-
-<center><font size="2">time limit per test</font></center>
-
-<center><font size="2">1 second</font></center>
-
-<center><font size="2">memory limit per test</font></center>
-
-<center><font size="2">256 megabytes</font></center>
-
-<center><font size="2">input: standard input</font></center>
-
-<center><font size="2">output: standard output</font></center>
-
-<a id="more"></a>
+        <p><center><a href="https://codeforces.com/contest/1288/problem/B" < a target="_blank" rel="noopener"><font size="5">B. Yet Another Meme Problem</font></a></center></p>
+<p><center><font size="2">time limit per test</font></center></p>
+<p><center><font size="2">1 second</font></center></p>
+<p><center><font size="2">memory limit per test</font></center></p>
+<p><center><font size="2">256 megabytes</font></center></p>
+<p><center><font size="2">input: standard input</font></center></p>
+<p><center><font size="2">output: standard output</font></center><br><a id="more"></a></p>
 <p>Try guessing the statement from this picture <a href="http://tiny.cc/ogyoiz" target="_blank" rel="noopener">http://tiny.cc/ogyoiz</a>.</p>
 <p>You are given two integers AA and BB, calculate the number of pairs $(a,b)$such that $1≤a≤A, 1≤b≤B$, and the equation $a⋅b+a+b=conc(a,b)$ is true; $conc(a,b)$ is the concatenation of $a$ and $b$ (for example, $conc(12,23)=1223$, $conc(100,11)=10011$). <strong>$a$ and $b$ should not contain leading zeroes</strong>.</p>
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains $t (1≤t≤100)$ — the number of test cases.</p>
@@ -378,7 +370,7 @@ conc(a,b)=a\times 10^x+b \\
 \Rightarrow a+a\times b=a\times 10^x \\
 \Rightarrow a\times (b+1)=a\times 10^x \\
 \Rightarrow b+1=10^x</script><p>So the value of b should only be $9,99,999\cdots$(each digit is consists of 9)</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> b, <span class="built_in">string</span> bs)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> a = to_string(b + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(bs.length() &lt; a.length())&#123;</span><br><span class="line">		<span class="keyword">return</span> bs.length();</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> bs.length() - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t --) &#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> a;</span><br><span class="line">		<span class="built_in">string</span> b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> ib = stoi(b);</span><br><span class="line">		cout &lt;&lt; a * fun(ib, b) &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -390,7 +382,7 @@ conc(a,b)=a\times 10^x+b \\
         <p><span>Title:</span><a href="/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/">CodeForces-1288 B Yet Another Meme Problem</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
         <p><span>Created:</span>2020-01-15, 16:41:45</p>
-        <p><span>Updated:</span>2020-01-15, 17:05:46</p>
+        <p><span>Updated:</span>2020-01-15, 18:06:07</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/" title="CodeForces-1288 B Yet Another Meme Problem">http://dyingdown.github.io/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/</a>
             <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
