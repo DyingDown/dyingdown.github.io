@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Fibonacci StringAfter little Jim learned Fibonacci Number in the class , he was very interest in it.Now he is thinking about a new thing — Fibonacci String . He defines : str[n] = str[n-1] + str[n-2]">
-<meta name="keywords" content="Problem,HDU">
+<meta name="description" content="A. ConneR and the A.R.C. Markland-N time limit per test: 1 second memory limit per test: 256 megabytes input: standard input output: standard output">
+<meta name="keywords" content="Problem,CodeForces">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU-1708 Fibonacci String">
-<meta property="og:url" content="http://dyingdown.github.io/2019/12/20/HDU-1708 Fibonacci-String/index.html">
+<meta property="og:title" content="CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N">
+<meta property="og:url" content="http://dyingdown.github.io/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Fibonacci StringAfter little Jim learned Fibonacci Number in the class , he was very interest in it.Now he is thinking about a new thing — Fibonacci String . He defines : str[n] = str[n-1] + str[n-2]">
+<meta property="og:description" content="A. ConneR and the A.R.C. Markland-N time limit per test: 1 second memory limit per test: 256 megabytes input: standard input output: standard output">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-20T02:36:25.720Z">
+<meta property="og:updated_time" content="2020-01-19T08:16:15.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU-1708 Fibonacci String">
-<meta name="twitter:description" content="Fibonacci StringAfter little Jim learned Fibonacci Number in the class , he was very interest in it.Now he is thinking about a new thing — Fibonacci String . He defines : str[n] = str[n-1] + str[n-2]">
+<meta name="twitter:title" content="CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N">
+<meta name="twitter:description" content="A. ConneR and the A.R.C. Markland-N time limit per test: 1 second memory limit per test: 256 megabytes input: standard input output: standard output">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDU-1708 Fibonacci String | o_oyao Blog</title>
+<title>CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDU-1708 Fibonacci-String" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/12/20/HDU-1708 Fibonacci-String/" class="article-date">
-      <time datetime="2019-12-20T02:17:22.000Z" itemprop="datePublished">2019-12-20</time>
+      <a href="/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/" class="article-date">
+      <time datetime="2020-01-19T07:33:35.000Z" itemprop="datePublished">2020-01-19</time>
 </a>
 
 
@@ -322,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDU-1708 Fibonacci String
+      CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N
     </h1>
   
 
@@ -337,7 +337,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -347,68 +347,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Fibonacci-String"><a href="#Fibonacci-String" class="headerlink" title="Fibonacci String"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1708" target="_blank" rel="noopener">Fibonacci String</a></h1><p>After little Jim learned Fibonacci Number in the class , he was very interest in it.<br>Now he is thinking about a new thing — Fibonacci String .</p>
-<p>He defines : str[n] = str[n-1] + str[n-2] ( n &gt; 1 )</p>
-<p>He is so crazying that if someone gives him two strings str[0] and str[1], he will calculate the str[2],str[3],str[4] , str[5]….</p>
-<a id="more"></a>
-<p>For example :<br>If str[0] = “ab”; str[1] = “bc”;<br>he will get the result , str[2]=”abbc”, str[3]=”bcabbc” , str[4]=”abbcbcabbc” …………;</p>
-<p>As the string is too long ,Jim can’t write down all the strings in paper. So he just want to know how many times each letter appears in Kth Fibonacci String . Can you help him ?</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains a integer N which indicates the number of test cases.<br>Then N cases follow.<br>In each case,there are two strings str[0], str[1] and a integer K (0 &lt;= K &lt; 50) which are separated by a blank.<br>The string in the input will only contains less than 30 low-case letters.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each case,you should count how many times each letter appears in the Kth Fibonacci String and print out them in the format “X:N”.<br>If you still have some questions, look the sample output carefully.<br>Please output a blank line after each test case.</p>
-<p>To make the problem easier, you can assume the result will in the range of int.</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">ab bc 3</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">a:1</span><br><span class="line">b:3</span><br><span class="line">c:2</span><br><span class="line">d:0</span><br><span class="line">e:0</span><br><span class="line">f:0</span><br><span class="line">g:0</span><br><span class="line">h:0</span><br><span class="line">i:0</span><br><span class="line">j:0</span><br><span class="line">k:0</span><br><span class="line">l:0</span><br><span class="line">m:0</span><br><span class="line">n:0</span><br><span class="line">o:0</span><br><span class="line">p:0</span><br><span class="line">q:0</span><br><span class="line">r:0</span><br><span class="line">s:0</span><br><span class="line">t:0</span><br><span class="line">u:0</span><br><span class="line">v:0</span><br><span class="line">w:0</span><br><span class="line">x:0</span><br><span class="line">y:0</span><br><span class="line">z:0</span><br></pre></td></tr></table></figure>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>This problem has a regular pattern. Let me show you.</p>
-<p>Assume that $str[0] = 0 \space str[1] = 1$ .</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">occurrence times</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">01</td>
-<td style="text-align:center">101</td>
-<td style="text-align:center">01101</td>
-<td style="text-align:center">10101101</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>From the table above, we can see that for $K-th$ Fibonacci String, the occurrence times of the first basic string is $Fibonacci[K - 1]$ . And the occurrence times of the second basic string is $Fibonacci[K]$. (Fibonacci started from 0);</p>
-<p>So for the $K-th$ Fibonacci String, all the letters occurrence times is the number of occurrences in the first basic string times $Fibonacci[K - 1]$ + the number of occurrences in the second basic string times $Fibonacci[K]$ .</p>
-<p>And remember there is a blank line after each test case.</p>
-<p>And if you are using map, don’t forget to clear it before using it.</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; as;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; bs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fib</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; <span class="number">52</span>; i ++) &#123;</span><br><span class="line">		f[i] = f[i - <span class="number">1</span>] + f[i - <span class="number">2</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	fib();</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t --) &#123;</span><br><span class="line">		as.clear(); bs.clear();</span><br><span class="line">		<span class="built_in">string</span> a, b;</span><br><span class="line">		<span class="keyword">int</span> n;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length(); i ++) &#123;</span><br><span class="line">			as[a[i]] ++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.length(); i ++) &#123;</span><br><span class="line">			bs[b[i]] ++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">char</span> i = <span class="string">'a'</span>; i &lt;= <span class="string">'z'</span>; i ++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">":"</span> &lt;&lt; as[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">":"</span> &lt;&lt; as[i] * f[n - <span class="number">1</span>] + bs[i] * f[n] &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><center><a href="https://codeforces.com/contest/1293/problem/A" target="_blank" rel="noopener"></a><font size="5">A. ConneR and the A.R.C. Markland-N</font></center></p>
+<p><center><font size="2">time limit per test: 1 second</font></center></p>
+<p><center><font size="2">memory limit per test: 256 megabytes</font></center></p>
+<p><center><font size="2">input: standard input</font></center></p>
+<p><center><font size="2">output: standard output</font></center><br><a id="more"></a></p>
+<p><a href="https://www.youtube.com/watch?v=55Ca6av1kAY" target="_blank" rel="noopener"><em>Sakuzyo - Imprinting</em></a></p>
+<p>A.R.C. Markland-N is a tall building with $n$ floors numbered from 1 to $n$. Between each two adjacent floors in the building, there is a staircase connecting them.</p>
+<p>It’s lunchtime for our sensei Colin “ConneR” Neumann Jr, and he’s planning for a location to enjoy his meal.</p>
+<p>ConneR’s office is at floor $s$ of the building. On each floor (including floor $s$, of course), there is a restaurant offering meals. However, due to renovations being in progress, $k$ of the restaurants are currently closed, and as a result, ConneR can’t enjoy his lunch there.</p>
+<p>CooneR wants to reach a restaurant as quickly as possible to save time. What is the minimum number of staircases he needs to walk to reach a closest currently open restaurant.</p>
+<p>Please answer him quickly, and you might earn his praise and even enjoy the lunch with him in the elegant Neumanns’ way!</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains one integer $t (1≤t≤1000)$ — the number of test cases in the test. Then the descriptions of $t$ test cases follow.</p>
+<p>The first line of a test case contains three integers $n, s$ and $k (2≤n≤10^9, 1≤s≤n, 1≤k≤min(n−1,1000))$ — respectively the number of floors of A.R.C. Markland-N, the floor where ConneR is in, and the number of closed restaurants.</p>
+<p>The second line of a test case contains kk distinct integers $a_1,a_2,…,a_k (1≤a_i≤n)$ — the floor numbers of the currently closed restaurants.</p>
+<p>It is guaranteed that the sum of kk over all test cases does not exceed 1000.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case print a single integer — the minimum number of staircases required for ConneR to walk from the floor $s$ to a floor with an open restaurant.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">5 2 3</span><br><span class="line">1 2 3</span><br><span class="line">4 3 3</span><br><span class="line">4 1 2</span><br><span class="line">10 2 6</span><br><span class="line">1 2 3 4 5 7</span><br><span class="line">2 1 1</span><br><span class="line">2</span><br><span class="line">100 76 8</span><br><span class="line">76 75 36 67 41 74 10 77</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">0</span><br><span class="line">4</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>In the first example test case, the nearest floor with an open restaurant would be the floor 4.</p>
+<p>In the second example test case, the floor with ConneR’s office still has an open restaurant, so Sensei won’t have to go anywhere.</p>
+<p>In the third example test case, the closest open restaurant is on the 6-th floor.</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Just check the floor from the initial floor to the bottom or to the top. </p>
+<p>At first I use array to store the closed restaurant. However, I got Runtime Error. I don’t know why so I changed to map and it passed.</p>
+<p>I use 0 to represents not closed and 1 for closed status.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">    	<span class="built_in">map</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">int</span>&gt; arr;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> n, s, k;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; s &gt;&gt; k;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> countup = <span class="number">0</span>, countdown = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">0</span>; i &lt; k; i ++) &#123;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> a;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">            arr[a] ++; <span class="comment">// if it's closed, it's status is 1</span></span><br><span class="line">        &#125;</span><br><span class="line">        arr[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> temp = s;</span><br><span class="line">        <span class="keyword">while</span> (arr[temp]) &#123;</span><br><span class="line">            countdown ++;</span><br><span class="line">            temp ++;</span><br><span class="line">            <span class="keyword">if</span>(temp &gt; n) &#123;</span><br><span class="line">                countdown = <span class="number">20000000000</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = s;</span><br><span class="line">        <span class="keyword">while</span> (arr[temp]) &#123;</span><br><span class="line">            countup ++;</span><br><span class="line">            temp --;</span><br><span class="line">            <span class="keyword">if</span>(temp &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                countup = <span class="number">20000000000</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        cout &lt;&lt; "Down: " &lt;&lt; countdown &lt;&lt; " Up: " &lt;&lt; countup &lt;&lt; endl;</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; min(countdown,countup) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -417,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/12/20/HDU-1708 Fibonacci-String/">HDU-1708 Fibonacci String</a></p>
+        <p><span>Title:</span><a href="/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/">CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-12-20, 10:17:22</p>
-        <p><span>Updated:</span>2019-12-20, 10:36:25</p>
+        <p><span>Created:</span>2020-01-19, 15:33:35</p>
+        <p><span>Updated:</span>2020-01-19, 16:16:15</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/12/20/HDU-1708 Fibonacci-String/" title="HDU-1708 Fibonacci String">http://dyingdown.github.io/2019/12/20/HDU-1708 Fibonacci-String/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/12/20/HDU-1708 Fibonacci-String/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/" title="CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N">http://dyingdown.github.io/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -436,15 +399,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/12/20/HDU-2033 Clock-time-A+B/">
-                    HDU-2033 Clock time A+B
+                <a href="/2020/01/19/CodeForces-1293B-JOE-is-on-TV!/">
+                    CodeForces-1293B-JOE-is-on-TV!
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/12/19/HDU-2096 XiaoMing A+B/">
-                    HDU-2096 XiaoMing A+B
+                <a href="/2020/01/16/Sorts/">
+                    Sorts
                 </a>
             </div>
         
@@ -484,7 +447,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fibonacci-String"><span class="toc-number">1.</span> <span class="toc-text">Fibonacci String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.0.3.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.0.4.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number">2.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.</span> <span class="toc-text">Example</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">3.1.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output"><span class="toc-number">3.2.</span> <span class="toc-text">output</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Note"><span class="toc-number">4.</span> <span class="toc-text">Note</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number"></span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number"></span> <span class="toc-text">Code</span></a>
         
     </div>
     <style>
@@ -520,7 +483,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDU-1708 Fibonacci String　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -539,8 +502,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/12/20/HDU-1708 Fibonacci-String/';
-            this.page.identifier = '2019/12/20/HDU-1708 Fibonacci-String/';
+            this.page.url = 'http://dyingdown.github.io/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/';
+            this.page.identifier = '2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -587,7 +550,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/12/20/HDU-2033 Clock-time-A+B/" title="Pre: HDU-2033 Clock time A+B">
+            <a href="/2020/01/19/CodeForces-1293B-JOE-is-on-TV!/" title="Pre: CodeForces-1293B-JOE-is-on-TV!">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -595,7 +558,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/12/19/HDU-2096 XiaoMing A+B/" title="Next: HDU-2096 XiaoMing A+B">
+            <a href="/2020/01/16/Sorts/" title="Next: Sorts">
                 <i class="fa fa-angle-right"></i>
             </a>
         
