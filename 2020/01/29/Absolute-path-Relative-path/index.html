@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
-<meta name="keywords" content="Problem,HDU">
+<meta name="description" content="Do some free learning.">
+<meta name="keywords" content="Computer Science">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Big N!">
-<meta property="og:url" content="http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/index.html">
+<meta property="og:title" content="Absolute path and Relative path">
+<meta property="og:url" content="http://dyingdown.github.io/2020/01/29/Absolute-path-Relative-path/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
+<meta property="og:description" content="Do some free learning.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-20T02:45:05.742Z">
+<meta property="og:updated_time" content="2020-01-29T09:42:50.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Big N!">
-<meta name="twitter:description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
+<meta name="twitter:title" content="Absolute path and Relative path">
+<meta name="twitter:description" content="Do some free learning.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Big N! | o_oyao Blog</title>
+<title>Absolute path and Relative path | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDU-1042_Big-factorial-of-n" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Absolute-path-Relative-path" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/17/HDU-1042_Big-factorial-of-n/" class="article-date">
-      <time datetime="2019-09-17T06:20:34.000Z" itemprop="datePublished">2019-09-17</time>
+      <a href="/2020/01/29/Absolute-path-Relative-path/" class="article-date">
+      <time datetime="2020-01-29T09:41:46.000Z" itemprop="datePublished">2020-01-29</time>
 </a>
 
 
@@ -322,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Big N!
+      Absolute path and Relative path
     </h1>
   
 
@@ -330,16 +330,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -347,16 +339,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.</p>
-<a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1000010</span></span><br><span class="line"><span class="keyword">int</span> arr[INF]; <span class="comment">// store each digit</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"1"</span>; <span class="comment">// the factorial of 0 is 1;</span></span><br><span class="line">	fill(arr, arr + INF, <span class="number">0</span>); <span class="comment">// initial the array with 0</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>, m = n; <span class="comment">// count is length of digits</span></span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		a[++ count] = m % <span class="number">10</span>; <span class="comment">// calculate each digit</span></span><br><span class="line">		m /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i --)&#123; <span class="comment">// starts the factorial calculation</span></span><br><span class="line">		<span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= count; j ++)&#123;</span><br><span class="line">			arr[j] = arr[j] * i + t;</span><br><span class="line">			t = arr[j] / <span class="number">10</span>;</span><br><span class="line">			arr[j] %= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(t)&#123;</span><br><span class="line">			arr[++ count] = t % <span class="number">10</span>;</span><br><span class="line">			t /= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!arr[count]) count --;</span><br><span class="line">	<span class="keyword">while</span>(count &gt;= <span class="number">1</span>) ans += arr[count --] + <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="N-HDU-1042"><a href="#N-HDU-1042" class="headerlink" title="N! (HDU 1042)"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1042" target="_blank" rel="noopener">N! (HDU 1042)</a></h3><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Given an integer N(0 ≤ N ≤ 10000), your task is to calculate N!</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>One N in one line, process to the end of file.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each N, output N! in one line.</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
-<h3 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> L = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[L];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"1"</span>;</span><br><span class="line">	fill(a, a + L, <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> s = <span class="number">0</span>, m = n;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		a[++ s] = m % <span class="number">10</span>;</span><br><span class="line">		m /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i --)&#123;</span><br><span class="line">		<span class="keyword">int</span> w = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= s; j ++)&#123;</span><br><span class="line">			a[j] = a[j] * i + w;</span><br><span class="line">			w = a[j] / <span class="number">10</span>;</span><br><span class="line">			a[j] %= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(w)&#123;</span><br><span class="line">			a[++ s] = w % <span class="number">10</span>;</span><br><span class="line">			w /= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!a[s]) s --;</span><br><span class="line">	<span class="keyword">while</span>(s &gt;= <span class="number">1</span>) ans += a[s --] + <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; fac(n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
       
     </div>
     
@@ -364,13 +347,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/09/17/HDU-1042_Big-factorial-of-n/">Big N!</a></p>
+        <p><span>Title:</span><a href="/2020/01/29/Absolute-path-Relative-path/">Absolute path and Relative path</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-09-17, 14:20:34</p>
-        <p><span>Updated:</span>2019-10-20, 10:45:05</p>
+        <p><span>Created:</span>2020-01-29, 17:41:46</p>
+        <p><span>Updated:</span>2020-01-29, 17:42:50</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/09/17/HDU-1042_Big-factorial-of-n/" title="Big N!">http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/01/29/Absolute-path-Relative-path/" title="Absolute path and Relative path">http://dyingdown.github.io/2020/01/29/Absolute-path-Relative-path/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/29/Absolute-path-Relative-path/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -382,16 +365,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/">
-                    Voronoi Diagram Returns
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/15/HDU-1002_String-A+B/">
-                    Big number A+B
+                <a href="/2020/01/29/Mount-mechanical-hard-disk-on-Linux/">
+                    How to mount mechanical hard disk on Linux
                 </a>
             </div>
         
@@ -431,7 +408,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#N-HDU-1042"><span class="toc-number">1.</span> <span class="toc-text">N! (HDU 1042)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">3.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">4.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">5.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">6.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC-Code"><span class="toc-number">7.</span> <span class="toc-text">AC Code</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -467,7 +444,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Big N!　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Absolute path and Relative path　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -486,8 +463,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/';
-            this.page.identifier = '2019/09/17/HDU-1042_Big-factorial-of-n/';
+            this.page.url = 'http://dyingdown.github.io/2020/01/29/Absolute-path-Relative-path/';
+            this.page.identifier = '2020/01/29/Absolute-path-Relative-path/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -534,15 +511,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/" title="Pre: Voronoi Diagram Returns">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/15/HDU-1002_String-A+B/" title="Next: Big number A+B">
+            <a href="/2020/01/29/Mount-mechanical-hard-disk-on-Linux/" title="Next: How to mount mechanical hard disk on Linux">
                 <i class="fa fa-angle-right"></i>
             </a>
         
