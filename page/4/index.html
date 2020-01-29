@@ -210,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li></ul>
                     </div>
                 </section>
                 
@@ -308,6 +308,91 @@
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-HDU-1056 HangOver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/15/HDU-1056 HangOver/" class="article-date">
+      <time datetime="2019-12-15T11:51:22.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+
+ 
+    <a href="/2019/12/15/HDU-1056 HangOver/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/15/HDU-1056 HangOver/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/HDU-1056 HangOver/">HDU-1056 HangOver</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="HangOver"><a href="#HangOver" class="headerlink" title="HangOver"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1056" target="_blank" rel="noopener">HangOver</a></h1><p>How far can you make a stack of cards overhang a table? If you have one card, you can create a maximum overhang of half a card length. (We’re assuming that the cards must be perpendicular to the table.) With two cards you can make the top card overhang the bottom one by half a card length, and the bottom one overhang the table by a third of a card length, for a total maximum overhang of 1/2 + 1/3 = 5/6 card lengths. In general you can make n cards overhang by 1/2 + 1/3 + 1/4 + … + 1/(n + 1) card lengths, where the top card overhangs the second by 1/2, the second overhangs tha third by 1/3, the third overhangs the fourth by 1/4, etc., and the bottom card overhangs the table by 1/(n + 1). This is illustrated in the figure below.</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/12/15/HDU-1056 HangOver/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-HDU-1048 The-Hardest-Problem-Ever" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1051,93 +1136,6 @@
       
         <p class="article-more-link">
           <a href="/2019/11/24/CodeForces-1180B-Nick-and-Array/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeForces-1180A-Alex-and-a-Rhombus" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/" class="article-date">
-      <time datetime="2019-11-24T09:55:47.000Z" itemprop="datePublished">2019-11-24</time>
-</a>
-
- 
-    <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/">CodeForces-1180A Alex and a Rhombus</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Alex-and-a-Rhombus"><a href="#Alex-and-a-Rhombus" class="headerlink" title="Alex and a Rhombus"></a><a href="https://codeforces.com/problemset/problem/1180/A" target="_blank" rel="noopener">Alex and a Rhombus</a></h1><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>While playing with geometric figures Alex has accidentally invented a concept of a n-th order rhombus in a cell grid.</p>
-<p>A 1-st order rhombus is just a square 1×1 (i.e just a cell).</p>
-<p>A n-th order rhombus for all n≥2n≥2 one obtains from a n−1n−1-th order rhombus adding all cells which have a common side with it to it (look at the picture to understand it better).</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
