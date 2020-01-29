@@ -309,6 +309,105 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-CodeForces-1295A-Display-The-Number" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/01/30/CodeForces-1295A-Display-The-Number/" class="article-date">
+      <time datetime="2020-01-29T17:34:56.000Z" itemprop="datePublished">2020-01-30</time>
+</a>
+
+ 
+    <a href="/2020/01/30/CodeForces-1295A-Display-The-Number/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2020/01/30/CodeForces-1295A-Display-The-Number/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/30/CodeForces-1295A-Display-The-Number/">CodeForces 1295 A Display The Number</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><center><font size="5"><a href="https://codeforces.com/contest/1295/problem/A" target="_blank" rel="noopener"></a>A. Display The Number</font></center></p>
+<p><center><font size="2">time limit per test: 1 second</font></center></p>
+<p><center><font size="2">memory limit per test: 256 megabytes</font></center></p>
+<p><center><font size="2">input: standard input</font></center></p>
+<p><center><font size="2">output:standard output</font></center><br>You have a large electronic screen which can display up to $998244353$ decimal digits. The digits are displayed in the same way as on different electronic alarm clocks: each place for a digit consists of $7$ segments which can be turned on and off to compose different digits. The following picture describes how you can display all $10$ decimal digits:</p>
+<p><img src="https://espresso.codeforces.com/39cedf07ce9ef18d7ec074f319640a9857b9f8cb.png" alt="img"></p>
+<p>As you can see, different digits may require different number of segments to be turned on. For example, if you want to display $1$, you have to turn on $2$ segments of the screen, and if you want to display $8$, all $7$ segments of some place to display a digit should be turned on.</p>
+<p>You want to display a really large integer on the screen. Unfortunately, the screen is bugged: no more than $n$ segments can be turned on simultaneously. So now you wonder what is the greatest integer that can be displayed by turning on no more than $n$ segments.</p>
+<p>Your program should be able to process $t$ different test cases.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains one integer $t (1≤t≤100)$ — the number of test cases in the input.</p>
+<p>Then the test cases follow, each of them is represented by a separate line containing one integer $n (2≤n≤105)$ — the maximum number of segments that can be turned on in the corresponding testcase.</p>
+<p>It is guaranteed that the sum of $n$ over all test cases in the input does not exceed $105$.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, print the greatest integer that can be displayed by turning on no more than $n$ segments of the screen. Note that the answer may not fit in the standard $32$-bit or $64$-bit integral data type.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">11</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>The more number it can lighten, the longer digits it can have. So,</p>
+<p>$1$ uses the less segments. </p>
+<p>We make $1$ as many as possible. If there are still segments left that can’t make a complete $1$, we break up one $1$ and let it form $7$ with the rest.(the rest could only be 1 or 0 because $1$ uses two segments)</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">int</span> digits1 = n / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="number">7</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; digits1; i ++) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; digits1; i ++) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux-Blog" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1091,95 +1190,6 @@
       
         <p class="article-more-link">
           <a href="/2020/01/15/CodeForces-1288A-Deadline/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mathematical-Statistics-Concepts" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/01/15/Mathematical-Statistics-Concepts/" class="article-date">
-      <time datetime="2020-01-15T01:35:45.000Z" itemprop="datePublished">2020-01-15</time>
-</a>
-
- 
-    <a href="/2020/01/15/Mathematical-Statistics-Concepts/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2020/01/15/Mathematical-Statistics-Concepts/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/15/Mathematical-Statistics-Concepts/">Mathematical Statistics Concepts</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>第六章 数理统计的基本概念</p>
-<p>一、随机样本</p>
-<p>   （1）总体与个体</p>
-<p>​         a. 一批灯泡的全体组成一个总体，其中每一个灯泡都是一个个体。</p>
-<p>​        b. 一个随机变量X或其相应的分布函数$F(x)$成为一个总体。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Probability-and-Statistics/">Probability and Statistics</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2020/01/15/Mathematical-Statistics-Concepts/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
