@@ -23,10 +23,13 @@
 <meta property="og:site_name" content="o_oyao Blog">
 <meta property="og:description" content="While using windows, I have already had a blog and using hexo system. And my blog is on my mechanical hard disk. I want it to be accessible while using Linux. There are two steps to make it.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-29T13:56:04.334Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mPnQBV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mPnVhQ.png">
+<meta property="og:updated_time" content="2020-01-29T18:10:22.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Make previous windows blog available on Linux">
 <meta name="twitter:description" content="While using windows, I have already had a blog and using hexo system. And my blog is on my mechanical hard disk. I want it to be accessible while using Linux. There are two steps to make it.">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/08/13/mPnQBV.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -356,6 +359,19 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay npm</span><br></pre></td></tr></table></figure>
 <p>And then for each hexo command, you add npx at before. For example:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm hexo d</span><br></pre></td></tr></table></figure>
+<p>You also need to add new ssh key to your repository.</p>
+<p>Type the following command.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"the email address of GitHub"</span></span><br></pre></td></tr></table></figure>
+<p>After some Enter, you get the message:</p>
+<blockquote>
+<p>Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.</p>
+</blockquote>
+<p>Find the file and open it, copy all the content in it and past it in <a href="http://github.com/settings/ssh" target="_blank" rel="noopener">http://github.com/settings/ssh</a>.</p>
+<p>you can use gedit to open it</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2019/08/13/mPnQBV.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/08/13/mPnVhQ.png" alt></p>
+<p>Title is arbitrary.</p>
 <p>All done.</p>
 
       
@@ -368,7 +384,7 @@
         <p><span>Title:</span><a href="/2020/01/29/Linux-Blog/">Make previous windows blog available on Linux</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
         <p><span>Created:</span>2020-01-29, 21:40:46</p>
-        <p><span>Updated:</span>2020-01-29, 21:56:04</p>
+        <p><span>Updated:</span>2020-01-30, 02:10:22</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/01/29/Linux-Blog/" title="Make previous windows blog available on Linux">http://dyingdown.github.io/2020/01/29/Linux-Blog/</a>
             <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/29/Linux-Blog/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
