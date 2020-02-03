@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
-<meta name="keywords" content="Problem,HDU">
+<meta name="description" content="Just because I want to solve a problem while setting  my gitee(It needs to input user name and password every time I deploy my Blog), a friend let me study git first so that I can understand what the">
+<meta name="keywords" content="Knowledge points">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Big N!">
-<meta property="og:url" content="http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/index.html">
+<meta property="og:title" content="Git Commands">
+<meta property="og:url" content="http://dyingdown.github.io/2020/01/30/Git-Commands/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
+<meta property="og:description" content="Just because I want to solve a problem while setting  my gitee(It needs to input user name and password every time I deploy my Blog), a friend let me study git first so that I can understand what the">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-20T02:45:05.742Z">
+<meta property="og:updated_time" content="2020-02-03T16:40:45.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Big N!">
-<meta name="twitter:description" content="Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.">
+<meta name="twitter:title" content="Git Commands">
+<meta name="twitter:description" content="Just because I want to solve a problem while setting  my gitee(It needs to input user name and password every time I deploy my Blog), a friend let me study git first so that I can understand what the">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Big N! | o_oyao Blog</title>
+<title>Git Commands | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDU-1042_Big-factorial-of-n" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Git-Commands" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/17/HDU-1042_Big-factorial-of-n/" class="article-date">
-      <time datetime="2019-09-17T06:20:34.000Z" itemprop="datePublished">2019-09-17</time>
+      <a href="/2020/01/30/Git-Commands/" class="article-date">
+      <time datetime="2020-01-30T10:25:39.000Z" itemprop="datePublished">2020-01-30</time>
 </a>
 
 
@@ -322,7 +322,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Big N!
+      Git Commands
     </h1>
   
 
@@ -331,13 +331,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    <a class="article-category-link" href="/categories/Git/">Git</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -347,15 +347,123 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.</p>
+        <p>Just because I want to solve a problem while setting  my gitee(It needs to input user name and password every time I deploy my Blog), a friend let me study git first so that I can understand what the bug is telling about!!!! (not for solving the problem, I learn it just for understanding the alert ㅍ_ㅍ……) Life is so hard……</p>
+<p>I’ll just record some commonly used commands.</p>
 <a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1000010</span></span><br><span class="line"><span class="keyword">int</span> arr[INF]; <span class="comment">// store each digit</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"1"</span>; <span class="comment">// the factorial of 0 is 1;</span></span><br><span class="line">	fill(arr, arr + INF, <span class="number">0</span>); <span class="comment">// initial the array with 0</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>, m = n; <span class="comment">// count is length of digits</span></span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		a[++ count] = m % <span class="number">10</span>; <span class="comment">// calculate each digit</span></span><br><span class="line">		m /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i --)&#123; <span class="comment">// starts the factorial calculation</span></span><br><span class="line">		<span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= count; j ++)&#123;</span><br><span class="line">			arr[j] = arr[j] * i + t;</span><br><span class="line">			t = arr[j] / <span class="number">10</span>;</span><br><span class="line">			arr[j] %= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(t)&#123;</span><br><span class="line">			arr[++ count] = t % <span class="number">10</span>;</span><br><span class="line">			t /= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!arr[count]) count --;</span><br><span class="line">	<span class="keyword">while</span>(count &gt;= <span class="number">1</span>) ans += arr[count --] + <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="N-HDU-1042"><a href="#N-HDU-1042" class="headerlink" title="N! (HDU 1042)"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1042" target="_blank" rel="noopener">N! (HDU 1042)</a></h3><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Given an integer N(0 ≤ N ≤ 10000), your task is to calculate N!</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>One N in one line, process to the end of file.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each N, output N! in one line.</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
-<h3 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> L = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[L];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"1"</span>;</span><br><span class="line">	fill(a, a + L, <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> s = <span class="number">0</span>, m = n;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		a[++ s] = m % <span class="number">10</span>;</span><br><span class="line">		m /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">2</span>; i --)&#123;</span><br><span class="line">		<span class="keyword">int</span> w = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= s; j ++)&#123;</span><br><span class="line">			a[j] = a[j] * i + w;</span><br><span class="line">			w = a[j] / <span class="number">10</span>;</span><br><span class="line">			a[j] %= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(w)&#123;</span><br><span class="line">			a[++ s] = w % <span class="number">10</span>;</span><br><span class="line">			w /= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!a[s]) s --;</span><br><span class="line">	<span class="keyword">while</span>(s &gt;= <span class="number">1</span>) ans += a[s --] + <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; fac(n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p><strong>Git</strong> (<a href="https://en.wikipedia.org/wiki/Help:IPA/English" target="_blank" rel="noopener">/ɡɪt/</a>)<a href="https://en.wikipedia.org/wiki/Git#cite_note-:0-7" target="_blank" rel="noopener">[7]</a> is a <a href="https://en.wikipedia.org/wiki/Distributed_version_control" target="_blank" rel="noopener">distributed version-control</a> system for tracking changes in <a href="https://en.wikipedia.org/wiki/Source_code" target="_blank" rel="noopener">source code</a> during <a href="https://en.wikipedia.org/wiki/Software_development" target="_blank" rel="noopener">software development</a>.<a href="https://en.wikipedia.org/wiki/Git#cite_note-effcomp-8" target="_blank" rel="noopener">[8]</a> It is designed for coordinating work among <a href="https://en.wikipedia.org/wiki/Programmer" target="_blank" rel="noopener">programmers</a>, but it can be used to track changes in any set of <a href="https://en.wikipedia.org/wiki/Computer_file" target="_blank" rel="noopener">files</a>. Its goals include speed,<a href="https://en.wikipedia.org/wiki/Git#cite_note-kernel_SCM_saga-9" target="_blank" rel="noopener">[9]</a> <a href="https://en.wikipedia.org/wiki/Data_integrity" target="_blank" rel="noopener">data integrity</a>,<a href="https://en.wikipedia.org/wiki/Git#cite_note-integrity_goals-10" target="_blank" rel="noopener">[10]</a> and support for distributed, non-linear workflows.<a href="https://en.wikipedia.org/wiki/Git#cite_note-linusGoogleTalk-11" target="_blank" rel="noopener">[11]</a></p>
+<p>Git was created by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds" target="_blank" rel="noopener">Linus Torvalds</a> in 2005 for development of the <a href="https://en.wikipedia.org/wiki/Linux_kernel" target="_blank" rel="noopener">Linux kernel</a>, with other kernel developers contributing to its initial development.<a href="https://en.wikipedia.org/wiki/Git#cite_note-pro-git-1.2-12" target="_blank" rel="noopener">[12]</a> Its current maintainer since 2005 is Junio Hamano. As with most other distributed version-control systems, and unlike most <a href="https://en.wikipedia.org/wiki/Client–server" target="_blank" rel="noopener">client–server</a> systems, every Git <a href="https://en.wikipedia.org/wiki/Directory_(computing" target="_blank" rel="noopener">directory</a>) on every <a href="https://en.wikipedia.org/wiki/Node_(networking" target="_blank" rel="noopener">computer</a>) is a full-fledged <a href="https://en.wikipedia.org/wiki/Repository_(version_control" target="_blank" rel="noopener">repository</a>) with complete history and full version-tracking abilities, independent of network access or a central server.<a href="https://en.wikipedia.org/wiki/Git#cite_note-13" target="_blank" rel="noopener">[13]</a> Git is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank" rel="noopener">free and open-source software</a> distributed under the terms of the <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License" target="_blank" rel="noopener">GNU General Public License</a> version 2.  ——Wikipedia</p>
+</blockquote>
+<h2 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h2><p>Type ==git== to test whether you have installed git or not.</p>
+<p>If not, type </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ sudo pacman -S git</span><br></pre></td></tr></table></figure>
+<h2 id="Create-a-repository"><a href="#Create-a-repository" class="headerlink" title="Create a repository"></a>Create a repository</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">→ mkdir -p Yao/Study/Git/Learn_git</span><br><span class="line">→ cd Yao/Study/Git/Learn_git</span><br><span class="line">→ pwd</span><br><span class="line">/home/o_oyao/Yao/Study/Git/Learn_git</span><br></pre></td></tr></table></figure>
+<p>Initial the directory into Git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git init</span><br></pre></td></tr></table></figure>
+<p>Check hidden directory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ ls -ah</span><br></pre></td></tr></table></figure>
+<p>Add a file to to the Git repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git add filename</span><br><span class="line">→ git add filename1 filename2</span><br></pre></td></tr></table></figure>
+<p>Submit the file to repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git commit -m &quot;I submitted a new file&quot;</span><br></pre></td></tr></table></figure>
+<p>(==-m== parameter tell the git your description)</p>
+<h1 id="Status-and-Version"><a href="#Status-and-Version" class="headerlink" title="Status and Version"></a>Status and Version</h1><h2 id="Status"><a href="#Status" class="headerlink" title="Status"></a>Status</h2><p>Check the current status of the repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git status</span><br></pre></td></tr></table></figure>
+<p>Check what has been changed and added but not been submitted</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git diff</span><br></pre></td></tr></table></figure>
+<p>Check what has been added but not submitted</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git diff --cached</span><br></pre></td></tr></table></figure>
+<p>Check the difference between working section and the newest edition in repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git diff HEAD -- filename</span><br></pre></td></tr></table></figure>
+<h2 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h2><p>Check the submit history</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git log</span><br></pre></td></tr></table></figure>
+<p>Display the brief information of each version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+<p>Check the graph of union of branch </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git log --graph</span><br></pre></td></tr></table></figure>
+<p>Back to previous version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git reset --hard HEAD^ </span><br><span class="line">→ git reset --hard HEAD~100</span><br></pre></td></tr></table></figure>
+<p>Back to a certain abandoned version(After you reset, you can’t see the version in git log)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+<p>(Don’t need to type in the full long commit id, you just need to type the first few word)</p>
+<p>See all your commands (Help you to find a abandoned version)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git reflog</span><br></pre></td></tr></table></figure>
+<h2 id="Revoke-changes"><a href="#Revoke-changes" class="headerlink" title="Revoke changes"></a>Revoke changes</h2><p>Abandon changes in working section</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git checkout -- filename</span><br></pre></td></tr></table></figure>
+<p>(There are two status: 1. the file has not been added yet, revoke it to the same as the repository. 2. the file has been added but changed  after added, revoke it to the storage cache.)</p>
+<p>Revoke changes in storage cache to working section</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git reset HEAD filename</span><br></pre></td></tr></table></figure>
+<h2 id="Delete-file"><a href="#Delete-file" class="headerlink" title="Delete file"></a>Delete file</h2><p>Delete a file in working section</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ rm filename</span><br></pre></td></tr></table></figure>
+<p>Delete a file in repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git rm filename</span><br></pre></td></tr></table></figure>
+<p>Revoke the delete</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git checkout -- deleted_filename</span><br></pre></td></tr></table></figure>
+<p>(If changes has not been submitted to repository, it can’t be revoked)</p>
+<h2 id="Remote-repository"><a href="#Remote-repository" class="headerlink" title="Remote repository"></a>Remote repository</h2><p>Create SSH Key with GitHub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ ssh-keygen -t rsa -C &quot;GitHub_email@xx.xx&quot;</span><br></pre></td></tr></table></figure>
+<p>Link your local repository to GitHub repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git remote add origin git@github.com:GitHub_name/GitHub_repository_name.git</span><br></pre></td></tr></table></figure>
+<p>Upload local repository to GitHub repository(For an empty repository on GitHub)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>Clone a local repository to Github repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git clone git@github.com:GitHub_name/GitHub_repository_name.git</span><br></pre></td></tr></table></figure>
+<h1 id="Branches"><a href="#Branches" class="headerlink" title="Branches"></a>Branches</h1><h2 id="Create-and-Merge"><a href="#Create-and-Merge" class="headerlink" title="Create and Merge"></a>Create and Merge</h2><p>Create and switched to the branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git checkout -b branch_name</span><br></pre></td></tr></table></figure>
+<p>Or using two commands</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git branch branch_name</span><br><span class="line">→ git checkout branch_name</span><br></pre></td></tr></table></figure>
+<p>New way of creating and switching branches</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git switch -c branch_name</span><br><span class="line">→ git switch master</span><br></pre></td></tr></table></figure>
+<p>Check the current branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git branch</span><br></pre></td></tr></table></figure>
+<p>Delete the branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git branch -d branch_name</span><br></pre></td></tr></table></figure>
+<p>Forcibly delete a branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git branch -D branch_name</span><br></pre></td></tr></table></figure>
+<h2 id="Branch-management"><a href="#Branch-management" class="headerlink" title="Branch management"></a>Branch management</h2><p>Not using ==Fast forward==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git merge --no-ff -m &quot;description&quot; branch_name</span><br></pre></td></tr></table></figure>
+<p>Hide recent work section</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git stash</span><br></pre></td></tr></table></figure>
+<p>Check hide branch repository </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git stash list</span><br></pre></td></tr></table></figure>
+<p>Restore the hidden branch repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git stash apply stash@&#123;xx&#125;</span><br><span class="line">→ git stash drop</span><br></pre></td></tr></table></figure>
+<p>(first restore and then delete)</p>
+<p>Or restoring and deleting at the same time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git stash list</span><br></pre></td></tr></table></figure>
+<p>Copy modified file from another branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git cherry-pick commit_id</span><br></pre></td></tr></table></figure>
+<h2 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h2><p>Check remote information</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git remote</span><br></pre></td></tr></table></figure>
+<p>For more detail</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git remote -v</span><br></pre></td></tr></table></figure>
+<p>Push branches</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git push origin branch_name</span><br></pre></td></tr></table></figure>
+<p>Get the newest commit from remote repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git pull</span><br></pre></td></tr></table></figure>
+<p>Let local branch connect with remote branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git branch --set-upstream-to=origin/branch_name branch_name</span><br></pre></td></tr></table></figure>
+<h2 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h2><p>Make your history commit graph a line</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git rebase</span><br></pre></td></tr></table></figure>
+<h1 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h1><h2 id="Create-a-tag"><a href="#Create-a-tag" class="headerlink" title="Create a tag"></a>Create a tag</h2><p>Create a tag for a version of repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">→ git tag tag_name</span><br><span class="line">→ git tag tag_name </span><br><span class="line">→ git tag tag_name -m &quot;description&quot;</span><br></pre></td></tr></table></figure>
+<p>Check for tags information</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git show tag_name</span><br></pre></td></tr></table></figure>
+<h2 id="Operate-tags"><a href="#Operate-tags" class="headerlink" title="Operate tags"></a>Operate tags</h2><p>Delete a tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git tag -d tag_name</span><br></pre></td></tr></table></figure>
+<p>Push the tag to remote repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git push origin tag_name</span><br><span class="line">→ git push origin --tags</span><br></pre></td></tr></table></figure>
+<p>Deleter a tag from remote repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ git tag -d tag_name</span><br><span class="line">→ git push origin :refs/tags/tag_name</span><br></pre></td></tr></table></figure>
+<h1 id="Custom-Git"><a href="#Custom-Git" class="headerlink" title="Custom Git"></a>Custom Git</h1><p>Let Git display with color</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git config --global color.ui true</span><br></pre></td></tr></table></figure>
+<p>File ==.gitignore== helps ignore deploying  special files</p>
+<h2 id="Ignore-specific-file"><a href="#Ignore-specific-file" class="headerlink" title="Ignore specific file"></a>Ignore specific file</h2><p>Forcibly add a file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git add -f file_name</span><br></pre></td></tr></table></figure>
+<p>Check ignore rules</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git check-ignore -v file_name</span><br></pre></td></tr></table></figure>
+<h2 id="Alias"><a href="#Alias" class="headerlink" title="Alias"></a>Alias</h2><p>Set a alias for long full name commands</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">→ git config --global alias.abbrev full_name</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,13 +472,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/09/17/HDU-1042_Big-factorial-of-n/">Big N!</a></p>
+        <p><span>Title:</span><a href="/2020/01/30/Git-Commands/">Git Commands</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-09-17, 14:20:34</p>
-        <p><span>Updated:</span>2019-10-20, 10:45:05</p>
+        <p><span>Created:</span>2020-01-30, 18:25:39</p>
+        <p><span>Updated:</span>2020-02-04, 00:40:45</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/09/17/HDU-1042_Big-factorial-of-n/" title="Big N!">http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/01/30/Git-Commands/" title="Git Commands">http://dyingdown.github.io/2020/01/30/Git-Commands/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/30/Git-Commands/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -382,16 +490,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/">
-                    Voronoi Diagram Returns
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/15/HDU-1002_String-A+B/">
-                    Big number A+B
+                <a href="/2020/01/30/CodeForces-1295A-Display-The-Number/">
+                    CodeForces 1295 A Display The Number
                 </a>
             </div>
         
@@ -431,7 +533,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#N-HDU-1042"><span class="toc-number">1.</span> <span class="toc-text">N! (HDU 1042)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">3.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">4.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">5.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">6.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC-Code"><span class="toc-number">7.</span> <span class="toc-text">AC Code</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Git"><span class="toc-number">1.1.</span> <span class="toc-text">Install Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-repository"><span class="toc-number">1.2.</span> <span class="toc-text">Create a repository</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Status-and-Version"><span class="toc-number">2.</span> <span class="toc-text">Status and Version</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Status"><span class="toc-number">2.1.</span> <span class="toc-text">Status</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Version"><span class="toc-number">2.2.</span> <span class="toc-text">Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Revoke-changes"><span class="toc-number">2.3.</span> <span class="toc-text">Revoke changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-file"><span class="toc-number">2.4.</span> <span class="toc-text">Delete file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote-repository"><span class="toc-number">2.5.</span> <span class="toc-text">Remote repository</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Branches"><span class="toc-number">3.</span> <span class="toc-text">Branches</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-and-Merge"><span class="toc-number">3.1.</span> <span class="toc-text">Create and Merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Branch-management"><span class="toc-number">3.2.</span> <span class="toc-text">Branch management</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote"><span class="toc-number">3.3.</span> <span class="toc-text">Remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rebase"><span class="toc-number">3.4.</span> <span class="toc-text">Rebase</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tags"><span class="toc-number">4.</span> <span class="toc-text">Tags</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-tag"><span class="toc-number">4.1.</span> <span class="toc-text">Create a tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operate-tags"><span class="toc-number">4.2.</span> <span class="toc-text">Operate tags</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Custom-Git"><span class="toc-number">5.</span> <span class="toc-text">Custom Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ignore-specific-file"><span class="toc-number">5.1.</span> <span class="toc-text">Ignore specific file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alias"><span class="toc-number">5.2.</span> <span class="toc-text">Alias</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -467,7 +569,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Big N!　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Git Commands　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -486,8 +588,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://dyingdown.github.io/2019/09/17/HDU-1042_Big-factorial-of-n/';
-            this.page.identifier = '2019/09/17/HDU-1042_Big-factorial-of-n/';
+            this.page.url = 'http://dyingdown.github.io/2020/01/30/Git-Commands/';
+            this.page.identifier = '2020/01/30/Git-Commands/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -534,15 +636,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/" title="Pre: Voronoi Diagram Returns">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/15/HDU-1002_String-A+B/" title="Next: Big number A+B">
+            <a href="/2020/01/30/CodeForces-1295A-Display-The-Number/" title="Next: CodeForces 1295 A Display The Number">
                 <i class="fa fa-angle-right"></i>
             </a>
         
