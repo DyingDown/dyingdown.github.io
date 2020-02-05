@@ -210,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForeces/">CodeForeces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li></ul>
                     </div>
                 </section>
                 
@@ -308,6 +308,261 @@
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-GYM_Voronoi-Diagram-Returns" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/" class="article-date">
+      <time datetime="2019-10-20T01:46:26.000Z" itemprop="datePublished">2019-10-20</time>
+</a>
+
+ 
+    <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/10/20/GYM_Voronoi-Diagram-Returns/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/GYM_Voronoi-Diagram-Returns/">Voronoi Diagram Returns</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h4 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a><a href="https://codeforces.com/gym/102058/problem/K" target="_blank" rel="noopener">Problem Description</a></h4><p>In the 2-dimensional Cartesian coordinate system, we define the Voronoi Diagram of a non-empty set of points SS, as a diagram that divides the plane by the criteria “which point in the set SS is closest in this location?”. More precisely, the Voronoi diagram of a given non-empty point set {P1,P2,⋯,Pn} {P1,P2,⋯,Pn} is a collection of regions: A point KK is included in region ii if and only if d(Pi,K)≤d(Pj,K)d(Pi,K)≤d(Pj,K) holds for all 1≤j≤n1≤j≤n, where d(X,Y)d(X,Y) denotes the Euclidean distance between point XX and YY.</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GYM/">GYM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/10/20/GYM_Voronoi-Diagram-Returns/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1042_Big-factorial-of-n" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/17/HDU-1042_Big-factorial-of-n/" class="article-date">
+      <time datetime="2019-09-17T06:20:34.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+
+ 
+    <a href="/2019/09/17/HDU-1042_Big-factorial-of-n/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/09/17/HDU-1042_Big-factorial-of-n/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/17/HDU-1042_Big-factorial-of-n/">Big N!</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Using C/C++ we can’t calculate very big number of prime factors. So we use string to store it.</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/09/17/HDU-1042_Big-factorial-of-n/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HDU-1002_String-A+B" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/15/HDU-1002_String-A+B/" class="article-date">
+      <time datetime="2019-09-15T05:32:24.000Z" itemprop="datePublished">2019-09-15</time>
+</a>
+
+ 
+    <a href="/2019/09/15/HDU-1002_String-A+B/#comments" title="Comments">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/09/15/HDU-1002_String-A+B/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/HDU-1002_String-A+B/">Big number A+B</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>The problem A+B is probably the easiest problem, however,  the maxim number C/C++ can calculate is between -9223372036854775808~9223372036854775807. The bigger number can’t be calculate unless you use Python or Java. So I’m going to introduce a way to calculate the big number of A+B.</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/09/15/HDU-1002_String-A+B/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-LaTex-Symbols" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -875,261 +1130,6 @@ c_1 \vec{v_1} + c_2 \vec{v_2} + \cdots + c_n \vec{v_n} \space [ (c_1 \rightarrow
       
         <p class="article-more-link">
           <a href="/2019/09/03/Vectors-and-space/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Model-representation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/03/Model-representation/" class="article-date">
-      <time datetime="2019-09-03T04:28:45.000Z" itemprop="datePublished">2019-09-03</time>
-</a>
-
- 
-    <a href="/2019/09/03/Model-representation/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/09/03/Model-representation/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/03/Model-representation/">Model representation</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>To describe supervised learning,we establish notation for future use.</p>
-<p><strong>$x^i$ </strong>denote the <strong>input</strong> variables also called input features</p>
-<p><strong>$y^i$</strong> denote the <strong>output</strong> variables also called target variables that we are trying to predict.</p>
-<p>A pair <strong>($x^i, y^i$) </strong>is called a training set.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/03/Model-representation/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-is-alphabet" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/02/is-alphabet/" class="article-date">
-      <time datetime="2019-09-02T15:45:41.000Z" itemprop="datePublished">2019-09-02</time>
-</a>
-
- 
-    <a href="/2019/09/02/is-alphabet/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/09/02/is-alphabet/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/is-alphabet/">Check for alphabet characters</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>A quick way to check whether the character a is a function is to use the function isalpha(a). If is lower case, return 1; If is upper case, return 2; If is not an alphabet, return 0; </p>
-<p>The header file of it is  &lt; iostream &gt;  or &lt; cctype &gt;.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C/">C++</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usage/">usage</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-LuoGu-P1533_number-reverse" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/09/02/LuoGu-P1533_number-reverse/" class="article-date">
-      <time datetime="2019-09-02T07:03:16.000Z" itemprop="datePublished">2019-09-02</time>
-</a>
-
- 
-    <a href="/2019/09/02/LuoGu-P1533_number-reverse/#comments" title="Comments">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/09/02/LuoGu-P1533_number-reverse/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/LuoGu-P1533_number-reverse/">P1533-number-reverse</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Number-reversion"><a href="#Number-reversion" class="headerlink" title="Number reversion"></a><a href="https://www.luogu.org/problem/P1553" target="_blank" rel="noopener">Number reversion</a></h3><p>Given a number, reverse the number on each digit of the number to get a new number. The difference between this time and the first question of the NOIp2011popularization group is: Given a number, reverse the number on each digit of the number to get a new number.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ACM/">ACM</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem/">Problem</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/09/02/LuoGu-P1533_number-reverse/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
