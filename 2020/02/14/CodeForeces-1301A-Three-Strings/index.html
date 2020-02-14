@@ -15,21 +15,18 @@
 
 
 
-<meta name="description" content="div.header {        line-height:50%    }                             C. Kafa and Park                               time limit per test: 2 seconds              memory limit per test: 256 megabytes">
+<meta name="description" content="div.header {        line-height:50%    }                             A. Three Strings                               time limit per test: 1 second              memory limit per test: 256 megabytes">
 <meta name="keywords" content="Problem,CodeForces">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForces-580C Kefa and Park">
-<meta property="og:url" content="http://dyingdown.github.io/2019/11/24/CodeForces-580C-Kefa-and-Park/index.html">
+<meta property="og:title" content="CodeForeces-1301 A Three Strings">
+<meta property="og:url" content="http://dyingdown.github.io/2020/02/14/CodeForeces-1301A-Three-Strings/index.html">
 <meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="div.header {        line-height:50%    }                             C. Kafa and Park                               time limit per test: 2 seconds              memory limit per test: 256 megabytes">
+<meta property="og:description" content="div.header {        line-height:50%    }                             A. Three Strings                               time limit per test: 1 second              memory limit per test: 256 megabytes">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuL2M4NTY1ZDAwNjNhMTExNzZhZTk5OWJmNjcxN2VjOTAz?x-oss-process=image/format,png">
-<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuL2IyMGMyOGFhODQxNDQzZGY2ZmI0NjQ0MmQyZGMxNWZj?x-oss-process=image/format,png">
-<meta property="og:updated_time" content="2020-02-05T12:00:02.571Z">
+<meta property="og:updated_time" content="2020-02-14T08:18:24.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CodeForces-580C Kefa and Park">
-<meta name="twitter:description" content="div.header {        line-height:50%    }                             C. Kafa and Park                               time limit per test: 2 seconds              memory limit per test: 256 megabytes">
-<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuL2M4NTY1ZDAwNjNhMTExNzZhZTk5OWJmNjcxN2VjOTAz?x-oss-process=image/format,png">
+<meta name="twitter:title" content="CodeForeces-1301 A Three Strings">
+<meta name="twitter:description" content="div.header {        line-height:50%    }                             A. Three Strings                               time limit per test: 1 second              memory limit per test: 256 megabytes">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -61,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>CodeForces-580C Kefa and Park | o_oyao Blog</title>
+<title>CodeForeces-1301 A Three Strings | o_oyao Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -306,11 +303,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-CodeForces-580C-Kefa-and-Park" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CodeForeces-1301A-Three-Strings" class="article article-type-post" itemscope itemprop="blogPost">
     
         <div class="article-meta">
-            <a href="/2019/11/24/CodeForces-580C-Kefa-and-Park/" class="article-date">
-      <time datetime="2019-11-24T09:53:22.000Z" itemprop="datePublished">2019-11-24</time>
+            <a href="/2020/02/14/CodeForeces-1301A-Three-Strings/" class="article-date">
+      <time datetime="2020-02-14T08:02:40.000Z" itemprop="datePublished">2020-02-14</time>
 </a>
 
 
@@ -325,7 +322,7 @@
                                 
   
     <h1 class="article-title" itemprop="name">
-      CodeForces-580C Kefa and Park
+      CodeForeces-1301 A Three Strings
     </h1>
   
 
@@ -355,10 +352,10 @@
 <div class="header">
     <center>
         <font size="5">
-            <a href="https://codeforces.com/contest/580/problem/C" target="_blank" rel="noopener">C. Kafa and Park</a><br>
+            <a href="https://codeforces.com/contest/1301/problem/A" target="_blank" rel="noopener">A. Three Strings</a><br>
         </font>
         <font size="2">
-            time limit per test: 2 seconds <br>
+            time limit per test: 1 second <br>
             memory limit per test: 256 megabytes<br>
             input: standard input<br>
             output:standard output<br>
@@ -367,28 +364,32 @@
 </div>
 
 <a id="more"></a>
-<p>Kefa decided to celebrate his first big salary by going to the restaurant.</p>
-<p>He lives by an unusual park. The park is a rooted tree consisting of <em>n</em> vertices with the root at vertex 1. Vertex 1 also contains Kefa’s house. Unfortunately for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.</p>
-<p>The leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than <em>m</em> consecutive vertices with cats.</p>
-<p>Your task is to help Kefa count the number of restaurants where he can go.</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains two integers, <em>n</em> and <em>m</em> ($2 ≤ n ≤ 105, 1 ≤ m ≤ n$) — the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still OK for Kefa.</p>
-<p>The second line contains <em>n</em> integers $a_1, a_2, \cdots, a_n$, where each $a_i$ either equals to 0 (then vertex ha $i$ s no cat), or equals to 1 (then vertex $i$ has a cat).</p>
-<p>Next <em>n</em> - 1 lines contains the edges of the tree in the format “$x_i \space y_i$” (without the quotes) (1 ≤ $x_i, y_i  ≤  n, x_i  ≠ y_i)$, where $x_i$ and $y_i$ are the vertices of the tree, connected by an edge.</p>
-<p>It is guaranteed that the given set of edges specifies a tree.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>A single integer — the number of distinct leaves of a tree the path to which from Kefa’s home contains at most <em>m</em> consecutive vertices with cats.</p>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 11 1 0 01 21 31 4</span><br></pre></td></tr></table></figure>
-<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7 11 0 1 1 0 0 01 21 32 42 53 63 7</span><br></pre></td></tr></table></figure>
-<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>Let us remind you that a tree is a connected graph on <em>n</em> vertices and <em>n</em> - 1 edge. A rooted tree is a tree with a special vertex called root. In a rooted tree among any two vertices connected by an edge, one vertex is a parent (the one closer to the root), and the other one is a child. A vertex is called a leaf, if it has no children.</p>
-<p>Note to the first sample test:</p>
-<p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuL2M4NTY1ZDAwNjNhMTExNzZhZTk5OWJmNjcxN2VjOTAz?x-oss-process=image/format,png" alt="img"> The vertices containing cats are marked red. The restaurants are at vertices 2, 3, 4. Kefa can’t go only to the restaurant located at vertex 2.</p>
-<p>Note to the second sample test: </p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly92ai56MTgwLmNuL2IyMGMyOGFhODQxNDQzZGY2ZmI0NjQ0MmQyZGMxNWZj?x-oss-process=image/format,png" alt="img"> The restaurants are located at vertices 4, 5, 6, 7. Kefa can’t go to restaurants 6, 7.</p>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>The algorithm of the problem is BFS or DFS. I use BFS.</p>
-<p>Traverse all the points by layer and count it’s alongside cats. Define an array to store how many consecutive cats that has appeared counted this one if it has. If this point has a cat,  the array’s value at this point is the previous point’s array value + 1. If this point has no cat, leave this point alone. However, if this point has no cat but in the previous points, the number of consecutive cat has reached m + 1 or more, then, the cats number is previous cats  number.</p>
-<p>Once there is a last-layer point, check if this road’s cat reached the not going condition. And add all the roads that not satisfying the condition.</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> cat[<span class="number">110000</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">110000</span>];</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">110000</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec[<span class="number">110000</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">	<span class="built_in">memset</span>(cnt, <span class="number">0</span>, <span class="keyword">sizeof</span>(cnt));</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	vis[x] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(cat[x] == <span class="number">1</span>) cnt[x] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">	que.push(x);</span><br><span class="line">	<span class="keyword">while</span>(!que.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> t = que.front();</span><br><span class="line">		que.pop();</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="keyword">if</span>(vec[t].size() == <span class="number">1</span> <span class="keyword">and</span> vis[vec[t][<span class="number">0</span>]] == <span class="number">1</span> <span class="keyword">and</span> cnt[t] &lt;= m) &#123;</span><br><span class="line">			ans ++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec[t].size(); i ++)&#123;</span><br><span class="line">				a = vec[t][i];</span><br><span class="line">				<span class="keyword">if</span>(vis[a] == <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span>(cat[a] == <span class="number">1</span>) &#123;</span><br><span class="line">						cnt[a] = cnt[t] + <span class="number">1</span>;</span><br><span class="line">					&#125; <span class="keyword">else</span> <span class="keyword">if</span>(cnt[t] &gt; m) &#123;</span><br><span class="line">						cnt[a] = cnt[t];</span><br><span class="line">					&#125;</span><br><span class="line">					que.push(a);</span><br><span class="line">					vis[a] = <span class="number">1</span>;</span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t, x, y;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; cat[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i ++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">		vec[x].push_back(y);</span><br><span class="line">		vec[y].push_back(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> answer = bfs(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; answer &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You are given three strings $a$, $b$ and $c$ of the same length $n$. The strings consist of lowercase English letters only. The $i-th$ letter of $a$ is $a_i$, the $i-th$ letter of $b$ is $b_i$, the $i-th$ letter of $c$ is $c_i$.</p>
+<p>For every $i$ $(1≤i≤n)$ you <strong>must</strong> swap (i.e. exchange) $c_i$ with either $a_i$ or $b_i$. So in total you’ll perform exactly $n$ swap operations, each of them either $c_i↔a_i$ or $c_i↔b_i$ ($i$ iterates over all integers between $1$ and $n$, inclusive).</p>
+<p>For example, if $a$ is “code”, $b$ is “true”, and $c$ is “help”, you can make $c$ equal to “crue” taking the $1-st$ and the $4-th$ letters from $a$ and the others from $b$. In this way $a$ becomes “hodp” and $b$ becomes “tele”.</p>
+<p>Is it possible that after these swaps the string $a$ becomes exactly the same as the string $b$?</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The input consists of multiple test cases. The first line contains a single integer $t$ $(1≤t≤100)$  — the number of test cases. The description of the test cases follows.</p>
+<p>The first line of each test case contains a string of lowercase English letters $a$.</p>
+<p>The second line of each test case contains a string of lowercase English letters $b$.</p>
+<p>The third line of each test case contains a string of lowercase English letters $c$.</p>
+<p>It is guaranteed that in each test case these three strings are non-empty and have the same length, which is not exceeding $100$.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print $t$ lines with answers for all test cases. For each test case:</p>
+<p>If it is possible to make string $a$ equal to string $b$ print “YES” (without quotes), otherwise print “NO” (without quotes).</p>
+<p>You can print either lowercase or uppercase letters in the answers.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">aaa</span><br><span class="line">bbb</span><br><span class="line">ccc</span><br><span class="line">abc</span><br><span class="line">bca</span><br><span class="line">bca</span><br><span class="line">aabb</span><br><span class="line">bbaa</span><br><span class="line">baba</span><br><span class="line">imi</span><br><span class="line">mii</span><br><span class="line">iim</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>In the first test case, it is impossible to do the swaps so that string $a$ becomes exactly the same as string $b$.</p>
+<p>In the second test case, you should swap $c_i$ with $a_i$ for all possible $i$. After the swaps $a$ becomes “bca”, $b$ becomes “bca” and $c$ becomes “abc”. Here the strings $a$ and $b$ are equal.</p>
+<p>In the third test case, you should swap $c_1$ with $a_1$, $c_2$ with $b_2$, $c_3$ with $b_3$ and $c_4$ with $a_4$. Then string $a$ becomes “baba”, string $b$ becomes “baba” and string $c$ becomes “abab”. Here the strings $a$ and $b$ are equal.</p>
+<p>In the fourth test case, it is impossible to do the swaps so that string $a$ becomes exactly the same as string $b$.</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Only two conditions exist that make it impossible:</p>
+<ol>
+<li>For i-th position, all $a_i$ $b_i$ and $c_i$ are not equal to each other.</li>
+<li>$a_i=b_i \neq c_i$, so if changed, $a_i\neq b_i$</li>
+</ol>
+<p>So that are actually one situation: $a_i \neq c_i$ and $b_i \neq c_i$</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">2000000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t --) &#123;</span><br><span class="line">        <span class="built_in">string</span> a, b, c;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length(); i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != c[i] <span class="keyword">and</span> b[i] != c[i]) &#123;</span><br><span class="line">                flag = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
                                                                                         
                                         </div>
                                         
@@ -396,13 +397,13 @@
             
                 
     <div class="copyright">
-        <p><span>Title:</span><a href="/2019/11/24/CodeForces-580C-Kefa-and-Park/">CodeForces-580C Kefa and Park</a></p>
+        <p><span>Title:</span><a href="/2020/02/14/CodeForeces-1301A-Three-Strings/">CodeForeces-1301 A Three Strings</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2019-11-24, 17:53:22</p>
-        <p><span>Updated:</span>2020-02-05, 20:00:02</p>
+        <p><span>Created:</span>2020-02-14, 16:02:40</p>
+        <p><span>Updated:</span>2020-02-14, 16:18:24</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2019/11/24/CodeForces-580C-Kefa-and-Park/" title="CodeForces-580C Kefa and Park">http://dyingdown.github.io/2019/11/24/CodeForces-580C-Kefa-and-Park/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2019/11/24/CodeForces-580C-Kefa-and-Park/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/02/14/CodeForeces-1301A-Three-Strings/" title="CodeForeces-1301 A Three Strings">http://dyingdown.github.io/2020/02/14/CodeForeces-1301A-Three-Strings/</a>
+            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/02/14/CodeForeces-1301A-Three-Strings/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -414,16 +415,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/">
-                    CodeForces-1180A Alex and a Rhombus
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/11/22/AtCoder-5165-Kleene-Inversion/">
-                    AtCoder-5165 Kleene Inversion
+                <a href="/2020/02/13/Draw-map-with-Color/">
+                    Draw map with Color
                 </a>
             </div>
         
@@ -463,7 +458,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-1"><span class="toc-number">3.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Output-1"><span class="toc-number">3.2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-2"><span class="toc-number">3.3.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Output-2"><span class="toc-number">3.4.</span> <span class="toc-text">Output</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Note"><span class="toc-number">4.</span> <span class="toc-text">Note</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number"></span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number"></span> <span class="toc-text">Code</span></a>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.</span> <span class="toc-text">Example</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">3.1.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output"><span class="toc-number">3.2.</span> <span class="toc-text">output</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Note"><span class="toc-number">4.</span> <span class="toc-text">Note</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis"><span class="toc-number"></span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number"></span> <span class="toc-text">Code</span></a>
         
     </div>
     <style>
@@ -499,7 +494,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"CodeForces-580C Kefa and Park　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"CodeForeces-1301 A Three Strings　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -539,15 +534,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/" title="Pre: CodeForces-1180A Alex and a Rhombus">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/11/22/AtCoder-5165-Kleene-Inversion/" title="Next: AtCoder-5165 Kleene Inversion">
+            <a href="/2020/02/13/Draw-map-with-Color/" title="Next: Draw map with Color">
                 <i class="fa fa-angle-right"></i>
             </a>
         
