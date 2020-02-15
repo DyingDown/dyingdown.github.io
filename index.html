@@ -337,22 +337,10 @@
                                     
                                         <div class="article-entry" itemprop="articleBody">
                                             
-                                                                        
-                                                                                    <p>Since I have already introduced <code>Basemap</code> and how to install , I’ll start it directly.</p>
-<h1 id="Basic-map"><a href="#Basic-map" class="headerlink" title="Basic map"></a>Basic map</h1><p>First <code>import</code> libraries for drawing maps.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot </span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.basemap <span class="keyword">import</span> Basemap</span><br></pre></td></tr></table></figure>
-<p>And then create a  <code>basemap</code> project.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">map = Basemap(</span><br><span class="line">    projection=<span class="string">'ortho'</span>, <span class="comment"># there a many other projections</span></span><br><span class="line">    lat_0 = <span class="number">0</span>, <span class="comment"># latitude</span></span><br><span class="line">    lon_0 = <span class="number">0</span> <span class="comment"># longitude</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>(for more projections, visit <a href="https://matplotlib.org/basemap/users/mapsetup.html" target="_blank" rel="noopener">https://matplotlib.org/basemap/users/mapsetup.html</a>)</p>
-<p>Draw the map.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># draw the outlines of the projection and fill it with color</span></span><br><span class="line">map.drawmapboundary(fill_color=<span class="string">"aqua"</span>)</span><br><span class="line"><span class="comment"># fill the continents with color</span></span><br><span class="line"><span class="comment"># color stands for continent color, lake_color is the lake color</span></span><br><span class="line">map.fillcontinents(color=<span class="string">"green"</span>,lake_color=<span class="string">"aqua"</span>)</span><br><span class="line"><span class="comment"># draw the costlines</span></span><br><span class="line">map.drawcoastlines()</span><br></pre></td></tr></table></figure>
-<p>Show the map.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot.savefig(<span class="string">'map.png'</span>) <span class="comment"># save a picture</span></span><br><span class="line">plot.show() <span class="comment"># start a console to draw the map</span></span><br></pre></td></tr></table></figure>
-<p>So the complete code would be this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot </span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.basemap <span class="keyword">import</span> Basemap</span><br><span class="line"></span><br><span class="line">map = Basemap(</span><br><span class="line">    projection=<span class="string">'ortho'</span>,</span><br><span class="line">    lat_0 = <span class="number">0</span>, </span><br><span class="line">    lon_0 = <span class="number">0</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">map.drawmapboundary(fill_color=<span class="string">"aqua"</span>)</span><br><span class="line">map.fillcontinents(color=<span class="string">"green"</span>,lake_color=<span class="string">"aqua"</span>) </span><br><span class="line">map.drawcoastlines()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plot.savefig(<span class="string">'test.png'</span>)</span><br><span class="line">plot.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.ax1x.com/2020/02/15/1xYNlD.png" alt></p>
-
-                                                                                        
+                                                
+                                                            <p><img src="https://s2.ax1x.com/2020/02/15/1xYNlD.png" style="zoom:50%;"></p>
+                                                                
+                                                                    
                                         </div>
                                         
                                             <div class="article-info article-info-index">
@@ -369,6 +357,11 @@
     </div>
 
                                                                 
+                                                                    <p class="article-more-link">
+                                                                        <a href="/2020/02/15/Basemap-learning/#more">
+                                                                            more >></a>
+                                                                    </p>
+                                                                    
                                                                         <div class="clearfix"></div>
                                             </div>
                                             
