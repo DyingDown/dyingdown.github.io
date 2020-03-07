@@ -1,0 +1,118 @@
+#title-cover {
+  width: 100%;
+  height: auto;
+}
+.recent-post-item {
+  float: left;
+  height: 600px;
+  color: #fff;
+  font-family: "Lato";
+  flex: 1 0 300px;
+  margin: 0 0 1.875rem;
+  display: inline-block;
+  min-height: 285px;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 37.5rem) {
+  .recent-post-item {
+    margin: 0 15px 30px;
+  }
+}
+@media (min-width: 620px) {
+  .recent-post-item {
+    max-width: calc(100%/ 2 - 15px * 2);
+  }
+}
+@media (min-width: 920px) {
+  .recent-post-item {
+    max-width: calc(100%/ 3 - 15px * 2);
+  }
+}
+@media (min-width: 1220px) {
+  .recent-post-item {
+    max-width: calc(100%/ 4 - 15px * 2);
+  }
+}
+@media (min-width: 1520px) {
+  .recent-post-item {
+    max-width: calc(100%/ 5 - 15px * 2);
+  }
+}
+@media (min-width: 1820px) {
+  .recent-post-item {
+    max-width: calc(100%/ 6 - 15px * 2);
+  }
+}
+@media (min-width: 1820px) {
+  .recent-post-item {
+    flex: 1 0 calc(100% / 6 - 15px * 2);
+  }
+}
+.recent-post-item:hover {
+  z-index: 2;
+  transform: scale(1.1);
+}
+.recent-post-item:hover img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transform: scale(1.05);
+}
+.category {
+  background-color: opacity 0;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 15px;
+}
+.cover {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+}
+.content-tags {
+  background-color: #141414;
+  padding: 0.9375rem;
+}
+.time {
+  color: #737373;
+  pointer-events: none;
+  font-size: 16px;
+}
+.tag {
+  height: 22px;
+  line-height: 26px;
+  color: #fff;
+  padding: 0 10px 5px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  z-index: 50;
+  text-align: center;
+  text-decoration: none;
+}
+.tag:hover {
+  background-color: #fff;
+  color: #141414;
+}
+.post_title {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #fff;
+  line-height: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.content {
+  margin: 0 0 30px;
+  color: #bfbfbf;
+  font-size: 17px;
+  line-height: 26px;
+  text-decoration: none;
+}
