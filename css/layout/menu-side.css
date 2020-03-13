@@ -1,0 +1,47 @@
+aside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -300px;
+  width: 300px;
+  background-color: #000;
+  transition: 0.2s ease-out;
+  z-index: 50;
+}
+#overlay {
+  margin-top: 0;
+  height: 180px;
+  background-color: #000;
+  margin-bottom: 0;
+}
+/*控制侧边栏进出的按钮（外部包裹）*/
+#button {
+  transition: 0.2s ease-out;
+}
+#side-content {
+  background-color: #fff;
+  margin-top: 0;
+  height: 760px;
+}
+.menu {
+  color: #000;
+  text-decoration: none;
+  line-height: 45px;
+  font-size: 25px;
+}
+.menu:hover {
+  color: #f00;
+}
+#avatar {
+  width: 128px;
+  height: 128px;
+  margin-top: -64px;
+  z-index: 999;
+  margin-left: 86px;
+  border-radius: 50%;
+  border: solid 1px #c8c8c8;
+}
+#menu-item {
+  margin-top: 80px;
+  text-align: center;
+}

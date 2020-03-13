@@ -33,7 +33,7 @@
   font-size: 25px;
   margin-left: 20px;
   text-decoration: none;
-  line-height: 78px/2;
+  line-height: calc(78px/2);
   padding-bottom: 22px;
 }
 .menu:hover {
