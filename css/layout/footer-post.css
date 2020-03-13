@@ -1,0 +1,50 @@
+#bottom-outer {
+  background-color: #fff;
+}
+#bottom-inner {
+  width: 750px;
+  margin: auto;
+  color: #fff;
+  font-weight: 5px;
+  margin-top: 50px;
+  border-top: 0.09px solid #323232;
+  border-top-width: 0.1px;
+  padding: 20px 25px;
+  text-align: center;
+}
+.icon {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  margin-top: 15px;
+  font-size: 32px;
+  color: #808080;
+}
+.icon:hover {
+  color: #f00;
+}
+#author {
+  clear: both;
+  color: #bfbfbf;
+  padding-top: 140px;
+  font-size: 18px;
+  line-height: 30px;
+  font-family: "Lato";
+}
+#heart {
+  color: #f00;
+}
+#theme_author {
+  text-decoration: none;
+  color: #505050;
+  font-weight: bold;
+}
+#theme_name {
+  font-weight: bold;
+}
+.visits {
+  color: #808080;
+  font-family: "Lato";
+  clear: both;
+  padding-bottom: 20px;
+}
