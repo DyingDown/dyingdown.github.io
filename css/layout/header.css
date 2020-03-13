@@ -108,22 +108,3 @@
   font-size: 30px;
   line-height: calc(78px/2);
 }
-@media (max-width: 500px) {
-  #menus {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -300px;
-    width: 300px;
-    background-color: #000;
-    transition: 0.2s ease-out;
-    z-index: 50;
-    display: none;
-  }
-  #menus:checked {
-    right: 0;
-  }
-  #menus:checked ~ #buttons {
-    padding-right: 320px;
-  }
-}
