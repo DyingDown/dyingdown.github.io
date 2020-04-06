@@ -1,358 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta name="author" content="o_oyao">
-
-
-
-<meta name="description" content="第四章 随机变量的数字特征 一、数学期望  离散型  E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}">
-<meta name="keywords" content="Knowledge points">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Numerical Characteristics of Rando variables">
-<meta property="og:url" content="http://dyingdown.github.io/2020/01/02/Numerical-Characteristics-of-Rando-variables/index.html">
-<meta property="og:site_name" content="o_oyao Blog">
-<meta property="og:description" content="第四章 随机变量的数字特征 一、数学期望  离散型  E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-15T09:08:20.942Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Numerical Characteristics of Rando variables">
-<meta name="twitter:description" content="第四章 随机变量的数字特征 一、数学期望  离散型  E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}">
-
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-
-    <link rel="alternate" href="/atom.xml" title="o_oyao Blog" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/favicon.png">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/black/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Numerical Characteristics of Rando variables | o_oyao Blog</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: true
-    }
-</script>
-
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
-
-</head></html>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay" style="background-color: black; opacity: 0.7;"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">o_oyao</a></h1>
-        </hgroup>
-
-        
-
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">Home</a></li>
-                        
-                            <li><a href="/archives/">Archives</a></li>
-                        
-                            <li><a href="/tags/">Tags</a></li>
-                        
-                            <li><a href="/about/">About me</a></li>
-                        
-                            <li><a href="/novel/">novel</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="/o_oyao@outlook.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="https://github.com/DyingDown" title="GitHub"></a>
-                            
-                                <a class="fa CSDN" href="https://blog.csdn.net/yaoo_o" title="CSDN"></a>
-                            
-                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=1502502789" title="网易云音乐"></a>
-                            
-                                <a class="fa Facebook" href="#" title="Facebook"></a>
-                            
-                                <a class="fa Google" href="#" title="Google"></a>
-                            
-                                <a class="fa Twitter" href="#" title="Twitter"></a>
-                            
-                                <a class="fa QQ" href="/690075085" title="QQ"></a>
-                            
-                                <a class="fa 微信" href="/o__-__o" title="微信"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/">AtCoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basemap/">Basemap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeForces/">CodeForces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GYM/">GYM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Install/">Install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LuoGu/">LuoGu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Problem/">Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVALive/">UVALive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/build/">build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comment/">comment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homework/">homework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logic/">logic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math-notation/">math notation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reboot/">reboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbols/">symbols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vectors-and-spaces/">vectors and spaces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微型小说/">微型小说</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://chuckietan.github.io/">小可爱</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://cndrew.cn/">Drew</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://blogzhy.cn/">一Wa哇一天</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://www.cnblogs.com/Friends-A/">友人A</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://sqdxwz.com">越狱猫在线遛狗</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://angelnh.coding.me">Sky</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://proape000.github.io">小店打烊了</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">I expect to make friends with you! I&#39;m a ACＭmer but not very good. I like learning.</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">o_oyao</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">o_oyao</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">Home</a></li>
-                
-                    <li><a href="/archives/">Archives</a></li>
-                
-                    <li><a href="/tags/">Tags</a></li>
-                
-                    <li><a href="/about/">About me</a></li>
-                
-                    <li><a href="/novel/">novel</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="/o_oyao@outlook.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/DyingDown" title="GitHub"></a>
-                            
-                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/yaoo_o" title="CSDN"></a>
-                            
-                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=1502502789" title="网易云音乐"></a>
-                            
-                                <a class="fa Facebook" target="_blank" href="#" title="Facebook"></a>
-                            
-                                <a class="fa Google" target="_blank" href="#" title="Google"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="#" title="Twitter"></a>
-                            
-                                <a class="fa QQ" target="_blank" href="/690075085" title="QQ"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/o__-__o" title="微信"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
-</nav>
-      <div class="body-wrap"><article id="post-Numerical-Characteristics-of-Rando-variables" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <div class="article-meta">
-            <a href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/" class="article-date">
-      <time datetime="2020-01-02T10:23:46.000Z" itemprop="datePublished">2020-01-02</time>
-</a>
-
-
-        </div>
-        
-            <div class="article-inner">
-                
-                    <input type="hidden" class="isFancy" />
-                    
-                        
-                            <header class="article-header">
-                                
-  
-    <h1 class="article-title" itemprop="name">
-      Numerical Characteristics of Rando variables
-    </h1>
-  
-
-                            </header>
-                            
-                                <div class="article-info article-info-post">
-                                    
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Probability-and-Statistics/">Probability and Statistics</a>
-    </div>
-
-
-                                        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knowledge-points/">Knowledge points</a></li></ul>
-    </div>
-
-                                            <div class="clearfix"></div>
-                                </div>
-                                
-                                    
-                                        <div class="article-entry" itemprop="articleBody">
-                                            
-                                                                        
-                                                                                    <p>第四章 随机变量的数字特征</p>
-<p>一、数学期望</p>
-<ol>
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><title>Numerical Characteristics of Rando variables [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"></head><body><div id="menu-outer"><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"><div id="top"><a id="user" href="/">o_oyao</a><center><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/about"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/star/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/includes/friends"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/messege/"><div class="icon_top"><i class="fas fa-comment-dots"></i> Messege</div></a></li></ul></center><div id="buttons"><a id="menu_button"><i class="fa fa-bars"></i></a><a id="search"><i class="fa fa-search"></i></a></div></div></div><div id="content-outer"><div id="content-inner"><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="links">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="/img/avatar1.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="/img/wechat.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog">Catalog</div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、数学期望"><span class="toc-number">1.</span> <span class="toc-text">一、数学期望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、方差"><span class="toc-number">2.</span> <span class="toc-text">二、方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、协方差与相关系数"><span class="toc-number">3.</span> <span class="toc-text">三、协方差与相关系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、矩、协方差矩阵"><span class="toc-number">4.</span> <span class="toc-text">四、矩、协方差矩阵</span></a></li></ol></div></div></div><article id="post"><div class="titles"><h1 class="title">Numerical Characteristics of Rando variables</h1><div class="date"><div class="post-title-icons"><i class="fa fa-calendar"></i></div><time class="words" datetime="2020-01-02T10:23:46.000Z">2020-01-02</time></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Probability-and-Statistics/">Probability and Statistics</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">9 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">1.8k words</span></div><div class="post-content"><p>第四章 随机变量的数字特征</p>
+<h2 id="一、数学期望"><a href="#一、数学期望" class="headerlink" title="一、数学期望"></a>一、数学期望</h2><ol>
 <li><p>离散型</p>
 <script type="math/tex; mode=display">
-E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}</script><a id="more"></a>
+\color{green}{E(X)=\sum_{k=1}^{\infty} x_{k} p_{k}}</script><a id="more"></a>
 <p>当上式发散时，$X$的数学期望不存在。</p>
 </li>
 <li><p>连续型</p>
@@ -365,7 +15,7 @@ E(X)=\int_{-\infty}^{+\infty} x f(x) d x</script><pre><code>   发散时，$X$�
 <p>（1） 一维</p>
 </li>
 </ol>
-<p>​        $Y=g(X)$ ($g$是连续函数）$X$是随机变量。$\sum<em>{k=1}^{\infty} g\left(x</em>{k}\right) \rho_{k}$绝对收敛，则</p>
+<p>​        $Y=g(X)$ ($g$是连续函数）$X$是随机变量。$\sum_{k=1}^{\infty} g\left(x_{k}\right) \rho_{k}$绝对收敛，则</p>
 <pre><code>   连续型：
 </code></pre><script type="math/tex; mode=display">
 E(Y)=E[g(X)]=\sum_{k=1}^{\infty} g\left(x_{k}\right) P_{k}</script><p>​      离散型：</p>
@@ -381,21 +31,19 @@ E(Z)=E[g(X, Y)]=\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x, y) f(x, y
 <p>​      （1）$C$是常数 $E(C)=C$</p>
 <p>​      （2）$E(CX)=CE(X)$</p>
 <p>​      （3）任意两个随机变量$X，Y$ $E(X+Y)=E(X)+E(Y)$</p>
-<p>​          有限个 $E\left(X<em>{1}+E</em>{2}+\cdots+X<em>{n}\right)=E\left(X</em>{1}\right)+E\left(X<em>{2}\right)+\cdots+E\left(X</em>{n}\right)$</p>
+<p>​          有限个 $E\left(X_{1}+E_{2}+\cdots+X_{n}\right)=E\left(X_{1}\right)+E\left(X_{2}\right)+\cdots+E\left(X_{n}\right)$</p>
 <p>​      （4）相互独立的$X，Y$ $E(X Y)=E(X) E(Y)$</p>
-<p>​          有限个 $E\left(X<em>{1} X</em>{2} \cdots X<em>{n}\right)=E\left(X</em>{1}\right) E\left(X<em>{2}\right) \cdots E\left(X</em>{n}\right)$</p>
-<p>二、方差</p>
-<ol>
+<p>​          有限个 $E\left(X_{1} X_{2} \cdots X_{n}\right)=E\left(X_{1}\right) E\left(X_{2}\right) \cdots E\left(X_{n}\right)$</p>
+<h2 id="二、方差"><a href="#二、方差" class="headerlink" title="二、方差"></a>二、方差</h2><ol>
 <li><p>定义</p>
-<p>   $D(X)=\operatorname{Var}(X)=E\left{[X-E(X)]^{2}\right}$</p>
+<p>   $D(X)=\operatorname{Var}(X)=E\left\{[X-E(X)]^{2}\right\}$</p>
 <p>   $\sqrt{D(X)}$ 标准差 or 均方差</p>
 </li>
 <li><p>计算</p>
-<p>   离散型   $D(X)=\sum<em>{k=1}^{\infty}\left[x</em>{k}-E(x)\right]^{2} p_{k}$</p>
-<pre><code>连续型 $D(X)=\int_{-\infty}^{+\infty}[x-E(x)]^{2} f(x) d x$
-
-重要公式 $D(X)=E\left(X^{2}\right)-[E(X)]^{2}$
-</code></pre></li>
+<p>   离散型   $D(X)=\sum_{k=1}^{\infty}\left[x_{k}-E(x)\right]^{2} p_{k}$</p>
+<p>   连续型  $D(X)=\int_{-\infty}^{+\infty}[x-E(x)]^{2} f(x) d x$</p>
+<p>   重要公式  $D(X)=E \left( X^{2} \right)-[E(X)]^{2}$</p>
+</li>
 <li><p>标准化</p>
 <p>X有数学期望$E(X)=\mu$，方差 $D(X)=\sigma ^ 2 \neq$0 , $X*=\frac{X- \mu}{\sigma}$ 则，</p>
 <script type="math/tex; mode=display">
@@ -430,14 +78,13 @@ D\left(\sum_{i=1}^{n} C_{i} X_{i}\right)=\sum_{i=1}^{n} C_{i}^{2} D\left(X_{i}\r
 <p>​            $D(X)=\frac{1}{\lambda^2}$</p>
 <p>​      （5）正态分布</p>
 <p>​            标准：$D(X)=1$</p>
-<pre><code>        非标准：$E(X)=\mu \space D(X)=\sigma^2$
+<pre><code>        非标准：$E(X) = \mu \space D(X) = \sigma^{2}$
 </code></pre><ol>
 <li><p>由数学期望和方差性质知</p>
-<p>$\begin{aligned}<br>&amp;E(\bar{x})=\frac{1}{n} E\left(\sum<em>{i=1}^{n} X</em>{i}\right)=\frac{1}{n} \sum<em>{i=1}^{n} E\left(X</em>{i}\right)=\mu\<br>&amp;D(\bar{X})=D\left(\frac{1}{n} \sum<em>{i=1}^{n} X i\right)=\frac{1}{n^{2}} \sum</em>{i=1}^{n} D\left(X_{i}\right)=\frac{\sigma^{2}}{n}<br>\end{aligned}$</p>
+<p>$\begin{aligned}<br>&amp;E(\bar{x})=\frac{1}{n} E\left(\sum_{i=1}^{n} X_{i}\right)=\frac{1}{n} \sum_{i=1}^{n} E\left(X_{i}\right)=\mu\\<br>&amp;D(\bar{X})=D\left(\frac{1}{n} \sum_{i=1}^{n} X i\right)=\frac{1}{n^{2}} \sum_{i=1}^{n} D\left(X_{i}\right)=\frac{\sigma^{2}}{n}<br>\end{aligned}$</p>
 </li>
 </ol>
-<p>三、协方差与相关系数</p>
-<ol>
+<h2 id="三、协方差与相关系数"><a href="#三、协方差与相关系数" class="headerlink" title="三、协方差与相关系数"></a>三、协方差与相关系数</h2><ol>
 <li>协方差</li>
 </ol>
 <p>​      （1）定义：随机变量X与Y的协方差 $Cov(X,Y)$，即                                </p>
@@ -459,15 +106,14 @@ D(X+Y+Z)=D(X)+D(Y)+D(Z)+2Cov(X,Y)+2Cov(X,Z)+2Cov(Y,Z)</script><ol>
 </ol>
 <p>​      （1）定义：随机变量的相关系数 $\rho_{xy}$</p>
 <script type="math/tex; mode=display">
-\rho_{x y}=\frac{\operatorname{cov}(X-Y)}{\sqrt{D(X)} \sqrt{D(Y)}}</script><p>​                当 $\rho<em>{xy}=0$ 时，$X，Y$不相关；当 $\rho</em>{xy}=1$ 时，$X，Y$正线性相关；当 $\rho_{xy}=-1$ 时，$X，Y$负线性相关。</p>
+\rho_{x y}=\frac{\operatorname{cov}(X-Y)}{\sqrt{D(X)} \sqrt{D(Y)}}</script><p>​                当 $\rho_{xy}=0$ 时，$X，Y$不相关；当 $\rho_{xy}=1$ 时，$X，Y$正线性相关；当 $\rho_{xy}=-1$ 时，$X，Y$负线性相关。</p>
 <p>​      （2）定理</p>
 <p>​            a. $\left|\rho_{x y}\right| \leq 1$</p>
-<p>​            b. $\left|\rho_{x y}\right|= 1$ 的充要条件是存在$a，b$使 $P{Y=a+bX}=1$ </p>
-<p>​          由上可知，$\rho<em>{xy}$的实际意义是：$X，Y$之间的线性近似程度。$\left|\rho</em>{x y}\right|$越接近于$1$越近似的有线性关系。$X，Y$之间有密切的曲线关系时，$\left|\rho<em>{x y}\right|$的值可能很小。如$X$服从$N(0,1),Y=X^2$，此时$X，Y$有密切的曲线关系但是$\left|\rho</em>{x y}\right|=0$</p>
+<p>​            b. $\left|\rho_{x y}\right|= 1$ 的充要条件是存在$a，b$使 $P\{Y=a+bX\}=1$ </p>
+<p>​          由上可知，$\rho_{xy}$的实际意义是：$X，Y$之间的线性近似程度。$\left|\rho_{x y}\right|$越接近于$1$越近似的有线性关系。$X，Y$之间有密切的曲线关系时，$\left|\rho_{x y}\right|$的值可能很小。如$X$服从$N(0,1),Y=X^2$，此时$X，Y$有密切的曲线关系但是$\left|\rho_{x y}\right|=0$</p>
 <p>​            c. 若$X$与$Y$相互独立，则$\left|\rho_{x y}\right|=0$，即$X$与$Y$不相关。反之不真。</p>
-<p>​      （3）随机变量$(X,Y)$服从二维正态分布，公式为$f(x, y)=\frac{1}{2 \pi \sigma<em>{1} o</em>{2} \sqrt{1-\rho^{2}}} \exp \left{\frac{-1}{2\left(1-\rho^{2}\right)}\left[\frac{\left(x-u<em>{1}\right)^{2}}{\sigma</em>{1}^{2}}-2 \rho \frac{\left(x-\mu<em>{1}\right)\left(y-\mu</em>{2}\right)}{\sigma<em>{1} \sigma</em>{2}}+\frac{\left(y-\mu<em>{2}\right)^{2}}{\sigma</em>{2}^{2}}\right]\right}$，相关系数$\rho_{xy}=\rho$</p>
-<p>四、矩、协方差矩阵</p>
-<ol>
+<p>​      （3）随机变量$(X,Y)$服从二维正态分布，公式为$f(x, y)=\frac{1}{2 \pi \sigma_{1} o_{2} \sqrt{1-\rho^{2}}} \exp \left\{\frac{-1}{2\left(1-\rho^{2}\right)}\left[\frac{\left(x-u_{1}\right)^{2}}{\sigma_{1}^{2}}-2 \rho \frac{\left(x-\mu_{1}\right)\left(y-\mu_{2}\right)}{\sigma_{1} \sigma_{2}}+\frac{\left(y-\mu_{2}\right)^{2}}{\sigma_{2}^{2}}\right]\right\}$，相关系数$\rho_{xy}=\rho$</p>
+<h2 id="四、矩、协方差矩阵"><a href="#四、矩、协方差矩阵" class="headerlink" title="四、矩、协方差矩阵"></a>四、矩、协方差矩阵</h2><ol>
 <li>定义</li>
 </ol>
 <p>​      （1）设$X$和$Y$是随机变量，若</p>
@@ -475,10 +121,10 @@ D(X+Y+Z)=D(X)+D(Y)+D(Z)+2Cov(X,Y)+2Cov(X,Z)+2Cov(Y,Z)</script><ol>
 E(X^k), k=1,2,\cdots</script><p>​             存在，成它为$X$的$k$阶原点矩，简称$k$阶矩</p>
 <p>​                a.  若$E[X-E(X)]^k,k=2,3,\cdots$存在，称它为$X$的$k$阶中心矩</p>
 <p>​                b.  若$E(X^kY^l),k,l=1,2,\cdots$ 存在，称它为$X$和$Y$的$k+l$阶混合矩</p>
-<p>​                c.  若$E{[X-E(X)]^k[Y-E(Y)]^l},k,l=1,2,\cdots$存在，称它为$X$和$Y$的$k+l$阶混合中心矩</p>
+<p>​                c.  若$E\{[X-E(X)]^k[Y-E(Y)]^l\},k,l=1,2,\cdots$存在，称它为$X$和$Y$的$k+l$阶混合中心矩</p>
 <p>​                d.  $E(X)$是$X$的一阶原点矩，$D(X)$是$X$的二阶中心矩，$Cov(X，Y)$是$X，Y$的二阶混合中心矩。</p>
 <p>​                e.   $X$的$k$阶原点矩存在，低于$k$的各阶原点矩都存在，$k$阶和低于$k$阶的中心矩也存在。同样，$X$的中心矩存在，$k$阶和低于$k$阶的中心距也存在.</p>
-<p>​    （2）设$n$维随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$的二阶混合中心矩</p>
+<p>​    （2）设$n$维随机变量$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$的二阶混合中心矩</p>
 <script type="math/tex; mode=display">
 C_{ij}=C_{ij}(i,j=1,2,\cdots,n)</script><p>​            都存在，则称矩阵</p>
 <script type="math/tex; mode=display">
@@ -490,281 +136,35 @@ C=\left[\begin{array}{cccc}
 \end{array}\right]</script><pre><code>       为$n$维随机变量$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$的协方差矩阵，上述矩阵为对称矩阵。
 </code></pre><ol>
 <li><p>$n$维正态分布的性质</p>
-<p>（1）$n$维正态随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$的每一个分量$X_i(i=1,2,\cdots,n)$都是正态随机变量；反之都是$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$正态随机变量，且相互独立，则$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$是$n$维正态随机变量</p>
-<p>（2）$n$随机变量$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布的充要条件是$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$的任意线性组合：</p>
+<p>（1）$n$维正态随机变量$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$的每一个分量$X_i(i=1,2,\cdots,n)$都是正态随机变量；反之都是$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$正态随机变量，且相互独立，则$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$是$n$维正态随机变量</p>
+<p>（2）$n$随机变量$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$服从$n$维正态分布的充要条件是$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$的任意线性组合：</p>
 <script type="math/tex; mode=display">
 l_1X_1+l_2X_2+\cdots+l_nX_n</script><p>​      服从一维正态分布，（其中$l_1,l_2,\cdots,l_n$不全为$0$）</p>
-<p>（3）若$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布，设$\left(Y</em>{1}, Y<em>{2}, \cdots, Y</em>{n}\right)$是$X_j(j=1,2,\cdots,n)$</p>
+<p>（3）若$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$服从$n$维正态分布，设$\left(Y_{1}, Y_{2}, \cdots, Y_{n}\right)$是$X_j(j=1,2,\cdots,n)$</p>
 </li>
 </ol>
-<p>的线性函数，则$\left(Y<em>{1}, Y</em>{2}, \cdots, Y_{n}\right)$服从$k$维正态分布</p>
-<p>   （4）设$\left(X<em>{1}, X</em>{2}, \cdots, X<em>{n}\right)$服从$n$维正态分布，则“$\left(X</em>{1}, X<em>{2}, \cdots, X</em>{n}\right)$相互独立“与”$\left(X<em>{1}, X</em>{2}, \cdots, X_{n}\right)$“两两不相关”等价</p>
-
-                                                                                        
-                                        </div>
-                                        
-            </div>
-            
-                
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/">Numerical Characteristics of Rando variables</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">o_oyao</a></p>
-        <p><span>Created:</span>2020-01-02, 18:23:46</p>
-        <p><span>Updated:</span>2020-01-15, 17:08:20</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/" title="Numerical Characteristics of Rando variables">http://dyingdown.github.io/2020/01/02/Numerical-Characteristics-of-Rando-variables/</a>
-            <span class="copy-path" data-clipboard-text="From http://dyingdown.github.io/2020/01/02/Numerical-Characteristics-of-Rando-variables/　　By o_oyao" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/01/15/Law-of-Large-Numbers/">
-                    Law of Large Numbers
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/12/20/HDU-2018 Story-of-Cow/">
-                    HDU-2018 Story of Cow
-                </a>
-            </div>
-        
-    </nav>
-
-                    
-</article>
-
-
-    
-        <div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           ↑<br>
-           Helpful?~\(≧▽≦)/~
-        </span>
-        <br>
-      </div>
-    <div id="donate_guide" class="donate_bar center hidden" >
-         <!-- 支付宝打赏图案 -->
-        <img src="/img/Alipay.jpg" alt="支付宝打赏">
-        <!-- 微信打赏图案 -->
-        <img src="/img/Wechat.jpg" alt="微信打赏">
-    </div>
-    <script type="text/javascript">
-        document.getElementById('btn_donate').onclick = function(){
-            $('#donate_board').addClass('hidden');
-            $('#donate_guide').removeClass('hidden');
-        }
-    </script>
-</div>
-            
-                
-
-                    
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-4 i,
-        .toc-level-4 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-                        
-                            
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Numerical Characteristics of Rando variables　| o_oyao Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-                                
-
-                                    
-                                        
-                                                    <section id="comments" style="margin: 2em; padding: 2em; background: rgba(255, 255, 255, 0.5)">
-    <div id="vcomment" class="comment"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@1.2.0-beta1/dist/Valine.min.js"></script>
-    <script>
-        new Valine({
-            el: '#vcomment',
-            notify: 'true',
-            verify: 'true',
-            app_id: "l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI",
-            app_key: "nTzjKIWYitgRpJ4AyX6i3Wyy",
-            placeholder: "Leave your footprint here!",
-            avatar: "mp"
-        });
-    </script>
-</section>
-                                                        
-                                                                                            
-
-
-
-
-                                                                                                
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2020/01/15/Law-of-Large-Numbers/" title="Pre: Law of Large Numbers">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2019/12/20/HDU-2018 Story-of-Cow/" title="Next: HDU-2018 Story of Cow">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/15/矩阵的定义及其基本运算/">矩阵的定义及其基本运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/Selection-Sort/">Selection-Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/老头/">老头儿</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/05/Data-Representation/">Data Representation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/28/Linear-Algebra-homework2/">Linear Algebra Week2 homework</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/17/Reboot-phone-on-computer/">Reboot phone on computer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/Basemap-learning/">Basemap learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/14/CodeForeces-1301A-Three-Strings/">CodeForeces-1301 A Three Strings</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/13/Draw-map-with-Color/">Draw map with Color</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/11/CSS-Rules/">CSS-Rules</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/10/HTML-Tags/">HTML-Tags</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/09/CodeForces-1300B-Assigning-to-Classes/">CodeForces-1300 B Assigning to Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/09/CodeForces-1300A-Non-zero/">CodeForces-1300 A Non-zero</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/06/Draw-map/">Draw maps</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/05/Install-Basemap-of-Python/">Install Basemap of Python(Linux)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/05/CodeForces-1296C-Yet-Another-Walking-Robot/">CodeForces-1296 C Yet Another Walking Robot</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/05/CodeForces-1296B-Food-Buying/">CodeForces-1296 B Food Buying</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/05/CodeForces-1296A-Array-with-Odd-Sum/">CodeForces-1296 A Array with Odd Sum</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Git-Commands/">Git Commands</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/CodeForces-1295A-Display-The-Number/">CodeForces 1295 A Display The Number</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/29/Linux-Blog/">Make previous windows blog available on Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/29/Absolute-path-Relative-path/">Absolute path and Relative path</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/29/Mount-mechanical-hard-disk-on-Linux/">How to mount mechanical hard disk on Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Spawn-Failed/">Spawn-Failed</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/CodeForces-1293B-JOE-is-on-TV!/">CodeForces-1293B JOE is on TV!</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/CodeForces-1293A-ConneR-and-the-A.R.C.-Markland-N/">CodeForces-1293A ConneR and the A.R.C. Markland-N</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/Sorts/">Sorts</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/CodeForces-1288B-Yet-Another-Meme-Problem/">CodeForces-1288 B Yet Another Meme Problem</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/CodeForces-1288A-Deadline/">CodeForces-1288 A Deadline</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Mathematical-Statistics-Concepts/">Mathematical Statistics Concepts</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Law-of-Large-Numbers/">Law of Large Numbers</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/Numerical-Characteristics-of-Rando-variables/">Numerical Characteristics of Rando variables</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2018 Story-of-Cow/">HDU-2018 Story of Cow</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2019 Ordered-Sequence/">HDU-2019 Ordered Sequence</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2020 Absolute-Sort/">HDU-2020 Absolute Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2084 Number-Tower/">HDU-2084 Number Tower</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2023 Average-score/">HDU-2023 Average score</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2029 Palindromes-easy-version/">HDU-2029 Palindromes_easy version</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2032 Yang-Hui-triangle/">HDU-2032 Yang Hui triangle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-2033 Clock-time-A+B/">HDU-2033 Clock time A+B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/20/HDU-1708 Fibonacci-String/">HDU-1708 Fibonacci String</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/HDU-2096 XiaoMing A+B/">HDU-2096 XiaoMing A+B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/HDU-1005 Number-Sequence/">HDU-1005 Number Sequence</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/18/HDU-1466 Number-of-intersections-of-lines/">HDU-1466 Number of intersections of lines</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/18/HDU-1562 Guess-the-number/">HDU-1562 Guess the number</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/18/HDU-1555 How-many-days/">HDU-1555 How many days?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/HDU-1465 Not-Easy-Series-One/">HDU-1465 Not Easy Series One</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/HDU-1412 {A}+{B}/">HDU-1412 {A}+{B}</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/HDU-1395 2^x-mod-n=1/">HDU-1395 2^x mod n=1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/HDU-1280 Front-m-biggest-Numbers/">HDU-1280 Front m biggest Numbers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1222 Wolf-and-Rabbit/">HDU-1222 Wolf and Rabbit</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1157 Who's-in-the-Middle/">HDU-1157 Who's in the Middle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1056 HangOver/">HDU-1056 HangOver</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1048 The-Hardest-Problem-Ever/">HDU-1048 The Hardest Problem Ever</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1040 As-Easy-As-A+B/">HDU-1040 As Easy As A+B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1037 Keep-on-Truckin/">HDU-1037 Keep on Truckin'</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1032 The 3n+1 problem/">HDU-1032 The 3n+1 problem</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1012 u-Calculate-e/">HDU-1012 u Calculate e</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/HDU-1008 Elevator/">HDU-1008 Elevator</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/14/HDU-1000 A+B-Problem/">HDU-1000 A+B Problem</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/CodeForces-1169B-Pairs/">CodeForces-1169B Pairs</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/CodeForces-1180B-Nick-and-Array/">CodeForces-1180B Nick and Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/CodeForces-1180A-Alex-and-a-Rhombus/">CodeForces-1180A Alex and a Rhombus</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/CodeForces-580C-Kefa-and-Park/">CodeForces-580C Kefa and Park</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/22/AtCoder-5165-Kleene-Inversion/">AtCoder-5165 Kleene Inversion</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/22/Random-events-and-their-probabilities/">Random events and their probabilities</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/AtCoder-5633-Counting-of-Trees/">AtCoder-5633 Counting of Trees</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-5039-AB-Substrings/">AtCoder-5039 AB Substrings</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-4871-Lower/">AtCoder-4871 Lower</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-4870-Attack-Survival/">AtCoder-4870 Attack Survival</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-4297-Monsters-Battle-Royale/">AtCoder-4297 Monsters Battle Royale</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-4873-ModSum/">AtCoder-4873 ModSum</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/AtCoder-5037-Consecutive-Integers/">AtCoder-5037 Consecutive Integers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/12/Calculator/">Calculator (double stack)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6572_String/">String HDU-6572</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6573_Traffic/">Traffic HDU-6573</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6575_Budget/">Budget HDU-6575</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/HDU-6576_Worker/">Worker HDU-6576</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Kruskal/">Kruskal</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/21/Binary-Tree-Traverse/">Binary Tree Traversal</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/Haffman-Code/">Haffman Coding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/List-Summary/">List Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Xiongnu-s-Land/">Xiongnu's Land</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_World-Cup/">World Cup</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Rising-Sun/">Rising Sun</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/GYM_Voronoi-Diagram-Returns/">Voronoi Diagram Returns</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/17/HDU-1042_Big-factorial-of-n/">Big N!</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/HDU-1002_String-A+B/">Big number A+B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/04/LaTex-Symbols/">LaTex-Symbols</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/04/Linear-dependence-and-independence/">Linear-dependence-and-independence</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Linear-combination-and-spam/">Linear combination and spam</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/JS-project-with-code/">JS-project-with-code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/JS-project/">JS projects</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/LaTex-matrix/">Matrix of LaTex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Vectors-and-space/">vectors and spaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/Model-representation/">Model representation</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/is-alphabet/">Check for alphabet characters</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/LuoGu-P1533_number-reverse/">P1533-number-reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/02/string-find-usage/">Usage of string.find()</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/KMP/">KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Add-Comments/">Add-Comments</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Change-Blog-Theme/">Change-Blog-Theme</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Inclusion-Exclusion-Principle/">Inclusion-Exclusion-Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/Prime-factor-of-n/">Prime factor of n</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/Extended-Euclid-and-Inverse-element/">Extended-Euclid-and-Inverse-element</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Build-Blog/">How to build a blog</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/Logic-proposition/">Logic-proposition</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/learning-classification/">Learning classification</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/What-is-machine-learning/">What is machine learning</a></li></ul>
-
-
-
-                                                                                                    
-                                                                                                        <script>
-                                                                                                            
-                                                                                                        </script>
-                                                                                                        </div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2019-2020 o_oyao
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
-    
-    <script src="/js/GithubRepoWidget.js"></script>
-
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-
-
-
-
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
+<p>的线性函数，则$\left(Y_{1}, Y_{2}, \cdots, Y_{n}\right)$服从$k$维正态分布</p>
+<p>   （4）设$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$服从$n$维正态分布，则“$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$相互独立“与”$\left(X_{1}, X_{2}, \cdots, X_{n}\right)$“两两不相关”等价</p>
+</div></article><div id="paginations"><div class="prev-next"><div class="prev-post"><a class="pull-left" href="/2020/01/15/Law-of-Large-Numbers/"><i class="fas fa-angle-double-left"></i> Law of Large Numbers</a></div><div class="next-post"><a class="pull-right" href="/2019/12/20/HDU-2018 Story-of-Cow/">HDU-2018 Story of Cow  <i class="fas fa-angle-double-right"> </i></a></div></div></div></div></div><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-wechat"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fab fa-fw fa-telegram-plane"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-qq"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-linkedin"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-github"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fa fa-fw fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" "><i class="fab fa-fw fa-quora"></i></a></div><div id="author"><span id="theme_name">Last</span><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2020</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_pv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></span></div></span></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
 });
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
 });
-</script>
-
-<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-             github: ".github-widget a", 
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
-</body>
-</html>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/Last.js"></script><script src="/js/post.js"></script><script src="/js/toc.js"></script><script src="/js/third-party/reveal/math.min.js"></script><script src="/js/toc.js"></script></body></html>
