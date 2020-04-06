@@ -24,13 +24,13 @@
   color: #000;
 }
 #menus {
-  list-style-type: none;
   white-space: nowrap;
   width: auto;
   text-align: center;
   margin-left: 18%;
 }
 .menu-item {
+  list-style-type: none;
   float: left;
   margin-right: 1%;
   position: relative;
@@ -39,6 +39,12 @@
 }
 .menu-item:hover .submenu {
   display: block;
+}
+.menu-item::before {
+  display: none;
+}
+.submenu-item::before {
+  display: none;
 }
 .menu {
   text-align: center;
@@ -57,28 +63,50 @@
 }
 .sublabel {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
   color: #fff;
   line-height: 40px;
 }
 .sublabel:hover {
   color: #f00;
 }
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
 .submenu {
-  display: none;
   list-style-type: none;
+  display: none;
   opacity: 1;
   position: absolute;
   background: #282828;
   padding: 10px;
   top: 46px;
-  right: 8px;
+  right: -8px;
   width: auto;
   height: auto;
   text-align: left;
   z-index: 9999;
   border-radius: 8px;
   box-shadow: 0 1px 40px -8px rgba(0,0,0,0.5);
+  -webkit-animation: fadeInUp 0.3s 0.1s ease both;
+  -moz-animation: fadeInUp 0.3s 0.1s ease both;
 }
 .submenu:hover {
   display: block;

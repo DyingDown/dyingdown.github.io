@@ -4,6 +4,9 @@
   padding-top: 100px;
   color: #fff;
 }
+#tag {
+  width: 50%;
+}
 .category-list li {
   display: inline-block;
 }

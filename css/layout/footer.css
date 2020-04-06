@@ -1,4 +1,5 @@
 #bottom-inner {
+  clear: both;
   width: 750px;
   margin: auto;
   color: #fff;
@@ -44,4 +45,7 @@
   font-family: "Lato";
   clear: both;
   padding-bottom: 20px;
+}
+.test {
+  color: #000;
 }

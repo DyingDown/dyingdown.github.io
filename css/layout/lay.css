@@ -1,3 +1,7 @@
 body {
   font-family: "Lato";
 }
+#content-inner {
+  width: 100%;
+  margin-right: 0px;
+}

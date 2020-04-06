@@ -1,18 +1,107 @@
+.First-title-of-archives {
+  color: #fff;
+  margin-top: 100px;
+  text-align: center;
+}
 .archive {
-  margin-left: 25%;
-  margin-right: 20%;
   color: #fff;
   text-decoration: none;
   margin-top: 100px;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+@media (max-width: 980px) {
+  .archive {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .archive .article-title {
+    font-size: 50px;
+  }
+  .archive .article-content {
+    font-size: 30px;
+  }
+  .archive .article-time {
+    font-size: 30px;
+  }
+}
+.archive-list-item:nth-child(2n-1)::before {
+  position: absolute;
+  background-color: #000;
+  border: solid 4px #d31a29;
+  border-radius: 20px;
+  margin-left: 26px;
+  margin-top: 15px;
+  content: "";
+  width: 13px;
+  height: 13px;
+}
+.archive-list-item:nth-child(2n)::before {
+  position: absolute;
+  background-color: #000;
+  border: solid 4px #d31a29;
+  border-radius: 20px;
+  margin-left: -47px;
+  margin-top: 15px;
+  content: "";
+  width: 13px;
+  height: 13px;
+}
+.archive-list-item:nth-child(2n) {
+  list-style-type: none;
+  border-left: solid #d31a29 3px;
+  float: left;
+  clear: both;
+  padding-left: 35px;
+  margin-left: 46.5%;
+  padding-bottom: 20px;
   width: 50%;
 }
-.archive-list li {
-  margin-left: 25%;
+.archive-list-item:nth-child(2n) .article-time {
+  position: relative;
+  left: -115%;
+  margin-top: -8%;
+  color: #d31a29;
+  text-align: right;
+}
+.archive-list-item:nth-child(2n-1) {
+  text-align: right;
+  list-style-type: none;
+  clear: both;
+  float: right;
+  margin-right: 53.1%;
+  border-right: solid #d31a29 3px;
+  padding-right: 35px;
+  width: 50%;
+  padding-bottom: 20px;
+}
+.archive-list-item:nth-child(2n-1) .article-time {
+  color: #d31a29;
+  text-align: left;
+  position: relative;
+  left: 115%;
+  margin-top: -8%;
+}
+.article-year {
+  margin-left: 43%;
+  color: #d31a29;
+  font-size: 35px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 .archive-list a {
   text-decoration: none;
   color: #fff;
-  font-size: 20px;
-  width: 50%;
   line-height: 50px;
+}
+.article-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #d31a29;
+}
+a {
+  color: #f00;
+}
+.article-time {
+  font-size: 17px;
 }
