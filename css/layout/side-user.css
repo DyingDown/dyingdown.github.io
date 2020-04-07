@@ -33,7 +33,7 @@
   display: inline-block;
   display: block;
   position: absolute;
-  top: 40px;
+  top: 41px;
   right: 0;
   width: 70px;
   height: 70px;
@@ -44,7 +44,7 @@
 .top-bar li {
   list-style-type: none;
   float: left;
-  color: #666;
+  color: #808080;
 }
 .avatar {
   width: 50%;

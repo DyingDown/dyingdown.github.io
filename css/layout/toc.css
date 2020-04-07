@@ -18,19 +18,19 @@
   list-style-type: none;
   text-align: left;
 }
-.toc-level-1 {
+.toc:nth-of-type(1) {
   line-height: 25px;
   text-decoration: none;
-  margin-left: -22px;
-  padding-left: 12px;
+  margin-left: 20px;
+  padding-left: 20px;
   border-left: solid #d3d3d3 1px;
 }
-.toc-level-1::before {
+.toc:nth-of-type(1)::before {
   position: absolute;
   background-color: #fff;
   border: solid 3px #d31a29;
   border-radius: 20px;
-  left: 8px;
+  left: 11px;
   margin-top: 3px;
   content: "";
   width: 13px;

@@ -4,7 +4,7 @@
 #bottom-inner {
   width: 750px;
   margin: auto;
-  color: #fff;
+  color: $text-color;
   font-weight: 5px;
   margin-top: 50px;
   border-top: 1px solid #ddd;
@@ -25,14 +25,11 @@
 }
 #author {
   clear: both;
-  color: #505050;
+  color: #808080;
   padding-top: 140px;
   font-size: 18px;
   line-height: 30px;
-  font-family: "Lato";
-}
-#heart {
-  color: #f00;
+  font-family: Lato;
 }
 #theme_author {
   text-decoration: none;
@@ -44,7 +41,7 @@
 }
 .visits {
   color: #808080;
-  font-family: "Lato";
+  font-family: Heveltica;
   clear: both;
   padding-bottom: 20px;
 }

@@ -8,7 +8,7 @@
 #signature-date {
   font-size: 20px;
   padding-top: 18%;
-  color: #d3d3d3;
+  color: #737373;
   margin-left: 15%;
 }
 #cover-title {
@@ -41,50 +41,50 @@
 }
 .recent-post-item {
   float: left;
-  height: 600px;
-  color: #fff;
-  font-family: "Lato";
-  flex: 1 0 300px;
+  height: 700px;
+  color: #bfbfbf;
+  flex: 1 0 18.75rem;
   margin: 0 0 1.875rem;
   display: inline-block;
   min-height: 285px;
   transition: all 0.3s;
   position: relative;
   z-index: 1;
+  font-family: Lato;
 }
 @media (min-width: 37.5rem) {
   .recent-post-item {
-    margin: 0 15px 30px;
+    margin: 0 0.9375rem 1.875px;
   }
 }
-@media (min-width: calc((2 * 10px) + (2 * 300px))) {
+@media (min-width: calc((2 * 0.625rem) + (2 * 18.75rem))) {
   .recent-post-item {
-    max-width: calc(100%/2 - 15px*2);
+    max-width: calc(100%/2 - 0.9375rem*2);
   }
 }
-@media (min-width: calc((2 * 10px) + (3 * 300px))) {
+@media (min-width: calc((2 * 0.625rem) + (3 * 18.75rem))) {
   .recent-post-item {
-    max-width: calc(100%/3 - 15px*2);
+    max-width: calc(100%/3 - 0.9375rem*2);
   }
 }
-@media (min-width: calc((2 * 10px) + (4 * 300px))) {
+@media (min-width: calc((2 * 0.625rem) + (4 * 18.75rem))) {
   .recent-post-item {
-    max-width: calc(100%/4 - 15px*2);
+    max-width: calc(100%/4 - 0.9375rem*2);
   }
 }
-@media (min-width: calc((2 * 10px) + (5 * 300px))) {
+@media (min-width: calc((2 * 0.625rem) + (5 * 18.75rem))) {
   .recent-post-item {
-    max-width: calc(100%/5 - 15px*2);
+    max-width: calc(100%/5 - 0.9375rem*2);
   }
 }
-@media (min-width: calc((2 * 10px) + (6 * 300px))) {
+@media (min-width: calc((2 * 0.625rem) + (6 * 18.75rem))) {
   .recent-post-item {
-    max-width: calc(100%/6 - 15px*2);
+    max-width: calc(100%/6 - 0.9375rem*2);
   }
 }
-@media (min-width: calc(2 * 10px + 6 * $s)) {
+@media (min-width: calc(2 * 0.625rem + 6 * $s)) {
   .recent-post-item {
-    flex: 1 0 calc(100% / 6 - 15px * 2);
+    flex: 1 0 calc(100% / 6 - 0.9375rem * 2);
   }
 }
 .recent-post-item:hover {
@@ -99,12 +99,13 @@
 .category {
   background-color: opacity 0;
   display: block;
-  height: 36px;
-  line-height: 36px;
+  height: 2.25rem;
+  line-height: 2.25rem;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 16px;
-  padding: 0 15px;
+  font-size: 1rem;
+  padding: 0 0.9375rem;
+  color: #fff;
 }
 .cover {
   width: 100%;
@@ -119,12 +120,13 @@
 .time {
   color: #737373;
   pointer-events: none;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .recent-post-tag {
   height: 22px;
   line-height: 26px;
   color: #fff;
+  font-family: Heveltica;
   padding: 0 10px 5px;
   border: 1px solid #fff;
   border-radius: 15px;
@@ -152,4 +154,8 @@ a.content {
   font-size: 17px;
   line-height: 26px;
   text-decoration: none;
+}
+a.content,
+a {
+  color: #bfbfbf;
 }
