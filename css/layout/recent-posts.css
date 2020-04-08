@@ -151,7 +151,8 @@
 a.content {
   margin: 0 0 30px;
   color: #bfbfbf;
-  font-size: 17px;
+  font-family: Lato;
+  font-size: 17px !important;
   line-height: 26px;
   text-decoration: none;
 }

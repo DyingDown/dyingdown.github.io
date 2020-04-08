@@ -16,14 +16,14 @@ function triangleClick() {
 }
 
 function wechatButtonClick() {
-    document.getElementById("wechat").src = "/img/wechat.jpg";
+    document.getElementById("wechat").src = "/img/Wechat.jpg";
     document.getElementById("wechat-button").style = "background-color:#d31a29;color:white";
     document.getElementById("alipay-button").style = "background-color: transparent;color: #d31a29;";
 
 }
 
 function alipayButtonClick() {
-    document.getElementById("wechat").src = "/img/alipay.jpg"
+    document.getElementById("wechat").src = "/img/Alipay.jpg"
     document.getElementById("alipay-button").style = "background-color: #d31a29;color: white;";
     document.getElementById("wechat-button").style = "background-color: transparent;color: #d31a29;";
 }
