@@ -37,42 +37,43 @@
   padding-inline-start: 0px;
   margin-block-start: 0px;
   margin-block-end: 0px;
+  margin-top: 15px;
 }
 .menu-item {
   list-style-type: none;
   position: relative;
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-top: 3%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  line-height: 2;
 }
 .menu-item:hover .submenu {
   display: block;
 }
-.menu-item::before {
-  display: none;
-}
-.submenu-item::before {
-  display: none;
-}
 .menu {
   text-align: center;
   color: #fff;
-  font-size: 20px;
+  font-size: 19px;
   text-decoration: none;
   display: block;
 }
 .menu:hover {
   color: #f00;
-  border-bottom: solid;
-  border-bottom-color: #f00;
-  border-bottom-width: 6px;
-  padding-bottom: 16px;
+}
+.menu:hover ::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -22.5px;
+  background-color: #f00;
+  width: 100%;
+  height: 6px;
+  transition: 0.25s ease-in-out;
 }
 .sublabel {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
-  line-height: 40px;
+  line-height: 35px;
 }
 .sublabel:hover {
   color: #f00;
@@ -104,7 +105,7 @@
   position: absolute;
   background: #282828;
   padding: 10px;
-  top: 46px;
+  top: 35px;
   right: -8px;
   width: auto;
   height: auto;
