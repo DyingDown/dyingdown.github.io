@@ -5,7 +5,7 @@
   font-size: 25px;
   width: 50%;
 }
-.tag {
+.tagOfa {
   list-style-position: inside;
   text-decoration: none;
   color: #fff;
@@ -20,7 +20,7 @@
   vertical-align: center;
   line-height: 30px;
 }
-.tag::before {
+.tagOfa::before {
   content: "";
   position: absolute;
   margin-left: -27px;
