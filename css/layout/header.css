@@ -9,6 +9,8 @@
   vertical-align: middle;
   display: flex;
   justify-content: space-between;
+  opacity: 0.98;
+  filter: #191919;
 }
 #user {
   display: flex;

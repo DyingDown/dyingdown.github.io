@@ -24,10 +24,10 @@
   content: "";
   position: absolute;
   margin-left: -27px;
-  margin-top: 2px;
+  margin-top: 1px;
   width: 0;
   height: 18;
-  border-top: 13.5px solid transparent;
+  border-top: 14px solid transparent;
   border-right: 19px solid #d31a29;
   border-bottom: 13px solid transparent;
   z-index: -1;

@@ -34,7 +34,7 @@
   bottom: 20px;
   left: 50%;
 }
-@media (max-width: 1800px) {
+@media (max-width: 1500px) {
   #chevron-down {
     display: none;
   }
