@@ -161,7 +161,6 @@ li>ul {
 }
 .post-content ul {
   counter-reset: li;
-  list-style: none;
 }
 .post-content ul li::before {
   content: "";
@@ -220,4 +219,11 @@ li>ul {
 }
 .post-content img {
   width: 100%;
+}
+p code {
+  background-color: #282828;
+  color: #fff;
+  border-radius: 7px;
+  padding: 3px 5px;
+  font: #fff 18px consolas;
 }

@@ -1,4 +1,4 @@
-.highlight .code:before {
+.highlight pre:before {
   content: " ";
   position: absolute;
   -webkit-border-radius: 50%;
@@ -15,11 +15,13 @@
 figure table {
   border-collapse: collapse;
 }
+td {
+  padding: 0px;
+}
 .highlight {
   position: relative;
   background: #21252b !important;
   border-radius: 5px;
-  font: 15px/22px "Microsoft YaHei", "Arial", Sans-Serif;
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
@@ -40,8 +42,8 @@ figure table {
   color: #21252b !important;
 }
 .highlight pre::-webkit-scrollbar {
-  height: 10x !important;
-  width: 10x !important;
+  height: 10px !important;
+  width: 10px !important;
   background-color: #1d1f21 !important;
 }
 .highlight pre::-webkit-scrollbar-track {
@@ -61,11 +63,12 @@ figure table {
   word-break: break-word;
   font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif !important;
   padding: 2px;
+  margin: 0;
   text-shadow: none;
   border-radius: 0 0 5px 5px;
   cursor: url("https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur"), auto;
 }
-.highlight .gutter:before {
+.highlight code[data-rel]:before {
   color: #fff;
   content: attr(data-rel);
   height: 38px;
@@ -140,11 +143,9 @@ figure table {
   color: #d19a66;
 }
 .bullet,
-.link,
 .meta,
 .selector-id,
-.symbol,
-.title {
+.symbol {
   color: #61aeee;
 }
 .emphasis {
@@ -152,9 +153,6 @@ figure table {
 }
 .strong {
   font-weight: 700;
-}
-.link {
-  text-decoration: underline;
 }
 .ln {
   margin: 6px 0 0 0 !important;
@@ -176,7 +174,6 @@ figure table {
   width: 30px;
 }
 .highlight .code .line {
-  margin-left: 25px;
   padding-left: 5px;
 }
 .highlight .code .line:hover {
@@ -225,4 +222,21 @@ figure table {
 }
 .highlight table tbody {
   border-collapse: collapse;
+  padding: 0px;
+}
+table {
+  background-color: #1d1f21;
+}
+table tr td:last-child {
+  width: 100%;
+}
+figure table {
+  margin: 0;
+}
+figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
