@@ -64,7 +64,6 @@ td {
   margin: 0;
   text-shadow: none;
   border-radius: 0 0 5px 5px;
-  cursor: url("https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur"), auto;
   font-family: "consolas" !important;
 }
 .highlight pre[data-rel]:before {
