@@ -27,6 +27,12 @@
   padding-right: 40px;
   padding-left: 40px;
 }
+.post-information {
+  background-color: #fff;
+  margin-left: 10%;
+  margin-right: 1%;
+  width: 61%;
+}
 .titles {
   padding-left: 20px;
   border-left: solid 0.3125rem #000;
