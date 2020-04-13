@@ -14,19 +14,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  margin-left: 14%;
-  margin-right: 28.5%;
-}
-@media (max-width: 1600px) {
-  .prev-next {
-    margin-left: 10%;
-  }
-}
-@media (max-width: 1300px) {
-  .prev-next {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+  margin-top: 30px;
 }
 .pull-left {
   float: left;

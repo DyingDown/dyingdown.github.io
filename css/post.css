@@ -1,37 +1,33 @@
-#post {
+.article {
   background-color: #fff;
   margin-top: 110px;
   position: relative;
   margin-left: 14%;
   margin-right: 1%;
   width: 57%;
-  -webkit-box-shadow: 1px 0 5px rgba(0,0,0,0.4);
-  box-shadow: 1px 0 5px rgba(0,0,0,0.4);
 }
 @media (max-width: 1600px) {
-  #post {
+  .article {
     width: 61%;
     margin-left: 10%;
   }
 }
 @media (max-width: 1300px) {
-  #post {
+  .article {
     margin-left: 0px;
     margin-right: 0px;
     width: 100%;
   }
+}
+#post {
+  -webkit-box-shadow: 1px 0 5px rgba(0,0,0,0.4);
+  box-shadow: 1px 0 5px rgba(0,0,0,0.4);
 }
 .post-content {
   padding-top: 20px;
   padding-bottom: 40px;
   padding-right: 40px;
   padding-left: 40px;
-}
-.post-information {
-  background-color: #fff;
-  margin-left: 14%;
-  margin-right: 1%;
-  width: 57%;
 }
 .titles {
   padding-left: 20px;
