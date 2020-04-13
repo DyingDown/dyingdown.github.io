@@ -1,4 +1,4 @@
-.highlight pre:before {
+.highlight:before {
   content: " ";
   position: absolute;
   -webkit-border-radius: 50%;
@@ -7,25 +7,20 @@
   width: 12px;
   height: 12px;
   left: 20px;
-  margin-top: -27px;
+  margin-top: -20px;
   -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
   box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
   z-index: 2;
 }
-figure table {
-  border-collapse: collapse;
-}
-td {
-  padding: 0px;
-}
 .highlight {
   position: relative;
-  background: #21252b !important;
+  background: #21252b;
   border-radius: 5px;
+  font: 15px/22px "Microsoft YaHei", "Arial", Sans-Serif;
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
-  overflow: auto !important;
+  overflow: auto;
   text-shadow: none;
   color: #000;
   padding-top: 30px;
@@ -34,45 +29,44 @@ td {
 .highlight .line span::-moz-selection,
 .line::-moz-selection {
   background: #fff;
-  color: #21252b !important;
+  color: #21252b;
 }
 .highlight .line span::selection,
 .line::selection {
   background: #fff;
-  color: #21252b !important;
+  color: #21252b;
 }
-.highlight pre::-webkit-scrollbar {
-  height: 10px !important;
-  width: 10px !important;
+.highlight code::-webkit-scrollbar {
+  height: 10x !important;
+  width: 10x !important;
   background-color: #1d1f21 !important;
 }
-.highlight pre::-webkit-scrollbar-track {
+.highlight code::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3) !important;
   border-radius: 10px !important;
   background-color: #21252b !important;
 }
-.highlight pre::-webkit-scrollbar-thumb {
+.highlight code::-webkit-scrollbar-thumb {
   border-radius: 10px !important;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important;
   background-color: #21252b !important;
 }
-.highlight pre {
-  background: #1d1f21 !important;
+.highlight code {
+  background: #1d1f21;
   color: #fff;
   word-break: break-word;
+  font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
   padding: 2px;
-  margin: 0;
   text-shadow: none;
   border-radius: 0 0 5px 5px;
   cursor: url("https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur"), auto;
-  font-family: "consolas" !important;
 }
-.highlight pre[data-rel]:before {
+.highlight code[data-rel]:before {
   color: #fff;
   content: attr(data-rel);
   height: 38px;
   line-height: 38px;
-  background: #21252b !important;
+  background: #21252b;
   font-size: 16px;
   position: absolute;
   margin-top: -35px;
@@ -92,9 +86,10 @@ td {
   border-bottom-left-radius: 0;
   pointer-events: none;
 }
-.highlight {
+.hljs {
   display: block;
   overflow-x: auto;
+  padding: 0.5em;
   color: #abb2bf;
   background: rgba(254,250,199,0.5);
   border-radius: 10px;
@@ -141,9 +136,11 @@ td {
   color: #d19a66;
 }
 .bullet,
+.link,
 .meta,
 .selector-id,
-.symbol {
+.symbol,
+.title {
   color: #61aeee;
 }
 .emphasis {
@@ -152,10 +149,13 @@ td {
 .strong {
   font-weight: 700;
 }
+.link {
+  text-decoration: underline;
+}
 .ln {
   margin: 6px 0 0 0 !important;
 }
-.highlight td.gutter {
+.highlight td.numbers {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -163,13 +163,16 @@ td {
   -ms-user-select: none;
   user-select: none;
   text-align: center;
-  color: #888f96 !important;
+  color: #888f96;
   background: #1d1f21;
+  font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
   vertical-align: top;
+  position: absolute;
   left: 0;
   width: 30px;
 }
 .highlight .code .line {
+  margin-left: 25px;
   padding-left: 5px;
 }
 .highlight .code .line:hover {
@@ -208,38 +211,11 @@ td {
   font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', serif;
 }
 .code-font {
-  font-family: 'Source Code Pro' !important, monospace;
+  font-family: 'Source Code Pro', monospace;
 }
 .Ubuntu-font {
   font-family: 'Ubuntu', sans-serif;
 }
 .serif {
   font-family: 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', 'PT Serif', 'SongTi SC', 'MicroSoft Yahei', Georgia, serif;
-}
-.highlight table tbody {
-  border-collapse: collapse;
-  padding: 0px;
-}
-table {
-  background-color: #1d1f21;
-}
-table tr td:last-child {
-  width: 100%;
-}
-figure table {
-  margin: 0 !important;
-}
-figure {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-.highlight tr {
-  border-color: #f00 !important;
-  padding: 2px !important;
-}
-.code {
-  padding: 0 !important;
 }
