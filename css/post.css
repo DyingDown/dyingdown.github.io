@@ -226,5 +226,5 @@ p code {
   color: #fff;
   border-radius: 7px;
   padding: 3px 5px;
-  font: #fff 18px consolas;
+  font: 18px consolas !important;
 }

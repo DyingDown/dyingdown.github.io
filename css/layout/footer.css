@@ -36,6 +36,7 @@
 }
 #theme_name {
   font-weight: bold;
+  text-decoration: none;
 }
 .visits {
   color: #808080;
