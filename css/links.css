@@ -61,3 +61,7 @@
   display: block;
   clear: both;
 }
+.links a {
+  color: #fff;
+  text-decoration: none;
+}
