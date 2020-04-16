@@ -6,3 +6,6 @@ body {
   background-color: #141414;
   color: #fff;
 }
+#veditor {
+  background-image: url("../source/img/avatar1.png") !important;
+}

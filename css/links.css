@@ -58,7 +58,7 @@
   border: #d3d3d3 solid 2px;
   width: 30.5%;
 }
-.links img {
+.links .site-preview {
   text-align: center;
   width: 70px;
   float: left;
@@ -105,4 +105,7 @@
 .links a {
   color: #fff;
   text-decoration: none;
+}
+#vcomment {
+  clear: both;
 }
