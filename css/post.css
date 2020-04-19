@@ -191,10 +191,15 @@ li>ul {
 .post-content table {
   padding: 0;
   word-break: normal;
+  border-collapse: collapse;
 }
 .post-content table tr {
   margin: 0;
   padding: 0;
+}
+.post-content table td,
+.post-content table th {
+  border: #d3d3d3 1px solid;
 }
 .post-content table tr:nth-child(2n) {
   background-color: #f8f8f8;
