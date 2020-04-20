@@ -7,5 +7,15 @@ body {
   color: #fff;
 }
 #veditor {
-  background-image: url("../source/img/avatar1.png") !important;
+  background: url("../img/bg.png") no-repeat right top;
+  background-size: 100px;
+}
+.vat {
+  border: solid #f00 1px;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+.vat:hover {
+  background-color: #f00;
+  color: #fff !important;
 }
