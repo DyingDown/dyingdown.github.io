@@ -7,8 +7,9 @@ body {
   color: #fff;
 }
 #veditor {
-  background: url("../img/bg.png") no-repeat right top;
+  background: url("../img/bg3.png") no-repeat right top;
   background-size: 100px;
+  background-position: 98% 5px;
 }
 .vat {
   border: solid #f00 1px;
