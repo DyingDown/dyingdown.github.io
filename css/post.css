@@ -128,7 +128,6 @@ li>ul {
 }
 .post-content ul,
 .post-content ol {
-  padding-left: 30px;
   line-height: 35px;
 }
 .post-content ol {
@@ -160,10 +159,7 @@ li>ul {
 .post-content ol ol li:before {
   margin-left: 30px;
 }
-.post-content ul {
-  counter-reset: li;
-}
-.post-content ul li::before {
+.post-content ul li:nth-of-type(n)::before {
   content: "";
   color: #fff;
   font-weight: 20px;
@@ -174,11 +170,8 @@ li>ul {
   background: #fff;
   border-radius: 30px;
   border: solid 3.5px #d31a29;
-  height: 10px;
-  width: 10px;
-}
-.post-content ul ol li:before {
-  margin-left: 30px;
+  height: 7px;
+  width: 7px;
 }
 .post-content blockquote {
   border-left: 4px solid #dfe2e5;
