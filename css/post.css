@@ -159,12 +159,15 @@ li>ul {
 .post-content ol ol li:before {
   margin-left: 30px;
 }
+.post-content ul {
+  list-style: none;
+}
 .post-content ul li:nth-of-type(n)::before {
   content: "";
   color: #fff;
   font-weight: 20px;
   position: absolute;
-  left: 3.1em;
+  left: 3.5em;
   line-height: 2em;
   margin-top: 0.7em;
   background: #fff;
@@ -217,7 +220,7 @@ li>ul {
   margin-bottom: 0;
 }
 .post-content img {
-  width: 100%;
+  max-width: 100%;
 }
 p code {
   background-color: #282828;
