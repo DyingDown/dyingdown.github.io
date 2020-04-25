@@ -109,7 +109,7 @@
 }
 .cover {
   width: 100%;
-  height: calc(100% / 4);
+  height: auto;
   margin: 0 auto;
   transition: all 0.2s ease-in-out;
 }
