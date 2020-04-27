@@ -54,7 +54,7 @@
 }
 @media (min-width: 37.5rem) {
   .recent-post-item {
-    margin: 0 0.9375rem 1.875px;
+    margin: 0 0.9375rem 15px;
   }
 }
 @media (min-width: calc((2 * 0.625rem) + (2 * 18.75rem))) {
