@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><title>Storage System 存储系统 [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/variable/variable.css"><link rel="stylesheet" href="/css/layout/highlight.css"><link rel="stylesheet" href="/css/links.css"><link rel="stylesheet" href="/css/about.css"><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"></head><body><div id="menu-outer"><div id="top"><a id="user" href="/">o_oyao</a><center><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/categories/memories/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/ACM/"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Novel"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/about/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/theme-last"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/contact"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/star/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/links/"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/message/"><div class="icon_top"><i class="fas fa-comment-dots"></i> Message</div></a></li></ul></center><div id="buttons"><a id="search"><i class="fa fa-search"></i></a><a id="menu_button"><i class="fa fa-bars"></i></a></div></div></div><div id="content-outer"><div id="content-inner"><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="https://s1.ax1x.com/2020/04/17/JEvVCd.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog">Catalog</div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统层次结构"><span class="toc-number">1.</span> <span class="toc-text">存储系统层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本存储体系"><span class="toc-number">1.1.</span> <span class="toc-text">基本存储体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存速度慢的原因"><span class="toc-number">1.2.</span> <span class="toc-text">主存速度慢的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存容量不足的原因"><span class="toc-number">1.3.</span> <span class="toc-text">主存容量不足的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系的层次化结构"><span class="toc-number">1.4.</span> <span class="toc-text">存储体系的层次化结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系层次化结构的理论基础"><span class="toc-number">1.5.</span> <span class="toc-text">存储体系层次化结构的理论基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主存中的数据组织"><span class="toc-number">2.</span> <span class="toc-text">主存中的数据组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储字长"><span class="toc-number">2.1.</span> <span class="toc-text">存储字长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据存储与边界的关系"><span class="toc-number">2.2.</span> <span class="toc-text">数据存储与边界的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态存储器工作原理"><span class="toc-number">3.</span> <span class="toc-text">静态存储器工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态存储器工作原理"><span class="toc-number">4.</span> <span class="toc-text">动态存储器工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储扩展"><span class="toc-number">5.</span> <span class="toc-text">存储扩展</span></a></li></ol></div></div></div><div class="article"><div id="post"><div class="titles"><h1 class="title">Storage System 存储系统</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-29T00:12:43.000Z">2020-04-29</time></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">3 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">858 words</span></div><div class="post-content"><p>这本是几周前的工作，存储系统，结果拖拉到现在，终于开始学习这一章。这一张学习过程中发现一节课学了好几遍都听不下来，经常看到重要的难点走神或者被别的事情打断。所以这次认真学习强制自己做笔记。</p>
+<a id="more"></a>
+<h2 id="存储系统层次结构"><a href="#存储系统层次结构" class="headerlink" title="存储系统层次结构"></a>存储系统层次结构</h2><h3 id="基本存储体系"><a href="#基本存储体系" class="headerlink" title="基本存储体系"></a>基本存储体系</h3><p>原理</p>
+<p>存储程序 （主存）</p>
+<ul>
+<li>输入设备将程序与数据写入主存</li>
+<li>CPU取指令</li>
+<li>CPU执行指令期间读数据</li>
+<li>CPU写回运算结果</li>
+<li>输出设备输出结果</li>
+</ul>
+<p>程序控制（CPU）</p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JoJn4U.png" alt></p>
+<h3 id="主存速度慢的原因"><a href="#主存速度慢的原因" class="headerlink" title="主存速度慢的原因"></a>主存速度慢的原因</h3><p><img src="https://s1.ax1x.com/2020/04/29/JoJHaV.png" alt></p>
+<ul>
+<li>主存增速与CPU增速不同</li>
+<li>指令执行期间多次访问存储器</li>
+</ul>
+<h3 id="主存容量不足的原因"><a href="#主存容量不足的原因" class="headerlink" title="主存容量不足的原因"></a>主存容量不足的原因</h3><ul>
+<li>存在制约主存容量的技术因素 (由CPU、主板等相关技术指标确定)</li>
+<li>应用对主存的需求不断扩大</li>
+</ul>
+<h3 id="存储体系的层次化结构"><a href="#存储体系的层次化结构" class="headerlink" title="存储体系的层次化结构"></a>存储体系的层次化结构</h3><p><img src="https://s1.ax1x.com/2020/04/29/JodEDJ.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JodN5t.png" alt></p>
+<p>CPU访问到的存储系统具有Cache的速度，辅存的容量和价格</p>
+<p>高速缓存又分为两部分</p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JoDawQ.png" alt></p>
+<ul>
+<li>L1 Cache集成在CPU中，分数据Cache(D-Cache)和指令Cache(I-Cache)</li>
+<li>早期L2 Cache在主板上或与CPU集成在同一电路板上。随着工艺的提高L2Cache被集成在CPU内核中，不分D-Cache和I-Cache</li>
+</ul>
+<h3 id="存储体系层次化结构的理论基础"><a href="#存储体系层次化结构的理论基础" class="headerlink" title="存储体系层次化结构的理论基础"></a>存储体系层次化结构的理论基础</h3><p>局部性原理</p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JTpOtU.png" alt></p>
+<ul>
+<li><p>时间局部性: 现在被访问的信息2在不久的将来还将再次被访问</p>
+<p>时间局部性的程序结构体现：<strong>循环结构</strong></p>
+</li>
+<li><p>空间局部性：现访问信息2 ，下一次访问2附近的信息。</p>
+<p>空间局部性的程序结构体现：<strong>顺序结构</strong></p>
+</li>
+</ul>
+<h2 id="主存中的数据组织"><a href="#主存中的数据组织" class="headerlink" title="主存中的数据组织"></a>主存中的数据组织</h2><h3 id="存储字长"><a href="#存储字长" class="headerlink" title="存储字长"></a>存储字长</h3><ul>
+<li>主存的一个存储单元所包含的二进制位数</li>
+<li>目前大多数计算机的主存按字节编址，存储字长也不断加大,如16位字长、32位字长和64位字长</li>
+<li>ISA设计时要考虑的两个问题：<ul>
+<li>如何根据字节地址读取一个32位的字？ - 字的存放问题</li>
+<li>一个字能否存放在主存的任何字节边界？ - 字的边界对齐问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据存储与边界的关系"><a href="#数据存储与边界的关系" class="headerlink" title="数据存储与边界的关系"></a>数据存储与边界的关系</h3><ol>
+<li>按边界对齐的数据存储</li>
+</ol>
+<p>边界也分好几种:字节边界,字边界,双字边界,半字长边界.</p>
+<p>int i(32位), short k(16位), double x(64位), char c(8位), short j,…… （32位系统中）</p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JT9AhD.png" alt></p>
+<p>边界存放可能会导致部分空间的浪费.</p>
+<ol>
+<li>未按边界对齐的数据存储</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/04/29/JTCyIf.png" alt></p>
+<p>虽节省了空间，但增加了访存次数！需要在性能与容量间权衡！    </p>
+<p>比如要访问x,则需要访问三次,而刚才只需要访问两次.所以这个是用性能换空间.</p>
+<ol>
+<li>边界对齐与存储地址的关系(以32位为例)</li>
+</ol>
+<ul>
+<li><p>双字长数据边界对齐的起始地址的最末三位为000(8字节整数倍)</p>
+<p>双字长是64位,即八个字节,计算机中主存按字节,所以是八字节的整数倍.</p>
+</li>
+<li><p>单字长边界对齐的起始地址的末二位为00(4字节整数倍)</p>
+</li>
+<li><p>半字长边界对齐的起始地址的最末一位为0(２字节整数倍)</p>
+</li>
+</ul>
+<h2 id="静态存储器工作原理"><a href="#静态存储器工作原理" class="headerlink" title="静态存储器工作原理"></a>静态存储器工作原理</h2><p><img src="https://s1.ax1x.com/2020/04/29/JoZKL4.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JoeCp6.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JoeE0H.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/29/JoetNn.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/29/Joed3V.png" alt></p>
+<h2 id="动态存储器工作原理"><a href="#动态存储器工作原理" class="headerlink" title="动态存储器工作原理"></a>动态存储器工作原理</h2><h2 id="存储扩展"><a href="#存储扩展" class="headerlink" title="存储扩展"></a>存储扩展</h2></div></div><div class="post-information"><div id="paginations"><div class="prev-next"><div class="prev-post"><a class="pull-left" href="/2020/04/29/计算机网络-网络层/"><i class="fas fa-angle-double-left"></i> 计算机网络-网络层</a></div><div class="next-post"><a class="pull-right" href="/2020/04/27/计算机网络-数据链路层/">计算机网络-数据链路层  <i class="fas fa-angle-double-right"> </i></a></div></div></div><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your footprint here!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+})
+
+    </script></div></div></div></div><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa fa-fw fa-wechat"></i></a></div><div id="incons"><a class="icon" href=" " title="Twitter"><i class="fa fa-fw fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="Telegram"><i class="fab fa-fw fa-telegram-plane"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa fa-fw fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Linkedin"><i class="fa fa-fw fa-linkedin"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa fa-fw fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa fa-fw fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" " title="Instagram"><i class="fa fa-fw fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="Quora"><i class="fab fa-fw fa-quora"></i></a></div><div id="author"><a id="theme_name" href="https://github.com/DyingDown/hexo-theme-last">Last</a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2020</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></span></div></span></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/Last.js"></script><script src="/js/post.js"></script><script src="/js/toc.js"></script><script src="/js/third-party/reveal/math.min.js"></script><script src="/js/toc.js"></script></body></html>
