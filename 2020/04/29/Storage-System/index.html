@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><title>Storage System 存储系统 [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/variable/variable.css"><link rel="stylesheet" href="/css/layout/highlight.css"><link rel="stylesheet" href="/css/links.css"><link rel="stylesheet" href="/css/about.css"><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"></head><body><div id="menu-outer"><div id="top"><a id="user" href="/">o_oyao</a><center><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/categories/memories/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/ACM/"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Novel"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/about/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/theme-last"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/contact"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/star/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/links/"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/message/"><div class="icon_top"><i class="fas fa-comment-dots"></i> Message</div></a></li></ul></center><div id="buttons"><a id="search"><i class="fa fa-search"></i></a><a id="menu_button"><i class="fa fa-bars"></i></a></div></div></div><div id="content-outer"><div id="content-inner"><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="https://s1.ax1x.com/2020/04/17/JEvVCd.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog">Catalog</div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统层次结构"><span class="toc-number">1.</span> <span class="toc-text">存储系统层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本存储体系"><span class="toc-number">1.1.</span> <span class="toc-text">基本存储体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存速度慢的原因"><span class="toc-number">1.2.</span> <span class="toc-text">主存速度慢的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存容量不足的原因"><span class="toc-number">1.3.</span> <span class="toc-text">主存容量不足的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系的层次化结构"><span class="toc-number">1.4.</span> <span class="toc-text">存储体系的层次化结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系层次化结构的理论基础"><span class="toc-number">1.5.</span> <span class="toc-text">存储体系层次化结构的理论基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主存中的数据组织"><span class="toc-number">2.</span> <span class="toc-text">主存中的数据组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储字长"><span class="toc-number">2.1.</span> <span class="toc-text">存储字长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据存储与边界的关系"><span class="toc-number">2.2.</span> <span class="toc-text">数据存储与边界的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态存储器工作原理"><span class="toc-number">3.</span> <span class="toc-text">静态存储器工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态存储器工作原理"><span class="toc-number">4.</span> <span class="toc-text">动态存储器工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储扩展"><span class="toc-number">5.</span> <span class="toc-text">存储扩展</span></a></li></ol></div></div></div><div class="article"><div id="post"><div class="titles"><h1 class="title">Storage System 存储系统</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-29T00:12:43.000Z">2020-04-29</time></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">3 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">858 words</span></div><div class="post-content"><p>这本是几周前的工作，存储系统，结果拖拉到现在，终于开始学习这一章。这一张学习过程中发现一节课学了好几遍都听不下来，经常看到重要的难点走神或者被别的事情打断。所以这次认真学习强制自己做笔记。</p>
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><title>Storage System 存储系统 [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/variable/variable.css"><link rel="stylesheet" href="/css/layout/highlight.css"><link rel="stylesheet" href="/css/links.css"><link rel="stylesheet" href="/css/about.css"><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"></head><body><div id="menu-outer"><div id="top"><a id="user" href="/">o_oyao</a><center><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/categories/memories/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/ACM/"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Novel"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/essay"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/about/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/theme-last"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/contact"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/star/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/links/"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/message/"><div class="icon_top"><i class="fas fa-comment-dots"></i> Message</div></a></li></ul></center><div id="buttons"><a id="search"><i class="fa fa-search"></i></a><a id="menu_button"><i class="fa fa-bars"></i></a></div></div></div><div id="content-outer"><div id="content-inner"><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="https://s1.ax1x.com/2020/04/17/JEvVCd.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog">Catalog</div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统层次结构"><span class="toc-number">1.</span> <span class="toc-text">存储系统层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本存储体系"><span class="toc-number">1.1.</span> <span class="toc-text">基本存储体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存速度慢的原因"><span class="toc-number">1.2.</span> <span class="toc-text">主存速度慢的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主存容量不足的原因"><span class="toc-number">1.3.</span> <span class="toc-text">主存容量不足的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系的层次化结构"><span class="toc-number">1.4.</span> <span class="toc-text">存储体系的层次化结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储体系层次化结构的理论基础"><span class="toc-number">1.5.</span> <span class="toc-text">存储体系层次化结构的理论基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主存中的数据组织"><span class="toc-number">2.</span> <span class="toc-text">主存中的数据组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储字长"><span class="toc-number">2.1.</span> <span class="toc-text">存储字长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据存储与边界的关系"><span class="toc-number">2.2.</span> <span class="toc-text">数据存储与边界的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大端与小端存储方式"><span class="toc-number">2.3.</span> <span class="toc-text">大端与小端存储方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态存储器工作原理"><span class="toc-number">3.</span> <span class="toc-text">静态存储器工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SRAM存储单元结构"><span class="toc-number">3.1.</span> <span class="toc-text">SRAM存储单元结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6管静态存储单元"><span class="toc-number">3.1.1.</span> <span class="toc-text">6管静态存储单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本读写过程"><span class="toc-number">3.1.2.</span> <span class="toc-text">基本读写过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#保持的工作原理"><span class="toc-number">3.1.3.</span> <span class="toc-text">保持的工作原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态存储器的结构"><span class="toc-number">3.2.</span> <span class="toc-text">静态存储器的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单译码结构"><span class="toc-number">3.2.1.</span> <span class="toc-text">单译码结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双译码结构"><span class="toc-number">3.2.2.</span> <span class="toc-text">双译码结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态存储器工作原理"><span class="toc-number">4.</span> <span class="toc-text">动态存储器工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SRAM存储单元的不足"><span class="toc-number">4.1.</span> <span class="toc-text">SRAM存储单元的不足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM存储单元的基本结构"><span class="toc-number">4.2.</span> <span class="toc-text">DRAM存储单元的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态存储单元写操作"><span class="toc-number">4.3.</span> <span class="toc-text">动态存储单元写操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态存储单元读操作"><span class="toc-number">4.4.</span> <span class="toc-text">动态存储单元读操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储扩展"><span class="toc-number">5.</span> <span class="toc-text">存储扩展</span></a></li></ol></div></div></div><div class="article"><div id="post"><div class="titles"><h1 class="title">Storage System 存储系统</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-29T00:12:43.000Z">2020-04-29</time></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">8 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">2.3k words</span></div><div class="post-content"><p>存储系统是指计算机中由存放程序和数据的各种存储设备、控制部件及管理信息调度的设备（硬件）和算法（软件）所组成的系统。计算机的主存储器不能同时满足存取速度快、存储容量大和成本低的要求，在计算机中必须有速度由慢到快、容量由大到小的多级层次存储器，以最优的控制调度算法和合理的成本，构成具有性能可接受的存储系统。</p>
 <a id="more"></a>
 <h2 id="存储系统层次结构"><a href="#存储系统层次结构" class="headerlink" title="存储系统层次结构"></a>存储系统层次结构</h2><h3 id="基本存储体系"><a href="#基本存储体系" class="headerlink" title="基本存储体系"></a>基本存储体系</h3><p>原理</p>
 <p>存储程序 （主存）</p>
@@ -73,12 +73,139 @@
 <li><p>半字长边界对齐的起始地址的最末一位为0(２字节整数倍)</p>
 </li>
 </ul>
-<h2 id="静态存储器工作原理"><a href="#静态存储器工作原理" class="headerlink" title="静态存储器工作原理"></a>静态存储器工作原理</h2><p><img src="https://s1.ax1x.com/2020/04/29/JoZKL4.png" alt></p>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoeCp6.png" alt></p>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoeE0H.png" alt></p>
+<ol>
+<li><p>对齐情况下，哪种结构声明更好（32位为例）</p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL3KDH.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL8Zon.png" alt></p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL8UW6.png" alt></p>
+<p>如果每个只有一个的话，是第一种结构更好，但是如果是多维数组的话，两种方式没什么区别，因为都有浪费的地方。</p>
+</li>
+</ol>
+<h3 id="大端与小端存储方式"><a href="#大端与小端存储方式" class="headerlink" title="大端与小端存储方式"></a>大端与小端存储方式</h3><ul>
+<li><p>Big-endian：最高字节地址(MSB)是数据地址</p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JLYMSP.png" alt></p>
+</li>
+<li><p>Big-endian: 最高字节地址(MSB)是数据地址</p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JLYdS0.png" alt></p>
+</li>
+</ul>
+<p>设某程序执行前 r0 = 0x 11223344，执行下列指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r1 = 0x100</span><br><span class="line">// 将r0中的内容放在r1的内容所指向的储存单元</span><br><span class="line">STR r0, [r1]</span><br><span class="line">// r1对应的组成单元取一个字节送到r2</span><br><span class="line">LDRB r2, [r1]</span><br></pre></td></tr></table></figure>
+<p>小端模式下：r2=0x44</p>
+<p>大选模式下：r2=0x11</p>
+<p>无论是大端还是小端，每个系统内部是一致的，但在系统间通信时可能会发生问题！因为顺序不同，需要进行顺序转换；</p>
+<h2 id="静态存储器工作原理"><a href="#静态存储器工作原理" class="headerlink" title="静态存储器工作原理"></a>静态存储器工作原理</h2><p>任何存储器都是由存储单元按照某种模式组合起来的。</p>
+<h3 id="SRAM存储单元结构"><a href="#SRAM存储单元结构" class="headerlink" title="SRAM存储单元结构"></a>SRAM存储单元结构</h3><h4 id="6管静态存储单元"><a href="#6管静态存储单元" class="headerlink" title="6管静态存储单元"></a>6管静态存储单元</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoZKL4.png" alt></p>
+<ul>
+<li>工作管：$T_1,T_2$（保存数据）通过构成的稳定互锁状态来保存信息</li>
+<li>负载管：$T_3,T_4$（补充电荷）为工作管提供工作电流</li>
+<li>门控管：$T_5, T_6,T_7,T_8$（开关作用）控制存储单元与外界的通断</li>
+</ul>
+<p>当X地址选通时（行选通）</p>
+<ul>
+<li>X通电导致$T_5，T_6$门控管被打开（饱和导通状态）</li>
+<li>A点与位线相连</li>
+</ul>
+<p>Y地址选通（列选通）</p>
+<ul>
+<li>Y通电导致$T_7，T_8$门控管被打开（饱和导通状态）</li>
+<li>A点与I/O相连</li>
+</ul>
+<h4 id="基本读写过程"><a href="#基本读写过程" class="headerlink" title="基本读写过程"></a>基本读写过程</h4><p>写过程</p>
+<p>X有效→ T5、 T6  通→ A与 I/O 连通</p>
+<p>Y有效→ T7、 T8 通 → B与 $\overline{I/O}$ 连通</p>
+<p>假定I/O端是高电平，$\overline{I/O}$是低电平，写入的是1，当X，Y都有效时，A点是高电位。<br>A点是高电位，T1饱和导通，Vss接地，所以B通过T2接地。所以T1是低点位，不饱和导通，维持A点高电位。</p>
+<p>写入的是0则相反。</p>
+<p>读过程</p>
+<p>X有效→ T5、 T6  通→ A与 I/O 连通 1</p>
+<p>Y有效→ T7、 T8 通 → B与 $\overline{I/O}$ 连通 0</p>
+<p>通过外接于I/O与$\overline{I/O}$间的电流放大器中的电流方向可判断读出的是1还是0(与写入时定义的1和0有关)</p>
+<p>如果写入的是0，X，Y有效时，A点低电平，B点高电平<br>如果写入的是1，X，Y有效时，B点低电平，A点高电平</p>
+<p><strong>无论是读写，X，Y译码线必须同时有效</strong></p>
+<h4 id="保持的工作原理"><a href="#保持的工作原理" class="headerlink" title="保持的工作原理"></a>保持的工作原理</h4><p>X、 Y撤销后，由负载管 T3、 T4 分别为工作管T1、 T2 提供工作电流，保持其稳定互锁状态不变。<br>T2饱和导通，T4为它提供工作电流。T1同理。</p>
+<h3 id="静态存储器的结构"><a href="#静态存储器的结构" class="headerlink" title="静态存储器的结构"></a>静态存储器的结构</h3><h4 id="单译码结构"><a href="#单译码结构" class="headerlink" title="单译码结构"></a>单译码结构</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoeCp6.png" alt></p>
+<p>N位地址，寻址$2^n$个存储单元，2n根译码线</p>
+<h4 id="双译码结构"><a href="#双译码结构" class="headerlink" title="双译码结构"></a>双译码结构</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoeE0H.png" alt></p>
+<p>N位地址，寻址$2^n$个存储单元，$2^{(n/2)+1}$根译码线</p>
+<p>由于每行每列有多个单元，实际应用中，地址译码器输出后面加驱动放大电路。</p>
+<p>双译码结构的好处：减少地址译码线的输出数量</p>
+<p>举例：双译码存储器</p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JLgW9K.png" alt></p>
+<p>具体的存储芯片</p>
 <p><img src="https://s1.ax1x.com/2020/04/29/JoetNn.png" alt></p>
+<ul>
+<li>地址线 11根，2K存储空间</li>
+<li>数据线 $D_0-D_7$，每个单元8位数据</li>
+<li>读写控制线 $\overline{WE},\overline{OE}$均为低电平有效</li>
+<li>片选信号 低电平有效（用于存储器的扩展）</li>
+<li>电源线 GND、$V_{DD}$</li>
+<li>无法知道行列地址多少位</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL2Q4x.png" alt></p>
+<ul>
+<li>地址线 10根，1K存储空间</li>
+<li>数据线 每个单元4位数据</li>
+<li>读写控制线 $\overline{WE}$均为低电平写操作，反之读操作</li>
+<li>片选信号 低电平有效（用于存储器的扩展）</li>
+<li>电源线 GND、$V_{DD}$</li>
+<li>无法知道行列地址多少位</li>
+</ul>
+<p>2114内部结构图</p>
 <p><img src="https://s1.ax1x.com/2020/04/29/Joed3V.png" alt></p>
-<h2 id="动态存储器工作原理"><a href="#动态存储器工作原理" class="headerlink" title="动态存储器工作原理"></a>动态存储器工作原理</h2><h2 id="存储扩展"><a href="#存储扩展" class="headerlink" title="存储扩展"></a>存储扩展</h2></div></div><div class="post-information"><div id="paginations"><div class="prev-next"><div class="prev-post"><a class="pull-left" href="/2020/04/29/计算机网络-网络层/"><i class="fas fa-angle-double-left"></i> 计算机网络-网络层</a></div><div class="next-post"><a class="pull-right" href="/2020/04/27/计算机网络-数据链路层/">计算机网络-数据链路层  <i class="fas fa-angle-double-right"> </i></a></div></div></div><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+<p>列选通有四位，就可也表示2的4次方=16列。相当于第一列物理地址的编号是0000，第二列物理地址的编号是0001……</p>
+<h2 id="动态存储器工作原理"><a href="#动态存储器工作原理" class="headerlink" title="动态存储器工作原理"></a>动态存储器工作原理</h2><h3 id="SRAM存储单元的不足"><a href="#SRAM存储单元的不足" class="headerlink" title="SRAM存储单元的不足"></a>SRAM存储单元的不足</h3><ul>
+<li>晶体管数量过多，一个存储单元就要6个晶体管</li>
+<li>存储密度低，晶体管数量多，存储器难以做大</li>
+<li>功耗大，无论保存的是0还是1，都有两个晶体管处在饱和导通状态。饱和导通电流较大，功耗较大，热效应明显。</li>
+</ul>
+<p>所以静态存储器芯片容量较小。</p>
+<h3 id="DRAM存储单元的基本结构"><a href="#DRAM存储单元的基本结构" class="headerlink" title="DRAM存储单元的基本结构"></a>DRAM存储单元的基本结构</h3><p><img src="https://s1.ax1x.com/2020/04/30/JLhdOS.png" alt></p>
+<p>解决SRAM不足采取的方法：</p>
+<ul>
+<li>去掉两个负载管T3、T4<ul>
+<li>提升存储密度</li>
+<li>降低功耗</li>
+<li>降低成本</li>
+</ul>
+</li>
+<li>利用栅极分布电容缓存电荷</li>
+<li>增加电路协同存储单元工作</li>
+</ul>
+<h3 id="动态存储单元写操作"><a href="#动态存储单元写操作" class="headerlink" title="动态存储单元写操作"></a>动态存储单元写操作</h3><p>Y地址选通</p>
+<ul>
+<li>T7，T8管导通</li>
+<li>I/O端数据写入到位线</li>
+</ul>
+<p>X地址选通</p>
+<ul>
+<li>T5，T6管导通</li>
+<li>位线相连与C2相连</li>
+</ul>
+<p>假定I/O端为高电平，写入1，A点饱和导通同时还给C2充电。</p>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL4yHe.png" alt></p>
+<h3 id="动态存储单元读操作"><a href="#动态存储单元读操作" class="headerlink" title="动态存储单元读操作"></a>动态存储单元读操作</h3><p>C2上的电量太少，不足以判断写入的数据。所以不能采用静态的方法。</p>
+<p>给出预充信号</p>
+<ul>
+<li>T9、T10导通</li>
+<li>充电电压给CD充电（充满）</li>
+</ul>
+<p>撤除预充信号</p>
+<p>X地址选通</p>
+<ul>
+<li><p>T5、T6管导通</p>
+</li>
+<li><p>右CD通过C1放电</p>
+</li>
+<li>左CD给C2充电</li>
+</ul>
+<p>Y地址选通</p>
+<ul>
+<li>T7、T8管导通</li>
+<li>左CD 与右CD间形成放电电流</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/30/JL5daQ.png" alt></p>
+<p>读过程比写复杂、速度慢</p>
+<h2 id="存储扩展"><a href="#存储扩展" class="headerlink" title="存储扩展"></a>存储扩展</h2></div></div><div class="post-information"><div id="paginations"><div class="prev-next"><div class="prev-post"><a class="pull-left" href="/2020/04/29/计算机网络-网络层/"><i class="fas fa-angle-double-left"></i> 计算机网络-网络层</a></div><div class="next-post"><a class="pull-right" href="/2020/04/27/计算机网络-数据链路层/">计算机网络-数据链路层  <i class="fas fa-angle-double-right"> </i></a></div></div></div><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];
 var guest_info = 'nick,mail,link'.split(',').filter(function(item){
