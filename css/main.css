@@ -1,0 +1,927 @@
+#home {
+  padding-top: 150px;
+}
+.flex-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+.title-category {
+  font-size: 40px;
+  margin-top: 0;
+  text-transform: uppercase;
+  padding: 0 15px;
+}
+.tags::before {
+  display: none;
+}
+.box-item {
+  flex: 1 0 300px;
+  margin: 0 15px 50px;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  min-height: 285px;
+  transition: all 0.3s;
+  position: relative;
+  cursor: pointer;
+}
+.box-item:hover {
+  box-shadow: 1px 2px 10px #eee;
+}
+.box-item a {
+  text-decoration: none;
+}
+.box-item a:hover .box-item {
+  box-shadow: 10px 10px 10px #eee;
+}
+.box-item .box-body {
+  padding: 25px;
+}
+.box-item .box-body time {
+  font-size: 14px;
+  color: #b2bac2;
+}
+.box-item .box-body h2 {
+  margin: 5px 0 15px;
+  font-size: 20px;
+  color: #005f97;
+}
+.box-item .box-body p,
+.box-item .box-body p a {
+  margin: 0 0 20px;
+  color: #576366;
+  font-size: 14px;
+  line-height: 22px;
+}
+.box-item .box-body .tags a {
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 5px;
+  z-index: 50;
+}
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+.ribbon .ri {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #b31917;
+  position: absolute;
+  top: 19px;
+  right: -21px;
+}
+.ribbon .ri:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #005f97;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #005f97;
+}
+.ribbon .ri:after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #005f97;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #005f97;
+}
+.tags {
+  margin-top: 30px;
+}
+.tg {
+  font-size: 14px;
+  color: #005f97;
+  display: inline-block;
+  border: 1px solid #005f97;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin-right: 2px;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+.tg:hover {
+  color: #00395c;
+  border: 1px solid #00395c;
+  background: #fff;
+}
+#post-AtCoder .post-title {
+  color: #b31917 !important;
+}
+#post-AtCoder .box-body h2 {
+  color: #b31917;
+}
+#post-AtCoder .box-body .tags a {
+  color: #b31917;
+  border: 1px solid #b31917;
+}
+#post-AtCoder .box-body .tags a:hover {
+  color: #fff;
+  background: #b31917;
+}
+#post-AtCoder .ribbon .ri {
+  background-color: #b31917;
+}
+#post-AtCoder .ribbon .ri:before {
+  border-left: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
+}
+#post-AtCoder .ribbon .ri:after {
+  border-right: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-UVALive .post-title {
+  color: #2da0c3 !important;
+}
+#post-UVALive .box-body h2 {
+  color: #2da0c3;
+}
+#post-UVALive .box-body .tags a {
+  color: #2da0c3;
+  border: 1px solid #2da0c3;
+}
+#post-UVALive .box-body .tags a:hover {
+  color: #fff;
+  background: #2da0c3;
+}
+#post-UVALive .ribbon .ri {
+  background-color: #2da0c3;
+}
+#post-UVALive .ribbon .ri:before {
+  border-left: 3px solid #207088;
+  border-top: 3px solid #207088;
+}
+#post-UVALive .ribbon .ri:after {
+  border-right: 3px solid #207088;
+  border-top: 3px solid #207088;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-Problem .post-title {
+  color: #d6ba32 !important;
+}
+#post-Problem .box-body h2 {
+  color: #d6ba32;
+}
+#post-Problem .box-body .tags a {
+  color: #d6ba32;
+  border: 1px solid #d6ba32;
+}
+#post-Problem .box-body .tags a:hover {
+  color: #fff;
+  background: #d6ba32;
+}
+#post-Problem .ribbon .ri {
+  background-color: #d6ba32;
+}
+#post-Problem .ribbon .ri:before {
+  border-left: 3px solid #9a851f;
+  border-top: 3px solid #9a851f;
+}
+#post-Problem .ribbon .ri:after {
+  border-right: 3px solid #9a851f;
+  border-top: 3px solid #9a851f;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-GYM .post-title {
+  color: #eb7728 !important;
+}
+#post-GYM .box-body h2 {
+  color: #eb7728;
+}
+#post-GYM .box-body .tags a {
+  color: #eb7728;
+  border: 1px solid #eb7728;
+}
+#post-GYM .box-body .tags a:hover {
+  color: #fff;
+  background: #eb7728;
+}
+#post-GYM .ribbon .ri {
+  background-color: #eb7728;
+}
+#post-GYM .ribbon .ri:before {
+  border-left: 3px solid #b05110;
+  border-top: 3px solid #b05110;
+}
+#post-GYM .ribbon .ri:after {
+  border-right: 3px solid #b05110;
+  border-top: 3px solid #b05110;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-CodeForces .post-title {
+  color: #7d669e !important;
+}
+#post-CodeForces .box-body h2 {
+  color: #7d669e;
+}
+#post-CodeForces .box-body .tags a {
+  color: #7d669e;
+  border: 1px solid #7d669e;
+}
+#post-CodeForces .box-body .tags a:hover {
+  color: #fff;
+  background: #7d669e;
+}
+#post-CodeForces .ribbon .ri {
+  background-color: #7d669e;
+}
+#post-CodeForces .ribbon .ri:before {
+  border-left: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+#post-CodeForces .ribbon .ri:after {
+  border-right: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-LuoGu .post-title {
+  color: #637a91 !important;
+}
+#post-LuoGu .box-body h2 {
+  color: #637a91;
+}
+#post-LuoGu .box-body .tags a {
+  color: #637a91;
+  border: 1px solid #637a91;
+}
+#post-LuoGu .box-body .tags a:hover {
+  color: #fff;
+  background: #637a91;
+}
+#post-LuoGu .ribbon .ri {
+  background-color: #637a91;
+}
+#post-LuoGu .ribbon .ri:before {
+  border-left: 3px solid #455565;
+  border-top: 3px solid #455565;
+}
+#post-LuoGu .ribbon .ri:after {
+  border-right: 3px solid #455565;
+  border-top: 3px solid #455565;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-HDU .post-title {
+  color: #7aab13 !important;
+}
+#post-HDU .box-body h2 {
+  color: #7aab13;
+}
+#post-HDU .box-body .tags a {
+  color: #7aab13;
+  border: 1px solid #7aab13;
+}
+#post-HDU .box-body .tags a:hover {
+  color: #fff;
+  background: #7aab13;
+}
+#post-HDU .ribbon .ri {
+  background-color: #7aab13;
+}
+#post-HDU .ribbon .ri:before {
+  border-left: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+#post-HDU .ribbon .ri:after {
+  border-right: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+.post-jekyll .title-category {
+  color: #b31917;
+}
+.post-jekyll .post-content h1,
+.post-jekyll .post-content h2,
+.post-jekyll .post-content h3,
+.post-jekyll .post-content h4 {
+  color: #b31917;
+}
+.post-jekyll .post-content a {
+  color: #b31917;
+  border-bottom: 2px dashed #b31917;
+}
+.post-jekyll .post-content a:hover {
+  background-color: #b31917;
+  color: #fff;
+}
+.post-jekyll .post-content strong {
+  color: #b31917;
+}
+.post-jekyll .post-content p code,
+.post-jekyll .post-content li code {
+  color: #b31917;
+}
+.post-jekyll .post-content blockquote {
+  border-left: 0.313rem solid #b31917;
+}
+.post-jekyll .header-post,
+.post-jekyll .header-site {
+  background-color: #b31917;
+}
+.post-jekyll .header-post h1,
+.post-jekyll .header-site h1 {
+  text-shadow: 3px 3px #8f1412;
+}
+.post-jekyll .bar-header .logo a {
+  color: #b31917;
+}
+.post-jekyll .author .email,
+.post-jekyll .author .github {
+  color: #b31917;
+}
+.post-jekyll .share a:hover svg {
+  fill: #b31917;
+}
+.post-jekyll .icon-menu {
+  fill: #b31917;
+}
+.post-jekyll .box-body h2 {
+  color: #b31917;
+}
+.post-jekyll .box-body .tags a {
+  color: #b31917;
+  border: 1px solid #b31917;
+}
+.post-jekyll .box-body .tags a:hover {
+  color: #fff;
+  background: #b31917;
+}
+.post-jekyll aside {
+  background-color: #b31917;
+}
+.post-jekyll aside nav li a:hover {
+  color: #b31917;
+}
+.post-jekyll .ribbon span {
+  background-color: #b31917;
+}
+.post-jekyll .ribbon span:before {
+  border-left: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
+}
+.post-jekyll .ribbon span:after {
+  border-right: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
+}
+.post-jekyll footer {
+  background-color: #b31917;
+}
+.post-css .title-category {
+  color: #2da0c3;
+}
+.post-css .post-content h1,
+.post-css .post-content h2,
+.post-css .post-content h3,
+.post-css .post-content h4 {
+  color: #2da0c3;
+}
+.post-css .post-content a {
+  color: #2da0c3;
+  border-bottom: 2px dashed #2da0c3;
+}
+.post-css .post-content a:hover {
+  background-color: #2da0c3;
+  color: #fff;
+}
+.post-css .post-content strong {
+  color: #2da0c3;
+}
+.post-css .post-content p code,
+.post-css .post-content li code {
+  color: #2da0c3;
+}
+.post-css .post-content blockquote {
+  border-left: 0.313rem solid #2da0c3;
+}
+.post-css .header-post,
+.post-css .header-site {
+  background-color: #2da0c3;
+}
+.post-css .header-post h1,
+.post-css .header-site h1 {
+  text-shadow: 3px 3px #24809c;
+}
+.post-css .bar-header .logo a {
+  color: #2da0c3;
+}
+.post-css .author .email,
+.post-css .author .github {
+  color: #2da0c3;
+}
+.post-css .share a:hover svg {
+  fill: #2da0c3;
+}
+.post-css .icon-menu {
+  fill: #2da0c3;
+}
+.post-css .box-body h2 {
+  color: #2da0c3;
+}
+.post-css .box-body .tags a {
+  color: #2da0c3;
+  border: 1px solid #2da0c3;
+}
+.post-css .box-body .tags a:hover {
+  color: #fff;
+  background: #2da0c3;
+}
+.post-css aside {
+  background-color: #2da0c3;
+}
+.post-css aside nav li a:hover {
+  color: #2da0c3;
+}
+.post-css .ribbon span {
+  background-color: #2da0c3;
+}
+.post-css .ribbon span:before {
+  border-left: 3px solid #207088;
+  border-top: 3px solid #207088;
+}
+.post-css .ribbon span:after {
+  border-right: 3px solid #207088;
+  border-top: 3px solid #207088;
+}
+.post-css footer {
+  background-color: #2da0c3;
+}
+.post-js .title-category {
+  color: #d6ba32;
+}
+.post-js .post-content h1,
+.post-js .post-content h2,
+.post-js .post-content h3,
+.post-js .post-content h4 {
+  color: #d6ba32;
+}
+.post-js .post-content a {
+  color: #d6ba32;
+  border-bottom: 2px dashed #d6ba32;
+}
+.post-js .post-content a:hover {
+  background-color: #d6ba32;
+  color: #fff;
+}
+.post-js .post-content strong {
+  color: #d6ba32;
+}
+.post-js .post-content p code,
+.post-js .post-content li code {
+  color: #d6ba32;
+}
+.post-js .post-content blockquote {
+  border-left: 0.313rem solid #d6ba32;
+}
+.post-js .header-post,
+.post-js .header-site {
+  background-color: #d6ba32;
+}
+.post-js .header-post h1,
+.post-js .header-site h1 {
+  text-shadow: 3px 3px #b09823;
+}
+.post-js .bar-header .logo a {
+  color: #d6ba32;
+}
+.post-js .author .email,
+.post-js .author .github {
+  color: #d6ba32;
+}
+.post-js .share a:hover svg {
+  fill: #d6ba32;
+}
+.post-js .icon-menu {
+  fill: #d6ba32;
+}
+.post-js .box-body h2 {
+  color: #d6ba32;
+}
+.post-js .box-body .tags a {
+  color: #d6ba32;
+  border: 1px solid #d6ba32;
+}
+.post-js .box-body .tags a:hover {
+  color: #fff;
+  background: #d6ba32;
+}
+.post-js aside {
+  background-color: #d6ba32;
+}
+.post-js aside nav li a:hover {
+  color: #d6ba32;
+}
+.post-js .ribbon span {
+  background-color: #d6ba32;
+}
+.post-js .ribbon span:before {
+  border-left: 3px solid #9a851f;
+  border-top: 3px solid #9a851f;
+}
+.post-js .ribbon span:after {
+  border-right: 3px solid #9a851f;
+  border-top: 3px solid #9a851f;
+}
+.post-js footer {
+  background-color: #d6ba32;
+}
+.post-html .title-category {
+  color: #eb7728;
+}
+.post-html .post-content h1,
+.post-html .post-content h2,
+.post-html .post-content h3,
+.post-html .post-content h4 {
+  color: #eb7728;
+}
+.post-html .post-content a {
+  color: #eb7728;
+  border-bottom: 2px dashed #eb7728;
+}
+.post-html .post-content a:hover {
+  background-color: #eb7728;
+  color: #fff;
+}
+.post-html .post-content strong {
+  color: #eb7728;
+}
+.post-html .post-content p code,
+.post-html .post-content li code {
+  color: #eb7728;
+}
+.post-html .post-content blockquote {
+  border-left: 0.313rem solid #eb7728;
+}
+.post-html .header-post,
+.post-html .header-site {
+  background-color: #eb7728;
+}
+.post-html .header-post h1,
+.post-html .header-site h1 {
+  text-shadow: 3px 3px #c95d13;
+}
+.post-html .bar-header .logo a {
+  color: #eb7728;
+}
+.post-html .author .email,
+.post-html .author .github {
+  color: #eb7728;
+}
+.post-html .share a:hover svg {
+  fill: #eb7728;
+}
+.post-html .icon-menu {
+  fill: #eb7728;
+}
+.post-html .box-body h2 {
+  color: #eb7728;
+}
+.post-html .box-body .tags a {
+  color: #eb7728;
+  border: 1px solid #eb7728;
+}
+.post-html .box-body .tags a:hover {
+  color: #fff;
+  background: #eb7728;
+}
+.post-html aside {
+  background-color: #eb7728;
+}
+.post-html aside nav li a:hover {
+  color: #eb7728;
+}
+.post-html .ribbon span {
+  background-color: #eb7728;
+}
+.post-html .ribbon span:before {
+  border-left: 3px solid #b05110;
+  border-top: 3px solid #b05110;
+}
+.post-html .ribbon span:after {
+  border-right: 3px solid #b05110;
+  border-top: 3px solid #b05110;
+}
+.post-html footer {
+  background-color: #eb7728;
+}
+.post-svg .title-category {
+  color: #7d669e;
+}
+.post-svg .post-content h1,
+.post-svg .post-content h2,
+.post-svg .post-content h3,
+.post-svg .post-content h4 {
+  color: #7d669e;
+}
+.post-svg .post-content a {
+  color: #7d669e;
+  border-bottom: 2px dashed #7d669e;
+}
+.post-svg .post-content a:hover {
+  background-color: #7d669e;
+  color: #fff;
+}
+.post-svg .post-content strong {
+  color: #7d669e;
+}
+.post-svg .post-content p code,
+.post-svg .post-content li code {
+  color: #7d669e;
+}
+.post-svg .post-content blockquote {
+  border-left: 0.313rem solid #7d669e;
+}
+.post-svg .header-post,
+.post-svg .header-site {
+  background-color: #7d669e;
+}
+.post-svg .header-post h1,
+.post-svg .header-site h1 {
+  text-shadow: 3px 3px #64517f;
+}
+.post-svg .bar-header .logo a {
+  color: #7d669e;
+}
+.post-svg .author .email,
+.post-svg .author .github {
+  color: #7d669e;
+}
+.post-svg .share a:hover svg {
+  fill: #7d669e;
+}
+.post-svg .icon-menu {
+  fill: #7d669e;
+}
+.post-svg .box-body h2 {
+  color: #7d669e;
+}
+.post-svg .box-body .tags a {
+  color: #7d669e;
+  border: 1px solid #7d669e;
+}
+.post-svg .box-body .tags a:hover {
+  color: #fff;
+  background: #7d669e;
+}
+.post-svg aside {
+  background-color: #7d669e;
+}
+.post-svg aside nav li a:hover {
+  color: #7d669e;
+}
+.post-svg .ribbon span {
+  background-color: #7d669e;
+}
+.post-svg .ribbon span:before {
+  border-left: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+.post-svg .ribbon span:after {
+  border-right: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+.post-svg footer {
+  background-color: #7d669e;
+}
+.post-dev .title-category {
+  color: #637a91;
+}
+.post-dev .post-content h1,
+.post-dev .post-content h2,
+.post-dev .post-content h3,
+.post-dev .post-content h4 {
+  color: #637a91;
+}
+.post-dev .post-content a {
+  color: #637a91;
+  border-bottom: 2px dashed #637a91;
+}
+.post-dev .post-content a:hover {
+  background-color: #637a91;
+  color: #fff;
+}
+.post-dev .post-content strong {
+  color: #637a91;
+}
+.post-dev .post-content p code,
+.post-dev .post-content li code {
+  color: #637a91;
+}
+.post-dev .post-content blockquote {
+  border-left: 0.313rem solid #637a91;
+}
+.post-dev .header-post,
+.post-dev .header-site {
+  background-color: #637a91;
+}
+.post-dev .header-post h1,
+.post-dev .header-site h1 {
+  text-shadow: 3px 3px #4f6274;
+}
+.post-dev .bar-header .logo a {
+  color: #637a91;
+}
+.post-dev .author .email,
+.post-dev .author .github {
+  color: #637a91;
+}
+.post-dev .share a:hover svg {
+  fill: #637a91;
+}
+.post-dev .icon-menu {
+  fill: #637a91;
+}
+.post-dev .box-body h2 {
+  color: #637a91;
+}
+.post-dev .box-body .tags a {
+  color: #637a91;
+  border: 1px solid #637a91;
+}
+.post-dev .box-body .tags a:hover {
+  color: #fff;
+  background: #637a91;
+}
+.post-dev aside {
+  background-color: #637a91;
+}
+.post-dev aside nav li a:hover {
+  color: #637a91;
+}
+.post-dev .ribbon span {
+  background-color: #637a91;
+}
+.post-dev .ribbon span:before {
+  border-left: 3px solid #455565;
+  border-top: 3px solid #455565;
+}
+.post-dev .ribbon span:after {
+  border-right: 3px solid #455565;
+  border-top: 3px solid #455565;
+}
+.post-dev footer {
+  background-color: #637a91;
+}
+.post-misc .title-category {
+  color: #7aab13;
+}
+.post-misc .post-content h1,
+.post-misc .post-content h2,
+.post-misc .post-content h3,
+.post-misc .post-content h4 {
+  color: #7aab13;
+}
+.post-misc .post-content a {
+  color: #7aab13;
+  border-bottom: 2px dashed #7aab13;
+}
+.post-misc .post-content a:hover {
+  background-color: #7aab13;
+  color: #fff;
+}
+.post-misc .post-content strong {
+  color: #7aab13;
+}
+.post-misc .post-content p code,
+.post-misc .post-content li code {
+  color: #7aab13;
+}
+.post-misc .post-content blockquote {
+  border-left: 0.313rem solid #7aab13;
+}
+.post-misc .header-post,
+.post-misc .header-site {
+  background-color: #7aab13;
+}
+.post-misc .header-post h1,
+.post-misc .header-site h1 {
+  text-shadow: 3px 3px #62890f;
+}
+.post-misc .bar-header .logo a {
+  color: #7aab13;
+}
+.post-misc .author .email,
+.post-misc .author .github {
+  color: #7aab13;
+}
+.post-misc .share a:hover svg {
+  fill: #7aab13;
+}
+.post-misc .icon-menu {
+  fill: #7aab13;
+}
+.post-misc .box-body h2 {
+  color: #7aab13;
+}
+.post-misc .box-body .tags a {
+  color: #7aab13;
+  border: 1px solid #7aab13;
+}
+.post-misc .box-body .tags a:hover {
+  color: #fff;
+  background: #7aab13;
+}
+.post-misc aside {
+  background-color: #7aab13;
+}
+.post-misc aside nav li a:hover {
+  color: #7aab13;
+}
+.post-misc .ribbon span {
+  background-color: #7aab13;
+}
+.post-misc .ribbon span:before {
+  border-left: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+.post-misc .ribbon span:after {
+  border-right: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+.post-misc footer {
+  background-color: #7aab13;
+}
