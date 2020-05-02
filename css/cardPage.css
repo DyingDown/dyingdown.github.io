@@ -66,7 +66,7 @@
   padding: 5px 10px;
   border-radius: 3px;
   display: inline-block;
-  margin: 0 5px;
+  margin: 5px 5px;
   z-index: 50;
 }
 .ribbon {
@@ -136,28 +136,28 @@
   border: 1px solid #00395c;
   background: #fff;
 }
-#post-AtCoder .post-title {
+#post-STL .post-title {
   color: #b31917 !important;
 }
-#post-AtCoder .box-body h2 {
+#post-STL .box-body h2 {
   color: #b31917;
 }
-#post-AtCoder .box-body .tags a {
+#post-STL .box-body .tags a {
   color: #b31917;
   border: 1px solid #b31917;
 }
-#post-AtCoder .box-body .tags a:hover {
+#post-STL .box-body .tags a:hover {
   color: #fff;
   background: #b31917;
 }
-#post-AtCoder .ribbon .ri {
+#post-STL .ribbon .ri {
   background-color: #b31917;
 }
-#post-AtCoder .ribbon .ri:before {
+#post-STL .ribbon .ri:before {
   border-left: 3px solid #7d1210;
   border-top: 3px solid #7d1210;
 }
-#post-AtCoder .ribbon .ri:after {
+#post-STL .ribbon .ri:after {
   border-right: 3px solid #7d1210;
   border-top: 3px solid #7d1210;
 }
@@ -171,28 +171,28 @@
 .extend.prev {
   color: #000;
 }
-#post-UVALive .post-title {
+#post-Math .post-title {
   color: #2da0c3 !important;
 }
-#post-UVALive .box-body h2 {
+#post-Math .box-body h2 {
   color: #2da0c3;
 }
-#post-UVALive .box-body .tags a {
+#post-Math .box-body .tags a {
   color: #2da0c3;
   border: 1px solid #2da0c3;
 }
-#post-UVALive .box-body .tags a:hover {
+#post-Math .box-body .tags a:hover {
   color: #fff;
   background: #2da0c3;
 }
-#post-UVALive .ribbon .ri {
+#post-Math .ribbon .ri {
   background-color: #2da0c3;
 }
-#post-UVALive .ribbon .ri:before {
+#post-Math .ribbon .ri:before {
   border-left: 3px solid #207088;
   border-top: 3px solid #207088;
 }
-#post-UVALive .ribbon .ri:after {
+#post-Math .ribbon .ri:after {
   border-right: 3px solid #207088;
   border-top: 3px solid #207088;
 }
@@ -206,28 +206,28 @@
 .extend.prev {
   color: #000;
 }
-#post-Problem .post-title {
+#post-Graph .post-title {
   color: #d6ba32 !important;
 }
-#post-Problem .box-body h2 {
+#post-Graph .box-body h2 {
   color: #d6ba32;
 }
-#post-Problem .box-body .tags a {
+#post-Graph .box-body .tags a {
   color: #d6ba32;
   border: 1px solid #d6ba32;
 }
-#post-Problem .box-body .tags a:hover {
+#post-Graph .box-body .tags a:hover {
   color: #fff;
   background: #d6ba32;
 }
-#post-Problem .ribbon .ri {
+#post-Graph .ribbon .ri {
   background-color: #d6ba32;
 }
-#post-Problem .ribbon .ri:before {
+#post-Graph .ribbon .ri:before {
   border-left: 3px solid #9a851f;
   border-top: 3px solid #9a851f;
 }
-#post-Problem .ribbon .ri:after {
+#post-Graph .ribbon .ri:after {
   border-right: 3px solid #9a851f;
   border-top: 3px solid #9a851f;
 }
@@ -241,28 +241,28 @@
 .extend.prev {
   color: #000;
 }
-#post-GYM .post-title {
+#post-Simulation .post-title {
   color: #eb7728 !important;
 }
-#post-GYM .box-body h2 {
+#post-Simulation .box-body h2 {
   color: #eb7728;
 }
-#post-GYM .box-body .tags a {
+#post-Simulation .box-body .tags a {
   color: #eb7728;
   border: 1px solid #eb7728;
 }
-#post-GYM .box-body .tags a:hover {
+#post-Simulation .box-body .tags a:hover {
   color: #fff;
   background: #eb7728;
 }
-#post-GYM .ribbon .ri {
+#post-Simulation .ribbon .ri {
   background-color: #eb7728;
 }
-#post-GYM .ribbon .ri:before {
+#post-Simulation .ribbon .ri:before {
   border-left: 3px solid #b05110;
   border-top: 3px solid #b05110;
 }
-#post-GYM .ribbon .ri:after {
+#post-Simulation .ribbon .ri:after {
   border-right: 3px solid #b05110;
   border-top: 3px solid #b05110;
 }
@@ -311,28 +311,28 @@
 .extend.prev {
   color: #000;
 }
-#post-LuoGu .post-title {
+#post-String .post-title {
   color: #637a91 !important;
 }
-#post-LuoGu .box-body h2 {
+#post-String .box-body h2 {
   color: #637a91;
 }
-#post-LuoGu .box-body .tags a {
+#post-String .box-body .tags a {
   color: #637a91;
   border: 1px solid #637a91;
 }
-#post-LuoGu .box-body .tags a:hover {
+#post-String .box-body .tags a:hover {
   color: #fff;
   background: #637a91;
 }
-#post-LuoGu .ribbon .ri {
+#post-String .ribbon .ri {
   background-color: #637a91;
 }
-#post-LuoGu .ribbon .ri:before {
+#post-String .ribbon .ri:before {
   border-left: 3px solid #455565;
   border-top: 3px solid #455565;
 }
-#post-LuoGu .ribbon .ri:after {
+#post-String .ribbon .ri:after {
   border-right: 3px solid #455565;
   border-top: 3px solid #455565;
 }
@@ -346,30 +346,65 @@
 .extend.prev {
   color: #000;
 }
-#post-HDU .post-title {
+#post-Violence .post-title {
   color: #7aab13 !important;
 }
-#post-HDU .box-body h2 {
+#post-Violence .box-body h2 {
   color: #7aab13;
 }
-#post-HDU .box-body .tags a {
+#post-Violence .box-body .tags a {
   color: #7aab13;
   border: 1px solid #7aab13;
 }
-#post-HDU .box-body .tags a:hover {
+#post-Violence .box-body .tags a:hover {
   color: #fff;
   background: #7aab13;
 }
-#post-HDU .ribbon .ri {
+#post-Violence .ribbon .ri {
   background-color: #7aab13;
 }
-#post-HDU .ribbon .ri:before {
+#post-Violence .ribbon .ri:before {
   border-left: 3px solid #55780d;
   border-top: 3px solid #55780d;
 }
-#post-HDU .ribbon .ri:after {
+#post-Violence .ribbon .ri:after {
   border-right: 3px solid #55780d;
   border-top: 3px solid #55780d;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+#post-Sort .post-title {
+  color: #b31917 !important;
+}
+#post-Sort .box-body h2 {
+  color: #b31917;
+}
+#post-Sort .box-body .tags a {
+  color: #b31917;
+  border: 1px solid #b31917;
+}
+#post-Sort .box-body .tags a:hover {
+  color: #fff;
+  background: #b31917;
+}
+#post-Sort .ribbon .ri {
+  background-color: #b31917;
+}
+#post-Sort .ribbon .ri:before {
+  border-left: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
+}
+#post-Sort .ribbon .ri:after {
+  border-right: 3px solid #7d1210;
+  border-top: 3px solid #7d1210;
 }
 .page-number {
   color: #000;
