@@ -41,7 +41,7 @@
 }
 .recent-post-item {
   float: left;
-  height: 700px;
+  height: 680px;
   color: #bfbfbf;
   flex: 1 0 18.75rem;
   margin: 0 0 1.875rem;
@@ -121,6 +121,7 @@
   color: #737373;
   pointer-events: none;
   font-size: 1rem;
+  line-height: 2em;
 }
 .recent-post-tag {
   height: 22px;
@@ -155,6 +156,7 @@ a.content {
   font-size: 17px !important;
   line-height: 26px;
   text-decoration: none;
+  text-overflow: ellipsis;
 }
 a.content,
 a {

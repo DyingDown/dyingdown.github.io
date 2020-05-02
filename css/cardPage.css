@@ -1,6 +1,15 @@
 #home {
   padding-top: 150px;
 }
+.row {
+  max-width: 64.375rem;
+  width: auto;
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
 .flex-grid {
   display: flex;
   flex-flow: row wrap;
