@@ -1,0 +1,85 @@
+#container {
+  width: 95%;
+  margin: 6em auto 0em;
+  height: auto;
+}
+#grid[data-columns]::before {
+  content: '4 .column.size-1of4';
+}
+@media screen and (max-width: 1000px) {
+  #grid[data-columns]::before {
+    content: '3 .column.size-1of3';
+  }
+}
+@media screen and (max-width: 600px) {
+  #grid[data-columns]::before {
+    content: '1 .column.size-1of1';
+  }
+}
+[data-columns]::before {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  font-size: 1px;
+}
+/* Again, you’re free to use and define the classes: */
+.column {
+  float: left;
+}
+/* These are the classes that are going to be applied: */
+.column {
+  float: left;
+}
+.size-1of4 {
+  width: 25%;
+}
+.box {
+  margin: 0 10px 15px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #aaa;
+  -webkit-box-shadow: 2px 2px 4px #aaa;
+  -moz-box-shadow: 2px 2px 4px #aaa;
+  color: rgba(255,255,255,0.72);
+}
+.box:hover {
+  box-shadow: 3px 3px 6px #aaa;
+  -webkit-box-shadow: 3px 3px 6px #aaa;
+  -webkit-box-shadow: 3px 3px 6px #aaa;
+}
+.feat-image {
+  border-radius: 4px 4px 0 0;
+  width: 100%;
+}
+.container {
+  padding: 15px;
+}
+.container a {
+  color: #eee;
+  text-decoration: none;
+}
+.grid-item img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  border: none;
+}
+.action {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+.action .fa {
+  float: right;
+  opacity: 0.9;
+  color: #eee;
+}
+.action .fa:hover {
+  opacity: 0.8;
+}
+.social-full h4,
+.social-full fa {
+  display: inline-block;
+}
+.content {
+  padding: 2em;
+}
