@@ -1,8 +1,9 @@
 #home {
-  padding-top: 150px;
+  padding-top: 8.666666666666666rem;
+  max-height: 9999px;
 }
 .row {
-  max-width: 64.375rem;
+  max-width: 68.66666666666667rem;
   width: auto;
   float: none;
   margin-right: auto;
@@ -15,21 +16,21 @@
   flex-flow: row wrap;
 }
 .title-category {
-  font-size: 40px;
+  font-size: 2.666666666666667rem;
   margin-top: 0;
   text-transform: uppercase;
-  padding: 0 15px;
+  padding: 0 1rem;
 }
 .tags::before {
   display: none;
 }
 .box-item {
   flex: 1 0 300px;
-  margin: 0 15px 50px;
+  margin: 0 1rem 1rem;
   display: inline-block;
   border: 1px solid #eee;
   border-radius: 5px;
-  min-height: 285px;
+  min-height: 19rem;
   transition: all 0.3s;
   position: relative;
   cursor: pointer;
@@ -44,29 +45,28 @@
   box-shadow: 10px 10px 10px #eee;
 }
 .box-item .box-body {
-  padding: 25px;
+  padding: 1.666666666666667rem;
 }
 .box-item .box-body time {
-  font-size: 14px;
+  font-size: 0.933333333333333rem;
   color: #b2bac2;
 }
 .box-item .box-body h2 {
-  margin: 5px 0 15px;
-  font-size: 20px;
+  margin: 0.333333333333333rem 0 1rem;
+  font-size: 1.333333333333333rem;
   color: #005f97;
 }
-.box-item .box-body p,
-.box-item .box-body p a {
-  margin: 0 0 20px;
+.box-item .box-body p {
+  margin: 0 0 1.333333333333333rem;
   color: #576366;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.933333333333333rem;
+  line-height: 1.466666666666667rem;
 }
 .box-item .box-body .tags a {
-  padding: 5px 10px;
+  padding: 0.3215rem 0.625rem;
   border-radius: 3px;
   display: inline-block;
-  margin: 5px 5px;
+  margin: 0 0.333333333333333rem 0.333333333333333rem;
   z-index: 50;
 }
 .ribbon {
@@ -80,7 +80,7 @@
   text-align: right;
 }
 .ribbon .ri {
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
@@ -118,7 +118,7 @@
   border-top: 3px solid #005f97;
 }
 .tags {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 .tg {
   font-size: 14px;

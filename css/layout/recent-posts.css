@@ -1,3 +1,8 @@
+@media (max-width: 1000px) {
+  :root {
+    font-size: 1em;
+  }
+}
 #home-cover {
   width: calc(98.8vw);
   height: calc(51.4vw);
@@ -41,7 +46,7 @@
 }
 .recent-post-item {
   float: left;
-  height: 680px;
+  height: 42.5rem;
   color: #bfbfbf;
   flex: 1 0 18.75rem;
   margin: 0 0 1.875rem;
