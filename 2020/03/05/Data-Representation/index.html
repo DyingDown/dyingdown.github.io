@@ -190,14 +190,14 @@ E_1E_2\cdots E_n  M_1 M_2 M_3 \cdots M_k</script><p>举个例子：将$x=2^{-01}
 <p>如何计算出校验位呢？</p>
 <p>那就先判断前面有效信息的1的个数。假设有偶数个1，进行异或运算后，得到的结果必定是0，奇数个1得到的结果必定是1。而0不管有偶数个还是奇数个，异或出来都是0。</p>
 <p>奇数个1和任意个0异或之后结果一定是1。若原有效信息位已经有了奇数个1，则校验位得是0，是所有位数异或之后取反得到的；偶数个1和任意个0异或后结果一定是0。若原有效信息只有偶数个0，则需要在校验位添上个1，是所有位数异或之后取反得到的。</p>
-<p>所以得出奇校验的公式 $P=\overline{D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
+<p>所以得出奇校验的公式 $P=\overline{D<em>{1} \oplus D</em>{2} \oplus D<em>{3} \oplus D</em>{4} \oplus \cdots \oplus D_n}$</p>
 <p>$D_1,D_2\cdots$ 是有效息信息的$1, 2, \cdots$ 位。</p>
 <p>发送方编好编码后，接收方收到编码之后如何检验呢？</p>
 <p>因为奇校验编码中1的个数为奇数个，所以，所有位异或结果是1。但是，奇校验的检错码是 $G=\overline{C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G=0时表示数据正常。否则表示出错。</p>
 <p><img src="https://s2.ax1x.com/2020/03/06/3LrrKs.png" style="zoom:50%;"></p>
 <p>这个给出的图是6位有效信息的计算，其他的位数同上就行。</p>
 <h4 id="偶校验"><a href="#偶校验" class="headerlink" title="偶校验"></a>偶校验</h4><p><strong>偶校验</strong> ：要求添加上校验位后，数据中1的个数为偶数。</p>
-<p>计算的方法同上，可知最后一位是所有每一位异或的结果，所以偶校验的公式 $P={D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
+<p>计算的方法同上，可知最后一位是所有每一位异或的结果，所以偶校验的公式 $P={D<em>{1} \oplus D</em>{2} \oplus D<em>{3} \oplus D</em>{4} \oplus \cdots \oplus D_n}$</p>
 <p>$D_1,D_2\cdots$ 是有效息信息的$1, 2, \cdots$ 位。</p>
 <p>检验的方法也类似上边，偶校验的检错码是 $G={C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G=0时表示数据正常。否则表示出错。</p>
 <p><img src="https://s2.ax1x.com/2020/03/06/3LrOPO.png" style="zoom: 50%;"></p>

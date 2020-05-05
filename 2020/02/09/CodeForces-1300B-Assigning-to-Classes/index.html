@@ -15,14 +15,14 @@
 </div>
 
 <a id="more"></a>
-<p><strong>Reminder: the <a href="https://en.wikipedia.org/wiki/Median" target="_blank" rel="noopener">median</a></strong> of the array $[a_1,a_2,…,a_{2k+1}]$ of odd number of elements is defined as follows: let $[b_1,b_2,…,b_{2k+1}]$ be the elements of the array in the sorted order. Then median of this array is equal to $b_{k+1}$.</p>
+<p><strong>Reminder: the <a href="https://en.wikipedia.org/wiki/Median" target="_blank" rel="noopener">median</a></strong> of the array $[a<em>1,a_2,…,a</em>{2k+1}]$ of odd number of elements is defined as follows: let $[b<em>1,b_2,…,b</em>{2k+1}]$ be the elements of the array in the sorted order. Then median of this array is equal to $b_{k+1}$.</p>
 <p>There are $2n$ students, the ii-th student has skill level $a_i$. It’s <strong>not guaranteed</strong> that all skill levels are distinct.</p>
 <p>Let’s define <strong>skill level of a class</strong> as the median of skill levels of students of the class.</p>
 <p>As a principal of the school, you would like to assign each student to one of the $2$ classes such that each class has <strong>odd number of students</strong> (not divisible by $2$). The number of students in the classes may be equal or different, by your choice. Every student has to be assigned to exactly one class. Among such partitions, you want to choose one in which the absolute difference between skill levels of the classes is minimized.</p>
 <p>What is the minimum possible absolute difference you can achieve?</p>
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Each test contains multiple test cases. The first line contains the number of test cases $t$ $(1≤t≤10^4)$. The description of the test cases follows.</p>
 <p>The first line of each test case contains a single integer $n$ $(1≤n≤10^5)$ — the number of students halved.</p>
-<p>The second line of each test case contains $2n$ integers $a_1,a_2,…,a_{2n}$ $(1≤a_i≤10^9)$ — skill levels of students.</p>
+<p>The second line of each test case contains $2n$ integers $a<em>1,a_2,…,a</em>{2n}$ $(1≤a_i≤10^9)$ — skill levels of students.</p>
 <p>It is guaranteed that the sum of $n$ over all test cases does not exceed $10^5$.</p>
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, output a single integer, the minimum possible absolute difference between skill levels of two classes of odd sizes.</p>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">1 1</span><br><span class="line">3</span><br><span class="line">6 5 4 1 2 3</span><br><span class="line">5</span><br><span class="line">13 4 20 13 2 5 8 3 17 16</span><br></pre></td></tr></table></figure>
