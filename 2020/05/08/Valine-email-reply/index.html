@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><title>Valine 邮件回复 E-mail reply [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/variable/variable.css"><link rel="stylesheet" href="/css/layout/highlight.css"><link rel="stylesheet" href="/css/links.css"><link rel="stylesheet" href="/css/about.css"><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"></head><body><div id="menu-outer"><div id="top"><a id="user" href="/">o_oyao</a><center><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/categories/memories/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/ACM"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Novel"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Essay"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/film"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/about/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/theme-last"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/contact"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/star/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/links/"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/message/"><div class="icon_top"><i class="fas fa-comment-dots"></i> Message</div></a></li></ul></center><div id="buttons"><a id="search"><i class="fa fa-search"></i></a><a id="menu_button"><i class="fa fa-bars"></i></a></div></div></div><div id="content-outer"><div id="content-inner"><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="https://s1.ax1x.com/2020/04/17/JEvVCd.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog">Catalog</div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configurate-your-valine"><span class="toc-number">1.</span> <span class="toc-text">Configurate your valine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LeanCloud-Setup"><span class="toc-number">2.</span> <span class="toc-text">LeanCloud Setup</span></a></li></ol></div></div></div><div class="article"><div id="post"><div class="titles"><h1 class="title">Valine 邮件回复 E-mail reply</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-08T06:55:13.000Z">2020-05-08</time></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Blog/">Blog</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Valine/">Valine  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">3 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">669 words</span></div><div class="post-content"><p>Valine is a comment system for blog or something else. It uses leancloud to store the message.  And the tougher valine has a function that can reply the comment by email and locate to a certain page.<a id="more"></a></p>
+<h2 id="Configurate-your-valine"><a href="#Configurate-your-valine" class="headerlink" title="Configurate your valine"></a>Configurate your valine</h2><p>I assume that you all have valine on your blog. If not, search how to use it yourself.</p>
+<p>This is my theme’s valine. I wrote the theme myself, for yours ,you can look it up online.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">if theme.valine.on</span><br><span class="line">  #vcomment()</span><br><span class="line">  script(src=&apos;https://cdn1.lncld.net/static/js/3.0.4/av-min.js&apos;)</span><br><span class="line">  script(src=&apos;https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js&apos;)</span><br><span class="line">  script.</span><br><span class="line">    var notify = &apos;#&#123; theme.valine.notify &#125;&apos; == true ? true : false;</span><br><span class="line">    var verify = &apos;#&#123; theme.valine.verify &#125;&apos; == true ? true : false;</span><br><span class="line">    var GUEST_INFO = [&apos;nick&apos;,&apos;mail&apos;,&apos;link&apos;];</span><br><span class="line">    var guest_info = &apos;#&#123; theme.valine.guest_info &#125;&apos;.split(&apos;,&apos;).filter(function(item)&#123;</span><br><span class="line">      return GUEST_INFO.indexOf(item) &gt; -1</span><br><span class="line">    &#125;);</span><br><span class="line">    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;</span><br><span class="line">    window.valine = new Valine(&#123;</span><br><span class="line">      el:&apos;#vcomment&apos;,</span><br><span class="line">      notify:notify,</span><br><span class="line">      verify:verify,</span><br><span class="line">      appId:&apos;#&#123;theme.valine.appId&#125;&apos;,</span><br><span class="line">      appKey:&apos;#&#123;theme.valine.appKey&#125;&apos;,</span><br><span class="line">      placeholder:&apos;#&#123;theme.valine.placeholder&#125;&apos;,</span><br><span class="line">      avatar:&apos;#&#123;theme.valine.avatar&#125;&apos;,</span><br><span class="line">      guest_info:guest_info,</span><br><span class="line">      pageSize:&apos;#&#123;theme.valine.pageSize&#125;&apos;,</span><br><span class="line">      lang: &apos;#&#123;theme.valine.lang&#125;&apos;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="LeanCloud-Setup"><a href="#LeanCloud-Setup" class="headerlink" title="LeanCloud Setup"></a>LeanCloud Setup</h2><p>First, start a new application, and get the AppID and  AppKey and so on.</p>
+<p>Then Fill your blog website url in the underline space.</p>
+<p><img src="https://s1.ax1x.com/2020/05/08/YuYUbR.png" alt="YuYUbR.png"></p>
+<p>Third, fill the repository follow the steps. </p>
+<p>The repository is <code>https://github.com/panjunwen/Valine-Admin.git</code></p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YM0CLT.png" alt="YM0CLT.png"></p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YM0nQx.png" alt="YM0nQx.png"></p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YM0h0U.png" alt="YM0h0U.png"></p>
+<p>Forth, add some variables.</p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YMDkG9.png" alt="YMDkG9.png"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SITE_NAME</td>
+<td>Deserts</td>
+<td>[必填]博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://deserts.io/" target="_blank" rel="noopener">https://deserts.io</a></td>
+<td>[必填]首页地址</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>QQ</td>
+<td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">更多</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[必填]SMTP登录用户</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>ccxxxxxxxxch</td>
+<td>[必填]SMTP登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>Deserts</td>
+<td>[必填]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[必填]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a href="https://xxx.leanapp.cn/" target="_blank" rel="noopener">https://xxx.leanapp.cn/</a></td>
+<td>[建议]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:xxxxx@gmail.com" target="_blank" rel="noopener">xxxxx@gmail.com</a></td>
+<td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td>
+</tr>
+<tr>
+<td>SMTP_HOST</td>
+<td>smpt-mail.outlook.com</td>
+<td>[必填]SMTP服务器，需自己查询相关邮箱</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Example</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SITE_NAME</td>
+<td>Deserts</td>
+<td>[Must]Blog name</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://deserts.io/" target="_blank" rel="noopener">https://deserts.io</a></td>
+<td>[Must] URL of your home page</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>Outlook365</td>
+<td>Mail service provider: QQ、163、126、Gmail and <a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">More</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[Must]SMTP User</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>ccxxxxxxxxch</td>
+<td>[Must]SMTP Password（QQ Needs other password look up yourself）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>Deserts</td>
+<td>[Must]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[Must]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a href="https://xxx.leanapp.cn/" target="_blank" rel="noopener">https://xxx.leanapp.cn/</a></td>
+<td>[Suggest]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:xxxxx@outlook.com" target="_blank" rel="noopener">xxxxx@outlook.com</a></td>
+<td>[Optional]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[Optional]Akismet Key use to detect junk comment，if it’s set to MANUAL_REVIEW then open manual review</td>
+</tr>
+<tr>
+<td>SMTP_HOST</td>
+<td>smpt-mail.outlook.com</td>
+<td>[Must]SMTP Host, you need to look up for your email yourself</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>About SMPT_HOST of outlook, I will tell you how to set it.</strong></p>
+<p>open your email in a browser.</p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YMcKCF.png" alt="YMcKCF.png"></p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YMRLPf.png" alt="YMRLPf.png"></p>
+<p>![</p>
+<p>](<a href="https://s1.ax1x.com/2020/05/09/YMWMIx.png" target="_blank" rel="noopener">https://s1.ax1x.com/2020/05/09/YMWMIx.png</a>)</p>
+<p><strong>SMTP_HOST is smpt-mail.outlook.com</strong> not smpt.office365.com</p>
+<p>SMTP_SERVER is Outlook365</p>
+<p>After you fill the variables, deploy your settings.</p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YMfplD.png" alt="YMfplD.png"></p>
+<p>Then, click restart to restart the application. </p>
+<p><img src="https://s1.ax1x.com/2020/05/09/YMhhxU.png" alt="YMhhxU.png"></p>
+<p>Till now, the function can work.</p>
+</div></div><div class="post-information"><div id="paginations"><div class="prev-next"><div class="prev-post"> </div><div class="next-post"><a class="pull-right" href="/2020/05/05/Chapter26/">Chapter26  <i class="fas fa-angle-double-right"> </i></a></div></div></div><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+})
+
+    </script></div></div></div></div><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa fa-fw fa-wechat"></i></a></div><div id="incons"><a class="icon" href=" " title="Twitter"><i class="fa fa-fw fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="Telegram"><i class="fab fa-fw fa-telegram-plane"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa fa-fw fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Linkedin"><i class="fa fa-fw fa-linkedin"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa fa-fw fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa fa-fw fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" " title="Instagram"><i class="fa fa-fw fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="Quora"><i class="fab fa-fw fa-quora"></i></a></div><div id="author"><a id="theme_name" href="https://github.com/DyingDown/hexo-theme-last">Last</a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2020</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></span></div></span></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/Last.js"></script><script src="/js/post.js"></script><script src="/js/toc.js"></script><script src="/js/third-party/reveal/math.min.js"></script><script src="/js/toc.js"></script></body></html>
