@@ -229,3 +229,48 @@ p code {
   padding: 3px 5px;
   font: 18px consolas !important;
 }
+.fixedFunction {
+  position: fixed;
+  right: 30px;
+  bottom: 23px;
+  z-index: 99999;
+}
+.plus {
+  background-color: #008000;
+  margin: 0 !important;
+}
+.goTop {
+  background-color: #ffa500;
+}
+.goComment {
+  background-color: #00008b;
+}
+.goBottom {
+  background-color: #8b0000;
+}
+.functionButton {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+  line-height: 48px;
+  padding: 0;
+}
+.subFunction {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  line-height: 48px;
+  font-size: 2em;
+  margin-block-start: 15px;
+  margin-block-end: 15px;
+}
+.samefunction {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  -moz-box-shadow: 1px 1px 5px #333;
+  -webkit-box-shadow: 1px 1px 5px #333;
+  box-shadow: 1px 1px 5px #333;
+  color: #fff;
+  margin: 15px 0;
+}
