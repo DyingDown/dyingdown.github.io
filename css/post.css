@@ -235,18 +235,46 @@ p code {
   bottom: 23px;
   z-index: 99999;
 }
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
 .plus {
-  background-color: #008000;
+  background-color: #8b0000;
   margin: 0 !important;
+  cursor: pointer;
+  overflow: hidden;
+}
+.fixedFunction:hover {
+  color: #f00;
+}
+.fixedFunction:hover #subFunction {
+  display: block;
 }
 .goTop {
-  background-color: #ffa500;
-}
-.goComment {
   background-color: #00008b;
 }
+.goComment {
+  background-color: #008000;
+}
 .goBottom {
-  background-color: #8b0000;
+  background-color: #ffa500;
 }
 .functionButton {
   font-size: 2em;
@@ -255,14 +283,20 @@ p code {
   line-height: 48px;
   padding: 0;
 }
-.subFunction {
+#subFunction {
+  display: none;
   list-style-type: none;
   padding: 0;
   text-align: center;
   line-height: 48px;
-  font-size: 2em;
+  font-size: 1.8em;
   margin-block-start: 15px;
   margin-block-end: 15px;
+  -webkit-animation: fadeInUp 0.5s 0.1s ease both;
+  -moz-animation: fadeInUp 0.5s 0.1s ease both;
+}
+#subFunction a {
+  color: #fff;
 }
 .samefunction {
   width: 48px;
