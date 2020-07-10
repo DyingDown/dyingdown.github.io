@@ -1,17 +1,31 @@
+#content-outer {
+  width: 100%;
+}
 .links {
   color: #fff;
   width: 55%;
   margin: 100px auto 0;
 }
+@media (max-width: 992px) {
+  .links {
+    width: 85%;
+  }
+}
+.links h2 {
+  font-size: 1.8em;
+}
+.links h3 {
+  font-size: 1.2em;
+}
 .rules {
   counter-reset: li;
   list-style: none;
   display: block;
-  line-height: 30px;
+  line-height: 2em;
 }
 .rules li::before {
-  height: 20px;
-  width: 20px;
+  height: 1.45em;
+  width: 1.45em;
   content: counter(li);
   counter-increment: li;
   font-size: 0.875em;
@@ -40,7 +54,7 @@
   width: 10px;
 }
 .mylink li {
-  font-size: 16px;
+  font-size: 1em;
   line-height: 30px;
   list-style-type: none;
 }
@@ -58,18 +72,29 @@
   border: #d3d3d3 solid 2px;
   width: 30.5%;
 }
+@media (max-width: 992px) {
+  .item-friend {
+    width: 47.5%;
+  }
+}
 .links .site-preview {
   text-align: center;
   width: 70px;
   float: left;
-  border-radius: 40px;
+  border-radius: 80px;
   margin: 15px;
   border: solid #d3d3d3 2px;
+}
+@media (max-width: 992px) {
+  .links .site-preview {
+    width: 30%;
+  }
 }
 .links .link-title {
   border-bottom: solid 1px #323232;
   padding-bottom: 20px;
   font-size: 30px;
+  line-height: 30px;
 }
 .links .group-description {
   margin: 30px 1%;
@@ -80,6 +105,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 1.2em;
+}
+@media (max-width: 992px) {
+  .links .site-name {
+    font-size: 1.8em;
+  }
 }
 .links .site-description {
   margin-left: 110px;
@@ -91,6 +122,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@media (max-width: 992px) {
+  .links .site-description {
+    font-size: 1.8em;
+  }
 }
 .clearfix::after {
   content: "";

@@ -41,6 +41,11 @@
   margin-block-end: 0px;
   margin-top: 15px;
 }
+@media (max-width: 992px) {
+  #menus {
+    display: none;
+  }
+}
 .menu-item {
   list-style-type: none;
   position: relative;

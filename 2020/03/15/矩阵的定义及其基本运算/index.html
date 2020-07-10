@@ -90,7 +90,7 @@
 <h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><h3 id="矩阵的分块"><a href="#矩阵的分块" class="headerlink" title="矩阵的分块"></a>矩阵的分块</h3><p>将矩阵横着切n刀，竖着且m刀，就把矩阵分块了。$(m \geq 0, n\geq 0)$</p>
 <p><strong>特殊的分块：全横着切，或者全竖着切</strong></p>
 <h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>（1）加法</p>
-<p>​        $\left[ \begin{array} {ll}  A_1 &amp; A_2 \ A_3 &amp; A_4 \end{array} \right]+\left[ \begin{array} {ll}  B_1 &amp; B_2 \ B_3 &amp; B_4 \end{array} \right]=\left[\ begin{array} {ll}  A_1+B_1 &amp; A_2+B_2 \ A_3+B_3 &amp; A_4+B_4 \end{array} \right]$</p>
+<p>​        $\left[\begin{array}{ll}  A_1 &amp; A_2 \ A_3 &amp; A_4 \end{array}\right]+\left[ \begin{array}{ll} B_1 &amp; B_2 \ B_3 &amp; B_4 \end{array}\right] = \left[\begin{array}{ll}  A_1+B_1 &amp; A_2+B_2 \ A_3+B_3 &amp; A_4+B_4 \end{array}\right]$</p>
 <p>（2）数乘</p>
 <p>​        $k\left[ \begin{array} {ll}  A &amp; B \ C &amp; D \end{array} \right]=\left[ \begin{array} {ll}  kA &amp; kB \ kC &amp; kD \end{array} \right]$</p>
 <p>（3）乘法</p>
@@ -127,7 +127,7 @@
 <li>$r(A_{m \times n}) \leq min {m,n}$</li>
 <li>A可逆，则$r(AB)=r(B)$，B可逆，则$r(AB)=r(A)$</li>
 <li>$r(AB) \leq min { r(A),r(B)}$</li>
-<li>$r(AB) \leq r(A)+r(B)$</li>
+<li>$r(A+B) \leq r(A)+r(B)$</li>
 <li>$A<em>{m\times n}B</em>{n \times s}=0$，则$r(A)+r(B) \leq n$</li>
 <li>$r(A)=r(A^TA)=r(AA^T)=r(A^T)$</li>
 </ol>

@@ -5,32 +5,38 @@
 }
 #home-cover {
   width: calc(98.8vw);
-  height: calc(51.4vw);
-  background-image: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg");
+  height: 90vh;
+  background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center;
   background-size: 100%;
   background-repeat: no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#moto {
+  width: 70%;
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
 }
 #signature-date {
-  font-size: 20px;
-  padding-top: 18%;
+  font-size: 30px;
+  margin-bottom: 20px;
   color: #737373;
-  margin-left: 15%;
 }
 #cover-title {
   color: #fff;
   font-size: 40px;
-  padding-top: 30px;
-  margin-left: 15%;
   font-weight: bold;
-  width: 50%;
   line-height: 50px;
 }
 #from {
   text-align: right;
   color: #fff;
-  margin-right: 35%;
   font-size: 40px;
-  padding-top: 30px;
+  margin-top: 20px;
 }
 #chevron-down {
   color: #fff;
@@ -46,9 +52,9 @@
 }
 .recent-post-item {
   float: left;
-  height: 42.5rem;
+  height: 42.5em;
   color: #bfbfbf;
-  flex: 1 0 18.75rem;
+  flex: 1 0 18.75em;
   margin: 0 0 1.875rem;
   display: inline-block;
   min-height: 285px;
@@ -59,37 +65,37 @@
 }
 @media (min-width: 37.5rem) {
   .recent-post-item {
-    margin: 0 0.9375rem 15px;
+    margin: 0 0.9375em 15px;
   }
 }
-@media (min-width: calc((2 * 0.625rem) + (2 * 18.75rem))) {
+@media (min-width: calc((2 * 0.625em) + (2 * 18.75em))) {
   .recent-post-item {
-    max-width: calc(100%/2 - 0.9375rem*2);
+    max-width: calc(100%/2 - 0.9375em*2);
   }
 }
-@media (min-width: calc((2 * 0.625rem) + (3 * 18.75rem))) {
+@media (min-width: calc((2 * 0.625em) + (3 * 18.75em))) {
   .recent-post-item {
-    max-width: calc(100%/3 - 0.9375rem*2);
+    max-width: calc(100%/3 - 0.9375em*2);
   }
 }
-@media (min-width: calc((2 * 0.625rem) + (4 * 18.75rem))) {
+@media (min-width: calc((2 * 0.625em) + (4 * 18.75em))) {
   .recent-post-item {
-    max-width: calc(100%/4 - 0.9375rem*2);
+    max-width: calc(100%/4 - 0.9375em*2);
   }
 }
-@media (min-width: calc((2 * 0.625rem) + (5 * 18.75rem))) {
+@media (min-width: calc((2 * 0.625em) + (5 * 18.75em))) {
   .recent-post-item {
-    max-width: calc(100%/5 - 0.9375rem*2);
+    max-width: calc(100%/5 - 0.9375em*2);
   }
 }
-@media (min-width: calc((2 * 0.625rem) + (6 * 18.75rem))) {
+@media (min-width: calc((2 * 0.625em) + (6 * 18.75em))) {
   .recent-post-item {
-    max-width: calc(100%/6 - 0.9375rem*2);
+    max-width: calc(100%/6 - 0.9375em*2);
   }
 }
-@media (min-width: calc(2 * 0.625rem + 6 * $s)) {
+@media (min-width: calc(2 * 0.625em + 6 * $s)) {
   .recent-post-item {
-    flex: 1 0 calc(100% / 6 - 0.9375rem * 2);
+    flex: 1 0 calc(100%/6 - 0.9375em*2);
   }
 }
 .recent-post-item:hover {
