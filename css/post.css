@@ -14,9 +14,8 @@
 }
 @media (max-width: 1300px) {
   .article {
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 100%;
+    margin: 110px auto 0;
+    width: 96%;
   }
 }
 #post {
@@ -221,6 +220,9 @@ li>ul {
 }
 .post-content img {
   max-width: 100%;
+}
+.post-content p {
+  font-size: 16px;
 }
 p code {
   background-color: #282828;
