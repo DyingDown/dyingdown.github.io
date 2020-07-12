@@ -1,4 +1,5 @@
 #bottom-inner {
+  max-width: 750px;
   clear: both;
   margin: auto;
   color: $text-color;
