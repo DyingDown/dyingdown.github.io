@@ -41,9 +41,37 @@
   margin-block-end: 0px;
   margin-top: 15px;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
+  #top {
+    display: block !important;
+  }
   #menus {
     display: none;
+  }
+  #user {
+    float: right;
+    margin-right: 35px;
+    font-size: 25px;
+  }
+  #buttons {
+    float: left;
+    margin-left: 40px;
+    font-size: 15px;
+  }
+  #menu_button {
+    display: block !important;
+    position: absolute;
+    left: 20px;
+    font-size: 15px;
+  }
+  #search {
+    position: absolute;
+    left: 60px;
+    font-size: 15px;
+  }
+  .fa-search,
+  .fa-bars {
+    font-size: 25px !important;
   }
 }
 .menu-item {
@@ -146,10 +174,14 @@
   color: #fff;
   font-size: 30px;
   line-height: 75px;
+  display: none;
 }
 #search {
   color: #fff;
   padding-right: 25px;
   font-size: 30px;
   line-height: 75px;
+}
+#sidemenu {
+  display: none;
 }
