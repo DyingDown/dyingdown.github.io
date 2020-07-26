@@ -1,0 +1,36 @@
+.novel {
+  width: 80%;
+  height: 80vh;
+  margin: 100px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.left-intro,
+.right-bookshell {
+  width: 46%;
+  height: 92.5%;
+  margin: 2%;
+}
+.first-shell,
+.second-shell {
+  width: 80%;
+  height: 300px;
+  margin: 40px auto 20px;
+  background: url("/img/bookshell.png") center bottom no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.book-lost,
+.book-sick {
+  height: 60%;
+  margin-top: 9%;
+  width: 25%;
+  background-color: #fff;
+  background: url("/img/cover-lost.jpg") center bottom no-repeat;
+  background-size: 100%;
+}
+.book-sick {
+  background: url("/img/cover-sick.jpg") center bottom no-repeat;
+  background-size: 100%;
+}
