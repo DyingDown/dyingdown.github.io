@@ -1,5 +1,22 @@
 /* Steve jobs' book */
 
+.buttons {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto -80px;
+}
+
+.buttons a {
+    color: #8c8c8c;
+    font-size: 1.7em;
+    margin: 0 20px;
+}
+
+.buttons a:hover {
+    color: #363636;
+}
+
 @font-face {
     font-family: 'Stempel-Garamond-W01-Roman';
     font-style: normal;

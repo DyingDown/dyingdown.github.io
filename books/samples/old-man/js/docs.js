@@ -89,7 +89,7 @@ function setPreview(view) {
     css({
         width: width + 15,
         height: previewHeight + 15,
-        top: -previewHeight - 18,
+        top: -previewHeight - 20,
         left: ($($('#slider').children(':first')).width() - width - 15) / 2
     });
 

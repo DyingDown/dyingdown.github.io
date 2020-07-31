@@ -1,0 +1,30 @@
+<div class="book-content">
+
+    <h4>DIAMETER OF TREE</h4>
+
+    <pre>
+#include &lt;bits/stdc++.h&gt;
+const int maxn = 100020;
+using namespace std; 
+int dis[maxn],ans; 
+bool vis[maxn];
+typedef pair&lt;int,int&gt; P;
+vector &lt;P&gt; V[maxn];
+int bfs(int x){
+    memset(dis, 0, sizeof(dis));
+    memset(vis, 0, sizeof(vis));
+    queue &lt;int&gt; Q;
+    Q.push(x); vis[x] = 1;
+    int point = 0;
+    while(!Q.empty()){
+        int F = Q.front();
+        Q.pop();
+        if(dis[F] > ans){
+            ans = dis[F];
+            point = F;
+        } 
+        P t;
+        for(int i = 0; i < V[F].size(); i ++){
+    </pre>
+</div>
+<span class="page-number">20</span>

@@ -1,0 +1,29 @@
+<div class="book-content">
+
+    <h1>1/1+1/2+...+1/N</h1>
+
+    <code>
+/***** <br>
+题意题意：计算1+1/2+1/3+……+1/n ;<br>
+思路：分段打表，将每1000的和存一下，需要计算时找出对应的1000的权值，再计算后面<br>
+*******/<br>
+<br>
+#include <bits/stdc++.h><br>
+    double a[100005];
+void init(){
+    int tm = 1;
+    a[0] = 0;
+    for (int i = 1; i <= 100002; ++i){
+        //a[i]计算的从(i-1)*1000+1到i*1000的和 
+        a[i] = a[i - 1]; 
+        for (int j = tm; j <= tm + 999; ++ j){
+            a[i] += 1.0 / j;
+        }
+        tm = tm + 1000;
+    }
+}
+
+</code>
+
+</div>
+<span class="page-number">7</span>

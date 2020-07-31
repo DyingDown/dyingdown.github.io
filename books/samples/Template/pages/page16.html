@@ -1,0 +1,28 @@
+<div class="book-content">
+
+
+    <pre>
+int main(){
+    int t;
+    scanf("%d",&t);
+    init();
+    int case = 1;
+    while (t --){
+        int n;
+        scanf("%d",&n);
+        int r = n / 1000 * 1000; //找出他的对应1000的位置 
+        for (int i = r+1; i <= n; ++i){ //计算一下剩余的值的和 
+            tmp += 1.0 / i;
+        }
+        double tt;
+            tt = a[n/1000];
+        double ans = tt + tmp;
+        printf("case %d: %.9lf\n",case++,ans);
+    }
+    return 0;
+}    
+</pre>
+
+    <h1>BFS/DFS</h1>
+</div>
+<span class="page-number">16</span>

@@ -1,0 +1,25 @@
+<div class="book-content">
+
+    <p class="no-indent">
+        4.圆上选择2n个点，将这些点成对连接起来使得所得到的n条线段不相交的方法数<br> 5.有2n个人排成一行进入剧场， 入场费五元。其中有n个人有一张5元钞票，另外n个人只有10元钞票，剧院无其他钞票，问有多少种方法使得只要有10元的人买票，售票处就有5元的钞票找零
+    </p>
+
+    <h3>CODE</h3>
+
+    <pre>
+#include &lt;stdio.h>
+#include &lt;string.h>
+int a[105][1000];//大数运算 
+int b[105]; //储存对应卡特兰数有多少位 
+void catalan(){ //求卡特兰数
+    int i, j, len, carry, temp;
+    a[1][0] = b[1] = 1;
+    len = 1;
+    for(i = 2; i <= 100; i++){
+        for(j = 0; j < len; j++) //乘法
+        a[i][j] = a[i-1][j]*(4*(i-1)+2);
+        carry = 0;
+        for(j = 0; j < len; j++){ //处理相乘结果
+    </pre>
+</div>
+<span class="page-number">30</span>

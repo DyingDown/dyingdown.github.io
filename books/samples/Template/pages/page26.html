@@ -1,0 +1,31 @@
+<div class="book-content">
+
+    <h3>ABS</h3>
+
+    <pre>
+n = n ^ (n >> 31)) – (n >> 31);
+    </pre>
+
+    <h3>COMPARE</h3>
+    <pre>
+int max(int a, int b) {
+    return b & ((a - b) >> 31) | a & (~(a - b) >> 31);
+    //if a>=b, (a-b)>>31 is 0, otherwise -1
+}
+int min(int a, int b) {
+    return a & ((a - b) >> 31) | b & (~(a - b) >> 31);
+    //if a>=b, (a-b)>>31 is 0, otherwise -1
+}
+</pre>
+
+    <h3>IS SAME SIGN</h3>
+
+    <pre>
+bool isSameSign(int x, int y) {  
+    // 有0的情况例外
+    return (x ^ y) >=0;  
+    // if same, true; else false 
+}
+</pre>
+</div>
+<span class="page-number">26</span>

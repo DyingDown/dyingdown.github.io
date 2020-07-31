@@ -1,5 +1,22 @@
 /* Docs sample */
 
+.buttons {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto -80px;
+}
+
+.buttons a {
+    color: #8c8c8c;
+    font-size: 1.7em;
+    margin: 0 20px;
+}
+
+.buttons a:hover {
+    color: #363636;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -62,11 +79,11 @@ body {
     background-image: linear-gradient(left, #fff 95%, #dadada 100%);
 }
 
-.sample-docs .p17 {
+.sample-docs .p19 {
     background-position: -942px 0;
 }
 
-.sample-docs .p18 {
+.sample-docs .p20 {
     background-position: -1413px 0;
 }
 
