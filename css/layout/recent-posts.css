@@ -4,10 +4,9 @@
   }
 }
 #home-cover {
-  width: calc(98.8vw);
-  height: 90vh;
+  width: calc(99.5vw);
+  height: 100vh;
   background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center;
-  background-size: 100%;
   background-repeat: no-repeat;
   background-size: auto 100%;
   display: flex;
@@ -22,33 +21,28 @@
   bottom: 0;
 }
 #signature-date {
-  font-size: 30px;
+  font-size: 22px;
   margin-bottom: 20px;
   color: #737373;
 }
 #cover-title {
   color: #fff;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   line-height: 50px;
 }
 #from {
   text-align: right;
   color: #fff;
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 20px;
 }
 #chevron-down {
   color: #fff;
   font-size: 40px;
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   left: 50%;
-}
-@media (max-width: 1500px) {
-  #chevron-down {
-    display: none;
-  }
 }
 .recent-post-item {
   float: left;
