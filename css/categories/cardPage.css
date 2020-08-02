@@ -1,6 +1,12 @@
 #home {
   padding-top: 8.666666666666666rem;
   max-height: 9999px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  #home {
+    padding-top: 90px;
+  }
 }
 .row {
   max-width: 68.66666666666667rem;

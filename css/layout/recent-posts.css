@@ -4,9 +4,10 @@
   }
 }
 #home-cover {
-  width: calc(99.5vw);
+  width: calc(98.8vw);
   height: 100vh;
   background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-size: auto 100%;
   display: flex;
@@ -21,7 +22,7 @@
   bottom: 0;
 }
 #signature-date {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 20px;
   color: #737373;
 }

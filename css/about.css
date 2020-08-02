@@ -1,6 +1,6 @@
 .aboutMeAvatar {
   text-align: center;
-  width: 20%;
+  width: 170px;
   border: solid #808080 2px;
   margin: 0 auto;
   border-radius: 150px;
@@ -14,6 +14,11 @@
   color: #fff;
   width: 60%;
   margin: 100px auto 0;
+}
+@media (max-width: 1200px) {
+  .aboutMePage {
+    width: 90%;
+  }
 }
 .seff-introduction-formal {
   text-indent: 2em;

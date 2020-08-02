@@ -145,3 +145,8 @@
 #vcomment {
   clear: both;
 }
+@media (max-width: 1200px) {
+  .links {
+    margin-top: 90px;
+  }
+}

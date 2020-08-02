@@ -1,5 +1,18 @@
 body {
   font-family: Heveltica !important;
+  scroll-behavior: smooth;
+}
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #000;
+  opacity: 0;
+  z-index: -1000;
 }
 #content-inner {
   width: 100%;
