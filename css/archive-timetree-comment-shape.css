@@ -1,3 +1,6 @@
+.archive {
+  margin-top: 100px;
+}
 .archive-list {
   width: 60%;
   color: #fff;
@@ -12,7 +15,6 @@
 }
 .First-title-of-archives {
   color: #fff;
-  margin-top: 100px;
   text-align: center;
 }
 .archive-list tr td:first-child {
@@ -103,12 +105,15 @@
   border-radius: 20px;
   background-color: #aa2611;
 }
-.article-year {
+td.article-year {
   color: #aa2611;
   clear: both;
-  text-align: center;
+  text-align: center !important;
   font-size: 30px;
-  padding-top: 30px;
+  padding: 40px 0;
   margin-bottom: 30px;
   font-weight: bold;
+}
+.article-year::before {
+  display: none;
 }
