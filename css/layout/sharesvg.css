@@ -1,0 +1,72 @@
+.facebook {
+  fill: #3b5998;
+  background-color: #fff;
+}
+.facebook:hover {
+  fill: #fff !important;
+  background-color: #3b5998;
+}
+.facebook:hover > .pathfacebook {
+  fill: #3b5998;
+  background-color: #fff;
+}
+.twitter {
+  fill: #1da1f2;
+  background-color: #fff;
+}
+.twitter:hover {
+  fill: #fff !important;
+  background-color: #1da1f2;
+}
+.twitter:hover > .pathtwitter {
+  fill: #1da1f2;
+  background-color: #fff;
+}
+.qq {
+  fill: #7bd4ef;
+  background-color: #fff;
+}
+.qq:hover {
+  fill: #fff !important;
+  background-color: #7bd4ef;
+}
+.qq:hover > .pathqq {
+  fill: #7bd4ef;
+  background-color: #fff;
+}
+.wechat {
+  fill: #62b900;
+  background-color: #fff;
+}
+.wechat:hover {
+  fill: #fff !important;
+  background-color: #62b900;
+}
+.wechat:hover > .pathwechat {
+  fill: #62b900;
+  background-color: #fff;
+}
+.weibo {
+  fill: #d32024;
+  background-color: #fff;
+}
+.weibo:hover {
+  fill: #fff !important;
+  background-color: #d32024;
+}
+.weibo:hover > .pathweibo {
+  fill: #d32024;
+  background-color: #fff;
+}
+.qqzone {
+  fill: #ffcd00;
+  background-color: #fff;
+}
+.qqzone:hover {
+  fill: #fff !important;
+  background-color: #ffcd00;
+}
+.qqzone:hover > .pathqqzone {
+  fill: #ffcd00;
+  background-color: #fff;
+}
