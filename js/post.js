@@ -7,7 +7,13 @@ window.onload = function() {
         H += Y.offsetTop;
         Y = Y.offsetParent;
     }
-    // console.alert(H)
+    let share = document.getElementById("shareButtonsInner"),
+        Hs = 0,
+        Ys = share;
+    while (Ys) {
+        Hs += Ys.offsetTop;
+        Ys = Ys.offsetParent;
+    }
     window.onscroll = function() {
         let s = document.body.scrollTop || document.documentElement.scrollTop;
         if (s > H - 100) {
@@ -17,6 +23,14 @@ window.onload = function() {
             // toc.width = 30
         } else {
             toc.style = "";
+        }
+        let ss = document.body.scrollTop || document.documentElement.scrollTop;
+        if (ss > Hs - 300) {
+            let shareOuter = document.getElementById("shareButtons");
+            let widths = shareOuter.offsetWidth;
+            share.style = "position:fixed;top:13rem;width:" + widths + "px";
+        } else {
+            share.style = "";
         }
     }
 }
