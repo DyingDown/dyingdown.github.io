@@ -37,7 +37,7 @@
   right: -510px;
   margin-left: -480px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   #shareButtons {
     display: none;
   }
@@ -218,7 +218,6 @@ li>ul {
   font-size: 30px;
 }
 .post-content blockquote::after {
-  content: "”";
   float: right;
   display: inline;
   color: #fff;

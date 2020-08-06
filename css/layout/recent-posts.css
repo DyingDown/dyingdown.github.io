@@ -113,11 +113,13 @@
   padding: 0 0.9375rem;
   color: #fff;
 }
-.cover {
+#recent-post-content .cover {
   width: 100%;
   height: auto;
   margin: 0 auto;
   transition: all 0.2s ease-in-out;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 .content-tags {
   background-color: #141414;

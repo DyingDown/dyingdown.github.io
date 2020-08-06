@@ -1,7 +1,7 @@
 .archive-list {
-  width: 60%;
+  width: 67%;
   color: #fff;
-  margin-left: 20%;
+  margin: 0 auto;
 }
 @media (max-width: 900px) {
   .archive-list {
@@ -42,14 +42,18 @@
 .archive-list {
   border-collapse: collapse;
 }
-.article-year {
+td.article-year {
   color: #d31a29;
   clear: both;
-  text-align: center;
+  text-align: center !important;
   font-size: 30px;
-  padding-top: 30px;
-  margin-bottom: 30px;
+  padding-top: 40px;
+  padding: 40px 0 40px !important;
   font-weight: bold;
+  border-left: none !important;
+}
+.article-year::before {
+  display: none;
 }
 .article-time {
   color: #d31a29;
@@ -70,4 +74,10 @@
 }
 .article-content a {
   color: #000;
+}
+.article-content td {
+  border: none !important;
+}
+.article-content td::before {
+  display: none;
 }

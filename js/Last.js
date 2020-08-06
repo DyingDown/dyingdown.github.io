@@ -47,3 +47,14 @@ function backToBottom() {
         behavior: "smooth"
     });
 }
+
+function scrollDown() {
+    var comment = document.getElementById("recent-posts");
+    comment.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// function qqZoneShare() {
+//     alert("sss");
+// }

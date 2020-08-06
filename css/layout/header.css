@@ -13,7 +13,6 @@
   z-index: 9998;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-  border-right: 1px #eee solid;
 }
 #top::-webkit-scrollbar {
   width: 0 !important;
@@ -237,8 +236,9 @@
     height: 5px;
     transition: 0.25s ease-in-out;
   }
-  .icon_top {
-    margin: 0;
+  .icon_top,
+  .subicon {
+    margin: 10px auto;
   }
   .sublabel {
     text-decoration: none;
