@@ -15,6 +15,8 @@ window.onload = function() {
         Y = Y.offsetParent;
     }
     window.onscroll = function() {
+        // new ClipboardJS('.btn');
+        // clipboard.on('error', alert("sss"));
         let ss = document.body.scrollTop || document.documentElement.scrollTop;
         if (ss > Hs - 300) {
             let shareOuter = document.getElementById("shareButtons");
