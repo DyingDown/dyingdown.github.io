@@ -20,7 +20,7 @@
   min-height: 285px;
   transition: all 0.3s;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   font-family: "Lato";
   -webkit-box-shadow: 1px 0 5px rgba(0,0,0,0.4);
   box-shadow: 1px 0 5px rgba(0,0,0,0.4);
@@ -51,6 +51,14 @@
 .popular-posts-title,
 .popular-posts-excerpt {
   margin: 0 15px;
+}
+.popular-posts-excerpt {
+  line-height: 24px;
+}
+.popular-posts-excerpt code {
+  background-color: #eee;
+  padding: 0 5px;
+  color: #000;
 }
 .popular-posts-title a {
   color: #111 !important;

@@ -14,26 +14,31 @@
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  margin-top: 30px;
+  margin: 30px 0;
+  padding: 0 15px;
+}
+.prev-next:hover {
+  color: #fff;
+  background-color: rgba(200,0,0,0.1);
 }
 .pull-left {
   float: left;
   font-size: 20px;
-  line-height: 90px;
+  line-height: 45px;
   text-decoration: none;
   color: #000;
 }
 .pull-left:hover {
-  color: #f00;
+  color: #808080;
 }
 .pull-right {
   float: right;
-  line-height: 90px;
+  line-height: 45px;
   text-decoration: none;
   clear: both;
   color: #000;
   font-size: 20px;
 }
 .pull-right:hover {
-  color: #f00;
+  color: #808080;
 }
