@@ -306,11 +306,15 @@
     justify-content: space-between;
     margin-right: 2%;
   }
-  #search {
+  .search {
     color: #fff;
     padding-right: 25px;
     font-size: 30px;
     line-height: 75px;
+    cursor: pointer;
+  }
+  .search:hover {
+    color: #f00;
   }
 }
 @media (max-width: 1200px) {
