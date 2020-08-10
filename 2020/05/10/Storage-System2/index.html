@@ -92,7 +92,19 @@ inputArea.onkeydown = function(){
 <p>那么每一个字的地址就变为二维的。假如，一个块内有四个字，主存大小为1024个字，那么主存就能被分为256块。256表示为二进制就是8位二进制位。那么第61个字的主存地址为：00001111 01（块号 块内地址）。由于四个一块，第61个字在第15块里面，且是15块里面的第一个。将15转换为八位的二进制。</p>
 <p>由此可看出，地址变成了二维的。</p>
 <p>这种映射的方法是：主存的数据块可映射到Cache任意行，只要这个位置是空闲的或者符合某种替换规则。同时将该数据块地址对应行的标记存储体中保存。    </p>
-</div></div><div id="postLicense"><div class="postTitle"><span>Post Title: </span><a href="/2020/05/10/Storage-System2/">Storage-System 存储系统(二)</a></div><div class="author"><span>Author: </span><span>o_oyao</span></div><div class="releaseTime"><span>Release Time: </span><span>May 10th 2020 - 12:06</span></div><div class="lastUpdateTime"><span>Last Update Time: </span><span>August 6th 2020 - 22:00</span></div><div class="originURL"><span>Original URL: </span><a href="/2020/05/10/Storage-System2/" title="Storage-System 存储系统(二)">http://dyingdown.github.io/2020/05/10/Storage-System2/</a><button class="btn" data-clipboard-target="#postLicense" data-clipboard-action="cut" title="Click to copy link of article"><i class="fa fa-clipboard"></i></button></div><div class="License"><span>License: </span><i class="fa fa-creative-commons"></i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">署名-非商用-相同方式共享 3.0</a><span>转载请保留原文链接及作者。</span></div><script src="/js/third-party/clipboard.min.js"></script><script>new ClipboardJS('.btn');</script><style type="text/css">.originURL:hover .btn::after {
+<center>
+<div id="wpac-rating"></div>
+</center><script type="text/javascript">wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'Rating', id: 26703, color: "fadb14"});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = 'https://embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();</script></div></div><div id="postLicense"><div class="postTitle"><span>Post Title: </span><a href="/2020/05/10/Storage-System2/">Storage-System 存储系统(二)</a></div><div class="author"><span>Author: </span><span>o_oyao</span></div><div class="releaseTime"><span>Release Time: </span><span>May 10th 2020 - 12:06</span></div><div class="lastUpdateTime"><span>Last Update Time: </span><span>August 6th 2020 - 22:00</span></div><div class="originURL"><span>Original URL: </span><a href="/2020/05/10/Storage-System2/" title="Storage-System 存储系统(二)">http://dyingdown.github.io/2020/05/10/Storage-System2/</a><button class="btn" data-clipboard-target="#postLicense" data-clipboard-action="cut" title="Click to copy link of article"><i class="fa fa-clipboard"></i></button></div><div class="License"><span>License: </span><i class="fa fa-creative-commons"></i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">署名-非商用-相同方式共享 3.0</a><span>转载请保留原文链接及作者。</span></div><script src="/js/third-party/clipboard.min.js"></script><script>new ClipboardJS('.btn');</script><style type="text/css">.originURL:hover .btn::after {
     content: "复制"
 }
 .originURL .btn:hover {
