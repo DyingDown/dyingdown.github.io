@@ -2081,9 +2081,9 @@
       
         <tags>
             
-            <tag> String </tag>
-            
             <tag> Math </tag>
+            
+            <tag> String </tag>
             
             <tag> HDU </tag>
             
@@ -2749,9 +2749,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -2801,9 +2801,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> Quick pow </tag>
             
@@ -2913,9 +2913,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> GCD </tag>
             
@@ -2942,9 +2942,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -2969,9 +2969,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3345,9 +3345,9 @@
       
         <tags>
             
-            <tag> Simulation </tag>
-            
             <tag> String </tag>
+            
+            <tag> Simulation </tag>
             
             <tag> HDU </tag>
             
@@ -3894,73 +3894,5 @@
     
     
   
-  
-    
-    
-    <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>message</title>
-      <link href="/message/index.html"/>
-      <url>/message/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>star</title>
-      <link href="/star/index.html"/>
-      <url>/star/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>novel</title>
-      <link href="/novel/index.html"/>
-      <url>/novel/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
   
 </search>
