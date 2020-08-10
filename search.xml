@@ -2081,9 +2081,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> String </tag>
+            
+            <tag> Math </tag>
             
             <tag> HDU </tag>
             
@@ -2749,9 +2749,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -2801,9 +2801,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> Quick pow </tag>
             
@@ -2913,9 +2913,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> GCD </tag>
             
@@ -2942,9 +2942,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -2969,9 +2969,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3318,9 +3318,9 @@
             
             <tag> GYM </tag>
             
-            <tag> Geometry </tag>
-            
             <tag> CodeForeces </tag>
+            
+            <tag> Geometry </tag>
             
         </tags>
       
@@ -3931,6 +3931,17 @@
     
     
     <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>star</title>
       <link href="/star/index.html"/>
       <url>/star/index.html</url>
@@ -3945,17 +3956,6 @@
       <title>novel</title>
       <link href="/novel/index.html"/>
       <url>/novel/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
