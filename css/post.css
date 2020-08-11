@@ -279,6 +279,9 @@ p code {
   padding: 0px 5px;
   font: 18px consolas !important;
 }
+.post-content a {
+  color: #d31a29;
+}
 .fixedFunction {
   position: fixed;
   right: 30px;
