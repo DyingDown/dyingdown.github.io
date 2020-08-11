@@ -4,7 +4,34 @@
   
     
     <entry>
-      <title>Git Save Usrname and Keys</title>
+      <title>How to add rating star to Blog</title>
+      <link href="/2020/08/11/How-to-add-rating-star-to-Blog/"/>
+      <url>/2020/08/11/How-to-add-rating-star-to-Blog/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Widget-Pack"><a href="#Widget-Pack" class="headerlink" title="Widget Pack"></a>Widget Pack</h2><p>We use <a href="https://widgetpack.com/" target="_blank" rel="noopener">Widget Pack</a> to get the function. It’s an powerful widget that has many function. Here we will just use it’s rating function because I thinks valine is more beautiful……</p><h2 id="Preview"><a href="#Preview" class="headerlink" title="Preview"></a>Preview</h2><p>Here is a preview of the function. The color of the stars can be customized.</p><p><img src="https://s1.ax1x.com/2020/08/11/aLe6qs.png" alt="Rating preview"></p><h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><p>First Sign Up for an account.</p><p><img src="https://s1.ax1x.com/2020/08/11/aLndgS.png" alt="aLndgS.png"></p><p>Follow it’s steps. It will let you fill your website address.</p><p>After some steps, you will get your ID here:</p><p><img src="https://s1.ax1x.com/2020/08/11/aLQBR0.png" alt="Get your user id"></p><p>Click here, you can set how can reader vote for your article.</p><p><img src="https://s1.ax1x.com/2020/08/11/aOY9Dx.png" alt="aOY9Dx.png"></p><p>Select the drop down box to turn on anonymous rating.</p><p><img src="https://s1.ax1x.com/2020/08/11/aOt9zj.png" alt="aOt9zj.png"></p><p>And there you can change color of stars and number of stars.</p><p><img src="https://s1.ax1x.com/2020/08/11/aOtEwV.png" alt="aOtEwV.png"></p><p>Then click <code>SAVE SETTING</code>.</p><h2 id="Add-Function"><a href="#Add-Function" class="headerlink" title="Add Function"></a>Add Function</h2><p>Create a new file called <code>startRating.html</code> or <code>.pug</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;</span><br><span class="line">&lt;div id=&quot;wpac-rating&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/center&gt;</span><br><span class="line">script(type=&quot;text/javascript&quot;).</span><br><span class="line">    wpac_init = window.wpac_init || [];</span><br><span class="line">    wpac_init.push(&#123;widget: &apos;Rating&apos;, id: #&#123;theme.star.id&#125;, color: &quot;#&#123;theme.star.color&#125;&quot;&#125;);</span><br><span class="line">    (function() &#123;</span><br><span class="line">        if (&apos;WIDGETPACK_LOADED&apos; in window) return;</span><br><span class="line">        WIDGETPACK_LOADED = true;</span><br><span class="line">        var mc = document.createElement(&apos;script&apos;);</span><br><span class="line">        mc.type = &apos;text/javascript&apos;;</span><br><span class="line">        mc.async = true;</span><br><span class="line">        mc.src = &apos;https://embed.widgetpack.com/widget.js&apos;;</span><br><span class="line">        var s = document.getElementsByTagName(&apos;script&apos;)[0]; s.parentNode.insertBefore(mc, s.nextSibling);</span><br><span class="line">    &#125;)();</span><br></pre></td></tr></table></figure><p><strong>But, if you are using it on your website, you can just copy the code he gives you.</strong></p><p>Then find the file <code>post.pug</code>. Find the bottom of the article and include the file <code>starRating.pug</code>.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if theme.star.on</span><br><span class="line">    include ... .pug</span><br></pre></td></tr></table></figure><p>After that, find your theme <code>_config.yml</code> and type these:</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Rating star function 打星功能</span></span><br><span class="line"><span class="attr">star:</span></span><br><span class="line"><span class="attr">  on:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  id:</span> <span class="number">26703</span> <span class="comment"># app id 用户id</span></span><br><span class="line"><span class="attr">  color:</span> <span class="string">fadb14</span> <span class="comment"># color of stars in Hexadecimal 星星的颜色</span></span><br></pre></td></tr></table></figure><p>Save and preview.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Install </tag>
+            
+            <tag> Function </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git Save Username and Keys</title>
       <link href="/2020/08/07/Git-Save-usrname-and-keys/"/>
       <url>/2020/08/07/Git-Save-usrname-and-keys/</url>
       
@@ -2502,9 +2529,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2556,9 +2583,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2610,9 +2637,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2749,9 +2776,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -2801,9 +2828,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> Quick pow </tag>
             
@@ -2859,9 +2886,9 @@
       
         <tags>
             
-            <tag> Violence </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Violence </tag>
             
         </tags>
       
@@ -2913,9 +2940,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> GCD </tag>
             
@@ -2942,9 +2969,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -2969,9 +2996,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
