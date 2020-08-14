@@ -30,6 +30,9 @@
 #shareButtonsInner {
   margin-left: 10px;
 }
+.fa .fa-share-alt {
+  font-size: 25px;
+}
 .side-bar {
   background-color: #fff;
   border-top: solid #fa3636 2px;
@@ -42,7 +45,10 @@
 }
 @media (max-width: 1200px) {
   #shareButtons {
-    display: none;
+    position: static !important;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
   .side-bar {
     display: none;
@@ -298,6 +304,7 @@ p code {
 }
 .post-content a {
   color: #d31a29;
+  word-break: break-all;
 }
 .fixedFunction {
   position: fixed;
