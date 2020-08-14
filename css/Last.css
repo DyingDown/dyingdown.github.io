@@ -24,3 +24,6 @@ body {
   width: 80%;
   margin: 50px auto;
 }
+#tidio-chat-iframe {
+  diplay: block !important;
+}
