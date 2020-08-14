@@ -8,16 +8,6 @@
   width: 100%;
   min-height: 200px;
 }
-@media (max-width: 1300px) {
-  .side-user {
-    display: none;
-  }
-}
-@media (max-width: 1600px) {
-  .side-user {
-    margin-right: 10%;
-  }
-}
 .side-user .top-bar {
   display: flex;
   justify-content: space-evenly;

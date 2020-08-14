@@ -172,6 +172,7 @@
     justify-content: space-between;
     opacity: 0.98;
     filter: #191919;
+    transition: none;
   }
   #user {
     display: flex;
@@ -320,5 +321,6 @@
 @media (max-width: 1200px) {
   #top {
     overflow: auto;
+    transition: none;
   }
 }

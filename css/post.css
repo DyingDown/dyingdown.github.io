@@ -15,6 +15,9 @@
   width: 100%;
   float: left;
 }
+.fdate {
+  display: none;
+}
 #shareButtons {
   width: 80px;
   height: 500px;
@@ -47,6 +50,17 @@
   .main-post-content {
     padding: 0px 10px;
   }
+  .post-content {
+    padding: 10px !important;
+  }
+}
+@media (max-width: 800px) {
+  .date {
+    display: none;
+  }
+  .fdate {
+    display: inline;
+  }
 }
 #post {
   -webkit-box-shadow: 1px 0 5px rgba(0,0,0,0.4);
@@ -57,6 +71,11 @@
   padding-bottom: 40px;
   padding-right: 40px;
   padding-left: 40px;
+}
+.first-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .titles {
   padding-left: 20px;
@@ -74,10 +93,8 @@
   margin-block-start: 0em !important;
 }
 .date {
-  float: right;
+  min-width: 130px;
   margin-right: 20px;
-  position: relative;
-  margin-top: -30px;
 }
 .category:hover,
 .post-tag:hover {
