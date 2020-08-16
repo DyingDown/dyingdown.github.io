@@ -37,5 +37,4 @@ window.onload = function() {
             }
         }
     }
-
 }

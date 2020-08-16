@@ -173,6 +173,7 @@
     opacity: 0.98;
     filter: #191919;
     transition: none;
+    align-items: center;
   }
   #user {
     display: flex;

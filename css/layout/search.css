@@ -1,3 +1,50 @@
+.search-box {
+  background: none;
+  height: 25px;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 25px;
+}
+.search-btn {
+  color: #fff;
+  float: right;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  text-decoration: none;
+}
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 25px;
+  width: 0;
+}
+.search-box:hover > .search-txt {
+  width: 8vw;
+  padding: 0 6px;
+}
+.search-box:hover > .search-box {
+  width: 20px;
+}
+.search-box:hover > .search-btn {
+  background: none;
+  color: #e84118;
+}
+.search-box:hover {
+  border: solid #e84118 1.5px;
+  font-size: 16px;
+}
 #search-overlay {
   z-index: 999;
   position: fixed;
@@ -28,7 +75,7 @@
 #search .fa-times-circle {
   float: right;
   margin: 20px 10px 0 0;
-  font-size: 30px;
+  font-size: 50px;
   line-height: 30px;
   color: #808080;
   cursor: pointer;
