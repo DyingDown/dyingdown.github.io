@@ -1,9 +1,14 @@
 window.onload = function() {
+    // Progress bar
+    var progressBar = document.getElementById("progress-bar");
+    var percent = document.getElementById("percent");
+    var totalHeight = document.body.scrollHeight - window.innerHeight;
+
+    // share and toc Top adsorption
     if (document.body.offsetWidth >= 1200) {
         let toc = document.getElementById("sidebar-toc"),
             H = 0,
             Y = toc;
-        // toc.style = "margin-left:20px;"
         while (Y) {
             H += Y.offsetTop;
             Y = Y.offsetParent;
@@ -16,8 +21,13 @@ window.onload = function() {
             Ys = Ys.offsetParent;
         }
         window.onscroll = function() {
-            // new ClipboardJS('.btn');
-            // clipboard.on('error', alert("sss"));
+
+            // Progress Bar
+            var progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = progress + "%";
+            percent.innerHTML = Math.round(progress);
+
+            // share and toc Top adsorption
             let ss = document.body.scrollTop || document.documentElement.scrollTop;
             if (ss > Hs - 300) {
                 let shareOuter = document.getElementById("shareButtons");
@@ -35,6 +45,13 @@ window.onload = function() {
             } else {
                 toc.style = "";
             }
+        }
+    } else {
+        window.onscroll = function() {
+            // Progress Bar
+            var progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = progress + "%";
+            percent.innerHTML = Math.round(progress);
         }
     }
 }

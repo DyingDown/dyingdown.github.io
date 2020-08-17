@@ -2,3 +2,42 @@ body {
   font-family: Heveltica;
   background-color: #fff;
 }
+#progress-bar {
+  position: fixed;
+  top: 0;
+  height: 2px;
+  background-color: #d31a29;
+  z-index: 9998;
+}
+@-moz-keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+@-webkit-keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+@-o-keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
