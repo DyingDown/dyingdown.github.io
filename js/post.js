@@ -25,7 +25,7 @@ window.onload = function() {
             // Progress Bar
             var progress = (window.pageYOffset / totalHeight) * 100;
             progressBar.style.width = progress + "%";
-            percent.innerHTML = Math.round(progress);
+            percent.innerHTML = Math.floor(progress) + "%";
 
             // share and toc Top adsorption
             let ss = document.body.scrollTop || document.documentElement.scrollTop;
@@ -51,7 +51,7 @@ window.onload = function() {
             // Progress Bar
             var progress = (window.pageYOffset / totalHeight) * 100;
             progressBar.style.width = progress + "%";
-            percent.innerHTML = Math.round(progress);
+            percent.innerHTML = Math.floor(progress) + "%";
         }
     }
 }

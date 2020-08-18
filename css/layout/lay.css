@@ -25,6 +25,11 @@ body {
   background-color: #d31a29;
   z-index: 9998;
 }
+.widget-position-left,
+#button:not(.sidebar) {
+  left: 100px !important;
+  right: auto;
+}
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
