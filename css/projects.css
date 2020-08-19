@@ -25,12 +25,17 @@
   color: #ffd700;
   line-height: 1.8em;
   margin: 0 auto 60px;
-  width: 30%;
+  width: 400px;
   position: relative;
   background: #141414;
   border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+@media (max-width: 400px) {
+  .projects ul {
+    width: 100%;
+  }
 }
 .projects ul:before {
   content: '';

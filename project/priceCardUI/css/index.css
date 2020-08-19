@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 140px 0;
+    background: #262626;
+}
+
+.card {
+    position: relative;
+    max-width: 300px;
+    height: auto;
+    background: linear-gradient(-45deg, #fe0847, #feae3f);
+    border-radius: 15px !important;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    transition: .5s;
+    overflow: hidden
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.col-sm-4:nth-child(1) .card .title .fa,
+.col-sm-4:nth-child(1) .card {
+    background: linear-gradient(-45deg, #f403d1, #64b5f6);
+}
+
+.col-sm-4:nth-child(2) .card .title .fa,
+.col-sm-4:nth-child(2) .card {
+    background: linear-gradient(-45deg, #ffec61, #f321d7);
+}
+
+.col-sm-4:nth-child(3) .card .title .fa,
+.col-sm-4:nth-child(3) .card {
+    background: linear-gradient(-45deg, #24ff72, #9a4eff);
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: rgba(2525, 255, 255, .1);
+    z-index: 1;
+    transform: skewY(-5deg) scale(1.5);
+}
+
+.title .fa {
+    color: white;
+    font-size: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.title h2 {
+    position: relative;
+    margin: 20px 0 0;
+    padding: 0;
+    color: white;
+    font-size: 28px;
+    z-index: 2;
+}
+
+.price {
+    position: relative;
+    z-index: 2;
+}
+
+.price h4 {
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 60px;
+}
+
+.option {
+    position: relative;
+    z-index: 2;
+}
+
+.option ul {
+    margin: 0;
+    padding: 0;
+}
+
+.option ul li {
+    margin: 0 0 10px;
+    padding: 0;
+    list-style-type: none;
+    color: white;
+    font-size: 16px;
+}
+
+.card a {
+    position: relative;
+    z-index: 2;
+    color: #262626;
+    background: #fff;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card a:hover {
+    text-decoration: none;
+}
