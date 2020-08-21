@@ -232,11 +232,12 @@
     content: "";
     display: block;
     position: absolute;
-    bottom: -25px;
+    bottom: -15px;
     background-color: #f00;
     width: 100%;
     height: 5px;
     transition: 0.25s ease-in-out;
+    box-sizing: border-box;
   }
   .icon_top,
   .subicon {

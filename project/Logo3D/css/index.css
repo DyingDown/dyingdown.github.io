@@ -7,8 +7,8 @@ body {
 }
 
 .stage {
-    height: 300px;
-    width: 500px;
+    height: 350px;
+    /* width: 500px; */
     margin: auto;
     position: absolute;
     top: 0;
