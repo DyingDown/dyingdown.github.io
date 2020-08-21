@@ -110,10 +110,10 @@ new Vue({
             const colors = {
                 up: 'yellow',
                 down: 'white',
-                left: 'blue',
+                left: '#00477d',
                 right: 'green',
                 front: 'red',
-                back: 'orange'
+                back: '#ffa500'
             }
             if (flag === 1)
                 return {
