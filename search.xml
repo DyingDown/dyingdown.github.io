@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Longest Substring Without Repeating Characters</title>
+      <link href="/2020/09/03/LeetCode_Longest-Substring-Without-Repeating-Characters/"/>
+      <url>/2020/09/03/LeetCode_Longest-Substring-Without-Repeating-Characters/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p><p><strong>Example 1:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;abcabcbb&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure><p><strong>Example 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure><p><strong>Example 3:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3.</span><br><span class="line">Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure><p><strong>Example 4:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;&quot;</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure><p><strong>Constraints:</strong></p><ul><li><code>0 &lt;= s.length &lt;= 5 * 104</code></li><li><code>s</code> consists of English letters, digits, symbols and spaces.</li></ul><h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>For this problem’s string s, we need to scan each letter one by one. Only then can we find the longest substring without missing.</p><p>So the time complexity is linear.</p><p>Let’s take <code>abcabcbb</code> for example.</p><p>First, you get an <code>a</code> and <code>a</code> is alone, so you jump to next element <code>b</code>. It’s also alone so you jump to next element <code>c</code>. And then jump to next element <code>a</code>. You found that the <code>a</code> has already exists. So the first <code>a</code> must be abandoned. And the second <code>a</code> is added and you jump to next element <code>b</code>. ……</p><p>After all these steps, you will find the length of longest substring is 3.</p><p>So how do we know the first a has already existed and how we abandoned the first a?</p><p>We can build a hashMap that helps store the location of the appeared element. And we also need a pointer to remember the start of the substring. I called the pointer <code>left</code>. We use map to find whether the current <code>s[i]</code> already exists in the current substring. If existed, we need to set <code>left</code> to the previous position of <code>s[i]</code>, so that the element <code>s[i]</code> wont appear twice in the substring.</p><p>We also use another variable to record the current length or the maxim length of substring every time we move i to next. The current length use <code>i - left</code> to represent.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; index;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, left = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (index.count(s[i]) <span class="keyword">and</span> index[s[i]] &gt; left)&#123;</span><br><span class="line">                left = index[s[i]];   </span><br><span class="line">            &#125;</span><br><span class="line">            index[s[i]] = i;</span><br><span class="line">            ans = max(ans, i - left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> HashMap </tag>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Whether key value in MAP exists</title>
       <link href="/2020/09/03/Whether-key-value-in-MAP-exists/"/>
       <url>/2020/09/03/Whether-key-value-in-MAP-exists/</url>
@@ -2583,9 +2612,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -2637,9 +2666,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -2691,9 +2720,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -2830,9 +2859,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -2882,9 +2911,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> Quick pow </tag>
             
@@ -2994,9 +3023,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> GCD </tag>
             
@@ -3023,9 +3052,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3050,9 +3079,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3399,9 +3428,9 @@
             
             <tag> GYM </tag>
             
-            <tag> CodeForeces </tag>
-            
             <tag> Geometry </tag>
+            
+            <tag> CodeForeces </tag>
             
         </tags>
       
