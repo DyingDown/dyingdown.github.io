@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><meta charset="UTF-8"><title>Storage-System 存储系统(二) [ o_oyao Blog ]</title><link rel="stylesheet" href="/css/Last.css"><link rel="stylesheet" href="/css/archive-timetree-comment-shape.css"><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/layout/header.css"><link rel="stylesheet" href="/css/layout/toc.css"><link rel="stylesheet" href="/css/layout/side-user.css"><link rel="stylesheet" href="/css/categories.css"><link rel="stylesheet" href="/css/variable/variable.css"><link rel="stylesheet" href="/css/layout/highlight.css"><link rel="stylesheet" href="/css/links.css"><link rel="stylesheet" href="/css/about.css"><link rel="stylesheet" href="/css/novel.css"><link rel="stylesheet" href="/css/projects.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/third-party/post-recommend.css"><link rel="stylesheet" href="/css/layout/license.css"><link rel="stylesheet" href="/css/layout/search.css"><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="stylesheet" href="/css/layout/pagination-post.css"><link rel="stylesheet" href="/css/layout/footer-post.css"><link rel="stylesheet" href="/css/layout/layout-post.css"><link rel="stylesheet" href="/css/post.css"></head><body><div id="progress-bar"></div><div id="menu-outer"><div id="phoneButton"><input type="checkbox" id="burger-toggle">
+<label for="burger-toggle" class="burger-menu" onclick="ShowMenu()">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</label></div><div id="top"><img class="avatar" src="https://s1.ax1x.com/2020/04/15/JCX4JK.jpg" alt><a id="user" href="/">o_oyao</a><ul id="menus"><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-home"></i> Home</div></a></li><li class="menu-item"><a class="menu" href="/categories"><div class="icon_top"><i class="fas fa-list"></i> Category</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/categories/memories/"><div class="subicon"><i class="fa fa-camera"></i> Memories</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/ACM"><div class="subicon"><i class="fa fa-code"></i> OJ Prob</div></a></li><li class="submenu-item"><a class="sublabel" href="/novel/"><div class="subicon"><i class="fa fa-book"></i> Novel</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/Essay"><div class="subicon"><i class="fas fa-pencil-alt"></i> Essay</div></a></li><li class="submenu-item"><a class="sublabel" href="/categories/film"><div class="subicon"><i class="fa fa-film"></i> Film</div></a></li><li class="submenu-item"><a class="sublabel" href="/books/samples/template"><div class="subicon"><i class="fa fa-bookmark"></i> Template</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-lightbulb"></i> About</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/about/"><div class="subicon"><i class="fa fa-heart"></i> Me</div></a></li><li class="submenu-item"><a class="sublabel" href="/theme-last"><div class="subicon"><i class="fa fa-puzzle-piece"></i> Theme</div></a></li><li class="submenu-item"><a class="sublabel" href="/contact"><div class="subicon"><i class="fa fa-lightbulb"></i> Contat</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/top/"><div class="icon_top"><i class="fas fa-star"></i> Star</div></a></li><li class="menu-item"><a class="menu" href="/archives"><div class="icon_top"><i class="fas fa-archive"></i> Archives</div></a></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-cog"></i> Lab</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/project/"><div class="subicon"><i class="fa fa-paperclip"></i> Project</div></a></li></ul></li><li class="menu-item"><a class="menu" href="/tags"><div class="icon_top"><i class="fas fa-tag"></i> Tags</div></a></li><li class="menu-item"><a class="menu" href="/links/"><div class="icon_top"><i class="fas fa-link"></i> Friends</div></a></li><li class="menu-item"><a class="menu" href="/"><div class="icon_top"><i class="fas fa-gamepad-alt"></i> Game</div></a><ul class="submenu"><li class="submenu-item"><a class="sublabel" href="/project/RubikCube/index.html"><div class="subicon"><i class="fa fa-cube"></i> Rubik's Cube</div></a></li></ul></li></ul><div id="buttons"><div class="search-box"><input id="local-search-input" tpye="text" placeholder="Type to search"><a class="search-btn"><i class="fa fa-search" onclick="openSearch()"></i></a></div><div id="search-overlay" onclick="closeSearch()"><div id="search" onclick="stopBubble(this.id)"><div id="search-header"><h2>Search Result</h2><i class="fa fa-times-circle" onclick="closeSearch()"></i></div><div class="local-search-result-cls" id="local-search-result"></div></div><script id="local.search.active">var inputArea       = document.querySelector("#local-search-input");
+inputArea.onclick   = function(){ 
+    getSearchFile(); 
+    this.onclick = null;
+}
+inputArea.onkeydown = function(){ 
+    if(event.keyCode == 13) 
+        return false;
+}</script></div></div></div></div><div class="overlay"></div><div id="content-outer"><div id="content-inner"><div class="main-post-content clearfix"><div class="article"><div id="post"><div class="titles"><div class="first-line"><h1 class="title">Storage-System 存储系统(二)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">7 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">2.3k words</span><div class="fdate"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><div class="post-content"><p>前面我们知道了，高速缓冲存储器在整个存储系统当中的视图及其功能，和构建高速缓冲存储器的理论（局部性原理）。</p>
+<a id="more"></a>
+<h2 id="Cache的基本原理"><a href="#Cache的基本原理" class="headerlink" title="Cache的基本原理"></a>Cache的基本原理</h2><h3 id="存储系统中的Cache-视图"><a href="#存储系统中的Cache-视图" class="headerlink" title="存储系统中的Cache 视图"></a>存储系统中的Cache 视图</h3><p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
+<p>CPU中任何存在速度差异的地方都配有高速缓冲存储器，比如CPU的一级和二级Cache，以及磁盘当中的高速缓冲存储器。这一节主要侧重CPU和主存之间的高速缓冲存储器。</p>
+<p>Cache的功能：缓解快速CPU与慢速的主存之间的速度差异</p>
+<p>Cache的理论基础：局部性原理</p>
+<h3 id="Cache-的工作过程"><a href="#Cache-的工作过程" class="headerlink" title="Cache 的工作过程"></a>Cache 的工作过程</h3><p><strong>读操作</strong></p>
+<p><img src="https://s1.ax1x.com/2020/05/10/Y3A9aD.png" alt="Y3A9aD.png"></p>
+<p>CPU和Cache之间是字交换，而Cache和主存之间是块交换。</p>
+<p>命中时：CPU需要访问主存时，根据访问的地址在Cache中找到了想要的内容。若数据存在就命中。</p>
+<p>这个过程有几个问题：</p>
+<ul>
+<li>如何判断数据在Cache中？</li>
+<li>怎么知道主存里的地址访问Cache能得到正确的数据？</li>
+<li>Cache中的数据是否有效？（除了CPU访问储存，其他的外设可能会用过DMA操作向主存中写数据，如果修改了，则Cache中的数据就是无效的错的）</li>
+</ul>
+<p>不命中时：如果CPU根据主存地址找Cache， 遍历了也没找到信息，就会去向主存要数据。这时候，为了不影响速度，主存会直接把数据传给CPU，同时，为了方便后续访问，将数据所在的一片区域的数据整块挪到Cache里面。</p>
+<p>以上就是Cache的<strong>读操作</strong>。由上可知，如果数据不在Cache中，则访问速度就会变的很慢。</p>
+<p><strong>写操作</strong></p>
+<p>写操作也分为两种，一种是写穿策略，一种是写回策略。</p>
+<p>写穿策略是指，CPU根据主存地址写Cache的同时，也要把接口写到主存当中去。</p>
+<p><img src="https://s1.ax1x.com/2020/05/30/tQyv60.png" alt="tQyv60.png"></p>
+<p>如图，将数据写入到主存中后，才会得后一个写完成的响应。</p>
+<p>而写回策略，是CPU先向Cache中写数据，写完后Cache给CPU一个写完成的响应。等到CPU不再往Cache里写数据的时候，将Cache里的数据一起写到主存中。</p>
+<p><img src="https://s1.ax1x.com/2020/05/30/tQcib8.png" alt="tQcib8.png"></p>
+<p>由于Cache没有及时向主存中写数据，所以主存的数据不是最新的，而且如果外围设备有DMA操作，访问了主存，得到的数据就不是最新的。</p>
+<p>总结两种策略各有优缺点。第一个策略的缺点是，没有用上Cache的高速特性。每次都写主存还是慢。但是第二个就是，主存中的数据不是最新的。</p>
+<h3 id="Cache的地址映射机制"><a href="#Cache的地址映射机制" class="headerlink" title="Cache的地址映射机制"></a>Cache的地址映射机制</h3><p>刚才说到，Cache和主存之间是块交换。但是由于原本主存地址是一维的，Cache中的地址是二维的，所以我们要把主存分块。一个数据地址就有了两个参数，说明是那一块，在这一块里这个字是第几个。</p>
+<p>但是仅仅这样划分是不够的，还得细化分。刚才读操作命中时就有一个问题判断是不是再Cache中是如何判断的。现在通过细化分可以解决。将块地址再划分为一个tag和一个index。</p>
+<ul>
+<li>Tag用来判断数据是否在Cache中。</li>
+<li>Index用来判断在Cache的哪个位置读写数据。</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/05/30/tQWCWQ.png" alt="tQWCWQ.png"></p>
+<h3 id="Cache的结构"><a href="#Cache的结构" class="headerlink" title="Cache的结构"></a>Cache的结构</h3><p>为了迎合刚才主存做的一些变化以及解决刚才提出的三个问题，我们需要对Cache也做相应的变化。</p>
+<p>如图所示将Cache分为几行，几行里又分出不同区域。</p>
+<p><a href="https://imgchr.com/i/tQW1yR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/30/tQW1yR.png" alt="tQW1yR.png"></a></p>
+<ul>
+<li>将Cache分为若干行，每一行的大小应该与主存分的块的大小一致，因为主存中的数据是整块搬迁来的。</li>
+<li>Cache每行包含四部分，是Cache要保存的信息。Tag从CPU访问主存的地址中剥离得到、Data是与主存交换的数据块、Valid表示Cache中的数据 是否有效、 Dirty表示主存中的数据是最新</li>
+</ul>
+<p>这里有一个抽象的操作流程的图</p>
+<p><img src="https://s1.ax1x.com/2020/05/30/tQ4llQ.png" alt="tQ4llQ.png"></p>
+<p>CPU根据剥离出来的Tag位判断数据是否在相连存储图表中判断数据是否在Cache中，如果在就直接让Cache给数据，如果不在，就把地址为传给主存，由主存将数据给CPU，然后主存再将那一块搬到Cache中的特定行。</p>
+<p>在搬迁过程中，如果Cache中的特定行被占用了，那还有一个替换策略。后面会讲到。</p>
+<h2 id="相联存储器"><a href="#相联存储器" class="headerlink" title="相联存储器"></a>相联存储器</h2><h3 id="相联存储器的作用"><a href="#相联存储器的作用" class="headerlink" title="相联存储器的作用"></a>相联存储器的作用</h3><p>前面说到Cache是解决快速的CPU和慢速的主存之间的速度差异。为了实现快速的查找，就需要用到相联存储器。</p>
+<p>首先我们得知道相联存储器要解决哪些问题。</p>
+<ul>
+<li>判断CPU要访问的内容是否在Cache 中</li>
+<li>判断依据是什么</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
+<p>首先，根据上面的图，CPU是根据数据在主存的中的地址来访问主存的，这是冯诺依曼体系结构计算机的的工作原理里说明的。那为了实现快速的判断，如何实现按照主存地址查找Cache？是全部的地址信息吗？</p>
+<p>如果用主存的全部地址来查找，那和直接访问主存查找没什么区别，没提高速度，所以只采用一部分地址（即主存地址的部分内容作为查找依据）。那具体是哪一部分参与查找，不同的查找方法有不同的规则。</p>
+<h3 id="判断的基本思路"><a href="#判断的基本思路" class="headerlink" title="判断的基本思路"></a>判断的基本思路</h3><p>那么有了规则，如何实现快速查找呢？传统的查找算法有顺序，二分查找等等，但是这种查找方法，满足不了高速缓冲存储器中快速查找的要求。所以我们采用另一种方法：使用<strong>相联存储器</strong>，通过硬件并发查找。</p>
+<h3 id="相联存储器的基本结构及工作原理"><a href="#相联存储器的基本结构及工作原理" class="headerlink" title="相联存储器的基本结构及工作原理"></a>相联存储器的基本结构及工作原理</h3><p>先看一下相联存储器的结构图</p>
+<p><img src="https://s1.ax1x.com/2020/05/31/t1b9EQ.png" alt="t1b9EQ.png"></p>
+<ul>
+<li>从地址中剥离出Key关键字</li>
+<li>以Key 为关键字全局硬件并发比较</li>
+<li>存储体存放有效位、标记、数据等信息</li>
+<li>符合寄存器存放Cache 命中行信息</li>
+<li>根据符合寄存器的信息取出命中行的数据</li>
+</ul>
+<p>下面来详细说一下作用</p>
+<ul>
+<li>“检索寄存器”和“屏蔽寄存器”这两块结构是从地址中剥离出关键字。</li>
+<li>然后多路并发比较线路就是并发的查找的电路</li>
+<li>如果通过硬件比较电路判断出数据在Cache当中的时候，就在符合寄存器中记录要查找的数据是在哪个位置，然后相关部件就会利用这个位置信息，在存储体中快速找到数据。</li>
+</ul>
+<h3 id="相连存储器的一种技术实现"><a href="#相连存储器的一种技术实现" class="headerlink" title="相连存储器的一种技术实现"></a>相连存储器的一种技术实现</h3><p>先从主存地址数据中剥离出标记部分，标记部分送到相关电路。</p>
+<p>给出有效位和标记位的存储体，这些内容都会送到多路并发比较线路中进行比较。将从地址中玻璃出阿里的标记，与原来存放在相连存储体中的标记进行多路的并发比较。</p>
+<p><img src="https://s1.ax1x.com/2020/05/31/t1LSYj.png" alt="t1LSYj.png"></p>
+<p>比较命中的时候，就是要访问的数据是在Cache中时，比较就会给出命中的结论。命中信号会通过多路选择题，从Cache的数据存储体中，将CPU要访问的数据取出来送给CPU从而实现快速查找。</p>
+<h2 id="Cache地址映射与变换方法"><a href="#Cache地址映射与变换方法" class="headerlink" title="Cache地址映射与变换方法"></a>Cache地址映射与变换方法</h2><p>上面解决了如何查找，那么我们应该怎么把主存中的数据映射到Cache中呢？如何搬迁才能实现快速查找？</p>
+<p>最常见的映射方式有三种：全相联(fully-associated)，直接相连(direct mapped)，组相联(set-associated)。不用的映射方式，对应的搬迁时的规则和方法不同。下面来讲解三种映射的 特点和原理。</p>
+<h3 id="全相联映射的工作原理"><a href="#全相联映射的工作原理" class="headerlink" title="全相联映射的工作原理"></a>全相联映射的工作原理</h3><p>全相联映射首先要给主存分块，Cache分行（Line），而且两个分的单位大小要相同。如图所示</p>
+<p><img src="https://s1.ax1x.com/2020/06/01/tGXs2Q.png" alt="tGXs2Q.png"></p>
+<p>那么每一个字的地址就变为二维的。假如，一个块内有四个字，主存大小为1024个字，那么主存就能被分为256块。256表示为二进制就是8位二进制位。那么第61个字的主存地址为：00001111 01（块号 块内地址）。由于四个一块，第61个字在第15块里面，且是15块里面的第一个。将15转换为八位的二进制。</p>
+<p>由此可看出，地址变成了二维的。</p>
+<p>这种映射的方法是：主存的数据块可映射到Cache任意行，只要这个位置是空闲的或者符合某种替换规则。同时将该数据块地址对应行的标记存储体中保存。    </p>
+<center>
+<div id="wpac-rating"></div>
+</center><script type="text/javascript">wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'Rating', id: 26703, color: "fadb14"});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = 'https://embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();</script></div></div><div id="postLicense"><div class="postTitle"><span>Post Title: </span><a href="/2020/05/10/Storage-System2/">Storage-System 存储系统(二)</a></div><div class="author"><span>Author: </span><span>o_oyao</span></div><div class="releaseTime"><span>Release Time: </span><span>May 10th 2020 - 12:06</span></div><div class="lastUpdateTime"><span>Last Update Time: </span><span>August 6th 2020 - 22:00</span></div><div class="originURL"><span>Original URL: </span><a href="/2020/05/10/Storage-System2/" title="Storage-System 存储系统(二)">http://dyingdown.github.io/2020/05/10/Storage-System2/</a><button class="btn" data-clipboard-target="#postLicense" data-clipboard-action="cut" title="Click to copy link of article"><i class="fa fa-clipboard"></i></button></div><div class="License"><span>License: </span><i class="fa fa-creative-commons"></i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">署名-非商用-相同方式共享 3.0</a><span>转载请保留原文链接及作者。</span></div><script src="/js/third-party/clipboard.min.js"></script><script>new ClipboardJS('.btn');</script><style type="text/css">.originURL:hover .btn::after {
+    content: "复制"
+}
+.originURL .btn:hover {
+    color: gray;
+    cursor: pointer;
+};</style></div><div class="post-information"><h2 class="recommend">Recommend Article</h2><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://s1.ax1x.com/2020/04/26/JcNl0H.jpg"></div><div class="popular-posts-title"><h3><a href="\2020\01\29\Absolute-path-Relative-path\" title="Absolute path and Relative path" rel="bookmark">Absolute path and Relative path</a></h3></div><div class="popular-posts-excerpt"><p></p><p>There are two ways to represents a directory, Absolute path and Relative path.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">path</th>
+<th style="text-align:center">start</th>
+<th style="text-align:center">start sign</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Absolute</td>
+<td style="text-align:center">root directory</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">Relative</td>
+<td style="text-align:center">current directory</td>
+<td style="text-align:center">~</td>
+</tr>
+</tbody>
+</table>
+</div><p></p></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://s1.ax1x.com/2020/04/26/Jc18zQ.jpg"></div><div class="popular-posts-title"><h3><a href="\2020\03\05\Data-Representation\" title="Data Representation" rel="bookmark">Data Representation</a></h3></div><div class="popular-posts-excerpt"><p></p><p>最近开课计算机组成原理，由于疫情原因，老师推荐的华中科技大学的秦磊华老师讲的MOOC上的课程。感觉学习难度比较大，因为基础薄弱，所以来总结一下学习的知识，加以巩固。</p><p></p></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://s1.ax1x.com/2020/04/29/JoQHUg.jpg"></div><div class="popular-posts-title"><h3><a href="\2020\04\29\Storage-System\" title="Storage System 存储系统(一)" rel="bookmark">Storage System 存储系统(一)</a></h3></div><div class="popular-posts-excerpt"><p></p><p>存储系统是指计算机中由存放程序和数据的各种存储设备、控制部件及管理信息调度的设备（硬件）和算法（软件）所组成的系统。计算机的主存储器不能同时满足存取速度快、存储容量大和成本低的要求，在计算机中必须有速度由慢到快、容量由大到小的多级层次存储器，以最优的控制调度算法和合理的成本，构成具有性能可接受的存储系统。</p><p></p></div></li></ul><div style="clear:both"></div><div id="paginations"><div class="prev-next"><div class="prev-post"><a class="pull-left" href="/2020/06/18/Today/"><i class="fas fa-angle-double-left"></i> 没有天赋的人生有多难过？</a></div><div class="next-post"><a class="pull-right" href="/2020/05/08/Valine-email-reply/">Valine 邮件回复 E-mail reply  <i class="fas fa-angle-double-right"> </i></a></div></div></div><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+})
+
+    </script></div></div><div id="shareButtons"><div id="shareButtonsInner"><span class="share"><i class="fa fa-share-alt"></i></span><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div><div class="side-bar"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div id="me"><div id="wrap"><div class="triangle" for="payment" onclick="triangleClick()"><div id="qrcode-triangle"></div></div></div><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">I expect to make friends with you! I'm an ACＭmer but not very good. I like learning.</div><div id="payment-codes"><div class="qr-description">Like my post?</div><img id="wechat" src="https://s1.ax1x.com/2020/04/17/JEvVCd.jpg"><div class="buttons"><div id="wechat-button" onclick="wechatButtonClick()">Wechat</div><div id="alipay-button" onclick="alipayButtonClick()">Alipay</div></div></div></div></div><div id="sidebar-toc"><div id="catalog"><span>Catalog</span><span id="percent"></span></div><div id="tocs"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache的基本原理"><span class="toc-number">1.</span> <span class="toc-text">Cache的基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储系统中的Cache-视图"><span class="toc-number">1.1.</span> <span class="toc-text">存储系统中的Cache 视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache-的工作过程"><span class="toc-number">1.2.</span> <span class="toc-text">Cache 的工作过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache的地址映射机制"><span class="toc-number">1.3.</span> <span class="toc-text">Cache的地址映射机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache的结构"><span class="toc-number">1.4.</span> <span class="toc-text">Cache的结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相联存储器"><span class="toc-number">2.</span> <span class="toc-text">相联存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相联存储器的作用"><span class="toc-number">2.1.</span> <span class="toc-text">相联存储器的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断的基本思路"><span class="toc-number">2.2.</span> <span class="toc-text">判断的基本思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相联存储器的基本结构及工作原理"><span class="toc-number">2.3.</span> <span class="toc-text">相联存储器的基本结构及工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相连存储器的一种技术实现"><span class="toc-number">2.4.</span> <span class="toc-text">相连存储器的一种技术实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache地址映射与变换方法"><span class="toc-number">3.</span> <span class="toc-text">Cache地址映射与变换方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全相联映射的工作原理"><span class="toc-number">3.1.</span> <span class="toc-text">全相联映射的工作原理</span></a></li></ol></li></ol></div></div></div></div><div class="fixedFunction"><ul id="subFunction"><li class="goTop samefunction" onclick="backToTop()"><i class="fa fa-arrow-up"></i></li><li class="goComment samefunction" onclick="backToComment()"><i class="fa fa-comment"></i></li><li class="goBottom samefunction" onclick="backToBottom()"><i class="fa fa-arrow-down"></i></li></ul><div class="functionButton"><div class="plus samefunction"><i class="fa fa-plus"></i></div></div></div><style type="text/css">.post-content blockquote::before {
+  content: "👣";
+}    
+.post-content blockquote::after {
+  content: "”";
+}</style><script>var desc = "&lt;p&gt;前面我们知道了，高速缓冲存储器在整个存储系统当中的视图及其功能，和构建高速缓冲存储器的理论（局部性原理）。&lt;/p&gt;";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：分享", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+socialShare('.social-share', $config);</script></div></div><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa fa-fw fa-wechat"></i></a></div><div id="incons"><a class="icon" href=" " title="Twitter"><i class="fa fa-fw fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="Telegram"><i class="fab fa-fw fa-telegram-plane"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa fa-fw fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Linkedin"><i class="fa fa-fw fa-linkedin"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa fa-fw fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa fa-fw fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" " title="Instagram"><i class="fa fa-fw fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="Quora"><i class="fab fa-fw fa-quora"></i></a></div><div id="author"><a id="theme_name" href="https://github.com/DyingDown/hexo-theme-last">Last</a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2020</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></span></div></span></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/Last.js"></script><script src="/js/post.js"></script><script src="/js/toc.js"></script><script src="/js/third-party/reveal/math.min.js"></script><script src="/js/header.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/clipboard.min.js"></script><script src="/js/jquery-3.5.1.min.js"></script><script src="/js/search.js"></script><script src="/js/toc.js"></script><script async src="//code.tidio.co/1pcrbxbh2qspmtd9phcfc5r5heykzr5k.js"></script></body></html>

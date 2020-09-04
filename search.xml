@@ -4,7 +4,36 @@
   
     
     <entry>
-      <title>Longest Substring Without Repeating Characters</title>
+      <title>LeetCode-ZigZag Conversion</title>
+      <link href="/2020/09/04/LeetCode-ZigZag-Conversion/"/>
+      <url>/2020/09/04/LeetCode-ZigZag-Conversion/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure><p>And then read line by line: <code>&quot;PAHNAPLSIIGYIR&quot;</code></p><p>Write the code that will take a string and make this conversion given a number of rows:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string convert(string s, int numRows);</span><br></pre></td></tr></table></figure><p><strong>Example 1:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;PAYPALISHIRING&quot;, numRows = 3</span><br><span class="line">Output: &quot;PAHNAPLSIIGYIR&quot;</span><br></pre></td></tr></table></figure><p><strong>Example 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;PAYPALISHIRING&quot;, numRows = 4</span><br><span class="line">Output: &quot;PINALSIGYAHRPI&quot;</span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br></pre></td></tr></table></figure><h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p><img src="https://s1.ax1x.com/2020/09/04/wicEQJ.png" alt="wicEQJ.png"></p><p>The means of the problem is to place the original string to make it looks like connected “NNNN…” </p><p>As you can see from the graph, a vertical line and a diagonal line form a cycle.</p><p>So we can simulate the order of the place order. Store them in a matrix and then combine the answer string.</p><p>First we start from the vertical line. There is <code>numRows</code> elements in the vertical line. We put the adjacent characters in original order in the line.</p><p>Then we fill the diagonal line. From the left bottom corner to the right top corner, and there is <code>numRows - 2</code> elements in the diagonal line.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">convert</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ansMatrix(numRows);</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length();) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; numRows <span class="keyword">and</span> i &lt; s.length(); j ++) &#123;</span><br><span class="line">                ansMatrix[j] += s[i ++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = numRows - <span class="number">2</span>; j &gt; <span class="number">0</span> <span class="keyword">and</span> i &lt; s.length(); j --) &#123;</span><br><span class="line">                ansMatrix[j] += s[i ++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numRows; i ++) &#123;</span><br><span class="line">            ans += ansMatrix[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> String </tag>
+            
+            <tag> STL </tag>
+            
+            <tag> Matrix </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode-Longest Substring Without Repeating Characters</title>
       <link href="/2020/09/03/LeetCode_Longest-Substring-Without-Repeating-Characters/"/>
       <url>/2020/09/03/LeetCode_Longest-Substring-Without-Repeating-Characters/</url>
       
@@ -2859,9 +2888,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -2911,9 +2940,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> Quick pow </tag>
             
@@ -2969,9 +2998,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Violence </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3023,9 +3052,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> GCD </tag>
             
@@ -3052,9 +3081,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3079,9 +3108,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3428,9 +3457,9 @@
             
             <tag> GYM </tag>
             
-            <tag> Geometry </tag>
-            
             <tag> CodeForeces </tag>
+            
+            <tag> Geometry </tag>
             
         </tags>
       
