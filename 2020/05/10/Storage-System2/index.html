@@ -11,7 +11,7 @@ inputArea.onclick   = function(){
 inputArea.onkeydown = function(){ 
     if(event.keyCode == 13) 
         return false;
-}</script></div></div></div></div><div class="overlay"></div><div id="content-outer"><div id="content-inner"><div class="main-post-content clearfix"><div class="article"><div id="post"><div class="titles"><div class="first-line"><h1 class="title">Storage-System 存储系统(二)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">7 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">2.3k words</span><div class="fdate"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><div class="post-content"><p>前面我们知道了，高速缓冲存储器在整个存储系统当中的视图及其功能，和构建高速缓冲存储器的理论（局部性原理）。</p>
+}</script></div></div></div></div><div class="overlay"></div><div id="content-outer"><div id="content-inner"><div class="main-post-content clearfix"><div class="article"><div id="post"><div class="titles"><div class="first-line"><h1 class="title">Storage-System 存储系统(二)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><a class="category"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">7 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">2.3k words</span><div class="fdate"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-05-10T04:06:16.000Z">2020-05-10</time></div></div><div class="post-content"><div data-toc="#toc"><p>前面我们知道了，高速缓冲存储器在整个存储系统当中的视图及其功能，和构建高速缓冲存储器的理论（局部性原理）。</p>
 <a id="more"></a>
 <h2 id="Cache的基本原理"><a href="#Cache的基本原理" class="headerlink" title="Cache的基本原理"></a>Cache的基本原理</h2><h3 id="存储系统中的Cache-视图"><a href="#存储系统中的Cache-视图" class="headerlink" title="存储系统中的Cache 视图"></a>存储系统中的Cache 视图</h3><p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
 <p>CPU中任何存在速度差异的地方都配有高速缓冲存储器，比如CPU的一级和二级Cache，以及磁盘当中的高速缓冲存储器。这一节主要侧重CPU和主存之间的高速缓冲存储器。</p>
@@ -92,7 +92,7 @@ inputArea.onkeydown = function(){
 <p>那么每一个字的地址就变为二维的。假如，一个块内有四个字，主存大小为1024个字，那么主存就能被分为256块。256表示为二进制就是8位二进制位。那么第61个字的主存地址为：00001111 01（块号 块内地址）。由于四个一块，第61个字在第15块里面，且是15块里面的第一个。将15转换为八位的二进制。</p>
 <p>由此可看出，地址变成了二维的。</p>
 <p>这种映射的方法是：主存的数据块可映射到Cache任意行，只要这个位置是空闲的或者符合某种替换规则。同时将该数据块地址对应行的标记存储体中保存。    </p>
-<center>
+</div><center>
 <div id="wpac-rating"></div>
 </center><script type="text/javascript">wpac_init = window.wpac_init || [];
 wpac_init.push({widget: 'Rating', id: 26703, color: "fadb14"});

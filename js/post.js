@@ -1,5 +1,6 @@
 window.onload = function() {
     // Progress bar
+
     var progressBar = document.getElementById("progress-bar");
     var percent = document.getElementById("percent");
     var totalHeight = document.body.scrollHeight - window.innerHeight;
@@ -28,6 +29,8 @@ window.onload = function() {
             percent.innerHTML = Math.floor(progress) + "%";
 
             // share and toc Top adsorption
+
+            // catalogTrack();
             let ss = document.body.scrollTop || document.documentElement.scrollTop;
             if (ss > Hs - 300) {
                 let shareOuter = document.getElementById("shareButtons");

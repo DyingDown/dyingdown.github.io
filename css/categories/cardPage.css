@@ -560,3 +560,41 @@
 .space {
   color: #000;
 }
+#post-Logic .post-title {
+  color: #7aab13 !important;
+}
+#post-Logic .box-body h2 {
+  color: #7aab13;
+}
+#post-Logic .box-body .tags a {
+  color: #7aab13;
+  border: 1px solid #7aab13;
+}
+#post-Logic .box-body .tags a:hover {
+  color: #fff;
+  background: #7aab13;
+}
+#post-Logic .ribbon .ri {
+  background-color: #7aab13;
+}
+#post-Logic .ribbon .ri:before {
+  border-left: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+#post-Logic .ribbon .ri:after {
+  border-right: 3px solid #55780d;
+  border-top: 3px solid #55780d;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+.space {
+  color: #000;
+}
