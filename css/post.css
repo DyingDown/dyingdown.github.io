@@ -307,12 +307,6 @@ li code {
   color: #d31a29;
   word-break: break-all;
 }
-.fixedFunction {
-  position: fixed;
-  right: 30px;
-  bottom: 23px;
-  z-index: 99999;
-}
 @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -333,58 +327,45 @@ li code {
     -moz-transform: translateY(0);
   }
 }
-.plus {
-  background-color: #8b0000;
-  margin: 0 !important;
+#goTo {
+  position: fixed;
+  right: 0;
+  bottom: 40px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #fff;
+  transform: translateX(42%) translateY(-64px) rotate(-90deg);
+  -ms-transform: translateX(42%) translateY(-64px) rotate(-90deg);
+/* IE 9 */
+  -moz-transform: translateX(42%) translateY(-64px) rotate(-90deg);
+/* Firefox */
+  -webkit-transform: translateX(42%) translateY(-64px) rotate(-90deg);
+/* Safari 和 Chrome */
+  -o-transform: translateX(42%) translateY(-64px) rotate(-90deg); /* Opera */
   cursor: pointer;
-  overflow: hidden;
 }
-.fixedFunction:hover {
-  color: #f00;
-}
-.fixedFunction:hover #subFunction {
-  display: block;
-}
-.goTop {
+.goTop.showBtn {
   background-color: #00008b;
+  padding: 0px 10px;
+  display: inline-block;
+  margin: 0 2px;
+  border-radius: 10px 10px 0 0;
+}
+.goTop.hideBtn {
+  background-color: #00008b;
+  padding: 0px 10px;
+  display: none;
+  margin: 30px 2px 0;
+}
+.goTop.hideBtn #goTo {
+  transform: translateX(38%) translateY(-64px) rotate(-90deg);
 }
 .goComment {
+  border-radius: 10px 10px 0 0;
   background-color: #008000;
-}
-.goBottom {
-  background-color: #ffa500;
-}
-.functionButton {
-  font-size: 2em;
-  color: #fff;
-  text-align: center;
-  line-height: 48px;
-  padding: 0;
-}
-#subFunction {
-  display: none;
-  list-style-type: none;
-  padding: 0;
-  text-align: center;
-  line-height: 48px;
-  font-size: 1.8em;
-  margin-block-start: 15px;
-  margin-block-end: 15px;
-  -webkit-animation: fadeInUp 0.5s 0.1s ease both;
-  -moz-animation: fadeInUp 0.5s 0.1s ease both;
-}
-#subFunction a {
-  color: #fff;
-}
-.samefunction {
-  width: 48px;
-  height: 48px;
-  border-radius: 50px;
-  -moz-box-shadow: 1px 1px 5px #333;
-  -webkit-box-shadow: 1px 1px 5px #333;
-  box-shadow: 1px 1px 5px #333;
-  color: #fff;
-  margin: 15px 0;
+  padding: 0px 10px;
+  display: inline-block;
+  margin: 0 2px;
 }
 .date-warning {
   padding: 15px;

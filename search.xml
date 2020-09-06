@@ -24,6 +24,8 @@
             
             <tag> Logic </tag>
             
+            <tag> LeetCode </tag>
+            
         </tags>
       
     </entry>
@@ -50,6 +52,8 @@
             <tag> String </tag>
             
             <tag> STL </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> Matrix </tag>
             
@@ -78,9 +82,9 @@
             
             <tag> STL </tag>
             
-            <tag> HashMap </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> HashMap </tag>
             
         </tags>
       
@@ -3398,6 +3402,8 @@
             <tag> Search </tag>
             
             <tag> UVALive </tag>
+            
+            <tag> Binary Search </tag>
             
         </tags>
       
