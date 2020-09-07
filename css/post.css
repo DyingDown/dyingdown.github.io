@@ -350,15 +350,13 @@ li code {
   display: inline-block;
   margin: 0 2px;
   border-radius: 10px 10px 0 0;
+  transition: background-color 0.3s;
 }
 .goTop.hideBtn {
   background-color: #00008b;
   padding: 0px 10px;
-  display: none;
   margin: 30px 2px 0;
-}
-.goTop.hideBtn #goTo {
-  transform: translateX(38%) translateY(-64px) rotate(-90deg);
+  visibility: hidden;
 }
 .goComment {
   border-radius: 10px 10px 0 0;
@@ -366,6 +364,19 @@ li code {
   padding: 0px 10px;
   display: inline-block;
   margin: 0 2px;
+  transition: background-color 0.3s;
+}
+.goComment:hover {
+  box-sizing: border-box;
+  border-top: 1px solid #008000;
+  background: #fff;
+  color: #008000;
+}
+.goTop:hover {
+  box-sizing: border-box;
+  border-top: 1px solid #00008b;
+  background: #fff;
+  color: #00008b;
 }
 .date-warning {
   padding: 15px;
