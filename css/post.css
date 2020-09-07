@@ -342,6 +342,12 @@ li code {
   -webkit-transform: translateX(42%) translateY(-64px) rotate(-90deg);
 /* Safari 和 Chrome */
   -o-transform: translateX(42%) translateY(-64px) rotate(-90deg); /* Opera */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
 }
 .goTop.showBtn {
