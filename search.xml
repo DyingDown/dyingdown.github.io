@@ -4,6 +4,89 @@
   
     
     <entry>
+      <title>01 Package 背包 Dynamic Programming</title>
+      <link href="/2020/09/22/01-Package-%E8%83%8C%E5%8C%85/"/>
+      <url>/2020/09/22/01-Package-%E8%83%8C%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>There are n things, each thing has a volume $v[i]$, and a value $c[i]$. There is package with volume $Vpackage$. Choose some or all of the things to put into package, we want the total value of package is as big as possible. So you should calculate the biggest value.</p><h2 id="Recurrence-Equation"><a href="#Recurrence-Equation" class="headerlink" title="Recurrence Equation"></a>Recurrence Equation</h2><p>We use $dp[i][j]$ to represents the total value of a j volume package with previous i things.</p><p>For each thing, there is two status: put it in to the package, or not put it in the package.</p><p>The recurrence equation is : $dp[i][j] = max(dp[i-1][j], dp[i - 1][j - v[i]] + c[i])$.</p><p>This is easy to understand. </p><p>If we put i-th thing in the package, the total value would be the value of previous (i-1)th things with package volume $j-v[i]$ add the value of i-th thing. ($dp[i - 1][j - v[i]] + c[i]$)</p><p>If we don’t put, the total value of previous i-th things would be the total value of previous (i-1)th things.($dp[i-1][j]$)</p><p>Then choose the best situation.</p><h2 id="Two-dimensional-array"><a href="#Two-dimensional-array" class="headerlink" title="Two-dimensional array"></a>Two-dimensional array</h2><p>The code would looks like this: </p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Vpackage; j ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; v[i]) &#123; <span class="comment">// if the volume of the ith thing is bigger than the package volume</span></span><br><span class="line">            dp[i][j] = dp[i - <span class="number">1</span>][j]; <span class="comment">// then don't put it in</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            dp[i][j] = max(dp[i<span class="number">-1</span>][j], dp[i - <span class="number">1</span>][j - v[i]] + c[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="One-dimensional-array"><a href="#One-dimensional-array" class="headerlink" title="One-dimensional array"></a>One-dimensional array</h2><p>We can’t  optimize the time complexity because we need to traverse n things and Vpackage volume. However, we can optimize its space complexity.</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = Vpackage; j &gt;= v[i]; j --) &#123; <span class="comment">// volume of packge bigger than volume of thing</span></span><br><span class="line">        dp[j] = max(dp[j], dp[j - v[i]] + c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>Why we reverse the second for loop?</strong> This is the hardest part for me. </p><p>As we know, the current $dp[i][j1]$ is got based on the $dp[i - 1][j1]$ and $dp[i - 1][j1 - v[i]]$. </p><p>If we use forward loop, at $i-1$, we calculated a $dp[j1 - v[i]]$, and this $dp[j1 - v[i]]$ is equal to $dp[i - 1][j1 - v[i]]$. We will use this to calculate $dp[i][j1]$. </p><p>However, when we are at $i$, we may encounter $dp[i][j1 - v[i]]$, then we update the $dp[j1 - v[i]]$ value to the $dp[i][j1 - v[i]]$. So when we use it later, we get wrong. We need to use $dp[j1 - v[i]]$ as $dp[i - 1][j1 - v[i]]$ but $dp[j1 - v[i]]$ has been updated to $dp[i][j1 - v[i]]$.</p><p>So we need to reverse the loop.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Dynamic Programming </tag>
+            
+            <tag> Knowledge points </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode_Single-Number</title>
+      <link href="/2020/09/18/LeetCode-Single-Number/"/>
+      <url>/2020/09/18/LeetCode-Single-Number/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Given a <strong>non-empty</strong> array of integers, every element appears <em>twice</em> except for one. Find that single one.</p><p><strong>Note:</strong></p><p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p><p><strong>Example 1:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,1]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure><p><strong>Example 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [4,1,2,1,2]</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure><h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>This is just a simple bit XOR Operation but its not easy to think of.</p><p>There are three rules of XOR.</p><ol><li><p>The integer XOR with itself will get 0. Because the computer will first change your number in ten to number in two, then XOR each digits of the two numbers. So, 35 XOR 35 is 0.</p></li><li><p>0 XOR a (an integer) will get a.</p></li><li><p>XOR satisfies Commutative law. (3 ^ 5 ^ 3 ^ 5 = 3 ^ 3 ^ 5 ^ 5)</p></li></ol><p>So, we just need to XOR all the numbers and each  number appears twice except one. The one will be left.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i ++) &#123;</span><br><span class="line">            ans = ans ^ nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Math </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Bit Operation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>模型评估与选择</title>
+      <link href="/2020/09/09/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/"/>
+      <url>/2020/09/09/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h2><p><strong>错误率(error rate)</strong>：m个样本中有a个样本分类错误，则错误率 $E= \frac{a}{m}$。</p><p><strong>精度(accuracy)</strong>：$1- \frac{a}{m}$</p><p><strong>误差(error)</strong>：实际预测输出与样本的真实输出之间的差异</p><p><strong>训练误差(training error) 经验误差(empirical error)</strong>：在训练集上的误差</p><p><strong>泛化误差(generalization error)</strong>：在新样本上的误差</p><p><strong>过拟合(overfitting)</strong>：把训练样本自身的一些特点当作了所有潜在样本都会具有的一般性质，导致泛化能力下降</p><p><strong>欠拟合(underfitting)</strong>：对训练样本的一般性质尚未学好</p><center>    <img src="https://s1.ax1x.com/2020/09/09/w3jj7n.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">过拟合 、欠拟合的直观类比</div> </center><h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><p>​    可通过实验测试来对学习器的泛化误差进行评估并进而做出选择，需要测试集 (testing set)来测试学习器对新样本的判别能力。然后以测试集上的”测试误差” (testing error) 作为泛化误差的近似。通常，我们假设测试样本也是从样本真实分布中独立同分布采样而得，但需注意 是，测试集应该尽可能与训练互斥， 即测试样本尽量不在训练集中出现、未在练过程中使用过.</p><h4 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h4><p>“留出法” (hold-out) 直接将数据集D划分为两个互斥的集合，其中一个集合作为训练集S，另一个作为测试集 T，即$D=S \cup T, S \cap T = \phi$. 在S上训 练出模型后，用T来评估其测试误差，作为对泛化误差的估计.</p><h4 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h4><p>“交叉验证法” (cross alidation)先将数据集D分为k个大小相似的互斥子集，即$D = D_1 \cup  D_2 \cup …  D_k, D_i \cap D_j = \phi (i \neq j) $每个子集 $D_1$ 尽可能保持数据分布的一致性，即从D通过分层采样得到.  然后，每次用 k-1 子集的并集作为训练集，余下的那个子集作为测试集;这样就可获得k组训练/测试集，从而可进行k次训练和测试， 最终返回的是 这k个测试结果的均值。显然，交叉验证法评估结果的稳定行和保真性在很大程 上取决于k的取值，为强调这一点，通常把交叉验证法称为“k折交叉验证” (k-fold cross validation). k最常用 的取值是10 ，此时称为10折交叉验；其他常用 的k值有5， 20等.图 2.2 给出了 10 折交叉验证的示意图.</p><center><img src="https://s1.ax1x.com/2020/09/15/wyJC8A.png" style="zoom: 43%;" alt="wyJC8A.png" border="0"></center>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Knowledge points </tag>
+            
+            <tag> Curriculum </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-Container With Most Water</title>
       <link href="/2020/09/06/LeetCode-Container-With-Most-Water/"/>
       <url>/2020/09/06/LeetCode-Container-With-Most-Water/</url>
@@ -2672,9 +2755,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2726,9 +2809,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2780,9 +2863,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2919,9 +3002,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -2971,9 +3054,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> Quick pow </tag>
             
@@ -3029,9 +3112,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Violence </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3083,9 +3166,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> GCD </tag>
             
@@ -3112,9 +3195,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3139,9 +3222,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
