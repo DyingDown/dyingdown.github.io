@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>2018 ACM-ICPC Asia Flippy Sequence ZOJ-4060</title>
+      <link href="/2020/10/04/ZOJ-4060-Flippy-Sequence/"/>
+      <url>/2020/10/04/ZOJ-4060-Flippy-Sequence/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>DreamGrid has just found two binary sequences $s_1, s_2, \dots, s_n$ and $t_1, t_2, \dots, t_n$ ($s_i, t_i \in {0, 1}$ for all $1 \le i \le n$) from his virtual machine! He would like to perform the operation described below exactly twice, so that $s_i = t_i$ holds for all $1 \le i \le n$ after the two operations.</p><p>The operation is: Select two integers <em>l</em> and <em>r</em> ($1 \le l \le r \le n$), change $s_i$ to $(1 - s_i)$ for all $l \le i \le r$.</p><p>DreamGrid would like to know the number of ways to do so.</p><p>We use the following rules to determine whether two ways are different:</p><ul><li>Let $A = (a_1, a_2, a_3, a_4)$, where $1 \le a_1 \le a_2 \le n, 1 \le a_3 \le a_4 \le n$, be a valid operation pair denoting that DreamGrid selects integers $a_1$ and $a_2$ for the first operation and integers $a_3$ and $a_4$ for the second operation;</li><li>Let $B = (b_1, b_2, b_3, b_4)$, where $1 \le b_1 \le b_2 \le n, 1 \le b_3 \le b_4 \le n$, be another valid operation pair denoting that DreamGrid selects integers $b_1$ and $b_2$ for the first operation and integers $b_3$ and $b_4$ for the second operation.</li><li><em>A</em> and <em>B</em> are considered different, if there exists an integer <em>k</em> ($1 \le k \le 4$) such that $a_k \ne b_k$.</li></ul><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>There are multiple test cases. The first line of the input contains an integer <em>T</em>, indicating the number of test cases. For each test case:</p><p>The first line contains an integer n ($1 \le n \le 10^6$), indicating the length of two binary sequences.</p><p>The second line contains a string $s_1s_2\dots s_n$ ($s_i \in {\text{‘0’}, \text{‘1’}}$) of length n, indicating the first binary sequence.</p><p>The third line contains a string $t_1t_2\dots t_n$ ($t_i \in {\text{‘0’}, \text{‘1’}}$) of length <em>n</em>, indicating the second binary sequence.</p><p>It’s guaranteed that the sum of <em>n</em> in all test cases will not exceed $10^7$.</p><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, output an integer denoting the answer.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">00</span><br><span class="line">11</span><br><span class="line">5</span><br><span class="line">01010</span><br><span class="line">00111</span><br></pre></td></tr></table></figure><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">6</span><br></pre></td></tr></table></figure><h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><p>For the second sample test case, there are two valid operation pairs: (1, 1, 2, 2) and (2, 2, 1, 1).</p><p>For the third sample test case, there are six valid operation pairs: (2, 3, 5, 5), (5, 5, 2, 3), (2, 5, 4, 4), (4, 4, 2, 5), (2, 4, 4, 5) and (4, 5, 2, 4).</p><h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>First we denote the longest possible unequal subsequence as A, the longest possible equal subsequence as B.</p><p>So the string is consists of A and B.</p><p>For example:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 10 1 0</span><br><span class="line">0 01 1 1</span><br></pre></td></tr></table></figure><p>The array is BABA where first B is 0, first A is 10, second B is 1, second A is 0.</p><p>We can just use a for loop to find all the A.</p><p>And we use <code>cnt</code> to represents the number of A.</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((i == <span class="number">0</span> || s[i - <span class="number">1</span>] == t[i - <span class="number">1</span>]) &amp;&amp; s[i] != t[i]) cnt ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Situations"><a href="#Situations" class="headerlink" title="Situations"></a>Situations</h3><p>There multiple answers to multiple situations:</p><ol><li><h4 id="IF-cnt-1"><a href="#IF-cnt-1" class="headerlink" title="IF cnt = 1"></a>IF <code>cnt = 1</code></h4><p>There is also two conditions. Just flip A and flip A and B.</p><h5 id="Just-flip-A"><a href="#Just-flip-A" class="headerlink" title="Just flip A"></a><strong>Just flip A</strong></h5><p>Obviously, if we flip the whole A twice, we will get A and we want A to be B. So we must detach A to two parts. First we flip the first part, then we flip the second part. We happened to reverse s twice.</p><p>But how do we break A? Assume the length of A is n.</p><p>We can break A into </p><script type="math/tex; mode=display">\left \{ A_{1} \right \}, \left \{ A_{2}, A_{3}, \cdots, A_{n} \right \}</script><p>We can also break A into </p><script type="math/tex; mode=display">\left\{ A_{1}, A_2 \right\}, \left\{ A_{3}, \cdots, A_{n} \right\}</script><p> At last we can break A into</p><script type="math/tex; mode=display">\left\{ A_{1}, A_2, \cdots A_{n-1} \right\}, \left\{ A_{n} \right\}</script><p>You can easily see there is $n-1$ ways of splitting A. If n = 1, Then we can’t separate A. We must flip whole A twice. So as we talked above, there is no way to make s equal to t. So also satisfy the rule $length(A) - 1$.</p><h5 id="Flip-A-and-B-Break-B"><a href="#Flip-A-and-B-Break-B" class="headerlink" title="Flip A and B (Break B)"></a>Flip A and B (Break B)</h5><p>If your s is $BAB$ (Total length of B is at least 1 or it will become the ‘break A’ problem). The only possible way of flipping is ${BA, B }$ or ${ AB, B }$</p><p>Let’s take a closer look at B. Suppose the length of B is n.</p><p>s is made up with </p><script type="math/tex; mode=display">\{ B_1, \cdots, B_k , A, B_{k+1}, \cdots B_n \} (1 \leq k \leq n)</script><p>So what we can choose to flip is</p><script type="math/tex; mode=display">\{ B_x, \cdots, B_y, A \}, \{ B_x, \cdots, B_y \} (1 \leq x \leq y \leq n)</script><p>or</p><script type="math/tex; mode=display">\{ A, B_x, \cdots, B_y \}, \{ B_x, \cdots, B_y \} (1 \leq x \leq y \leq n)</script><p>As you can see, there are are n ways of splitting B. Where $n = Length(s) - Length(A)$</p><p>Finally, the total answer for <code>cnt = 1</code> is $Length(A) - 1 + Length(s) - Length(A) = Length(s) - 1$</p></li><li><h4 id="IF-cnt-2"><a href="#IF-cnt-2" class="headerlink" title="IF cnt = 2"></a>IF <code>cnt = 2</code></h4><p>S is consists of $B A_1 B A_2 B$ (The length of central B must not be 0 or it will be BAB). There are 3 ways of flipping:</p><p>​    $A_1 BA_2, B$</p><p>​    $A_1, A_2$</p><p>​    $A_1 B, B A_2$</p></li><li><h4 id="IF-cnt-gt-2"><a href="#IF-cnt-gt-2" class="headerlink" title="IF cnt &gt; 2"></a>IF <code>cnt &gt; 2</code></h4><p>S is consists of $BA_1BA_2BA_3…$ Since you can just flip twice, you can only change two A of the s. So it’s impossible to make the flip.</p></li><li><h4 id="IF-cnt-0"><a href="#IF-cnt-0" class="headerlink" title="IF cnt = 0"></a>IF <code>cnt = 0</code></h4><p>S is consists of only B. BBBBBB…</p><p>So, if we flip one B twice, we will reach t.  Assume the length of B (which is the length of s) is n.</p><p>If we just choose a substring of B, and the length of substring is 1. We have n - 1 ways of splitting.</p><p>If the length of substring is 2, there will be n - 2 ways of splitting.</p><p>Until: If the length of substring is n, there will be 1 way of splitting.</p><p>So the total ways of splitting B is </p><script type="math/tex; mode=display">\begin{aligned}& (n - 1) + (n - 2) + \cdots + 1 \\&= \frac{(n - 1 + 1) \times (n - 1)}{2} \\&= \frac{n \times (n - 1)}{2}\end{aligned}</script></li><li><h4 id="Each-ways-times-2"><a href="#Each-ways-times-2" class="headerlink" title="Each ways times 2"></a>Each ways times 2</h4><p>Different order of flip is regards as two ways. {A}, {B} is not equal to {B}, {A}</p></li></ol><p>These are all the situations of the string s. Use If else sentence in your code.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> times;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; times;</span><br><span class="line">    <span class="keyword">while</span> (times--) &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="built_in">string</span> s, t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        ll cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((i == <span class="number">0</span> || s[i - <span class="number">1</span>] == t[i - <span class="number">1</span>]) &amp;&amp; s[i] != t[i]) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; (ll) <span class="number">2</span> * n - <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cnt == <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cnt &gt; <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; (ll) (n + <span class="number">1</span>) * n / <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>浙江省赛 Doki Doki Literature Club ZOJ 4035</title>
       <link href="/2020/10/04/ZOJ-4035-Doki-Doki-Literature-Club/"/>
       <url>/2020/10/04/ZOJ-4035-Doki-Doki-Literature-Club/</url>
@@ -77,6 +96,8 @@
         <tags>
             
             <tag> Violence </tag>
+            
+            <tag> Other </tag>
             
             <tag> ZOJ </tag>
             
@@ -159,9 +180,9 @@
             
             <tag> Math </tag>
             
-            <tag> LeetCode </tag>
-            
             <tag> Bit Operation </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -213,11 +234,11 @@
       
         <tags>
             
+            <tag> LeetCode </tag>
+            
             <tag> Double pointer </tag>
             
             <tag> Logic </tag>
-            
-            <tag> LeetCode </tag>
             
         </tags>
       
@@ -2865,9 +2886,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2919,9 +2940,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -2973,9 +2994,9 @@
       
         <tags>
             
-            <tag> Other </tag>
-            
             <tag> HDU </tag>
+            
+            <tag> Other </tag>
             
         </tags>
       
@@ -3112,9 +3133,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3164,9 +3185,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> Quick pow </tag>
             
@@ -3222,9 +3243,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Violence </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3276,9 +3297,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
             <tag> GCD </tag>
             
@@ -3305,9 +3326,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -3332,9 +3353,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
