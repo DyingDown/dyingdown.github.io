@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Last 主题重构</title>
+      <link href="/2020/12/19/Last-%E4%B8%BB%E9%A2%98%E9%87%8D%E6%9E%84/"/>
+      <url>/2020/12/19/Last-%E4%B8%BB%E9%A2%98%E9%87%8D%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo-theme-last是去年开发的了，但是一直没有完成 ，而且是处于什么也不会的基础上。所以…</p><a id="more"></a><p>之前看到过一个非常形象的形容：</p><blockquote><p>公司项目的代码就像一座屎山，每写一点就如同往上贴一片屎。</p></blockquote><p>针对我的主题，我想说，太贴切了。</p><p>由于我啥也不会，导致我的代码全是一点点的拼凑。。。完全没有一点点的骨架。结构也不清晰。</p><p>于是，我专门去系统学了一下前端，然后现在开始打算从0开始重构。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Essay </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo-theme-last </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>B Tree</title>
+      <link href="/2020/10/21/B-Tree/"/>
+      <url>/2020/10/21/B-Tree/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://s1.ax1x.com/2020/10/21/B9eYh4.md.png" alt="B9eYh4.md.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2018 ACM-ICPC Asia Flippy Sequence ZOJ-4060</title>
       <link href="/2020/10/04/ZOJ-4060-Flippy-Sequence/"/>
       <url>/2020/10/04/ZOJ-4060-Flippy-Sequence/</url>
@@ -151,9 +189,9 @@
       
         <tags>
             
-            <tag> Knowledge points </tag>
-            
             <tag> Dynamic Programming </tag>
+            
+            <tag> Knowledge points </tag>
             
         </tags>
       
@@ -180,9 +218,9 @@
             
             <tag> Math </tag>
             
-            <tag> Bit Operation </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Bit Operation </tag>
             
         </tags>
       
@@ -234,11 +272,11 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> Double pointer </tag>
             
             <tag> Logic </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -2886,9 +2924,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -2940,9 +2978,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -2994,9 +3032,9 @@
       
         <tags>
             
-            <tag> HDU </tag>
-            
             <tag> Other </tag>
+            
+            <tag> HDU </tag>
             
         </tags>
       
@@ -3133,9 +3171,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3185,9 +3223,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> Quick pow </tag>
             
@@ -3243,9 +3281,9 @@
       
         <tags>
             
-            <tag> Violence </tag>
-            
             <tag> AtCoder </tag>
+            
+            <tag> Violence </tag>
             
         </tags>
       
@@ -3297,9 +3335,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
             <tag> GCD </tag>
             
@@ -3326,9 +3364,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3353,9 +3391,9 @@
       
         <tags>
             
-            <tag> AtCoder </tag>
-            
             <tag> Math </tag>
+            
+            <tag> AtCoder </tag>
             
         </tags>
       
@@ -3704,9 +3742,9 @@
             
             <tag> GYM </tag>
             
-            <tag> CodeForeces </tag>
-            
             <tag> Geometry </tag>
+            
+            <tag> CodeForeces </tag>
             
         </tags>
       
