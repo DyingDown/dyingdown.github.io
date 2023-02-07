@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+#category {
+  width: auto;
+  margin: 0 14vw;
+  padding: 30px 0;
+}
+h1 {
+  font-size: 25px;
+  color: #fff;
+  padding: 15px 0;
+  display: block;
+  border-bottom: #808080 solid 1px;
+}
+.category-list,
+.tag-list {
+  margin: 10px 0;
+}
+.category-list li,
+.tag-list li {
+  display: inline-block;
+  background-color: #d31b29;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 2px;
+}
+.category-list li:hover,
+.tag-list li:hover {
+  background-color: #fff;
+}
+.category-list li:hover a,
+.tag-list li:hover a {
+  color: #000;
+}
+.category-list li a,
+.tag-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+.category-list li .category-list-count,
+.tag-list li .category-list-count,
+.category-list li .tag-list-count,
+.tag-list li .tag-list-count {
+  padding-left: 7px;
+  font-weight: bold;
+}

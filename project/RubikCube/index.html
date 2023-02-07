@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rubik's Cube</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/vue.js" type='text/javascript'></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="content" :style="{
+                width: (count * side) + 'px',
+                height: (count * side) + 'px',
+                'transform-origin': (count * side / 2) + 'px ' + (count * side / 2) + 'px -' + (count * side / 2) + 'px',
+                transform: 'rotateX('+ contentRotate.x + 'deg) rotateY('+ contentRotate.y + 'deg) rotateZ(0deg)',
+            }">
+            <div v-for="block in blocks" :x="block.x" :y="block.y" :z="block.z" :style="{
+                    width: side + 'px',
+                    height: side + 'px',
+                    'transform-origin': side * count / 2 + 'px ' + side * count / 2 + 'px -' + side * count / 2 + 'px',
+                    transform: 'rotateX(' + block.rotate.x + 'deg) rotateY(' + block.rotate.y + 'deg) rotateZ(' + block.rotate.z + 'deg) translateX(' + (side * block.x) + 'px) translateY(' + (side *block.y) + 'px) translateZ(-' + (side * block.z) + 'px)',
+                    'transition': transition + 's'
+                }">
+                <p v-for="area in block.areas" :class="area.direct" :style="{
+                        transform: area.transform,
+                        background: area.color
+                    }" @mousedown="down($event, area, block)"></p>
+            </div>
+            <!-- <div class="front"></div>
+            <div class="back"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="up"></div>
+            <div class="down"></div> -->
+        </div>
+    </div>
+    <div class="footer">
+        <span>用键盘上下左右键控制旋转</span>
+        <span>鼠标拖动旋转面</span>
+        <span>暂不可连续点击</span>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

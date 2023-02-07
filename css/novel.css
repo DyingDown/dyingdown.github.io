@@ -1,0 +1,73 @@
+.novel {
+  width: 80%;
+  height: 80vh;
+  margin: 100px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.left-intro,
+.right-bookshell {
+  width: 46%;
+  height: 600px;
+  margin: 2%;
+}
+.first-shell,
+.second-shell {
+  width: 85%;
+  height: 30%;
+  margin: 40px auto 20px;
+  background: url("/img/bookshell.png") center bottom no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.book-lost,
+.book-sick {
+  width: auto;
+  height: auto;
+  margin-bottom: 12.5%;
+  width: 25%;
+}
+.cover {
+  width: 100%;
+  margin: auto auto;
+  -moz-box-shadow: 1px 1px 6px #6e6e6e;
+  -webkit-box-shadow: 1px 1px 6px #6e6e6e;
+  box-shadow: 1px 1px 6px #6e6e6e;
+}
+.left-intro ul {
+  list-style: none;
+  line-height: 2em;
+}
+.left-intro ul li:nth-of-type(n)::before {
+  content: "";
+  color: #fff;
+  font-weight: 20px;
+  position: absolute;
+  margin-left: -2em;
+  line-height: 2em;
+  margin-top: 0.8em;
+  background: #fff;
+  border-radius: 30px;
+  border: solid 3.5px #d31a29;
+  height: 5px;
+  width: 5px;
+}
+.left-intro h2 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+.left-intro h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+.left-intro div {
+  margin: 1rem 0;
+  font-size: 16px;
+}
+body {
+  background-color: #fff !important;
+}

@@ -1,0 +1,70 @@
+#mid-col #pagination {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: 1;
+}
+#mid-col #pagination .prev-post,
+#mid-col #pagination .next-post {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+}
+#mid-col #pagination .prev-post a,
+#mid-col #pagination .next-post a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+#mid-col #pagination .prev-post:hover,
+#mid-col #pagination .next-post:hover {
+  background-color: #eee;
+  color: #000;
+}
+#mid-col #pagination .prev-post:hover a,
+#mid-col #pagination .next-post:hover a {
+  color: #000;
+}
+#mid-col #pagination .prev-post {
+  justify-content: flex-start;
+}
+#mid-col #pagination .prev-post:before {
+  content: "\f104";
+  font-family: "fontawesome";
+  display: block;
+  float: left;
+  vertical-align: middle;
+  font-size: larger;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #808080;
+}
+#mid-col #pagination .next-post {
+  justify-content: flex-end;
+}
+#mid-col #pagination .next-post:after {
+  content: "\f105";
+  font-family: "fontawesome";
+  display: block;
+  float: right;
+  vertical-align: middle;
+  font-size: larger;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #808080;
+}

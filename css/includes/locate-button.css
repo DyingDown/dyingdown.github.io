@@ -1,0 +1,36 @@
+#back-to-top {
+  position: fixed;
+  right: -19px;
+  bottom: 45px;
+  background-color: #33a6dc;
+  padding: 10px 15px;
+  transform: rotate(-90deg);
+  color: #fff;
+  user-select: none;
+}
+#back-to-top:hover {
+  right: -13px;
+}
+#go-to-comment {
+  display: none;
+}
+#vcomment ~ #go-to-comment {
+  position: fixed;
+  right: -46px;
+  bottom: 140px;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #e37a90;
+  transform: rotate(-90deg);
+  user-select: none;
+  display: block;
+}
+#vcomment ~ #go-to-comment:hover {
+  right: -40px;
+}
+@media only screen and (max-width: 900px) {
+  #go-to-comment {
+    display: none;
+  }
+}

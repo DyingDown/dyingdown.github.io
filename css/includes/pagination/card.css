@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+#mid-col #pagination {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex: 1;
+  height: 150px;
+}
+#mid-col #pagination .prev-post,
+#mid-col #pagination .next-post {
+  width: 100%;
+  margin: 0 5px 0;
+}
+#mid-col #pagination .img_fit {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 15px;
+  border: solid #d3d3d3 1px;
+  border-radius: 80px;
+  background-color: #808080;
+}
+#mid-col #pagination .img_fit img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 80px;
+}
+#mid-col #pagination .imgL {
+  float: right;
+}
+#mid-col #pagination .imgR {
+  float: left;
+}
+#mid-col #pagination a {
+  display: block;
+  width: 100%;
+  height: 150px;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  border: solid 1px #d3d3d3;
+  border-radius: 5px;
+}
+#mid-col #pagination a:hover {
+  background-color: rgba(211,27,41,0.1);
+  border-color: #d31b29;
+}
+#mid-col #pagination a:hover img {
+  transform: rotate(360deg);
+}
+#mid-col #pagination .info {
+  height: 150px;
+  padding: 0 20px;
+}
+#mid-col #pagination .info :nth-child(2) {
+  margin-top: 10px;
+  display: block;
+  -webkit-line-clamp: 2; /* 设置超出多少行隐藏 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+/* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
+  display: -webkit-box;
+  word-break: break-word;
+  line-height: 20px;
+}
+#mid-col #pagination .ir {
+  padding-left: 150px;
+  text-align: right;
+}
+#mid-col #pagination .il {
+  padding-right: 150px;
+  text-align: left;
+}
+#mid-col #pagination .label {
+  line-height: 20px;
+  padding: 35px 0 10px 0;
+  border-bottom: dashed 3px #d3d3d3;
+  color: #808080;
+}
+@media (max-width: 700px) {
+  #mid-col #pagination {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+  }
+}

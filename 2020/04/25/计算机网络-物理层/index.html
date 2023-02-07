@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>计算机网络-物理层 [ Hexo ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/code/highlights/sakura.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script>var isHome = false;
+var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head><body><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div class="this-is-post-page"></div><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="64.000000pt" viewBox="0 0 300.000000 64.000000" preserveAspectRatio="xMidYMid meet" id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,64.000000) scale(0.050000,-0.050000)" stroke="none">
+<path class="eye" d="M2391 1248 c-601 -192 -605 -1029 -6 -1211 624 -189 1085 554 645 1040 -148 164 -427 239 -639 171z m185 -264 c100 -65 129 -195 71 -317 -79 -166 -352 -171 -437 -8 -122 236 142 470 366 325z"/>
+<path class="rest-content" d="M330 1222 c-277 -72 -411 -393 -273 -657 143 -275 603 -276 753 -2 188 346 -109 755 -480 659z m233 -219 c78 -70 104 -252 50 -356 -114 -222 -374 -125 -372 138 1 245 167 357 322 218z"/>
+<path class="rest-content" d="M4486 1220 c-137 -29 -169 -54 -162 -126 7 -71 5 -71 220 -43 139 18 231 -14 249 -84 16 -64 24 -60 -177 -84 -313 -38 -431 -179 -325 -386 92 -176 617 -189 709 -16 43 79 19 544 -31 613 -81 110 -294 166 -483 126z m314 -569 c0 -127 -156 -184 -276 -100 -115 81 -13 187 181 188 l95 1 0 -89z"/>
+<path class="rest-content" d="M5445 1221 c-346 -87 -427 -598 -128 -803 183 -126 495 -59 612 131 213 344 -94 771 -484 672z m212 -190 c194 -100 120 -496 -93 -496 -145 0 -214 100 -200 291 14 190 146 282 293 205z"/>
+<path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
+<path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result"></div></div><div class="this-is-post-page"></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a target="_blank" rel="noopener" href="https://hexo-theme-last.github.io/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">Origin</span></span><div id="first-line"><h1>计算机网络-物理层</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-25T08:34:03.000Z">2020-04-25</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Network/">Computer Network</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">11 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">3.2k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>学习计算机网络这门课，由于是网络视频授课，效果不佳，容易忘记，便总结课堂笔记。</p>
+<span id="more"></span>
+<h2 id="物理层的基本概念">物理层的基本概念</h2>
+<p>物理层解决如何在连接各种计算机的<strong>传输媒体</strong>上传输<strong>数据比特流</strong>，而不是指具体的传出媒体</p>
+<p>物理层的主要任务描述为：确定与传输媒体接口的一些特性，即：</p>
+<ul>
+<li>机械特性：例接口形状，大小，引线数目</li>
+<li>电气特性：例规定电压范围（-5V到+5V）</li>
+<li>功能特性：例规定-5V表示0，+5V表示1</li>
+<li>过程特性：也称规程特性，规定建立连接时各个相关部件的工作步骤</li>
+</ul>
+<h2 id="数据通信的基础知识">数据通信的基础知识</h2>
+<h3 id="典型的数据通信模型">典型的数据通信模型</h3>
+<p><img src="https://s1.ax1x.com/2020/04/25/Js1fHK.png" alt="img"></p>
+<p>源系统（PC机，调制解调器）→→ 传输系统（公用电话网）→→ 目的系统（调制解调器，PC机）</p>
+<p>⟶输入信息源点⟶输入数据发送器⟶发送的信号传输系统⟶接收的信号接收器⟶输出数据终点⟶输出信息⟶输入信息源点⟶输入数据发送器⟶发送的信号传输系统⟶接收的信号接收器⟶输出数据终点⟶输出信息</p>
+<h3 id="相关术语">相关术语</h3>
+<p>通信的目的是传送消息。</p>
+<ul>
+<li>数据（data）——运送消息的实体。</li>
+<li>信号（signal）——数据的电气的或电磁的表现
+<ul>
+<li>模拟信号——代表消息的参数取值是连续的</li>
+<li>数字信号——代表消息的参数的取值是离散的</li>
+</ul>
+</li>
+<li>码元（code）——在使用时间域的波形表示数字信号时，则代表不同离散数值的基本波形就称为码元。</li>
+</ul>
+<p>在数字通信中常常用时间间隔相同的符号来表示一个二进制数字，这样的时间间隔内的信号称为二进制码元。而这 个间隔被称为码元长度。1码元可以携带nbit的信息量</p>
+<h3 id="有关信道的基本概念">有关信道的基本概念</h3>
+<p>信道一般表示向一个方向传送信息的媒体。所以咱们说平常的通信线路往往包含一条发送信息的信道和一条接收信息的信道。</p>
+<ul>
+<li>单向通信(单工通信)——只能有一 个方向的通信而没有反方向的交互。</li>
+<li>双向交替通信(半双工通信)——通信的双方都可以发 送信息，但不能双方同时发送(当然也就不能同时接收)。</li>
+<li>双向同时通信(全双工通信)——通信的双方 可以同时发送和接收信息。</li>
+</ul>
+<h3 id="其他概念">其他概念</h3>
+<p>基带（baseband）信号和带通（band pass）信号</p>
+<p>基带信号(即基本频带信号) —— 来自信源的信号。像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号，比如我们说话的声波就是基带信号</p>
+<p>带通信号——把基带信号经过载波调制后， 把信号的频率范围搬移到较高的频段以便在信道中传输(即仅在一段频率范围内能够通过信道)。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsY9oV.png" alt="img"></p>
+<p>因此在传输距离较近时，计算机网络都采用基带传输方式由于在近距离范围内基带信号的衰减不大，从而信号内容不会发生变化。因此在传输距离较近时，计算机网络都采用基带传输方式。如从计算机到监视器、打印机等外设的信号就是基带传输的。</p>
+<h3 id="基本的调制方法">基本的调制方法</h3>
+<ul>
+<li>调幅（AM）：载波的振幅随基带数字信号而变化</li>
+<li>调频（FM）：载波的频率随基带数字信号而变化</li>
+<li>调相（PM）：载波的初始相位随基带数字信号而变化</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JstJ9U.png" alt="img"></p>
+<h3 id="常用编码">常用编码</h3>
+<p>单极性不归零码</p>
+<ul>
+<li>只使用-一个电压值，用高电平表示1，没电压表示0</li>
+<li><img src="https://s1.ax1x.com/2020/04/25/JstxU0.png" alt="img"></li>
+</ul>
+<p>双极性不归零码</p>
+<ul>
+<li>用正电平和负电平分别表示二进制数据的1和0，正负幅值相等</li>
+<li><img src="https://s1.ax1x.com/2020/04/25/JstLuj.png" alt="img"></li>
+</ul>
+<p>单极性归零码</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/04/25/JsNNPf.png" alt="img"></li>
+</ul>
+<p>双极性归零码</p>
+<ul>
+<li>正负零三个电平，信号本身携带同步信息。</li>
+<li><img src="https://s1.ax1x.com/2020/04/25/JsNBrj.png" alt="img"></li>
+</ul>
+<p>曼彻斯特编码</p>
+<ul>
+<li>
+<p>bit中间有信号低-高跳变为0<img src="https://s1.ax1x.com/2020/04/25/JsUSeA.png" alt="img"></p>
+</li>
+<li>
+<p>bit中间有信号高-低跳变为1<img src="https://s1.ax1x.com/2020/04/25/JsUQYV.png" alt="img"></p>
+<p>采用曼切斯特编码，一个时钟周期只可以表示一个bit，并且必须通过两次采样才能得到一个bit</p>
+<p>但它能携带时钟信号，且可以表示没有数据传输</p>
+</li>
+</ul>
+<p>差分曼彻斯特编码</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsUdFx.png" alt="img"></p>
+<p>差分曼彻斯特编码与曼彻斯特编码相同，但抗干扰性能强于曼彻斯特编码</p>
+<h3 id="信道的极限容量">信道的极限容量</h3>
+<ul>
+<li>有失真，但可识别</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsBdzV.png" alt="img"></p>
+<ul>
+<li>有失真，不能识别</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsBgiR.png" alt="img"></p>
+<h3 id="奈氏准则">奈氏准则</h3>
+<p>奈氏准则：1924年，奈奎斯特（Nyquist）就推导出了著名的奈氏准则。他给出了在假定的理想条件下，为了避免码间串扰，码元的传输速率的上限值。</p>
+<p>在任何信道中，码元传输的速率是有上限的，否则就会出现码间串扰的问题，使接收端对码元的判决（即识别）成为不可能。</p>
+<p>如果信道的频带越宽，也就是能够通过的信号高频分量越多，那么就可以用更高的速率传送码元而不出现码间串扰。</p>
+<p><strong>奈氏准则: 理想低通信道的最高码元传输速率=2WBound</strong></p>
+<ul>
+<li>W是理想低通信道的带宽，单位为Hz。</li>
+<li>Baund是波特，是码元传输速率的单位</li>
+</ul>
+<h4 id="波特与Bit的区别">波特与Bit的区别</h4>
+<p>波特 在调制解调器中经常用用到波特这个概念</p>
+<p>Bit是信息量</p>
+<p>如果一个马原中含有3个Bit信息能量 1波特=3Bit/s</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsg59J.png" alt="img"></p>
+<h3 id="香农公式（信噪比">香农公式（信噪比)</h3>
+<p>香农(Shannon)用信息论的理论推导出了带宽受限且有高斯白噪声干扰的信道的<strong>极限、无差错</strong>的信息传输速率。</p>
+<p>信道的极限信息传输速率C可表示为</p>
+<p>c=Wlog2(1+S/N) b/s�=�log2⁡(1+�/�) �/�</p>
+<ul>
+<li>W为信道的带宽（以Hz为单位）</li>
+<li>S为信道内所传信号的平均功率</li>
+<li>N为信道内部的高斯噪声功率</li>
+</ul>
+<p>香农公式表明</p>
+<p>信道的带宽或信道中的信噪比越大，信息的极限传输速率越高。<br>
+只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。<br>
+若信道带宽W或信噪比S/N没有上限(当然实际信道不可能是这样的)，则信道的极限信息传输速率C也就没有上限。<br>
+实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。</p>
+<p>香农公式奈氏准则使用范围</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsRdzj.png" alt="img"></p>
+<h2 id="物理层下面的传输媒体">物理层下面的传输媒体</h2>
+<p>电信领域使用的电磁波的频谱</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsW0hD.png" alt="img"></p>
+<h3 id="导向传输媒体">导向传输媒体</h3>
+<p>导向传输媒体中，电磁波沿着固体媒体传播。</p>
+<ul>
+<li>双绞线
+<ul>
+<li>屏蔽双绞线 STP</li>
+<li>无屏蔽双绞线 UTP</li>
+</ul>
+</li>
+<li>同轴电缆
+<ul>
+<li>50ΩΩ 同轴电缆 用于数字传输，由于多用于基带传输，也叫基带同轴电缆</li>
+<li>75ΩΩ 同轴电缆用于模拟传输，即宽带同轴电缆</li>
+</ul>
+</li>
+<li>光纤</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JshgFf.png" alt="img"></p>
+<p>光线在光纤中的折射</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Js4JXj.png" alt="img"></p>
+<p>光纤的传播原理</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Js5II0.png" alt="img"></p>
+<p>多模光纤与单模光纤</p>
+<ul>
+<li>多模</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JyDgZF.png" alt="img"></p>
+<ul>
+<li>单模</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsIeot.png" alt="img"></p>
+<p>单模光纤指只能传输一种电磁波模式，多模光纤只可以传输多个电磁波模式，实际上单模光纤和多模光纤之分，也就是纤芯的直径之分。单模光纤细，多模光纤粗。在有线电视网络中使用的光纤全是单模光纤，其传播特性好，带宽可达10GHZ,可以在一根光纤中传输60套PAL- D电视节目。</p>
+<h3 id="非导向传输媒体">非导向传输媒体</h3>
+<p>非导向传输媒体是指自由空间，其中的电磁波传输被称为无线传输。</p>
+<p>无线传输所使用的频段很广。</p>
+<p>短波通信主要是靠电离层的反射，但短波通信的通信质量较差。</p>
+<p>微波在空间主要是直线传播。</p>
+<h3 id="物理层设备——集线器">物理层设备——集线器</h3>
+<p>工作特点：它在网络中只起到信号放大和重发的作用，其目的是扩大网络的传输范围，而不具备信号的定向传送能力</p>
+<p>最大传输距离：100m</p>
+<p>集线器是一个很大的冲突域</p>
+<h2 id="信道复用技术">信道复用技术</h2>
+<p>复用（multiplexing）是通信技术中的基本概念。</p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcRRv4.png" alt="img"></p>
+<h3 id="频分复用-FDM">频分复用 FDM</h3>
+<p>Frequency Division Multiplexing</p>
+<p>用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。</p>
+<p>频分复用的所有用户在同样的是按占用不用的带宽资源（频率带宽非数据发送速率）</p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcWMGT.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcWdJK.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcWXWT.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcfZlD.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/26/Jcf1tP.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/26/JcfBt0.png" alt="img"></p>
+<h3 id="时分复用-TDM">时分复用 TDM</h3>
+<p>Time Division Multiplexing</p>
+<p><strong>时分复用</strong>则是将时间划分为一段段等长的<strong>时分复用帧</strong>。<br>
+每一个时分复用的用户在每一个TDM之中占用固定序号的时隙。<br>
+每一个用户所占用的时隙是<strong>周期性</strong>地出现（其周期就是TDM帧的长度<strong>对应的时间</strong>）。<br>
+TDM信号也称为<strong>等时</strong>（isochronous）信号。<br>
+时分复用的所有用户是在不同的时间占用<strong>同样的</strong>频带宽度。</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JRyP6H.png" alt="[]"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JRymh8.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JRyc4K.png" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JRy7UP.png" alt="img"></p>
+<p>时分复用可能会造成线路资源的浪费。</p>
+<p>使用时分复用系统传送计算机数据时，由于计算机数据的突发性质，用户对分配到的子信道的利用率一般是不高的。</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JW9ArF.png" alt="img"></p>
+<h3 id="统计时分复用-STDW">统计时分复用 STDW</h3>
+<p>Statistic TDM</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWCaTJ.png" alt="img"></p>
+<h3 id="波分复用-WDM">波分复用 WDM</h3>
+<p>Wavelength Division Multiplexing</p>
+<p>![image-20200427111427399](file:///C:/Users/o_oyao/AppData/Roaming/Typora/typora-user-images/image-20200427111427399.png)</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWA6dU.png" alt="img"></p>
+<h3 id="码分复用-CDM">码分复用 CDM</h3>
+<p>Code Division Multiplexing</p>
+<p>常用的名词是<strong>码分多址</strong> CDMA （Code Division Multiple Access）</p>
+<p>各用户使用经过特殊挑选的不同码型，因此彼此不会造成干扰。</p>
+<p>这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。</p>
+<p>每一个比特时间划分为m个短的间隔，称为<strong>码片</strong>（chip）。</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWV0bV.png" alt="img"></p>
+<p>任何一个码片向量和改码片向量自己的格式化内积都是1。</p>
+<p>S∙S=1m∑i=1mSiSi=1m∑i=1mS2i=1m∑i=1m(±1)2=1�∙�=1�∑�=1�����=1�∑�=1���2=1�∑�=1�(±1)2=1</p>
+<p>一个码片向量和改码片反码的向量的格式化内积值是-1。</p>
+<p>不同码片之间得是正交关系。即相乘得0。</p>
+<p>缺点：发送1bit使用得数据变多</p>
+<h2 id="数字传输系统">数字传输系统</h2>
+<p>脉码调制PCM体制最初是为了再电话局之间的中继线上传送多路电话。</p>
+<p>由于历史上的原因，PCM有两个互不兼容的国际标准，即北美的24路PCM（简称T1）和欧洲的30路PCM简称（E1）。我国采用的是欧洲的E1标准。</p>
+<p>E1的速率是2.048Mb/s，而T1的速率是1.544Mb/s。</p>
+<p>当需要更高的数据率时，可采用复用的方法。</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JW8uvT.jpg" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JW8G5R.jpg" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JW87in.jpg" alt="img"></p>
+<h2 id="宽带接入技术1">宽带接入技术1</h2>
+<h3 id="xDXL">xDXL</h3>
+<p>(用数字技术对现有的模拟电话用户线进行)</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWGiz6.jpg" alt="img"></p>
+<p>标准模拟电话信号的频带被限制再300~3400Hz的范围内，但用户线本身实际可通过的信号频率仍然超过1MHz。</p>
+<p>xDSL技术就把0~4kHz低端频谱留给传统电话使用，而把原来没有被利用的高端频谱留给用户上网使用。</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWYuxP.jpg" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWYHJA.jpg" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWttTe.jpg" alt="img"></p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWNpnK.jpg" alt="img"></p>
+<p>ADSL的组成</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWNaHU.jpg" alt="img"></p>
+<p>数字用户线接入复用器DSLAM（DSL Access Multiplier）<br>
+接入端单元ATU（Access Termination Unit）<br>
+ATU-C（C代表端局 Central Office）<br>
+ATU-R（R代表远端 Remote）<br>
+电话分离器 PS（POST Splitter）</p>
+<h3 id="光纤同轴混合网HFC（Hybrid-Fiber-Coax）">光纤同轴混合网HFC（Hybrid Fiber Coax）</h3>
+<p>HFC网是目前覆盖面积很广的有线电视网CATV的基础上开发的一种居民宽带接入网。</p>
+<p>HFC网除可传送CATV外，还提供电话、数据和其他宽带交互型业务</p>
+<p>现有的CATV网是树形拓扑结构的同轴电缆网络，它采用<strong>模拟技术的频分复用</strong>对电视节目进心单向传输。而HFC网则需要对CATV网进行改造。</p>
+<p>HFC网采用节点体系结构</p>
+<p><img src="https://s1.ax1x.com/2020/04/27/JWakQI.jpg" alt="img"></p>
+<h3 id="FTTx-技术">FTTx 技术</h3>
+<p>FTTx（光纤到……）也是一种实现宽带居民接入网的方案。x课代表不同的意思。</p>
+<p><strong>光纤到家</strong> FTTH（Fiber To The Home）：光纤一直铺设到用户家庭可能是居民接入网最后的解决方法（155Mb/s）</p>
+<p><strong>光纤到大楼</strong> FTTB（Fiber To The Building）：光纤进入大楼后就转换为电信号，然后用电缆或双绞线分配到各用户。</p>
+<p><strong>光纤到路边</strong> FTTC（Fiber To The Curb）：从路边到各用户可使用星型结构双绞线作为传输媒体。</p>
+</div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/04/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/27/JWwws1.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>计算机网络-数据链路层</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/26/Jc1ad0.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>计算机网络概述</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+})
+
+    </script><buttom id="back-to-top">TOP </buttom><buttom id="go-to-comment">Comment</buttom></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://s1.ax1x.com/2020/04/17/JEjcB8.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/wechat.jpg"><div class="payButtons"><div class="wechat">Wechat</div><div class="alipay">Alipay</div></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "&lt;p&gt;学习计算机网络这门课，由于是网络视频授课，效果不佳，容易忘记，便总结课堂笔记。&lt;/p&gt;";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fab fa-fw fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="Twitter"><i class="fab fa-fw fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="Telegram"><i class="fab fa-fw fa-telegram-plane"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fab fa-fw fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Linkedin"><i class="fab fa-fw fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fab fa-fw fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fab fa-fw fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" " title="Instagram"><i class="fab fa-fw fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="Quora"><i class="fab fa-fw fa-quora"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2023</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div><i class="fa-solid fa-pen-line"></i> 191</div><br><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/post.js"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
