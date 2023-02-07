@@ -45,8 +45,26 @@
 #theme_name {
   font-weight: bold;
   text-decoration: none;
+  line-height: 30px;
 }
 .visits {
   clear: both;
   padding-bottom: 20px;
+}
+#theme_name svg {
+  fill: #d3d3d3;
+  height: 20px;
+  width: auto;
+}
+#theme_name svg:hover {
+  fill: #d3d3d3;
+}
+#theme_name svg:hover .yellow {
+  fill: #fabe00;
+}
+#theme_name svg:hover .blue {
+  fill: #4cace2;
+}
+#theme_name svg:hover .pink {
+  fill: #ee869a;
 }

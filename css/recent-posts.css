@@ -78,7 +78,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(5px);
+  filter: blur(10px);
 }
 .fa-chevron-left,
 .fa-chevron-right {

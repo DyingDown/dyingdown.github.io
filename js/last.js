@@ -24,9 +24,9 @@ function insertAfter(newElement, targetElement) { // newElement是要追加的�
     };
 };
 
-if (isHome == false) {
-    menuOuter.style.backgroundColor = "#191919";
-}
+// if (isHome == false) {
+//     menuOuter.style.backgroundColor = "#ffffff";
+// }
 
 
 /********** toc fix **********/
@@ -57,13 +57,13 @@ menuIcon.onclick = function() {
 
 
 window.addEventListener("scroll", function() {
-    if (isHome) {
-        if (this.window.scrollY > 0) {
-            modifyClass(menuOuter, "newMenuOuterColor", 1);
-        } else {
-            modifyClass(menuOuter, "newMenuOuterColor", 0);
-        }
+    // if (isHome) {
+    if (this.window.scrollY > 0) {
+        modifyClass(menuOuter, "newMenuOuterColor", 1);
+    } else {
+        modifyClass(menuOuter, "newMenuOuterColor", 0);
     }
+    // }
     /******** fix toc *******/
     let s = document.body.scrollTop || document.documentElement.scrollTop;
     if (typeof(toc) != 'undefined') {
@@ -77,3 +77,45 @@ window.addEventListener("scroll", function() {
     }
 
 });
+
+/****** go to top button ******/
+var backToTopButton = document.getElementById("back-to-top")
+var toCommentButton = document.getElementById("go-to-comment")
+if (backToTopButton != null) {
+    backToTopButton.addEventListener("click", () => {
+        document.body.scrollIntoView({
+            behavior: "smooth",
+        });
+    })
+}
+
+
+var commentBox = document.getElementById("vcomment")
+var menuA = document.getElementById("menu-outer")
+if (toCommentButton != null && commentBox != null && menuA != null) {
+    toCommentButton.addEventListener("click", () => {
+        var height = 0;
+        t = commentBox;
+        do {
+            height += t.offsetTop;
+            t = t.offsetParent;
+        }while(t != document.body)
+        window.scrollTo({
+            top: height - 80,
+            behavior: "smooth",
+        })
+    })
+}
+
+
+/********* search *********/
+searchInput = document.getElementById("local-search-input")
+// searchInput.on
+searchInput.onclick = function(){ 
+    getSearchFile(); 
+    this.onclick = null;
+}
+// searchInput.onkeydown = function(){ 
+//     if(event.keyCode == 13) 
+//         return false;
+// }

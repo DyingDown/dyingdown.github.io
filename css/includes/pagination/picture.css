@@ -48,9 +48,10 @@
   white-space: nowrap;
   width: 80%;
   overflow: hidden;
+  line-height: 20px;
 }
 #mid-col #pagination .label {
-  color: #fffffb 3;
+  color: #fff f;
 }
 #mid-col #pagination #label-l {
   text-align: left;

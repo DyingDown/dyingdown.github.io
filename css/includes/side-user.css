@@ -10,9 +10,14 @@
 }
 .side-user {
   border-top: 2px #d31b29 solid;
-  -webkit-box-shadow: 1px 0 5px rgba(0,0,0,0.4);
-  box-shadow: 1px 0 5px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 1px 0 5px rgba(100,100,100,0.4);
+  box-shadow: 1px 0 5px rgba(100,100,100,0.4);
   margin-bottom: 20px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 .side-user .top-bar {
   display: flex;
@@ -29,8 +34,10 @@
   right: 0;
   top: 0;
   width: 70px;
-  height: 70px;
   z-index: 2;
+}
+.qrButton path {
+  fill: #d31b29;
 }
 .avatar {
   width: 50%;

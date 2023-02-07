@@ -8,6 +8,9 @@
   src: url("/font-awesome/webfonts/fa-solid-900.eot");
   src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
 }
+#post-content {
+  color: #323232;
+}
 #post-content h1 {
   padding-bottom: 0.3em;
   font-size: 2.25em;
@@ -211,9 +214,10 @@ p {
 /* 行内代码 */
 #post-content p code,
 #post-content li code {
-  background-color: #d31b29;
+  background-color: #f5f5f5;
   padding: 0 3px;
   border-radius: 5px;
+  border: #d6d5d5 solid 1px;
   margin: 0 2px;
-  color: #fff;
+  color: #000;
 }
