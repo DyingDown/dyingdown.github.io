@@ -125,7 +125,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p>那么每一个字的地址就变为二维的。假如，一个块内有四个字，主存大小为1024个字，那么主存就能被分为256块。256表示为二进制就是8位二进制位。那么第61个字的主存地址为：00001111 01（块号 块内地址）。由于四个一块，第61个字在第15块里面，且是15块里面的第一个。将15转换为八位的二进制。</p>
 <p>由此可看出，地址变成了二维的。</p>
 <p>这种映射的方法是：主存的数据块可映射到Cache任意行，只要这个位置是空闲的或者符合某种替换规则。同时将该数据块地址对应行的标记存储体中保存。</p>
-</div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/06/18/%E6%B2%A1%E6%9C%89%E5%A4%A9%E8%B5%8B%E7%9A%84%E4%BA%BA%E7%94%9F%E6%9C%89%E5%A4%9A%E9%9A%BE%E8%BF%87%EF%BC%9F/"><div class="img_fit imgL" style="background-color:#094876"><img src="https://s1.ax1x.com/2020/08/23/dBGyrV.png"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>没有天赋的人生有多难过？</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/05/08/Valine-%E9%82%AE%E4%BB%B6%E5%9B%9E%E5%A4%8D-E-mail-reply/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/05/08/Yu8Jvd.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Valine 邮件回复 E-mail reply</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+</div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/06/18/%E6%B2%A1%E6%9C%89%E5%A4%A9%E8%B5%8B%E7%9A%84%E4%BA%BA%E7%94%9F%E6%9C%89%E5%A4%9A%E9%9A%BE%E8%BF%87%EF%BC%9F/"><div class="img_fit imgL" style="background-color:#094876"><img src="https://s1.ax1x.com/2020/08/23/dBGyrV.png"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>没有天赋的人生有多难过？</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/05/08/Valine-%E9%82%AE%E4%BB%B6%E5%9B%9E%E5%A4%8D-E-mail-reply/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/05/08/Yu8Jvd.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Valine 邮件回复 E-mail reply</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];
 var guest_info = 'nick,mail,link'.split(',').filter(function(item){
@@ -142,7 +142,8 @@ window.valine = new Valine({
   avatar:'mp',
   guest_info:guest_info,
   pageSize:'10',
-  lang: 'zh-cn'
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
 })
 
     </script><buttom id="back-to-top">TOP </buttom><buttom id="go-to-comment">Comment</buttom></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>

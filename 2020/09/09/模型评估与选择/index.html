@@ -48,7 +48,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <h4 id="交叉验证法">交叉验证法</h4>
 <p>“交叉验证法” (cross alidation)先将数据集D分为k个大小相似的互斥子集，即$D=D1∪D2∪…Dk,Di∩Dj=ϕ(i≠j)$每个子集 $D_1$ 尽可能保持数据分布的一致性，即从D通过分层采样得到. 然后，每次用 k-1 子集的并集作为训练集，余下的那个子集作为测试集;这样就可获得k组训练/测试集，从而可进行k次训练和测试， 最终返回的是 这k个测试结果的均值。显然，交叉验证法评估结果的稳定行和保真性在很大程 上取决于k的取值，为强调这一点，通常把交叉验证法称为“k折交叉验证” (k-fold cross validation). k最常用 的取值是10 ，此时称为10折交叉验；其他常用 的k值有5， 20等.图 2.2 给出了 10 折交叉验证的示意图.</p>
 <p><img src="https://s1.ax1x.com/2020/09/15/wyJC8A.png" alt="wyJC8A.png"></p>
-</div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/09/18/LeetCode-Single-Number/"><div class="img_fit imgL" style="background-color:#undefined"><img></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>LeetCode_Single-Number</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/09/06/LeetCode-Container-With-Most-Water/"><div class="img_fit imgR" style="background-color:#undefined"><img></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>LeetCode-Container With Most Water</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+</div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/09/18/LeetCode-Single-Number/"><div class="img_fit imgL" style="background-color:#undefined"><img></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>LeetCode_Single-Number</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/09/06/LeetCode-Container-With-Most-Water/"><div class="img_fit imgR" style="background-color:#undefined"><img></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>LeetCode-Container With Most Water</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];
 var guest_info = 'nick,mail,link'.split(',').filter(function(item){
@@ -65,7 +65,8 @@ window.valine = new Valine({
   avatar:'mp',
   guest_info:guest_info,
   pageSize:'10',
-  lang: 'zh-cn'
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
 })
 
     </script><buttom id="back-to-top">TOP </buttom><buttom id="go-to-comment">Comment</buttom></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
