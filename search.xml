@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>Maven + IDEA + Windows</title>
+      <link href="/2023/02/14/Maven-IDEA/"/>
+      <url>/2023/02/14/Maven-IDEA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Install-Maven">Install Maven</h2><ol><li><p>download <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302141347048.png" style="zoom:67%;" /></li><li><p>Abstract zip file into an folder that the names of ancestor directory does not contains any space.</p></li><li><p>add the folder path to <strong>Environment Variables</strong></p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302141347872.png" style="zoom: 67%;" /><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302141348691.png" style="zoom:67%;" /></li><li><p>check if it’s installed.</p><p>open an <code>cmd</code> window and type <code>mvn -v</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\xxx&gt; mvn -v</span><br><span class="line">Apache Maven 3.9.0 (9b58d2bad23a66be161c4664ef21ce219c2c8584)</span><br><span class="line">Maven home: C:\apache-maven-3.9.0</span><br><span class="line">Java version: 19.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-19</span><br><span class="line">Default locale: en_US, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;windows 11&quot;, version: &quot;10.0&quot;, arch: &quot;amd64&quot;, family: &quot;windows&quot;</span><br></pre></td></tr></table></figure></li></ol><h2 id="IDEA-Setting">IDEA Setting</h2><p>If you want to use maven that you installed, set here:</p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302141422208.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Win11 </tag>
+            
+            <tag> IDEA </tag>
+            
+            <tag> WSL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring Framework 5.0 Overview</title>
+      <link href="/2023/02/14/Spring-Framework-6-0-Overview/"/>
+      <url>/2023/02/14/Spring-Framework-6-0-Overview/</url>
+      
+        <content type="html"><![CDATA[<p>This is a note of studying Spring.</p><span id="more"></span><h2 id="Overview">Overview</h2><ol><li><p>The Spring Framework (Spring) is <em>an open-source and lightweight application framework that provides infrastructure support for developing Java applications</em>.</p></li><li><p>simplifies enterprise applications</p></li><li><p>Spring has two parts, IOC and AOP</p><ul><li>IoC (<strong>Inversion of Control</strong>) Container is the core of Spring Framework. It creates the objects, configures and assembles their dependencies, manages their entire life cycle.</li><li><strong>Aspect-Oriented Programming</strong> (AOP) is one of the key elements of the Spring Framework. AOP praises Object-Oriented Programming in such a way that it also provides modularity. But the key point of modularity is the aspect than the class. AOP breaks the program logic into separate parts called concerns.</li></ul></li><li><p>Features:</p><ul><li>helps decouple, simplify development</li><li>Support AOP development</li><li>easy to test</li><li>easy to integrate with other frameworks</li><li>easy to do with transaction</li><li>easy to develop API</li></ul></li></ol><h2 id="Download">Download</h2><p>download here: <a href="https://spring.io/projects/spring-framework#learn">https://spring.io/projects/spring-framework#learn</a></p><h2 id="How-to-start">How to start</h2><ol><li><p>create a project using maven and then creating a module inside it.</p></li><li><p>Find the <code>pom.xml</code> file in module and modify it. Add some configs.</p><p>Add <code>spring context</code>  and <code>junit</code> dependency</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.6.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   </span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Spring5 </tag>
+            
+            <tag> Java EE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JDBC Apache-DBUtils</title>
       <link href="/2023/02/13/JDBC-Apache-DBUtils/"/>
       <url>/2023/02/13/JDBC-Apache-DBUtils/</url>
