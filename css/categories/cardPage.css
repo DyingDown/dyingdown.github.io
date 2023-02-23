@@ -636,6 +636,44 @@
 .space {
   color: #000;
 }
+#post-Greedy .post-title {
+  color: #7d669e !important;
+}
+#post-Greedy .box-body h2 {
+  color: #7d669e;
+}
+#post-Greedy .box-body .tags a {
+  color: #7d669e;
+  border: 1px solid #7d669e;
+}
+#post-Greedy .box-body .tags a:hover {
+  color: #fff;
+  background: #7d669e;
+}
+#post-Greedy .ribbon .ri {
+  background-color: #7d669e;
+}
+#post-Greedy .ribbon .ri:before {
+  border-left: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+#post-Greedy .ribbon .ri:after {
+  border-right: 3px solid #57476f;
+  border-top: 3px solid #57476f;
+}
+.page-number {
+  color: #000;
+  border-color: #000;
+}
+.extend.next {
+  color: #000;
+}
+.extend.prev {
+  color: #000;
+}
+.space {
+  color: #000;
+}
 body {
   background-color: #fff !important;
 }
