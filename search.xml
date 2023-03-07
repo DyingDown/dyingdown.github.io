@@ -4,6 +4,79 @@
   
     
     <entry>
+      <title>LeetCode 127. Word Ladder</title>
+      <link href="/2023/03/07/LeetCode-127-Word-Ladder/"/>
+      <url>/2023/03/07/LeetCode-127-Word-Ladder/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/word-ladder/">https://leetcode.com/problems/word-ladder/</a></p><h2 id="Analysis">Analysis</h2><p>It’s kind of tricky for me to understand the <em>transform sequence</em>. This means <code>s1-&gt;s2</code> there is only on character changed.  eg. <code>abc -&gt; aec</code> the middle character changed.</p><p>Then, the problem is to find the next word in the <code>wordList</code>.</p><p>A simple way to do that is we replace each position of the current word with characters  <code>a - z</code>. So we check if this new word in <code>wordList</code>.</p><p>Then the rest would be BFS template.</p><p>In order to avoid loop in the word sequence, we need to remove the word we used from wordList.</p><p>The reason why its no affect to remove it right after it’s pushed to queue is the followings:</p><p>The possibility word sequences from this word will be the same no matter what the previous words are. For example, there are some possible sequences A -&gt; B -&gt; C-&gt;End, A -&gt; B -&gt; D-&gt;End.  if there is other sequence that can also reaches B (F-&gt;G-&gt;B) the possible sequences will be:  F-&gt;G-&gt;B-&gt;C-&gt;End, F-&gt;G-&gt;B-&gt;D-&gt;End. You can see that the longer sequences has no use to exists. So we don’t need to let the longer one appear, we can safely remove the word B just when we met it.</p><h2 id="Code">Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">ladderLength</span><span class="params">(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;string&gt; <span class="title">words</span><span class="params">(wordList.begin(), wordList.end())</span></span>;</span><br><span class="line">        queue&lt;string&gt; que;</span><br><span class="line">        que.<span class="built_in">push</span>(beginWord);</span><br><span class="line">        <span class="type">int</span> len = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            len ++;</span><br><span class="line">            <span class="type">int</span> n = que.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; n; k ++) &#123;</span><br><span class="line">                string t = que.<span class="built_in">front</span>();</span><br><span class="line">                que.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; t.<span class="built_in">length</span>(); i ++) &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="string">&#x27;a&#x27;</span>; j &lt;= <span class="string">&#x27;z&#x27;</span>; j ++) &#123;</span><br><span class="line">                        <span class="type">char</span> c = t[i];</span><br><span class="line">                        t[i] = j;</span><br><span class="line">                        <span class="keyword">if</span>(words.<span class="built_in">find</span>(t) != words.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                            <span class="keyword">if</span>(t == endWord) &#123;</span><br><span class="line">                                <span class="keyword">return</span> len;</span><br><span class="line">                            &#125;</span><br><span class="line">                            que.<span class="built_in">push</span>(t);</span><br><span class="line">                            words.<span class="built_in">erase</span>(t); <span class="comment">// this word is being used.</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        t[i] = c; <span class="comment">// replace it back</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> String </tag>
+            
+            <tag> BFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 1315. Sum of Nodes with Even-Valued Grandparent</title>
+      <link href="/2023/03/02/LeetCode-1315-Sum-of-Nodes-with-Even-Valued-Grandparent/"/>
+      <url>/2023/03/02/LeetCode-1315-Sum-of-Nodes-with-Even-Valued-Grandparent/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/">1315. Sum of Nodes with Even-Valued Grandparent</a></p><h2 id="Analysis">Analysis</h2><p>This is a normal tree traverse by layer problem.</p><p>But in DFS, we can not directly find its grandson or grandparent. So we can use the parent to represent grandparent.</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;pair&lt;TreeNode*, <span class="type">bool</span>&gt;&gt; que;</span><br></pre></td></tr></table></figure><p>The second element of pair represents the status of it’s parent node status.</p><p>if the second element is true, then it means its parent is an even node, so we add its son node value into the sum if it has left or right child.</p><p>And to start, the root node has no parent so its parent status should be false.</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sumEvenGrandparent</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        queue&lt;pair&lt;TreeNode*, <span class="type">bool</span>&gt;&gt; que;</span><br><span class="line">        que.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(root, <span class="literal">false</span>));</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">int</span> isEven = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(t.first-&gt;val % <span class="number">2</span> == <span class="number">0</span>) isEven = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(t.first-&gt;left) &#123;</span><br><span class="line">                <span class="keyword">if</span>(t.second == <span class="literal">true</span>) &#123;</span><br><span class="line">                    sum += t.first-&gt;left-&gt;val;</span><br><span class="line">                &#125;</span><br><span class="line">                que.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(t.first-&gt;left, isEven));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(t.first-&gt;right) &#123;</span><br><span class="line">                <span class="keyword">if</span>(t.second == <span class="literal">true</span>) &#123;</span><br><span class="line">                    sum += t.first-&gt;right-&gt;val;</span><br><span class="line">                &#125;</span><br><span class="line">                que.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(t.first-&gt;right, isEven));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Graph </tag>
+            
+            <tag> BFS </tag>
+            
+            <tag> Binary Tree </tag>
+            
+            <tag> Tree </tag>
+            
+            <tag> Queue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring6 Transaction JDBCTemplate</title>
+      <link href="/2023/03/01/Spring6-Transaction-JDBCTemplate/"/>
+      <url>/2023/03/01/Spring6-Transaction-JDBCTemplate/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring6 Unit Testing: JUnit-Spring</title>
       <link href="/2023/03/01/Spring6-Unit-test-JUnit-Spring/"/>
       <url>/2023/03/01/Spring6-Unit-test-JUnit-Spring/</url>
