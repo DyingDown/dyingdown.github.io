@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode 19. Remove Nth Node From End of List</title>
+      <link href="/2023/03/15/LeetCode-19-Remove-Nth-Node-From-End-of-List/"/>
+      <url>/2023/03/15/LeetCode-19-Remove-Nth-Node-From-End-of-List/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">19. Remove Nth Node From End of List</a></p><h2 id="Analysis">Analysis</h2><p>Use two pointers, we let them always have a distance of n, so when right pointer reach the end, the left pointer is the last $n^{th}$ node.</p><p>Of course there are some extreme situations like there is only one node, we need to remove them to return null. In order to make this case fit in one universal method, we can add a dummy head.</p><h2 id="Code">Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummyHead-&gt;next = head;</span><br><span class="line">        ListNode* fast = dummyHead, *slow = dummyHead;</span><br><span class="line">        <span class="keyword">while</span>(n --) &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(fast-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummyHead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> List </tag>
+            
+            <tag> Two Pointers </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 301. Remove Invalid Parentheses</title>
       <link href="/2023/03/15/LeetCode-301-Remove-Invalid-Parentheses/"/>
       <url>/2023/03/15/LeetCode-301-Remove-Invalid-Parentheses/</url>
