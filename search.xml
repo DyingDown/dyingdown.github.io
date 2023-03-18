@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>LeetCode 22. Generate Parentheses</title>
+      <link href="/2023/03/18/LeetCode-22-Generate-Parentheses/"/>
+      <url>/2023/03/18/LeetCode-22-Generate-Parentheses/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/generate-parentheses/">https://leetcode.com/problems/generate-parentheses/</a></p><h2 id="Analysis">Analysis</h2><p>Imagine we already have the all the well formed parentheses in 0 pairs to n-1 pairs.  We can get the n pairs of parentheses by combining  the x pairs  with n-1-x pairs then combine with one pair “()”.</p><p>Why we have to separately consider the single brackets is because we can not just combine the x pairs and n-x pairs to make new well-formed parentheses. We may miss some situations.</p><p>We may not think of the well-formed n-1 pairs combine with one pair, but one pair combine with the n-1 pairs.</p><p>We can easily see that there is only three place to insert the n-1 pairs.</p><p><code>_1_(_2_)_3_</code>  the first and third place are duplicate, we can just select the third place.</p><p>now what we do is to put our x pairs an n-x-1 pairs in to the blanks.</p><p>At first, 0 pair and 1 pair parentheses has only one combination: <code>&#123;&quot;&quot;&#125;, &#123;&quot;()&quot;&#125;</code>, with this, we can get the 2 pairs parentheses and then all the way to n pairs.</p><h2 id="Code">Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; brackets = &#123;&#123;<span class="string">&quot;&quot;</span>&#125;, &#123;<span class="string">&quot;()&quot;</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">            vector&lt;string&gt; t;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> k : brackets[j]) &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> l : brackets[i - j - <span class="number">1</span>]) &#123;</span><br><span class="line">                        t.<span class="built_in">push_back</span>(<span class="string">&quot;(&quot;</span> + k + <span class="string">&quot;)&quot;</span> + l);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            brackets.<span class="built_in">push_back</span>(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> brackets[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 5. Longest Palindromic Substring</title>
       <link href="/2023/03/16/LeetCode-5-Longest-Palindromic-Substring/"/>
       <url>/2023/03/16/LeetCode-5-Longest-Palindromic-Substring/</url>
