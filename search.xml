@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Unable to deploy hexo blog using another git account</title>
+      <link href="/2023/04/16/Unable-to-deploy-hexo-blog-using-another-git-account/"/>
+      <url>/2023/04/16/Unable-to-deploy-hexo-blog-using-another-git-account/</url>
+      
+        <content type="html"><![CDATA[<p>I’ve ran into a problem recently while deploying my HEXO blog to GitHub.</p><span id="more"></span><h2 id="Problem-Description">Problem Description</h2><p>First, I have two GitHub account, and I want to push one blog folder to one account and another folder to another account.</p><p>But somehow, I can’t deploy it because it use my number 1 account for number two folder.</p><p>I’ve already add ssh-key to the second GitHub account.</p><h3 id="Tried-methods">Tried methods</h3><ul><li><p>change the local git account</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> user.name <span class="string">&quot;hexo-theme-last&quot;</span></span><br><span class="line">git config --<span class="built_in">local</span> user.email <span class="string">&quot;xxx@xxx.com&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>change the global git account</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;hexo-theme-last&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxx@xxx.com&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>Set the email and user in <code>_config.yml</code> file in blog root directory.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:hexo-theme-last/hexo-theme-last.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">hexo-theme-last</span></span><br><span class="line">  <span class="attr">email:</span> <span class="number">2061026079</span><span class="string">@qq.com</span></span><br></pre></td></tr></table></figure></li><li><p>deploy with pamaraters</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -u hexo-theme-last -e xxx@xx.com</span><br></pre></td></tr></table></figure></li></ul><p>The weird things is that no matter how I change, it will still use my first account to deploy.</p><p>And then I test the ssh connection, create a <code>config</code> file in <code>.ssh</code> directory</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host github2</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile /home/o_oyao/.ssh/id_rsa_last</span><br><span class="line"></span><br><span class="line">Host o_oyao</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile /home/o_oyao/.ssh/id_rsa</span><br></pre></td></tr></table></figure><p>And then I run this command, it works well.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T github2</span><br><span class="line">Hi hexo-theme-last! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure><p>But if I run this, it will use the first account ssh as default.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi DyingDown! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure><h2 id="Solution">Solution</h2><p>Because I want to test whether is only hexo using old account or git using old account, I pushed the original code to the second GitHub account(hexo-theme-last).</p><p>Then I realize it need a <code>personal access token</code></p><p>Finally, I solve this problem by using <code>personal access token</code> in hexo <code>_config.yml</code> file.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://my-personal-access-token/github.com/hexo-theme-last/hexo-theme-last.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">hexo-theme-last</span></span><br><span class="line">  <span class="attr">email:</span> <span class="string">xxx@xx.com</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+          <category> Error </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+            <tag> Git </tag>
+            
+            <tag> deploy </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring6 Resource Operation</title>
       <link href="/2023/04/06/Spring6-Resource-Operation/"/>
       <url>/2023/04/06/Spring6-Resource-Operation/</url>
