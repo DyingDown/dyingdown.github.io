@@ -386,3 +386,23 @@ ScrollBar:
 
     ![gradiant color scrollbar](../assets/images/config/scrollbar-gradient.png)
 
+
+## 消息弹窗
+
+```yaml
+alertStyle:
+  colorBackground: false # false will use page's background
+  position: right # right, center, left
+```
+
+=== "right"
+
+    ![right normal alert](../assets/images/config/alert-right.gif)
+
+=== "left"
+
+    ![left color background alert](../assets/images/config/alert-color-left.gif)
+
+=== "center"
+
+    ![center normal alert](../assets/images/config/alert-center.gif)
