@@ -1,0 +1,27 @@
+<div class="book-content">
+
+    <h3>FACTORIAL OF 2</h3>
+
+    <pre>
+int getFactorialofTwo(int n) {  // n > 0
+    return 1 << n;  // 2 的 n 次方
+}
+</pre>
+    <h3>IS FACTORIAL OF 2</h3>
+    <pre>
+bool isFactorialofTwo(int n) {
+    return n > 0 ? (n & (n - 1)) == 0 : false;
+    // return n > 0 && (n & (n - 1)) == 0; simple way
+    /* 如果是 2 的幂，n 一定是 100... n-1 就是 1111.... 所以做与运算结果为 0 */
+} 
+</pre>
+
+    <h3>AVERAGE OF TOW NUMBERS</h3>
+
+    <pre>
+int getAverage(int x, int y) {
+    return (x + y) >> 1;
+}      
+    </pre>
+</div>
+<span class="page-number">27</span>

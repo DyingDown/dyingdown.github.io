@@ -1,0 +1,31 @@
+<div class="book-content">
+
+    <pre>
+            printf("%d",a[i][j]); 
+        }
+        printf("\n");
+    }
+}
+</pre>
+
+    <h1>CONGRUENCE EQUATION</h1>
+
+    <pre>
+Equation : ax ≡ b (mod c)
+
+int ex_gcd(int a, int b, int& x, int& y) {
+    if (b == 0) {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    int d = ex_gcd(b, a % b, x, y);
+    int temp = x;
+    x = y;
+    y = temp - a / b * y;
+    return d;
+}
+bool liEu(int a, int b, int c, int& x, int& y) { 
+    </pre>
+</div>
+<span class="page-number">32</span>
