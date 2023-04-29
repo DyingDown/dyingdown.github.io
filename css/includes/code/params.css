@@ -40,6 +40,7 @@ figure table {
   border-collapse: collapse;
   background: #1d1f21;
   overflow-x: scroll;
+  width: 100%;
 }
 .highlight {
   position: relative;
@@ -77,10 +78,6 @@ figure table {
 .highlight td.gutter pre {
   text-align: right;
   color: #888f96 !important;
-}
-figure table {
-  width: 100%;
-  overflow-x: scroll !important;
 }
 .highlight td {
   padding: 0px;

@@ -50,6 +50,7 @@ figure table {
   border-collapse: collapse;
   background: #1d1f21;
   overflow-x: scroll;
+  width: 100%;
 }
 .highlight {
   position: relative;
@@ -87,10 +88,6 @@ figure table {
 .highlight td.gutter pre {
   text-align: right;
   color: #888f96 !important;
-}
-figure table {
-  width: 100%;
-  overflow-x: scroll !important;
 }
 .highlight td {
   padding: 0px;
@@ -650,6 +647,9 @@ width: 100% {
   max-width: 100%;
   overflow-x: auto;
   margin-bottom: 30px;
+}
+#post .highlight table {
+  margin: 0;
 }
 #post-content h1 {
   margin-block-start: 0.67em;
