@@ -3,11 +3,6 @@
   src: url("/font-awesome/webfonts/fa-solid-900.eot");
   src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
 }
-@font-face {
-  font-family: "fontawesome";
-  src: url("/font-awesome/webfonts/fa-solid-900.eot");
-  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
-}
 .side-user {
   border-top: 2px #d31b29 solid;
   -webkit-box-shadow: 1px 0 5px rgba(100,100,100,0.4);
@@ -61,20 +56,20 @@
 }
 #payment-code {
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: #fff;
   color: #fff;
   float: left;
   display: none;
 }
 .qr-description {
-  color: #fff;
+  color: #808080;
   font-size: 20px;
   line-height: 30px;
-  margin-top: 35px;
+  margin-top: 30px;
   text-align: center;
 }
 .pay-code {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   width: 50%;
   margin-left: 25%;
@@ -83,7 +78,7 @@
   display: flex;
   justify-content: space-around;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .wechat,
 .alipay {
