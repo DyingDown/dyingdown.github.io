@@ -250,6 +250,11 @@ postStyle:
   authorInfoPosition: right
   contentStyle: github
   color: "default"
+  codeStyle:
+    style: mac # mac, tab
+    colorSet: sakura-light # sakura, sakura-light
+    # dark style or light style. This is only applied to styles not colorSet
+    light: true # false, true
 ```
 
 - `authorInfoPosition`：是目录和个人简介头像的位置，有左、右两个位置
@@ -271,9 +276,25 @@ postStyle:
 
 - `color`：文章页面的主题颜色
 
-  - 默认就是`default`
-  - 还可以填入颜色的名字，是在`css`里面可用的颜色名字
-  - 可以填入`#XXXXXX`，以`#`开头的以十六进制的颜色
+    - 默认就是`default`
+    - 还可以填入颜色的名字，是在`css`里面可用的颜色名字
+    - 可以填入`#XXXXXX`，以`#`开头的以十六进制的颜色
+
+- `codeStyle`: 代码块样式
+
+    - style: 代码块的样式
+    - colorSet: 代码颜色主题
+    - light: 是不是浅色
+
+	=== "mac-dark"
+		![mac-dark.png](../assets/images/config/mac-dark.png)
+	=== "mac-light"
+		![mac-light.png](../assets/images/config/mac-light.png)
+	=== "tab-dark"
+		![tab-dark.png](../assets/images/config/tab-dark.png)
+	=== "tab-light"
+		![tab-light.png](../assets/images/config/tab-light.png)
+
 
 ### 版权信息
 
@@ -306,6 +327,7 @@ copyright:
 === "自定义+simple: false"
 
     ![full license](../assets/images/config/license-red.png)
+
 
 ## Paginator分页
 

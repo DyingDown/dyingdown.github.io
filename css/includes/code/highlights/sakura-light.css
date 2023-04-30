@@ -1,28 +1,25 @@
 pre {
-  color: #fff;
-}
-pre ::selection {
-  background-color: #808080;
+  color: #808080;
 }
 .comment,
 .quote {
-  color: #888f96;
+  color: #d3d3d3;
   font-style: italic;
 }
 .doctag,
 .formula,
 .keyword {
-  color: #c678dd;
+  color: #b4009e;
 }
 .deletion,
 .name,
 .section,
 .selector-tag,
 .subst {
-  color: #e06c75;
+  color: #ea6a74;
 }
 .literal {
-  color: #56b6c2;
+  color: #3a96dd;
 }
 .addition,
 .attribute,
@@ -33,7 +30,7 @@ pre ::selection {
 }
 .built_in,
 .class .title {
-  color: #e6c07b;
+  color: #e59f27;
 }
 .attr,
 .number,
@@ -43,7 +40,7 @@ pre ::selection {
 .template-variable,
 .type,
 .variable {
-  color: #d19a66;
+  color: #e59f27;
 }
 .bullet,
 .meta,

@@ -1118,6 +1118,11 @@
 <span class="w">  </span><span class="nt">authorInfoPosition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span>
 <span class="w">  </span><span class="nt">contentStyle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github</span>
 <span class="w">  </span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
+<span class="w">  </span><span class="nt">codeStyle</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mac</span><span class="w"> </span><span class="c1"># mac, tab</span>
+<span class="w">    </span><span class="nt">colorSet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sakura-light</span><span class="w"> </span><span class="c1"># sakura, sakura-light</span>
+<span class="w">    </span><span class="c1"># dark style or light style. This is only applied to styles not colorSet</span>
+<span class="w">    </span><span class="nt">light</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># false, true</span>
 </code></pre></div>
 <ul>
 <li>
@@ -1151,12 +1156,36 @@
 </li>
 <li>
 <p><code>color</code>：文章页面的主题颜色</p>
-</li>
-<li>
-<p>默认就是<code>default</code></p>
-</li>
+<ul>
+<li>默认就是<code>default</code></li>
 <li>还可以填入颜色的名字，是在<code>css</code>里面可用的颜色名字</li>
 <li>可以填入<code>#XXXXXX</code>，以<code>#</code>开头的以十六进制的颜色</li>
+</ul>
+</li>
+<li>
+<p><code>codeStyle</code>: 代码块样式</p>
+<ul>
+<li>style: 代码块的样式</li>
+<li>colorSet: 代码颜色主题</li>
+<li>light: 是不是浅色</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:4"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">mac-dark</label><label for="__tabbed_8_2">mac-light</label><label for="__tabbed_8_3">tab-dark</label><label for="__tabbed_8_4">tab-light</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="mac-dark.png" src="../assets/images/config/mac-dark.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="mac-light.png" src="../assets/images/config/mac-light.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="tab-dark.png" src="../assets/images/config/tab-dark.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="tab-light.png" src="../assets/images/config/tab-light.png" /></p>
+</div>
+</div>
+</div>
+</li>
 </ul>
 <h3 id="_21">版权信息</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">copyright</span><span class="p">:</span>
@@ -1175,7 +1204,7 @@
 <li><code>icon</code>该license的font awesome 的 icon名称</li>
 </ul>
 <p>其中复杂样式里面的图案，可替换<code>/img/license-decoration.png</code> 图案，达到自定义的效果。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">simple: on</label><label for="__tabbed_8_2">simple: false</label><label for="__tabbed_8_3">自定义+simple: false</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">simple: on</label><label for="__tabbed_9_2">simple: false</label><label for="__tabbed_9_3">自定义+simple: false</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="simple license" src="../assets/images/config/license-simple.png" /></p>
@@ -1192,7 +1221,7 @@
 <h3 id="_22">多文章分页</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">paginationNumberBackground</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">true</label><label for="__tabbed_9_2">false</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">true</label><label for="__tabbed_10_2">false</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="paginator-multi-background" src="../assets/images/config/paginator-multi-background.png" /></p>
@@ -1205,7 +1234,7 @@
 <h3 id="_23">单文章分页</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">postPagePaginationStyle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">card</span><span class="w"> </span><span class="c1"># normal  picture  card</span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">card</label><label for="__tabbed_10_2">picure</label><label for="__tabbed_10_3">normal</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">card</label><label for="__tabbed_11_2">picure</label><label for="__tabbed_11_3">normal</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="card" src="../assets/images/config/paginator-post-card.png" /></p>
@@ -1220,7 +1249,7 @@
 </div>
 <h2 id="_24">滚动</h2>
 <h3 id="_25">回到顶部</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">配置</label><label for="__tabbed_11_2">预览</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">配置</label><label for="__tabbed_12_2">预览</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">SideButtons</span><span class="p">:</span>
@@ -1261,7 +1290,7 @@
 <p><code>gradient</code>: 滚动条会从<code>color1</code>渐变到<code>color2</code></p>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">bicolor</label><label for="__tabbed_12_2">simple</label><label for="__tabbed_12_3">gradient</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">bicolor</label><label for="__tabbed_13_2">simple</label><label for="__tabbed_13_3">gradient</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="double color scrollbar" src="../assets/images/config/scrollbar-bicolor.png" /></p>
@@ -1279,7 +1308,7 @@
 <span class="w">  </span><span class="nt">colorBackground</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># false will use page&#39;s background</span>
 <span class="w">  </span><span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span><span class="w"> </span><span class="c1"># right, center, left</span>
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">right</label><label for="__tabbed_13_2">left</label><label for="__tabbed_13_3">center</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">right</label><label for="__tabbed_14_2">left</label><label for="__tabbed_14_3">center</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="right normal alert" src="../assets/images/config/alert-right.gif" /></p>

@@ -207,6 +207,7 @@ color:#2b2b2b;
   border: 2px solid rgba(211,27,41,0.5);
   background: rgba(211,27,41,0.1);
   border-radius: 20px;
+  letter-spacing: -2px !important;
 }
 /* 引用
 * 左边缘颜色 border-left-color:black;
