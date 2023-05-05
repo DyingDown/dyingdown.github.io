@@ -205,7 +205,7 @@ body.post #menu-outer .menu #nav li a {
 .site-name #site-logo:hover .rest-content {
   fill: #d31b29;
 }
-.this-is-post-page + #menu-outer #site-logo {
+body.post > #menu-outer #site-logo {
   fill: #808080;
 }
 /************* search function **************/
