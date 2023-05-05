@@ -25,6 +25,7 @@
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   pointer-events: none;
+  letter-spacing: 0px;
 }
 .code-block-header .codeblock-buttons {
   diplay: inline;
@@ -191,6 +192,9 @@ pre ::selection {
 }
 .serif {
   font-family: 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', 'PT Serif', 'SongTi SC', 'MicroSoft Yahei', Georgia, serif;
+}
+.code-block-header {
+  user-select: none;
 }
 .code-block-fullscreen {
   position: fixed;
@@ -650,6 +654,9 @@ width: 100% {
 #post .highlight table {
   margin: 0;
 }
+#post .highlight table pre {
+  letter-spacing: 0px;
+}
 #post-content h1 {
   margin-block-start: 0.67em;
   margin-block-end: 0.67em;
@@ -711,7 +718,7 @@ width: 100% {
 #post-content table tr th,
 #post-content table tr td {
   text-align: center;
-  padding: 5px 8px;
+  padding: 5px 15px;
 }
 #bottom-inner {
   border-color: #ddd;

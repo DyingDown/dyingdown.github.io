@@ -1,6 +1,9 @@
 pre {
   color: #808080;
 }
+pre ::selection {
+  background-color: #d3d3d3;
+}
 .comment,
 .quote {
   color: #d3d3d3;

@@ -34,7 +34,7 @@
 .local-search-result-cls::-webkit-scrollbar-track {
   border-radius: 10px;
 }
-.this-is-post-page +#menu-outer .local-search-result-cls {
+body.post > #menu-outer .local-search-result-cls {
   background-color: #fff;
 }
 .local-search-empty {

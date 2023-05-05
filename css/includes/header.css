@@ -38,7 +38,7 @@
 .local-search-result-cls::-webkit-scrollbar-track {
   border-radius: 10px;
 }
-.this-is-post-page +#menu-outer .local-search-result-cls {
+body.post > #menu-outer .local-search-result-cls {
   background-color: #fff;
 }
 .local-search-empty {
@@ -65,15 +65,11 @@
   color: #d31b29;
   font-weight: bold;
 }
-.this-is-post-page,
-.this-is-home-page {
-  display: none;
-}
 #menu-outer a {
   text-decoration: none;
   color: #fff;
 }
-.this-is-post-page + #menu-outer a {
+body.post > #menu-outer a {
   color: #808080;
 }
 #menu-outer a:hover {
@@ -94,13 +90,13 @@
   z-index: 10;
   border: solid #d3d3d3 0px;
 }
-.this-is-post-page + #menu-outer {
+body.post > #menu-outer {
   -webkit-box-shadow: 1px 0 5px #afafaf;
   box-shadow: 1px 0 5px #afafaf;
   color: #808080;
   background-color: #fff;
 }
-.this-is-home-page + #menu-outer {
+body.home > #menu-outer {
   background-color: transparent;
 }
 #menu-outer.sticky {
@@ -112,7 +108,7 @@
 .newMenuOuterColor {
   background-color: #191919 !important;
 }
-.this-is-post-page + .newMenuOuterColor {
+body.post > .newMenuOuterColor {
   background-color: #fff !important;
 }
 /*********** left nav icon  ***********/
@@ -129,7 +125,7 @@
   transition: 0.5s;
   transform-origin: left center;
 }
-.this-is-post-page + #menu-outer .menu .menu-icon li {
+body.post > #menu-outer .menu .menu-icon li {
   background-color: #d31b29;
 }
 .menu .menu-icon li:nth-child(1) {
@@ -167,7 +163,7 @@
   transition: 0.3s;
   padding: 35px 0px;
 }
-.this-is-post-page + #menu-outer .menu #nav {
+body.post > #menu-outer .menu #nav {
   background-color: #fff;
 }
 .menu-avatar {
@@ -185,7 +181,7 @@
   line-height: 45px;
   font-size: 20px;
 }
-.this-is-post-page + #menu-outer .menu #nav li a {
+body.post #menu-outer .menu #nav li a {
   font-size: 16px;
 }
 .newNav {
@@ -230,7 +226,7 @@
   width: 0;
   padding: 0;
 }
-.this-is-post-page + #menu-outer .search #local-search-input {
+body.post #menu-outer .search #local-search-input {
   color: #808080;
 }
 .search-icon {
@@ -247,7 +243,7 @@
   transition: 0.4s;
   text-decoration: none;
 }
-.this-is-post-page + #menu-outer .search-icon {
+body.post > #menu-outer .search-icon {
   color: #d31b29;
 }
 #menu-outer .search:hover #local-search-input,
@@ -340,7 +336,7 @@
     -moz-animation: fadeInUp 0.3s 0.1s ease both;
     z-index: 2;
   }
-  .this-is-post-page + #menu-outer .submenu-items {
+  body.post > #menu-outer .submenu-items {
     background-color: #fff;
     border: solid #d3d3d3 1px;
     -webkit-box-shadow: 1px 0 5px #afafaf;
@@ -359,11 +355,11 @@
     margin: auto;
     z-index: 100;
   }
-  .this-is-post-page +#menu-outer .submenu-items::before {
+  body.post > #menu-outer .submenu-items::before {
     border-bottom-color: #fff;
     z-index: 0;
   }
-  .this-is-post-page +#menu-outer .submenu-items::after {
+  body.post > #menu-outer .submenu-items::after {
     content: "";
     position: absolute;
     width: 0;
