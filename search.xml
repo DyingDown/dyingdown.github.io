@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode 135. Candy</title>
+      <link href="/2023/06/20/LeetCode-135-Candy/"/>
+      <url>/2023/06/20/LeetCode-135-Candy/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/candy/description/?envType=study-plan-v2&amp;envId=top-interview-150">135. Candy</a></p><h2 id="Analysis">Analysis</h2><p>This problem can be see as finding peak and valley.</p><p>From the requirements, we can see that,</p><ul><li>each child have one candy at least</li><li>if this child has higher rating than his neighbor, in order to make the minimum candy, we need to only gave this child one candy more than his neighbor.</li><li>If the child has same rating as his neighbor, he doesn’t need to have the same candy as his neighbor, so he only has one candy in order to make the minimum candy.</li></ul><p>If the rating is in ascending order, then the candy number should be 1, 2, …, n, the total candy is 1 + 2 + … + n;</p><p>If rating is in descending order, then the candy number should be n, n-1, … 1, the total candy is n + (n-1) + … + 1; So in the descending case, it is just the reverse of the ascending case.</p><h3 id="Code-steps">Code steps</h3><p>Let’s taking the [4, 5, 6, 7, 4, 2] as an example;</p><p>the ascending length is 4 and the descending length is 3;</p><p>So for each part, if we count the peak 7 twice, then the total candy should be 6 + (1 + 2 + 3) + (1 + 2);</p><p>We can see from that the peak 7 have 4 candy and also three candy. In order to make both part valid, we need to remove the smaller one(3). So the total candy should be 6 + (1 + 2 + 3) + (1 + 2) - min(peak, valley);</p><p>For the valley case, [6, 4, 3, 5, 7, 8, 9], when we count to the bottom of the valley 3, we didn’t add candy to total, so there is no double count for the case.</p><p>So we need to start checking the peak in order to remove the redundant count.</p><ol><li>according to first requirements, we first gave each child 1 candy. So we set the <code>totalCandy = nums.size()</code></li><li>Then we loop each child, starting from the second child.<ol><li>If the child rating is same as the previous child, then this child will have only 1 candy. Since we already gave the base candy to each child, then we can just continue in this case;</li><li>loop to find the length of the ascending subarray.  add the length to the total.</li><li>loop to find the length of the descending subarray, add the length to the total.</li><li>minus the redundant count.</li></ol></li></ol><h3 id="Code">Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">candy</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; ratings)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> totalCandies = ratings.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; ratings.<span class="built_in">size</span>(); ) &#123;</span><br><span class="line">            <span class="keyword">if</span>(ratings[i] == ratings[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> peak = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; ratings.<span class="built_in">size</span>() &amp;&amp; ratings[i] &gt; ratings[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                peak ++;</span><br><span class="line">                totalCandies += peak;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> valley = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; ratings.<span class="built_in">size</span>() &amp;&amp; ratings[i] &lt; ratings[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                valley ++;</span><br><span class="line">                totalCandies += valley;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">            totalCandies -= <span class="built_in">min</span>(peak, valley);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> totalCandies;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Greedy </tag>
+            
+            <tag> Array </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unable to deploy hexo blog using another git account</title>
       <link href="/2023/04/16/Unable-to-deploy-hexo-blog-using-another-git-account/"/>
       <url>/2023/04/16/Unable-to-deploy-hexo-blog-using-another-git-account/</url>
