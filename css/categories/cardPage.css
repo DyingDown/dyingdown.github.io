@@ -788,28 +788,28 @@
 .space {
   color: #000;
 }
-#post-DD .post-title {
+#post-2P .post-title {
   color: #6b8033 !important;
 }
-#post-DD .box-body h2 {
+#post-2P .box-body h2 {
   color: #6b8033;
 }
-#post-DD .box-body .tags a {
+#post-2P .box-body .tags a {
   color: #6b8033;
   border: 1px solid #6b8033;
 }
-#post-DD .box-body .tags a:hover {
+#post-2P .box-body .tags a:hover {
   color: #fff;
   background: #6b8033;
 }
-#post-DD .ribbon .ri {
+#post-2P .ribbon .ri {
   background-color: #6b8033;
 }
-#post-DD .ribbon .ri:before {
+#post-2P .ribbon .ri:before {
   border-left: 3px solid #4b5a24;
   border-top: 3px solid #4b5a24;
 }
-#post-DD .ribbon .ri:after {
+#post-2P .ribbon .ri:after {
   border-right: 3px solid #4b5a24;
   border-top: 3px solid #4b5a24;
 }

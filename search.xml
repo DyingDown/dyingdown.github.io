@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>LeetCode 42. Trapping Rain Water</title>
+      <link href="/2023/06/21/LeetCode-42-Trapping-Rain-Water/"/>
+      <url>/2023/06/21/LeetCode-42-Trapping-Rain-Water/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem-Description">Problem Description</h2><p><a href="https://leetcode.com/problems/trapping-rain-water/description/?envType=study-plan-v2&amp;envId=top-interview-150">42. Trapping Rain Water</a></p><h2 id="Analysis">Analysis</h2><p>We can calculate the water amount by columns.</p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202306211951265.png" alt=""></p><p>For position <code>i</code>, the water it can contains is based on the left max height column and the right max height columns.  And because the capacity of a barrel is determined by the shortest plank it has. So,</p><p>The water amount for position <code>i = min(left max height, right max height) - height[i]</code></p><p>Basically, our goal is to find the maximum value on the left and right side for each index.</p><h3 id="Method-1-DP">Method 1: DP</h3><p>Traverse the the array twice and store the left and right maxs in two same length arrays.</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> water = <span class="number">0</span>, n = height.<span class="built_in">size</span>();</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">leftMaxArr</span><span class="params">(n)</span>, <span class="title">rightMaxArr</span><span class="params">(n)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n - <span class="number">1</span>; i ++) &#123;</span><br><span class="line">    leftMaxArr[i] = <span class="built_in">max</span>(height[i - <span class="number">1</span>], leftMaxArr[i - <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">1</span>; i --) &#123;</span><br><span class="line">    rightMaxArr[i] = <span class="built_in">max</span>(height[i + <span class="number">1</span>], rightMaxArr[i + <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; height.<span class="built_in">size</span>()<span class="number">-1</span>; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(height[i] &lt; leftMaxArr[i] <span class="keyword">and</span> height[i] &lt; rightMaxArr[i]) &#123;</span><br><span class="line">        water += <span class="built_in">min</span>(leftMaxArr[i], rightMaxArr[i]) - height[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Method-2-Two-Pointers">Method 2: Two Pointers</h3><p>Noticed that each maxs in the vector only used once, so we can try to remove the extra space to use only two variable to store it.</p><p>It’s easy for the left maxs. we can just let the int variable leftMax change when traversing the heights.</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> leftMax = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; height.<span class="built_in">size</span>()<span class="number">-1</span>; i ++) &#123;</span><br><span class="line">    leftMax = <span class="built_in">max</span>(leftMax, height[i<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">if</span>(height[i] &lt; leftMaxArr[i] <span class="keyword">and</span> height[i] &lt; rightMaxArr[i]) &#123;</span><br><span class="line">        water += <span class="built_in">min</span>(leftMax, rightMaxArr[i]) - height[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>But we cannot do the same for the maximum value on the right side because finding the maximum value on the right requires searching from the first element on the right to the far right in order to determine it. So, we need to use two pointers and start traversing from both the left and right sides simultaneously.</p><p>After each update of the left and right pointers, we also calculate the current maximum values on the left and right sides. And we count the first initiate as one update, so in the loop, we start from calculating the current maximum left and right values.</p><p>For each update, we need to decide the min of leftMax and rightMax in order to calculate the acount of water for index i(maybe left, or right) .</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> water = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> leftMax = <span class="number">0</span>, rightMax = <span class="number">0</span>,</span><br><span class="line">            left = <span class="number">0</span>, right = height.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            leftMax = <span class="built_in">max</span>(leftMax, height[left]);</span><br><span class="line">            rightMax = <span class="built_in">max</span>(rightMax, height[right]);</span><br><span class="line">            <span class="keyword">if</span>(leftMax &lt; rightMax) &#123;</span><br><span class="line">                <span class="keyword">if</span>(height[left] &lt; leftMax) &#123;</span><br><span class="line">                    water += leftMax - height[left];</span><br><span class="line">                &#125;</span><br><span class="line">                left ++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(height[right] &lt; rightMax) &#123;</span><br><span class="line">                    water += rightMax - height[right];</span><br><span class="line">                &#125;</span><br><span class="line">                right --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> water;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DP </tag>
+            
+            <tag> Two Pointers </tag>
+            
+            <tag> Array </tag>
+            
+            <tag> 2P </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 135. Candy</title>
       <link href="/2023/06/20/LeetCode-135-Candy/"/>
       <url>/2023/06/20/LeetCode-135-Candy/</url>
@@ -1981,9 +2012,9 @@
             
             <tag> Logic </tag>
             
-            <tag> LeetCode </tag>
+            <tag> Two Pointers </tag>
             
-            <tag> Two pointers </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
