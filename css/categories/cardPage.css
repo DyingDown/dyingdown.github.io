@@ -864,28 +864,28 @@
 .space {
   color: #000;
 }
-#post-EE .post-title {
+#post-SW .post-title {
   color: #fb7268 !important;
 }
-#post-EE .box-body h2 {
+#post-SW .box-body h2 {
   color: #fb7268;
 }
-#post-EE .box-body .tags a {
+#post-SW .box-body .tags a {
   color: #fb7268;
   border: 1px solid #fb7268;
 }
-#post-EE .box-body .tags a:hover {
+#post-SW .box-body .tags a:hover {
   color: #fff;
   background: #fb7268;
 }
-#post-EE .ribbon .ri {
+#post-SW .ribbon .ri {
   background-color: #fb7268;
 }
-#post-EE .ribbon .ri:before {
+#post-SW .ribbon .ri:before {
   border-left: 3px solid #f21606;
   border-top: 3px solid #f21606;
 }
-#post-EE .ribbon .ri:after {
+#post-SW .ribbon .ri:after {
   border-right: 3px solid #f21606;
   border-top: 3px solid #f21606;
 }
