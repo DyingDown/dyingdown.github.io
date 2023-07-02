@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>LeetCode 124. Binary Tree Maximum Path Sum</title>
+      <link href="/2023/07/01/LeetCode-124-Binary-Tree-Maximum-Path-Sum/"/>
+      <url>/2023/07/01/LeetCode-124-Binary-Tree-Maximum-Path-Sum/</url>
+      
+        <content type="html"><![CDATA[<h1>Problem Description</h1><p><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/description/?envType=study-plan-v2&amp;envId=top-interview-150">124. Binary Tree Maximum Path Sum</a></p><h1>Analysis</h1><p>To find the maximum path sum in a binary tree, we can use a recursive approach. The idea is to traverse the tree in a bottom-up manner and calculate the maximum path sum for each node.</p><p>We define a helper function <code>maxPathSumHelper(node)</code> that takes a node as input and returns one value:</p><ol><li>The maximum path sum starting from the given node, considering only the left or right child paths (if they are positive), or just the node’s value if both children have negative path sums.</li></ol><p>Then we calculate the path sum for each node as they are being considered as root node, and compare with the maximum answer.</p><p>Finally, we call the helper function <code>maxPathSumHelper(root)</code> on the root of the binary tree to obtain the maximum path sum.</p><h1>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> maxn = INT_MIN;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">maxPathSumHelper</span>(root);</span><br><span class="line">        <span class="keyword">return</span> maxn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxPathSumHelper</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">max</span>(<span class="built_in">maxPathSumHelper</span>(root-&gt;left), <span class="number">0</span>);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">max</span>(<span class="built_in">maxPathSumHelper</span>(root-&gt;right), <span class="number">0</span>);</span><br><span class="line">        maxn = <span class="built_in">max</span>(maxn, root-&gt;val + left + right);</span><br><span class="line">        <span class="keyword">return</span> root-&gt;val + <span class="built_in">max</span>(left, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DFS </tag>
+            
+            <tag> Binary Tree </tag>
+            
+            <tag> Tree </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 30. Substring with Concatenation of All Words</title>
       <link href="/2023/06/23/LeetCode-30-Substring-with-Concatenation-of-All-Words/"/>
       <url>/2023/06/23/LeetCode-30-Substring-with-Concatenation-of-All-Words/</url>
