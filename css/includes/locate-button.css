@@ -31,7 +31,9 @@
   background-color: #33a6dc;
 }
 #sideButtons #go-to-comment {
+  display: none;
   background-color: #e37a90;
+  display: none;
 }
 #vcomment ~ #sideButtons >#go-to-comment {
   display: inline-block;
