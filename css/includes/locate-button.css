@@ -1,35 +1,40 @@
-#back-to-top {
-  z-index: 15;
+#sideButtons {
   position: fixed;
-  right: -19px;
+  right: -3px;
   bottom: 45px;
-  background-color: #33a6dc;
-  padding: 10px 15px;
-  transform: rotate(-90deg);
-  color: #fff;
-  user-select: none;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  transform: rotate(-180deg);
+  display: flex;
+  justify-content: center;
 }
-#back-to-top:hover {
-  right: -13px;
-}
-#go-to-comment {
-  display: none;
-}
-#vcomment ~ #go-to-comment {
-  z-index: 15;
-  position: fixed;
-  right: -46px;
-  bottom: 140px;
-  padding: 10px 15px;
+#sideButtons #go-to-comment,
+#sideButtons #back-to-top {
+  position: relative;
+  padding: 15px 10px 15px 12px;
+  margin: 5px 0 5px -4px;
   font-size: 18px;
   color: #fff;
-  background-color: #e37a90;
-  transform: rotate(-90deg);
   user-select: none;
-  display: block;
+  left: 0;
+  transition: left 0.2s;
 }
-#vcomment ~ #go-to-comment:hover {
-  right: -40px;
+#sideButtons #go-to-comment:hover,
+#sideButtons #back-to-top:hover {
+  left: 4px;
+}
+#sideButtons #go-to-comment i ~ span,
+#sideButtons #back-to-top i ~ span {
+  margin-top: 6px;
+}
+#sideButtons #back-to-top {
+  background-color: #33a6dc;
+}
+#sideButtons #go-to-comment {
+  background-color: #e37a90;
+}
+#vcomment ~ #sideButtons >#go-to-comment {
+  display: inline-block;
 }
 @media only screen and (max-width: 900px) {
   #go-to-comment {
