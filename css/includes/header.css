@@ -381,6 +381,9 @@ body.post > #menu-outer .search-icon {
     margin: 0 !important;
     line-height: 40px !important;
   }
+  .subitem-name:hover a {
+    color: #d31b29 !important;
+  }
 @-webkit-keyframes fadeInUp {
     0% {
       opacity: 0;

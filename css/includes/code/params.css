@@ -199,6 +199,7 @@ pre ::selection {
   margin: 0;
   animation: elastic 1s;
   overflow: scroll;
+  transition: height 1s ease;
 }
 .code-block-fullscreen-html-scroll {
   overflow: hidden;
