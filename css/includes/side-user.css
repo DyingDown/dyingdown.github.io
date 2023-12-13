@@ -71,24 +71,25 @@
 .pay-code {
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 50%;
+  width: 150px;
   margin-left: 25%;
 }
 .payButtons {
   display: flex;
   justify-content: space-around;
-  font-size: 20px;
-  margin-bottom: 25px;
+  margin: 0 25px 25px;
 }
-.wechat,
-.alipay {
+.payButtons button {
   border-radius: 6px;
   color: #d31b29;
   border: solid 1px #d31b29;
   cursor: pointer;
   padding: 5px 10px;
+  font-size: 15px;
+  background-color: transparent;
+  padding: 5px 12px;
 }
-.newPayBt {
+.payButtons button.selected {
   background-color: #d31b29;
   color: #fff;
 }
