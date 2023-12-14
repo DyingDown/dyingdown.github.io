@@ -1,6 +1,18 @@
 ## Language
 
-Currently, only two languages are supported: Chinese (zh) and English (en), following the language specified in the _config.yml file at the root directory.
+Currently supported language list:
+
+- en: English
+- zh-cn: 简体中文
+- zh-tw: 繁體中文
+- es: Español (Spanish)
+- fr: Français (French)
+- de: Deutsch (German)
+- ja: 日本語 (Japanese)
+- ru: Русский (Russian)
+- ko: 한국어 (Korean)
+
+**Note: Only Chinese (Simplified and Traditional) and English are translated by the author; other languages are translated by AI.** 
 
 ## Top Menu Bar
 
