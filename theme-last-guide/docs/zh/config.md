@@ -150,7 +150,40 @@ since: 2019
 
 ## 首页样式
 
-#### 大图展示
+### 文章列表样式
+
+![](../assets/images/config/home-page-posts.png)
+
+每篇文章的配图可以自定义也可以使用默认配图。
+
+#### 自定义配图
+
+```md
+---
+title: 
+date: 
+tags: 
+postImage: https://s1.ax1x.com/2020/09/23/wX2BfU.jpg
+description: XXXX
+---
+```
+
+在每篇md文件的头部添加配置
+
+- `postImage`: 是自定义配图存储的位置
+- `desscription`: 是文章内容的简介，用于首页展示
+
+
+#### 默认文章封面
+
+``` yaml
+PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
+```
+
+没有给md文件配置`postImage`的，会默认使用`_config`中的配置
+
+
+### 大图展示
 
 ``` yaml
 homeCover:
@@ -161,6 +194,19 @@ homeCover:
 首页的图是否是固定的，不随着滑动而向上移动
 
 ### 首页的轮播图
+
+首页的轮播图又每篇文章的配图以及介绍组成。想设置轮播图需要先选出希望轮播的内容。
+
+在要轮播的文章的md文件头部添加信息
+
+```md
+---
+title: 
+date: 
+tags: 
+isCarousel: true
+---
+```
 
 === "配置"
 
@@ -228,12 +274,6 @@ clampLines: 8
 homeRowMaxItem: 6 ## 3-6
 ```
 一行最多展示几个文章，最大为6个，最小为3个
-
-### 默认文章封面
-
-``` yaml
-PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
-```
 
 ## 文章页面
 

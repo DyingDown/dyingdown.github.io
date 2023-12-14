@@ -150,7 +150,38 @@ Format: `XXX: "url_for(XXX)||icon name of XXX"`
 
 ## Homepage Style
 
-#### Large Image Display
+### Article List Style
+
+![](../assets/images/config/home-page-posts.png)
+
+The featured image for each article can be customized or you can use the default featured image.
+
+#### Custom Featured Image
+
+```
+---
+title: 
+date: 
+tags: 
+postImage: https://s1.ax1x.com/2020/09/23/wX2BfU.jpg
+description: XXXX
+---
+```
+
+Add this configuration to the header of each Markdown file:
+
+- `postImage`: Customized location for the featured image.
+- `desscription`: Brief description of the article for display on the homepage.
+
+#### Default Article Cover
+
+``` yaml
+PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
+```
+
+For Markdown files without a configured `postImage`, the default configuration from `_config` will be used.
+
+### Large Image Display
 
 ``` yaml
 homeCover:
@@ -161,6 +192,19 @@ homeCover:
 Specify whether the image on the homepage is fixed and does not move upward with scrolling.
 
 ### Homepage Carousel
+
+The homepage carousel is composed of the featured image and introduction of each article. To set up the carousel, you need to select the content you want to include.
+
+Add the following information to the header of the Markdown file for the articles you want to include in the carousel:
+
+``` 
+---
+title: 
+date: 
+tags: 
+isCarousel: true
+---
+```
 
 === "Configuration"
 
@@ -229,11 +273,6 @@ homeRowMaxItem: 6 ## 3-6
 ```
 Specifies the maximum number of articles displayed in a row on the homepage, ranging from 3 to 6.
 
-### Default Article Cover
-
-``` yaml
-PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
-```
 
 ## Article Page
 
