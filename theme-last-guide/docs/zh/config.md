@@ -67,13 +67,25 @@ aboutme: XXX
 
 ``` yaml
 donate:
-  on: true 
-  wechat: true
-  alipay: true
-  description: Like my post? 
+  on: true # false
+  methods:
+    - name: wechat
+      enabled: false 
+      description: WeChat
+      qrCode: /img/wechat.jpg
+    - name: alipay
+      enabled: true
+      description: Alipay
+      qrCode: /img/alipay.jpg
+    - name: zelle
+      enabled: true
+      description: Zelle®
+      qrCode: /img/zelle.jpg
+  defaultMethod: zelle
+  description: Like my post?
 ```
 
-直接把二维码放在`hexo-theme-last/source/img/`下面，命名为`wechat.jpg` 和`alipay.jpg`
+直接把二维码放在`hexo-theme-last/source/img/`下面，命名为`wechat.jpg` ，`zelle.jpg`和`alipay.jpg`
 
 #### 预览
 
@@ -357,21 +369,28 @@ postPagePaginationStyle: card # normal  picture  card
 
 ### 回到顶部
 
-=== "配置"
+```yaml
+SideButtons:
+  style: "both" # "icon", word", "both"
+  Top:
+    on: true
+    color: "#e37a90" # "#e37a90" hex color
+  Comment:
+    on: true
+    color: "#33a6dc" # "#33a6dc" hex color
+```
 
-    ```yaml
-    SideButtons:
-      Top:
-        on: true
-        color: "#e37a90" # "#e37a90" hex color
-      Comment:
-        on: true
-        color: "#33a6dc" # "#33a6dc" hex color
-    ```
+=== "both"
 
-=== "预览"
+    <img src="../assets/images/config/navigation-buttons-both.png" style="zoom: 47%;" />
+    
+=== "word"
 
-    ![back to top and comment button](../assets/images/config/back-top.png)
+    <img src="../assets/images/config/navigation-buttons-text.png" style="zoom: 47%;" />
+
+=== "icon"
+
+    <img src="../assets/images/config/navigation-buttons-icon.png" style="zoom: 47%;" />
 
 `Top`表示回到顶部，`Comment`表示到评论区。如果评论功能未开启，则默认不展示该按钮
 

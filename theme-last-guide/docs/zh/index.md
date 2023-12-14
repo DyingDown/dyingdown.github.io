@@ -1,5 +1,3 @@
-**目前主题由于重写，部分功能还没完善**
-
 ![site Preview](assets/images/config/carousel.png)
 
 ## 主题预览

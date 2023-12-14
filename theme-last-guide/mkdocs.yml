@@ -11,7 +11,7 @@ nav:
     - 第三方功能: functions.md
 
 theme:
-  language: zh
+  # language: zh
   name: material
   palette:
   - scheme: default
@@ -28,10 +28,34 @@ theme:
   features:
     - navigation.expand
     - navigation.top
-  logo: ../assets/images/favicon.png
+  logo: assets/images/favicon.png
 extra:
   homepage: https://hexo-theme-last.github.io
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+plugins:
+  - search
+  - minify
+  - i18n:
+      docs_structure: folder
+      languages:
+          - locale: en
+            default: false
+            name: English
+            build: true
+            nav:
+              - Introduction: index.md
+              - Install:
+                - Download: download.md
+                - Update: upgrade.md
+              - Usage: 
+                - Main Page: page.md
+                - Basic Configuration: config.md
+                - Third-party Functions: functions.md
+          - locale: zh
+            name: 中文
+            build: true
+            default: true
+      lang_switcher: true
