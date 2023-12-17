@@ -17,10 +17,13 @@
   text-align: center;
   font-size: 30px;
   padding: 40px 0;
-  color: #d31b29;
+}
+.period a {
+  color: #4870ac;
+  text-decoration: none;
 }
 .timeline-item {
-  border-left: 3px solid #d31b29;
+  border-left: 3px solid #4870ac;
   padding: 0 0 0 20px;
   flex-direction: column;
   display: flex;
@@ -37,13 +40,20 @@
 .timeline-item .timeline-content .post-content p {
   word-break: break-word;
 }
+.timeline-item .timeline-content .post-content p a {
+  color: #fff;
+}
 .timeline-item .timeline-content .post-content h3 a {
   font-size: 22px;
-  color: #d31b29;
+  color: #4870ac;
   text-decoration: none;
   line-height: 25px;
   display: block;
   margin: 10px 0;
+}
+.timeline-item .timeline-content .post-content h3:hover {
+  color: #4870ac;
+  text-decoration: underline;
 }
 .timeline-item:nth-of-type(2n) .timeline-info .post-time:after,
 .timeline-item:nth-of-type(2n+1) .timeline-info .post-time:after {
@@ -51,7 +61,7 @@
   width: 13px;
   height: 13px;
   background-color: #202020;
-  border: #d31b29 solid 4px;
+  border: #4870ac solid 4px;
   position: absolute;
   left: -11.5px;
   border-radius: 20px;
@@ -93,7 +103,7 @@
   }
   .timeline-item:nth-of-type(2n) .timeline-info,
   .timeline-item:nth-of-type(2n+1) .timeline-info {
-    border-right: #d31b29 solid 1.5px;
+    border-right: #4870ac solid 1.5px;
     padding-right: 50px;
   }
   .timeline-item:nth-of-type(2n) .timeline-info .post-time:after,
@@ -102,7 +112,7 @@
     width: 13px;
     height: 13px;
     background-color: #202020;
-    border: #d31b29 solid 4px;
+    border: #4870ac solid 4px;
     position: absolute;
     right: -11.5px;
     left: auto;
@@ -111,7 +121,7 @@
   }
   .timeline-item:nth-of-type(2n) .timeline-content,
   .timeline-item:nth-of-type(2n+1) .timeline-content {
-    border-left: #d31b29 solid 1.5px;
+    border-left: #4870ac solid 1.5px;
     padding-left: 50px;
   }
 }
@@ -145,7 +155,7 @@
   .timeline-item:nth-of-type(2n) .timeline-info {
     order: 2;
     text-align: left;
-    border-left: #d31b29 solid 1.5px;
+    border-left: #4870ac solid 1.5px;
     padding-left: 50px;
     border-right: none;
     padding-right: 0;
@@ -155,7 +165,7 @@
     width: 13px;
     height: 13px;
     background-color: #202020;
-    border: #d31b29 solid 4px;
+    border: #4870ac solid 4px;
     position: absolute;
     left: -11.5px;
     border-radius: 20px;
@@ -166,7 +176,7 @@
   }
   .timeline-item:nth-of-type(2n) .timeline-content {
     text-align: right;
-    border-right: #d31b29 solid 1.5px;
+    border-right: #4870ac solid 1.5px;
     padding-right: 50px;
     border-left: none;
     padding-left: 0;

@@ -7,7 +7,8 @@
   color: #fff;
   z-index: 2;
 }
-.code-block-header .code-lang {
+.code-block-header .code-lang,
+.code-block-header .code-info {
   content: attr(class);
   height: 38px;
   line-height: 38px;
@@ -16,6 +17,16 @@
   font-weight: bold;
   pointer-events: none;
   letter-spacing: 0px;
+}
+.code-block-header .code-info:before {
+  content: " | ";
+  color: #fff;
+}
+.code-block-header .code-lang {
+  margin-left: 70px;
+}
+.code-block-header a {
+  border-bottom: 0px !important;
 }
 .code-block-header .codeblock-buttons {
   diplay: inline;
@@ -65,6 +76,17 @@ figure table {
   border-radius: 0 0 5px 5px;
   font-family: "consolas" !important;
   text-align: left;
+  color: #888f96 !important;
+}
+.highlight pre .line {
+  display: inline-block;
+  width: 100%;
+}
+.highlight pre .line:hover {
+  background-color: rgba(200,200,200,0.1);
+}
+.highlight pre .marked {
+  background-color: rgba(200,200,200,0.1);
 }
 .highlight td.gutter {
   -webkit-touch-callout: none;
@@ -79,7 +101,6 @@ figure table {
 }
 .highlight td.gutter pre {
   text-align: right;
-  color: #888f96 !important;
 }
 .highlight td {
   padding: 0px;
@@ -90,9 +111,6 @@ figure table {
 .highlight table td,
 .highlight table th {
   border: none !important;
-}
-.highlight .code .line:hover {
-  background-color: rgba(255,255,255,0.1);
 }
 .code-head-fullscreen {
   position: fixed;

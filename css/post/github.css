@@ -72,6 +72,16 @@ li>ul {
 #post-content blockquote p {
   display: inline;
 }
+#post-content blockquote footer {
+  display: block;
+  width: calc(100% - 60px);
+  margin-top: 8px;
+  text-align: right;
+  word-break: break-all;
+}
+#post-content blockquote footer:before {
+  content: "——";
+}
 #post-content blockquote::before {
   content: "👣";
   color: #fff;
@@ -82,7 +92,7 @@ li>ul {
 #post-content blockquote::after {
   content: "”";
   float: right;
-  display: inline;
+  display: block;
   color: #fff;
   font-size: 3em;
   line-height: 1em;
@@ -118,12 +128,12 @@ p {
   margin-left: 20px;
   position: relative;
 }
-#post-content ul li:before {
+#post-content ul li:not(:has(input[type="checkbox"])):before {
   content: "";
   background: none;
   width: 7px;
   height: 7px;
-  border: solid 3px #d31b29;
+  border: solid 3px #4870ac;
   border-radius: 20px;
   top: 6px;
   left: -20px;
@@ -134,7 +144,7 @@ p {
   background: none;
   width: 7px;
   height: 7px;
-  border: solid 3px #d31b29;
+  border: solid 3px #4870ac;
   border-radius: 0px;
   top: 6px;
   left: -20px;
@@ -142,7 +152,7 @@ p {
 }
 #post-content ul li  li li:before {
   content: " ";
-  background-color: #d31b29;
+  background-color: #4870ac;
   width: 12px;
   height: 12px;
   border-radius: 20px;
@@ -176,18 +186,43 @@ p {
   height: 17px;
   text-align: center;
   line-height: 16px;
-  background: #d31b29;
+  background: #4870ac;
   border-radius: 20px;
-  border: 1px solid #d31b29;
+  border: 1px solid #4870ac;
   font-size: 14px;
 }
+/* checkbox 样式 */
+#post-content input[type=checkbox] {
+  width: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+#post-content li > input:checked:before,
+#post-content li > input[checked]:before,
+#post-content input[type="checkbox"]:checked:before {
+  content: '';
+  background-color: #fff;
+  background: url("/img/checked.svg") no-repeat center, rgba(72,112,172,0.5);
+}
+#post-content li input::before {
+  content: "";
+  display: inline-block;
+  width: 1.0125rem;
+  height: 1.0125rem;
+  border: 1px solid rgba(72,112,172,0.5);
+  border-radius: 0.2rem;
+  background-color: #fdfdfd;
+  margin-left: -1rem;
+  margin-right: 0.1rem;
+  margin-top: -0.1rem;
+}
 #post-content a {
-  color: #d31b29;
+  color: #4870ac;
 }
 /* 加粗 */
 #post-content strong {
   font-weight: bold;
-  color: #d31b29;
+  color: #4870ac;
 }
 #post-content strong::after {
   content: '」';
@@ -197,20 +232,21 @@ p {
 }
 /* 斜体 */
 #post-content em {
-  color: #d31b29;
+  color: #4870ac;
   font-weight: bold;
 }
 /* 加粗斜体 */
 #post-content em strong {
-  color: #d31b29;
+  color: #4870ac;
 }
 /* 删除线 */
 #post-content del {
-  color: #d31b29;
+  color: #4870ac;
 }
 /* 行内代码 */
 #post-content p code,
-#post-content li code {
+#post-content li code,
+#post-content table code {
   background-color: #f5f5f5;
   padding: 0 3px;
   border-radius: 5px;

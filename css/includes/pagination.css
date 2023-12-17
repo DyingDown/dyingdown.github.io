@@ -53,8 +53,8 @@
   border-radius: 5px;
 }
 #mid-col #pagination a:hover {
-  background-color: rgba(211,27,41,0.1);
-  border-color: #d31b29;
+  background-color: rgba(72,112,172,0.1);
+  border-color: #4870ac;
 }
 #mid-col #pagination a:hover img {
   transform: rotate(360deg);
@@ -122,9 +122,9 @@ nav#pagination .space {
   font-weight: bold;
 }
 nav#pagination .current {
-  background-color: #d31b29;
+  background-color: #4870ac;
   color: #fff;
 }
 nav#pagination .page-number:not(.current):hover {
-  color: #d31b29;
+  color: #4870ac;
 }

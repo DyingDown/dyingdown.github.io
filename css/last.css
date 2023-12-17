@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
 /*滚动条里面小方块*/
   border-radius: 10px;
-  background-color: #d31b29;
+  background-color: #4870ac;
   background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
 }
 body::-webkit-scrollbar-thumb:hover {

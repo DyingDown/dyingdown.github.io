@@ -15,7 +15,7 @@
   width: 300px;
 }
 #catalog {
-  border-left: 4px solid #d31b29;
+  border-left: 4px solid #4870ac;
   font-size: 20px;
   padding-left: 16px;
   margin-top: 10px;
@@ -77,5 +77,5 @@ a.toc-link {
   height: 15px;
   border-radius: 20px;
   background-color: #fff;
-  border: solid 3px #d31b29;
+  border: solid 3px #4870ac;
 }

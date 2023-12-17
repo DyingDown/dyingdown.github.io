@@ -30,7 +30,7 @@
 .local-search-result-cls::-webkit-scrollbar-thumb {
 /*滚动条里面小方块*/
   border-radius: 10px;
-  background-color: #d31b29;
+  background-color: #4870ac;
 }
 .local-search-result-cls::-webkit-scrollbar-thumb:hover {
   background-color: #777;
@@ -62,7 +62,7 @@ body.post > #menu-outer .local-search-result-cls {
   margin: 10px 0;
 }
 .search-result-list li p .search-keyword {
-  color: #d31b29;
+  color: #4870ac;
   font-weight: bold;
 }
 #menu-outer a {
@@ -88,7 +88,7 @@ body.post > #menu-outer a {
   border: solid #d3d3d3 0px;
 }
 #menu-outer .name-a:hover {
-  color: #d31b29;
+  color: #4870ac;
 }
 body.post > #menu-outer {
   -webkit-box-shadow: 1px 0 5px #afafaf;
@@ -126,7 +126,7 @@ body.post > .newMenuOuterColor {
   transform-origin: left center;
 }
 body.post > #menu-outer .menu .menu-icon li {
-  background-color: #d31b29;
+  background-color: #4870ac;
 }
 .menu .menu-icon li:nth-child(1) {
   top: 26px;
@@ -203,7 +203,7 @@ body.post #menu-outer .menu #nav li a {
   fill: #fff;
 }
 .site-name #site-logo:hover .rest-content {
-  fill: #d31b29;
+  fill: #4870ac;
 }
 body.post > #menu-outer #site-logo {
   fill: #808080;
@@ -244,7 +244,7 @@ body.post #menu-outer .search #local-search-input {
   text-decoration: none;
 }
 body.post > #menu-outer .search-icon {
-  color: #d31b29;
+  color: #4870ac;
 }
 #menu-outer .search:hover #local-search-input,
 #menu-outer .search:active #local-search-input,
@@ -257,12 +257,12 @@ body.post > #menu-outer .search-icon {
 }
 .search:hover > .search-icon {
   background: none;
-  color: #d31b29;
+  color: #4870ac;
   font-size: 16px;
 }
 .search:hover,
 .search:has(#local-search-input:focus) {
-  border: solid #d31b29 1.5px !important;
+  border: solid #4870ac 1.5px !important;
   font-size: 20px;
 }
 .search:hover .search-icon,
@@ -311,7 +311,7 @@ body.post > #menu-outer .search-icon {
     user-select: none;
   }
   .menu #nav .menu-items .item-name:hover .name-a {
-    color: #d31b29;
+    color: #4870ac;
   }
   .site-name {
     order: 1;
@@ -349,7 +349,7 @@ body.post > #menu-outer .search-icon {
     line-height: 25px !important;
   }
   .submenu-items .subitem-name:hover a {
-    color: #d31b29 !important;
+    color: #4870ac !important;
   }
   body.post > #menu-outer .submenu-items {
     background-color: #fff;
@@ -414,7 +414,7 @@ body.post > #menu-outer .search-icon {
   }
   .menu #nav .menu-items .item-name .name-a:after {
     content: "";
-    border: 0 solid #d31b29;
+    border: 0 solid #4870ac;
     position: absolute;
     bottom: -27px;
     left: 0;
@@ -424,10 +424,10 @@ body.post > #menu-outer .search-icon {
     height: 7px;
   }
   .menu #nav .menu-items .item-name:hover {
-    color: #d31b29;
+    color: #4870ac;
   }
   .menu #nav .menu-items .item-name:hover .name-a::after {
-    background-color: #d31b29;
+    background-color: #4870ac;
     width: 100%;
     z-index: 1;
   }

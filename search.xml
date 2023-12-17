@@ -138,9 +138,9 @@
       
         <tags>
             
-            <tag> HashMap </tag>
-            
             <tag> Sliding Window </tag>
+            
+            <tag> HashMap </tag>
             
             <tag> SW </tag>
             
@@ -169,9 +169,9 @@
             
             <tag> DP </tag>
             
-            <tag> Two Pointers </tag>
-            
             <tag> Array </tag>
+            
+            <tag> Two Pointers </tag>
             
             <tag> 2P </tag>
             
@@ -198,9 +198,9 @@
       
         <tags>
             
-            <tag> Greedy </tag>
-            
             <tag> Array </tag>
+            
+            <tag> Greedy </tag>
             
         </tags>
       
@@ -2219,9 +2219,9 @@
             
             <tag> STL </tag>
             
-            <tag> LeetCode </tag>
-            
             <tag> HashMap </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
