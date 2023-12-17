@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Hexo To-Do List unable to render properly</title>
+      <link href="/2023/12/16/Hexo-To-Do-List-unable-to-render-properly/"/>
+      <url>/2023/12/16/Hexo-To-Do-List-unable-to-render-properly/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo is unable to render the to-do list using the hexo-renderer-marked. In order to solve this, Add the following code to the plugin code.</p><span id="more"></span><p>Add the code to  <code>/node_modules/hexo-renderer-kramed/lib/renderer.js</code> under your blog root dir.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Support To-Do List</span></span><br><span class="line"><span class="title class_">Renderer</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">listitem</span> = <span class="keyword">function</span>(<span class="params">text</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/^\s*\[[x ]\]\s*/</span>.<span class="title function_">test</span>(text)) &#123;</span><br><span class="line">    text = text.<span class="title function_">replace</span>(<span class="regexp">/^\s*\[ \]\s*/</span>, <span class="string">&#x27;&lt;input type=&quot;checkbox&quot;&gt;&lt;/input&gt; &#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^\s*\[x\]\s*/</span>, <span class="string">&#x27;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;/input&gt; &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&lt;li style=&quot;list-style: none&quot;&gt;&#x27;</span> + text + <span class="string">&#x27;&lt;/li&gt;\n&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&lt;li&gt;&#x27;</span> + text + <span class="string">&#x27;&lt;/li&gt;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Error </tag>
+            
+            <tag> Hexo Plugin </tag>
+            
+            <tag> To-Do List </tag>
+            
+            <tag> Render </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 126. Word Ladder II</title>
       <link href="/2023/07/25/LeetCode-126-Word-Ladder-II/"/>
       <url>/2023/07/25/LeetCode-126-Word-Ladder-II/</url>
