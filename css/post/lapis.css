@@ -1,27 +1,15 @@
+/*
+https://github.com/YiNNx/typora-theme-lapis
+
+This is a very good looking theme from typora
+
+*/
 @font-face {
   font-family: "fontawesome";
   src: url("/font-awesome/webfonts/fa-solid-900.eot");
   src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
 }
-@font-face {
-  font-family: "Cantarell";
-  src: url("lapis/Cantarell-Regular.ttf");
-}
-@font-face {
-  font-family: "JetBrainsMono";
-  src: url("lapis/JetBrainsMono-Regular.ttf");
-}
-@font-face {
-  font-family: "SourceHanSerifCN";
-  src: url("lapis/SourceHanSerifCN-Regular.otf");
-}
-@font-face {
-  font-family: "SourceHanSerifCN";
-  src: url("lapis/SourceHanSerifCN-Bold.otf");
-  font-weight: bold;
-}
 #post-content {
-  max-width: 950px;
   font-size: 1rem;
   color: var(--text-color);
   line-height: 1.6;
@@ -35,13 +23,13 @@
   margin-bottom: 20rem;
 }
 #post-content strong {
-  color: #d31b29;
+  color: #4870ac;
 }
 #post-content a {
   text-decoration: none;
   word-wrap: break-word;
-  color: #d31b29;
-  border-bottom: 1px solid #d31b29;
+  color: #4870ac;
+  border-bottom: 1px solid #4870ac;
   margin: 2px;
 }
 #post-content p,
@@ -53,6 +41,15 @@
   line-height: 1.8rem;
   color: #3a4749;
 }
+#post-content blockquote footer {
+  display: block;
+  margin-top: 8px;
+  text-align: right;
+  word-break: break-all;
+}
+#post-content blockquote footer:before {
+  content: "——";
+}
 #post-content h1,
 #post-content h2,
 #post-content h3,
@@ -61,7 +58,7 @@
 #post-content h6 {
   margin: 1em 0 1em;
   padding: 0px;
-  color: #d31b29;
+  color: #4870ac;
 }
 #post-content h1 {
   text-align: center;
@@ -69,11 +66,14 @@
 #post-content h2 {
   display: inline-block;
   font-weight: bold;
-  background: #d31b29;
+  background: #4870ac;
   color: #fff;
   padding: 1px 15px 1px;
   border-radius: 4px;
   margin-right: 3px;
+}
+h2::after {
+  width: 100%;
 }
 #post-content h1 {
   font-size: 2rem;
@@ -95,7 +95,7 @@
 }
 #post-content  li::marker {
   font-weight: bold;
-  color: #d31b29;
+  color: rgba(72,112,172,0.5);
 }
 #post-content ul li,
 #post-content ol li {
@@ -125,29 +125,30 @@
 }
 #post-content  em {
   padding: 0 3px 0 0;
+  font-style: italic;
 }
 #post-content blockquote {
   display: block;
   font-size: 0.9em;
   overflow: auto;
-  border-left: 3px solid #d31b29;
+  border-left: 3px solid #4870ac;
   padding: 15px 30px 15px 20px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: #d31b29;
+  background-color: rgba(72,112,172,0.05);
 }
 /*
  * Inline code
  */
 #post-content p code,
 #post-content li code {
-  color: #d31b29;
+  color: #4870ac;
   font-size: 1rem;
   word-wrap: break-word;
   padding: 2px 4px 2px;
   border-radius: 3px;
   margin: 2px;
-  background-color: #d31b29;
+  background-color: rgba(72,112,172,0.05);
   word-break: break-all;
 }
 #post-content img {
@@ -189,7 +190,7 @@
 #post-content table tr th {
   font-weight: bold;
   background-color: #fff;
-  color: #d31b29;
+  color: #4870ac;
 }
 #post-content hr {
   margin-top: 20px;
@@ -198,29 +199,28 @@
   border-top: 2px solid #eef2f5;
   border-radius: 2px;
 }
+/* checkbox 样式 */
 #post-content input[type=checkbox] {
   width: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+#post-content li > input:checked:before,
+#post-content li > input[checked]:before,
+#post-content input[type="checkbox"]:checked:before {
+  content: '';
+  background-color: #fff;
+  background: url("/img/checked.svg") no-repeat center, rgba(72,112,172,0.5);
 }
 #post-content li input::before {
   content: "";
   display: inline-block;
   width: 1.0125rem;
   height: 1.0125rem;
-  vertical-align: middle;
-  text-align: center;
-  border: 1px solid #d31b29;
-  border-radius: 1.2rem;
+  border: 1px solid rgba(72,112,172,0.5);
+  border-radius: 0.2rem;
   background-color: #fdfdfd;
   margin-left: -1rem;
   margin-right: 0.1rem;
   margin-top: -0.1rem;
-}
-li input:checked::before {
-  content: '✓';
-  font-weight: bold;
-  -webkit-text-stroke: 1px #d31b29;
-  color: #d31b29;
-  background-color: #fff;
-  font-size: 0.75rem;
-  line-height: 0.8rem;
 }

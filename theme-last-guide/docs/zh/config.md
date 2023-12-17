@@ -359,6 +359,7 @@ postStyle:
 	=== "tab-light"
 		![tab-light.png](../assets/images/config/tab-light.png)
 
+**注意：hexo渲染Todo list可能会不成功: 可能解决办法 [点击查看](http://localhost:4000/2023/12/16/Hexo-To-Do-List-unable-to-render-properly/)**
 
 ### 版权信息
 
