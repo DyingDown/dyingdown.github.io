@@ -64,7 +64,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(4px);
 }
 .blur {
   width: 100vw;
@@ -96,6 +95,15 @@
   text-align: center;
   z-index: 5;
   color: #fff;
+}
+.carouselContent {
+  padding: 150px 40px;
+  border-radius: 15px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(220,220,220,0.1);
+  box-shadow: 0 0 80px rgba(0,0,0,0.25);
 }
 .carouselContent h2 {
   font-size: 40px;
@@ -129,6 +137,9 @@
   .carouselContent h2 {
     font-size: 35px;
     line-height: 40px;
+  }
+  .carouselContent {
+    padding: 40px;
   }
 }
 /******* articles **********/
