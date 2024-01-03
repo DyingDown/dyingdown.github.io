@@ -10,7 +10,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
 <path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
 </g>
-</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171357016.jpeg"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>计算机中的数据表示</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-03-05T19:23:52.000Z">2020-03-05</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">28 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">7.5k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171357016.jpeg"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>计算机中的数据表示</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-03-05T19:23:52.000Z">2020-03-05</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">30 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">7.8k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
@@ -34,8 +34,8 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>最近开课计算机组成原理，由于疫情原因，老师推荐的华中科技大学的秦磊华老师讲的MOOC上的课程。感觉学习难度比较大，因为基础薄弱，所以来总结一下学习的知识，加以巩固。</p>
 <span id="more"></span>
-<h1>机器数及其特点</h1>
-<p>首先要了解计算机内部的数据到底是怎么表示的。学习过模电我们都应该知道，计算机内的数据是以二进制形式存储的，因为二进制只包含两个状态，更好表示。如果我们能在二进制的基础上更好的组织数据，则计算机的运算就能更加高效。</p>
+
+<h1 id="机器数及其特点"><a href="#机器数及其特点" class="headerlink" title="机器数及其特点"></a>机器数及其特点</h1><p>首先要了解计算机内部的数据到底是怎么表示的。学习过模电我们都应该知道，计算机内的数据是以二进制形式存储的，因为二进制只包含两个状态，更好表示。如果我们能在二进制的基础上更好的组织数据，则计算机的运算就能更加高效。</p>
 <p>数据表示有以下考虑因素：</p>
 <ol>
 <li>计算机支持的数据类型</li>
@@ -45,138 +45,90 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>是否有利于软件的移植等…</li>
 </ol>
 <p>在这些基础上我们来对数据进行处理。</p>
-<h2 id="真值">真值</h2>
-<p>首先，在实际运算中，拿到一个数，我们把它转换成二进制数时，<code>+ </code> <code>-</code> 就是符号位。变成二进制数还是用<code>+ </code> <code>-</code> 来表示。这样的带符号的二进制。</p>
+<h2 id="真值"><a href="#真值" class="headerlink" title="真值"></a>真值</h2><p>首先，在实际运算中，拿到一个数，我们把它转换成二进制数时，<code>+ </code> <code>-</code> 就是符号位。变成二进制数还是用<code>+ </code> <code>-</code> 来表示。这样的带符号的二进制。</p>
 <p>比如 $-5$ 真值就是$-101$； $+5$ 的真值就是 $+101$</p>
 <p>这种表示方法很直观，人眼一下就能知道是正数负数。但是计算机怎么办呢？让它去识别加号吗？只有0 1 两种状态，怎么搞个加号进去？所有就有了符号数值化。有了一个新的表示方法：</p>
-<h2 id="原码">原码</h2>
-<p>我看老师的课件上给的定义是这样的</p>
-<p>$$<br>
-[X]_{\mathbb{原}}=\left{\begin{array}{l}<br>
-X  \space \space \space \space\space \space\space \space\space \space\space \space0 \leq X \leq 2^n\<br>
-2^{n}-X \space \space \space 2^{-n} \leq X \leq 0<br>
-\end{array}\right.<br>
-$$</p>
-<p>原码就是在真值的基础上，把符号位用0 1表示。一般规定0表示正数，1表示负数。这有点违背我们的常理，我搜了好久也没找到这样<strong>规定</strong>是出于什么原因，但好像计算机里面表示数N是$(-1)^SN$，S = 0 时就是1， 为正数。反之亦然。S就是那个符号位对应的0或1。</p>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><p>我看老师的课件上给的定义是这样的</p>
+<p>$$<br>[X]_{\mathbb{原}}&#x3D;\left{\begin{array}{l}<br>X  \space \space \space \space\space \space\space \space\space \space\space \space0 \leq X \leq 2^n\<br>2^{n}-X \space \space \space 2^{-n} \leq X \leq 0<br>\end{array}\right.<br>$$</p>
+<p>原码就是在真值的基础上，把符号位用0 1表示。一般规定0表示正数，1表示负数。这有点违背我们的常理，我搜了好久也没找到这样<strong>规定</strong>是出于什么原因，但好像计算机里面表示数N是$(-1)^SN$，S &#x3D; 0 时就是1， 为正数。反之亦然。S就是那个符号位对应的0或1。</p>
 <p>所以举个例子来说：$-5$ 的原码就是 $1101$; $+5$ 的原码就是 $0101$</p>
 <p>OK，问题解决了，就用原码表示吧。接下来开始运算。</p>
 <p>先算个 $5+5$ 吧。假设字长是八位</p>
-<p>$$<br>
-\space \space \space \space 00000101 \ + 00000101 \<br>
-=00001010<br>
-$$</p>
-<p>没问题，的得到的是 $+10$.</p>
+<p>$$<br>\space \space \space \space 00000101 \ + 00000101 \<br>&#x3D;00001010<br>$$</p>
+<p>没问题，的得到的是 $+10$. </p>
 <p>再来算算 $5 - 5$</p>
-<p>$$<br>
-\space \space \space \space 00000101 \ - 00000101 \<br>
-=00000000<br>
-$$</p>
-<p>$$<br>
-那么 $(-5) + 5$ 呢<br>
-$$<br>
-$$<br>
-\space \space \space \space 10000101 \ + 00000101 \<br>
-=10000000<br>
-$$</p>
+<p>$$<br>\space \space \space \space 00000101 \ - 00000101 \<br>&#x3D;00000000<br>$$</p>
+<p>$$<br>那么 $(-5) + 5$ 呢<br>$$<br>$$<br>\space \space \space \space 10000101 \ + 00000101 \<br>&#x3D;10000000<br>$$</p>
 <p>欸，0 出现了两种表示方法。不行，会给以后的运算造成麻烦。</p>
 <p>接着改，于是设计出了反码。</p>
-<h2 id="反码">反码</h2>
-<p>$$<br>
-[X]_{\mathbb{反}}=\left{\begin{array}{l}<br>
-X  \space \space \space \space\space \space\space \space\space \space\space \space \space\space \space \space\space \space \space\space \space \space0 \leq X \leq 2^n\<br>
-2^{n+1}+X-1 \space \space \space 2^{-n} \leq X \leq 0<br>
-\end{array}\right.<br>
-$$</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><p>$$<br>[X]_{\mathbb{反}}&#x3D;\left{\begin{array}{l}<br>X  \space \space \space \space\space \space\space \space\space \space\space \space \space\space \space \space\space \space \space\space \space \space0 \leq X \leq 2^n\<br>2^{n+1}+X-1 \space \space \space 2^{-n} \leq X \leq 0<br>\end{array}\right.<br>$$</p>
 <p>简单来说就是正数的反码就是原码，负数的反码就是符号位不变，其余各位按位取反。举个例子 ：$-5$ 的反码就是 $1010$; $+5$ 的反码就是 $0101$</p>
-<p>通过计算，发现0还是有两种表示方法，并且出现了一个问题就是有的直接加是不对的，还得有判断加两次。比如算 $x=1101 , y= -1010, x + y$. 这个例子你自己验证一下不再赘述，这样会发现第一次加完，得把符号位的进位位去掉再用加法加在第一次计算结果上，得到的才是正确答案。所以，又有了补码。</p>
-<h2 id="补码">补码</h2>
-<p>$$<br>
-[X]_{\mathbb{补}}=\left{\begin{array}{l}<br>
-X \space \space\space \space \space\space \space \space\space \space \space\space \space \space0 \leq X \leq 2^n\<br>
-2^{n+1}+X \space \space \space 2^{-n} \leq X \leq 0<br>
-\end{array}\right. mod \space 2^{n+1}<br>
-$$</p>
+<p>通过计算，发现0还是有两种表示方法，并且出现了一个问题就是有的直接加是不对的，还得有判断加两次。比如算 $x&#x3D;1101 , y&#x3D; -1010, x + y$. 这个例子你自己验证一下不再赘述，这样会发现第一次加完，得把符号位的进位位去掉再用加法加在第一次计算结果上，得到的才是正确答案。所以，又有了补码。</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>$$<br>[X]_{\mathbb{补}}&#x3D;\left{\begin{array}{l}<br>X \space \space\space \space \space\space \space \space\space \space \space\space \space \space0 \leq X \leq 2^n\<br>2^{n+1}+X \space \space \space 2^{-n} \leq X \leq 0<br>\end{array}\right. mod \space 2^{n+1}<br>$$</p>
 <p>同样，正数的补码等于正数的原码，负数的补码等于反码 + 1.</p>
 <p>比如 $-5$ 的补码就是 $1011$; $+5$ 的补码就是 $0101$</p>
 <p>这样在计算0的表示方法就是单一的了。并且不难发现，计算减法的时候也可以用加法来代替了，不需要判断符号绝对值等的问题了。这样很方便只需要设计加法器就行了。</p>
-<h2 id="移码">移码</h2>
-<p>前面说了半天，都是定点数，而要表示浮点数（就是小数点不固定的数）的接吗就要用移码的形式。<br>
-$$<br>
-[X]_移=2^n + X \space \space -2^n &lt; X \leq 2^n<br>
-$$<br>
-实现起来就是数值与X数值位相同，但是符号位取反。</p>
+<h2 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h2><p>前面说了半天，都是定点数，而要表示浮点数（就是小数点不固定的数）的接吗就要用移码的形式。<br>$$<br>[X]_移&#x3D;2^n + X \space \space -2^n &lt; X \leq 2^n<br>$$<br>实现起来就是数值与X数值位相同，但是符号位取反。</p>
 <p>比如 $-5$ 的补码就是 $0110$; $+5$ 的补码就是 $1010$</p>
 <p>在这里就不再深究这些表示方法是怎么来的了，若想知道自行百度。</p>
-<h1>定点与浮点数据表示</h1>
-<p><strong>定点数</strong>：就是小数点固定的数，如果小数点固定再最后，就叫定点整数，再其他位置就是定点小数。</p>
+<h1 id="定点与浮点数据表示"><a href="#定点与浮点数据表示" class="headerlink" title="定点与浮点数据表示"></a>定点与浮点数据表示</h1><p><strong>定点数</strong>：就是小数点固定的数，如果小数点固定再最后，就叫定点整数，再其他位置就是定点小数。</p>
 <p>定点数的一个缺陷就是表示的数据范围不足。这一点很好理解。如果把小数点固定在某个位置，根据计算机的字长是固定的，所以，小数点后面的位数也是固定的，要想表示精确度很高（实际数据小数点后位数大于固定小数点后剩余的位数）的数，就没法表示。所以就有了不固定小数点的数据形式。</p>
 <p><strong>浮点数</strong>： 小数点的位置不固定的数。</p>
-<h2 id="浮点数表示">浮点数表示</h2>
-<p>一般表示方法为 $N=2^E \times M$ 其实就像十进制里的科学计数法一样。</p>
+<h2 id="浮点数表示"><a href="#浮点数表示" class="headerlink" title="浮点数表示"></a>浮点数表示</h2><p>一般表示方法为 $N&#x3D;2^E \times M$ 其实就像十进制里的科学计数法一样。</p>
 <p>其中，E就是阶码，E的位数决定数据的范围。这个参考十进制的科学计数法就不难理解，像是指数。 M是位数，决定数的精度，就是小数点后面有几位，是3.14啊还是3.1415926535啊等。</p>
-<p>那在计算机里又是怎么表示的呢？计算机没法表示次方和称号呀。所以我们就把它省略掉。不能表示就不表示嘛。省掉之后就剩下EM。那2怎么也没了？当然，既然大家都是二进制数，不可能是别的进制，所以2就不用表示了。所以表示起来就是<br>
-$$<br>
-E_1E_2\cdots E_n  M_1 M_2 M_3 \cdots M_k<br>
-$$</p>
-<p>举个例子：将$x=2^{-01}\times (-0.1110)$表示成机器形式。假定用8位表示该数，阶码3位，位数5位（且均包含一位符号位）， 假定阶码和尾数均采用补码。 $-0.1110$的原码是$1.1110$, 小数点前面那个是0，移位之后跟没有一样，所以省掉了。 反码是$10001$。补码是 $10010$</p>
+<p>那在计算机里又是怎么表示的呢？计算机没法表示次方和称号呀。所以我们就把它省略掉。不能表示就不表示嘛。省掉之后就剩下EM。那2怎么也没了？当然，既然大家都是二进制数，不可能是别的进制，所以2就不用表示了。所以表示起来就是<br>$$<br>E_1E_2\cdots E_n  M_1 M_2 M_3 \cdots M_k<br>$$</p>
+<p>举个例子：将$x&#x3D;2^{-01}\times (-0.1110)$表示成机器形式。假定用8位表示该数，阶码3位，位数5位（且均包含一位符号位）， 假定阶码和尾数均采用补码。 $-0.1110$的原码是$1.1110$, 小数点前面那个是0，移位之后跟没有一样，所以省掉了。 反码是$10001$。补码是 $10010$</p>
 <p>所以，表示成机器形式就是 $111 \space 10010$。</p>
-<p>上面这个例子会了，再来一个问题： 将$x=2^{-101}\times (-0.1111110)$表示成机器形式。假定阶码和尾数均采用补码。</p>
+<p>上面这个例子会了，再来一个问题： 将$x&#x3D;2^{-101}\times (-0.1111110)$表示成机器形式。假定阶码和尾数均采用补码。</p>
 <p>咦，着怎么知道呢，阶码和尾数分别为几位呀？小明告诉你，阶码四位。你写出来后我按照我的方法给还原成数，发现错了和原数不一样，我的答案是按照阶码是五位来写的。那。。。这就不行。不可移植。</p>
 <p>所以就得有个统一的标准：IEEE 754格式（读作I triple E 754）</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">S</th>
-<th style="text-align:center">偏移指数</th>
-<th style="text-align:center">有效位数</th>
-<th style="text-align:center">精度</th>
+<th align="center">S</th>
+<th align="center">偏移指数</th>
+<th align="center">有效位数</th>
+<th align="center">精度</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">S</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">23</td>
-<td style="text-align:center">单精度</td>
+<tbody><tr>
+<td align="center">S</td>
+<td align="center">8</td>
+<td align="center">23</td>
+<td align="center">单精度</td>
 </tr>
 <tr>
-<td style="text-align:center">S</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">52</td>
-<td style="text-align:center">双精度</td>
+<td align="center">S</td>
+<td align="center">11</td>
+<td align="center">52</td>
+<td align="center">双精度</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>指数用的是偏移值。单精度的偏移值为127，双精度的为1023（不深究为什么，这是规定）。偏移的好处就是把负数变成了正数。对于浮点数的排序和比较会更方便。</p>
 <p>IEEE 754的尾数形式是 1.XXXXX, 因为如果前面有0的话，可以把0给省掉，比如 0.01， 可以写成 $2^{-2}\times 1.0$。总之第一位就1. 既然所有的开头都是1，那又可以省了。M中只保存XXXXXX就行了。这样又多了一位可以保存。数据精度又能提高了。</p>
 <p>下面我们来举个例子吧。计算 -27.5 的32位IEEE 754编码。</p>
-<p>$(-27.5)_{10}=(-11011.1)_2=(-1.10111^{100})_2$</p>
-<p>S = 1, e = 4, E = 100+01111111=10000011, M = 10111</p>
+<p>$(-27.5)_{10}&#x3D;(-11011.1)_2&#x3D;(-1.10111^{100})_2$</p>
+<p>S &#x3D; 1, e &#x3D; 4, E &#x3D; 100+01111111&#x3D;10000011, M &#x3D; 10111</p>
 <p>IEEE: 1100 0001 1101 1100 0000 0000 0000 0000</p>
 <p>其中+01111111就是对阶码的偏移。（32位偏移值127）</p>
-<h2 id="特殊的浮点数表示">特殊的浮点数表示</h2>
-<p>$N=(-1)^S \times 2^{E-127} \times 1.M$</p>
+<h2 id="特殊的浮点数表示"><a href="#特殊的浮点数表示" class="headerlink" title="特殊的浮点数表示"></a>特殊的浮点数表示</h2><p>$N&#x3D;(-1)^S \times 2^{E-127} \times 1.M$</p>
 <ol>
-<li>$E=0,M=0$ : 机器零</li>
-<li>$E=0, M \neq 0$ : 非规格化的浮点数</li>
+<li>$E&#x3D;0,M&#x3D;0$ : 机器零</li>
+<li>$E&#x3D;0, M \neq 0$ : 非规格化的浮点数</li>
 <li>$1 \leq E \leq 254$ ：规格化的浮点数</li>
-<li>$E=255, M=0$ ：无穷大的数，对应$\frac{x}{0}(x \neq 0)$</li>
-<li>$E=255, M \neq 0$：N=NaN，表示非数值，对应 $\frac{0}{0}$</li>
+<li>$E&#x3D;255, M&#x3D;0$ ：无穷大的数，对应$\frac{x}{0}(x \neq 0)$</li>
+<li>$E&#x3D;255, M \neq 0$：N&#x3D;NaN，表示非数值，对应 $\frac{0}{0}$</li>
 </ol>
 <p>这些特殊表示我也不太理解，感觉记住就行了。</p>
-<h1>数据校验</h1>
-<p>为什么要对数据进行校验呢？因为在数据传输或者存储的过程中，会收到外界的干扰（电路故障或者噪音等），有可能导致某位或多位错误。所以校验是非常必要的。</p>
-<h2 id="基本原理">基本原理</h2>
-<p>要想校验数据，光有本来的数据是不够的，没办法进行校验，所以得在添加额外的冗余码，也称校验位。</p>
+<h1 id="数据校验"><a href="#数据校验" class="headerlink" title="数据校验"></a>数据校验</h1><p>为什么要对数据进行校验呢？因为在数据传输或者存储的过程中，会收到外界的干扰（电路故障或者噪音等），有可能导致某位或多位错误。所以校验是非常必要的。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>要想校验数据，光有本来的数据是不够的，没办法进行校验，所以得在添加额外的冗余码，也称校验位。</p>
 <p>所以发送出来的信息就是 $有效信息（K位）+校验信息（r位）$</p>
 <p>对整个发出来的信息进行特定格式T编码后，会得到特定的数。然后接收方也用特定的格式T进行编码，如果得到预期的数，一般来说就是没错，得不到预期，就是有错。但是这么说还是不太严谨的，因为有时候即使出错了编码也是对的。这在后面会讲解到。</p>
-<h2 id="码距">码距</h2>
-<p>进行编码的一个很重要的知识就是码距。什么是码距呢？编码之间的距离？不不不，码距与二进制位有关，是任意两个合法编码二进制位之间不同二进制位数的最小值。</p>
+<h2 id="码距"><a href="#码距" class="headerlink" title="码距"></a>码距</h2><p>进行编码的一个很重要的知识就是码距。什么是码距呢？编码之间的距离？不不不，码距与二进制位有关，是任意两个合法编码二进制位之间不同二进制位数的最小值。</p>
 <p>比如一套编码 0011 0000 1111， 第一个和第二个数最后两位二进制位不同，所以对于前两个数来说码距是2。同理最后两个数之间的码距也是2。那对于第一个和第三个数，码距就是4。但是注意：<strong>码距是最小值</strong>， 所以这套编码的码距就是2。</p>
 <p>码距的检查：就拿上面那套编码来说，本来编码出来是0000，但是传输过程中有了一位错误，编码变成了0001，一看编码里面没有这种编码，所以就是无效的编码，就知道有一位错了。</p>
 <p><strong>码距为1时无法识别1位错误</strong>。因为任何一种错误都是有效编码。</p>
-<h2 id="码距检错与纠错能力的关系">码距检错与纠错能力的关系</h2>
-<p>首先我们得知道三个基本的关系：</p>
+<h2 id="码距检错与纠错能力的关系"><a href="#码距检错与纠错能力的关系" class="headerlink" title="码距检错与纠错能力的关系"></a>码距检错与纠错能力的关系</h2><p>首先我们得知道三个基本的关系：</p>
 <ol>
 <li>码距$\geq e + 1:$ 可以检测出e个错误</li>
 <li>码距$\geq 2t + 1:$ 可以纠正t个错误</li>
@@ -192,239 +144,218 @@ $$</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">码距</th>
-<th style="text-align:center">检错</th>
-<th style="text-align:center">纠错</th>
+<th align="center">码距</th>
+<th align="center">检错</th>
+<th align="center">纠错</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">或1</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">或1</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">加1</td>
+<td align="center">4</td>
+<td align="center">2</td>
+<td align="center">加1</td>
 </tr>
 <tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">加2</td>
+<td align="center">5</td>
+<td align="center">2</td>
+<td align="center">加2</td>
 </tr>
 <tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">加2</td>
+<td align="center">6</td>
+<td align="center">3</td>
+<td align="center">加2</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">加3</td>
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center">加3</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>根据以上所讲可总结出，码距越大，抗干扰能力越强，纠错能力越强，数据冗余越大，编码效率低，电路也相对复杂。</p>
 <p>所以选择码距时要考虑信息发生差错的概率和系统能容许的最小差错率。</p>
-<h1>奇偶校验</h1>
-<h2 id="基本原理-2">基本原理</h2>
-<p>采用增加1位校验位的方法。再添加一位校验位后，使得整个数据中，1的个数呈现奇偶性。这不废话吗，1的个数非奇即偶。其实不然，奇偶校验其实是奇校验和偶校验的合称。（为啥非得是1的个数，0的个数行不？行啊，理论上是没错的，只不过就你自己内部用，不跟大家统一，软件不能移植，保密，而且不便于理解）</p>
-<h3 id="奇校验">奇校验</h3>
-<p><strong>奇校验</strong> ：要求添上校验位后，数据中1的个数为奇数。</p>
+<h1 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h1><h2 id="基本原理-1"><a href="#基本原理-1" class="headerlink" title="基本原理"></a>基本原理</h2><p>采用增加1位校验位的方法。再添加一位校验位后，使得整个数据中，1的个数呈现奇偶性。这不废话吗，1的个数非奇即偶。其实不然，奇偶校验其实是奇校验和偶校验的合称。（为啥非得是1的个数，0的个数行不？行啊，理论上是没错的，只不过就你自己内部用，不跟大家统一，软件不能移植，保密，而且不便于理解）</p>
+<h3 id="奇校验"><a href="#奇校验" class="headerlink" title="奇校验"></a>奇校验</h3><p><strong>奇校验</strong> ：要求添上校验位后，数据中1的个数为奇数。</p>
 <p>如何计算出校验位呢？</p>
 <p>那就先判断前面有效信息的1的个数。假设有偶数个1，进行异或运算后，得到的结果必定是0，奇数个1得到的结果必定是1。而0不管有偶数个还是奇数个，异或出来都是0。</p>
 <p>奇数个1和任意个0异或之后结果一定是1。若原有效信息位已经有了奇数个1，则校验位得是0，是所有位数异或之后取反得到的；偶数个1和任意个0异或后结果一定是0。若原有效信息只有偶数个0，则需要在校验位添上个1，是所有位数异或之后取反得到的。</p>
-<p>所以得出奇校验的公式 $P=\overline{D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
+<p>所以得出奇校验的公式 $P&#x3D;\overline{D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
 <p>$D_1,D_2\cdots$ 是有效息信息的$1, 2, \cdots$ 位。</p>
 <p>发送方编好编码后，接收方收到编码之后如何检验呢？</p>
-<p>因为奇校验编码中1的个数为奇数个，所以，所有位异或结果是1。但是，奇校验的检错码是 $G=\overline{C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G=0时表示数据正常。否则表示出错。</p>
+<p>因为奇校验编码中1的个数为奇数个，所以，所有位异或结果是1。但是，奇校验的检错码是 $G&#x3D;\overline{C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G&#x3D;0时表示数据正常。否则表示出错。</p>
 <img src="https://s2.ax1x.com/2020/03/06/3LrrKs.png" style="zoom:50%;" />
+
 <p>这个给出的图是6位有效信息的计算，其他的位数同上就行。</p>
-<h3 id="偶校验">偶校验</h3>
-<p><strong>偶校验</strong> ：要求添加上校验位后，数据中1的个数为偶数。</p>
-<p>计算的方法同上，可知最后一位是所有每一位异或的结果，所以偶校验的公式 $P={D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
+<h3 id="偶校验"><a href="#偶校验" class="headerlink" title="偶校验"></a>偶校验</h3><p><strong>偶校验</strong> ：要求添加上校验位后，数据中1的个数为偶数。</p>
+<p>计算的方法同上，可知最后一位是所有每一位异或的结果，所以偶校验的公式 $P&#x3D;{D_{1} \oplus D_{2} \oplus D_{3} \oplus D_{4} \oplus \cdots \oplus D_n}$</p>
 <p>$D_1,D_2\cdots$ 是有效息信息的$1, 2, \cdots$ 位。</p>
-<p>检验的方法也类似上边，偶校验的检错码是 $G={C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G=0时表示数据正常。否则表示出错。</p>
+<p>检验的方法也类似上边，偶校验的检错码是 $G&#x3D;{C \oplus X_1 \oplus X_2 \oplus \cdots \oplus X_n}$ 。当 G&#x3D;0时表示数据正常。否则表示出错。</p>
 <img src="https://s2.ax1x.com/2020/03/06/3LrOPO.png" style="zoom: 50%;" />
+
 <p>该图还是六位有效信息的时候。</p>
-<h2 id="奇偶校验的特点">奇偶校验的特点</h2>
-<p>大概有如下四个特点：</p>
+<h2 id="奇偶校验的特点"><a href="#奇偶校验的特点" class="headerlink" title="奇偶校验的特点"></a>奇偶校验的特点</h2><p>大概有如下四个特点：</p>
 <ol>
-<li>
-<p>编码与检测简单（对，是要进行异或运算就行了）</p>
+<li><p>编码与检测简单（对，是要进行异或运算就行了）</p>
 </li>
-<li>
-<p>编码效率高（也是只异或，所以效率高）</p>
+<li><p>编码效率高（也是只异或，所以效率高）</p>
 </li>
-<li>
-<p>不能检测偶数位错误，无错结论不可靠，是一种<strong>错误检测码</strong>。</p>
+<li><p>不能检测偶数位错误，无错结论不可靠，是一种<strong>错误检测码</strong>。</p>
 <p>这是因为，如果有偶数个位都发生了变话的话，1的个数必定变化了偶数个，可以自己试试。变化了偶数个后不会改变1的个数的奇偶性。1的个数奇偶性不变，编码后的结果还是没变化。</p>
 </li>
-<li>
-<p>不能定位错误。不具备纠错能力。</p>
+<li><p>不能定位错误。不具备纠错能力。</p>
 </li>
 </ol>
-<h2 id="奇偶校验的码距">奇偶校验的码距</h2>
-<table>
+<h2 id="奇偶校验的码距"><a href="#奇偶校验的码距" class="headerlink" title="奇偶校验的码距"></a>奇偶校验的码距</h2><table>
 <thead>
 <tr>
-<th style="text-align:center">有效信息</th>
-<th style="text-align:center">奇校验编码</th>
-<th style="text-align:center">偶校验编码</th>
+<th align="center">有效信息</th>
+<th align="center">奇校验编码</th>
+<th align="center">偶校验编码</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1000==1==</td>
-<td style="text-align:center">1000==11==</td>
-<td style="text-align:center">1000==10==</td>
+<tbody><tr>
+<td align="center">1000&#x3D;&#x3D;1&#x3D;&#x3D;</td>
+<td align="center">1000&#x3D;&#x3D;11&#x3D;&#x3D;</td>
+<td align="center">1000&#x3D;&#x3D;10&#x3D;&#x3D;</td>
 </tr>
 <tr>
-<td style="text-align:center">1000==0==</td>
-<td style="text-align:center">1000==00==</td>
-<td style="text-align:center">1000==01==</td>
+<td align="center">1000&#x3D;&#x3D;0&#x3D;&#x3D;</td>
+<td align="center">1000&#x3D;&#x3D;00&#x3D;&#x3D;</td>
+<td align="center">1000&#x3D;&#x3D;01&#x3D;&#x3D;</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>根据上表可知，当有效信息只有一位不同时，编码是两位的不同。所以奇偶校验的码距是<strong>2</strong>。查码距能力表可知，码距2无纠错能力。</p>
-<h2 id="改进版奇偶校验">改进版奇偶校验</h2>
-<p>那要是我就是想让奇偶校验能纠错呢，怎么办？有一个非常妙的方法就是进行双向校验。</p>
+<h2 id="改进版奇偶校验"><a href="#改进版奇偶校验" class="headerlink" title="改进版奇偶校验"></a>改进版奇偶校验</h2><p>那要是我就是想让奇偶校验能纠错呢，怎么办？有一个非常妙的方法就是进行双向校验。</p>
 <p>双向就是说，不传输单一行的数据了，传出多行的，让它变成一个数据块，横向纵向都有校验位。大概长这样：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">0110100</th>
-<th style="text-align:center">1</th>
+<th align="center">0110100</th>
+<th align="center">1</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1011010</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1011010</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">0010110</td>
-<td style="text-align:center">1</td>
+<td align="center">0010110</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1110101</td>
-<td style="text-align:center">1</td>
+<td align="center">1110101</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1001011</td>
-<td style="text-align:center">0</td>
+<td align="center">1001011</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">1000110</td>
-<td style="text-align:center">1</td>
+<td align="center">1000110</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>最后一行是列的校验码，右边是行的校验码。</p>
 <p>这样当有一个数据传输错误的时候，就能定位行列坐标了。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">0110100</th>
-<th style="text-align:center">1</th>
+<th align="center">0110100</th>
+<th align="center">1</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1011010</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1011010</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">001011==1==</td>
-<td style="text-align:center">==1==</td>
+<td align="center">001011&#x3D;&#x3D;1&#x3D;&#x3D;</td>
+<td align="center">&#x3D;&#x3D;1&#x3D;&#x3D;</td>
 </tr>
 <tr>
-<td style="text-align:center">1110101</td>
-<td style="text-align:center">1</td>
+<td align="center">1110101</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1001011</td>
-<td style="text-align:center">0</td>
+<td align="center">1001011</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">100011==0==</td>
-<td style="text-align:center">1</td>
+<td align="center">100011&#x3D;&#x3D;0&#x3D;&#x3D;</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>并且特殊的偶数错误也能检验了。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">0110100</th>
-<th style="text-align:center">1</th>
+<th align="center">0110100</th>
+<th align="center">1</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1011010</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1011010</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">0==1==101==0==0</td>
-<td style="text-align:center">1</td>
+<td align="center">0&#x3D;&#x3D;1&#x3D;&#x3D;101&#x3D;&#x3D;0&#x3D;&#x3D;0</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1110101</td>
-<td style="text-align:center">1</td>
+<td align="center">1110101</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1001011</td>
-<td style="text-align:center">0</td>
+<td align="center">1001011</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">1000110</td>
-<td style="text-align:center">1</td>
+<td align="center">1000110</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>大部分情况下都是可以检错的，但是有一种特殊，当错误在四角上时，没法确定错误。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">==1==11010==1==</th>
-<th style="text-align:center">1</th>
+<th align="center">&#x3D;&#x3D;1&#x3D;&#x3D;11010&#x3D;&#x3D;1&#x3D;&#x3D;</th>
+<th align="center">1</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1011010</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1011010</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">0010110</td>
-<td style="text-align:center">1</td>
+<td align="center">0010110</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1110101</td>
-<td style="text-align:center">1</td>
+<td align="center">1110101</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1001011</td>
-<td style="text-align:center">0</td>
+<td align="center">1001011</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">==0==00011==1==</td>
-<td style="text-align:center">1</td>
+<td align="center">&#x3D;&#x3D;0&#x3D;&#x3D;00011&#x3D;&#x3D;1&#x3D;&#x3D;</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>因为不管是在行还是列，都是偶数个错误，所以都没法检测出来。</p>
 <p>所以总结一下改进版的功能</p>
 <ul>
@@ -433,366 +364,343 @@ $$</p>
 <li>可检测出一部分偶数位错误</li>
 <li>不能检测出错码分布在矩形四个顶点上时的错误</li>
 </ul>
-<h1>CRC校验</h1>
-<h2 id="基本原理-3">基本原理</h2>
-<p>和之前的校验一样，也是增加冗余码，r位校验位。但是这次不再是1位了，而满足一个这样的关系：$N=k+r \leq 2^r -1$</p>
+<h1 id="CRC校验"><a href="#CRC校验" class="headerlink" title="CRC校验"></a>CRC校验</h1><h2 id="基本原理-2"><a href="#基本原理-2" class="headerlink" title="基本原理"></a>基本原理</h2><p>和之前的校验一样，也是增加冗余码，r位校验位。但是这次不再是1位了，而满足一个这样的关系：$N&#x3D;k+r \leq 2^r -1$</p>
 <p>这个式子的意思是说，有r位校验位，r位就能产生$2^r$种状态。因为每一位都有0 1两种状态，又r位，所以就是$2^r$种。但是还得有一种序列对应是没错的。就是指编码正确。所以错误编码数量就是$2^r-1$。这些数量得大于或等于生成后的编码的所有位的个数，因为每一位都有出错的可能，就得生成编码的每一位错都得有一种无效编码与之对应。</p>
 <p>检验的过程当然也是依据某种规则对数据进行处理，看是否得到预期结果。这个规则就是：收发双方约定一个（r+1）位的二进制数（统称<strong>生成多项式</strong>G(X)），发送方利用G(X)对信息多项式做<strong>模2除运算</strong>（后面会讲解这个）后，生成校验码。接收方也用G(X)对收到的编码做模2除运算来检测错误定位错误。</p>
 <p>至于G(x)是怎么选取的依据什么条件，在后面会讲解。先给出一个产检的生成多项式的表格，先使用着，回头再讲咋回事。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">N</th>
-<th style="text-align:center">K</th>
-<th style="text-align:center">码距d</th>
-<th style="text-align:center">G(x)多项式</th>
-<th style="text-align:center">G(x)</th>
+<th align="center">N</th>
+<th align="center">K</th>
+<th align="center">码距d</th>
+<th align="center">G(x)多项式</th>
+<th align="center">G(x)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">$x^3+x+1$</td>
-<td style="text-align:center">1011</td>
+<tbody><tr>
+<td align="center">7</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">$x^3+x+1$</td>
+<td align="center">1011</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">$x^3+x^2+1$</td>
-<td style="text-align:center">1101</td>
+<td align="center">7</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">$x^3+x^2+1$</td>
+<td align="center">1101</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">$x^4+x^3+x^2+1$</td>
-<td style="text-align:center">11101</td>
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">$x^4+x^3+x^2+1$</td>
+<td align="center">11101</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">$x^4+x^3+x+1$</td>
-<td style="text-align:center">10111</td>
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">$x^4+x^3+x+1$</td>
+<td align="center">10111</td>
 </tr>
 <tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">$x^4+x+1$</td>
-<td style="text-align:center">10011</td>
+<td align="center">15</td>
+<td align="center">11</td>
+<td align="center">3</td>
+<td align="center">$x^4+x+1$</td>
+<td align="center">10011</td>
 </tr>
 <tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">$x^8+x^7+x^6+x^4+1$</td>
-<td style="text-align:center">111010001</td>
+<td align="center">15</td>
+<td align="center">7</td>
+<td align="center">5</td>
+<td align="center">$x^8+x^7+x^6+x^4+1$</td>
+<td align="center">111010001</td>
 </tr>
 <tr>
-<td style="text-align:center">31</td>
-<td style="text-align:center">26</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">$x^5+x^2+1$</td>
-<td style="text-align:center">100101</td>
+<td align="center">31</td>
+<td align="center">26</td>
+<td align="center">3</td>
+<td align="center">$x^5+x^2+1$</td>
+<td align="center">100101</td>
 </tr>
 <tr>
-<td style="text-align:center">31</td>
-<td style="text-align:center">21</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">$x^{10}+x^9+x^8+x^6+x^5+x^3+1$</td>
-<td style="text-align:center">1101101001</td>
+<td align="center">31</td>
+<td align="center">21</td>
+<td align="center">5</td>
+<td align="center">$x^{10}+x^9+x^8+x^6+x^5+x^3+1$</td>
+<td align="center">1101101001</td>
 </tr>
 <tr>
-<td style="text-align:center">63</td>
-<td style="text-align:center">57</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">$x^6+x+1$</td>
-<td style="text-align:center">1000011</td>
+<td align="center">63</td>
+<td align="center">57</td>
+<td align="center">3</td>
+<td align="center">$x^6+x+1$</td>
+<td align="center">1000011</td>
 </tr>
 <tr>
-<td style="text-align:center">63</td>
-<td style="text-align:center">51</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">$x^{12}+x^{10}+x^5+x^4+x^2+1$</td>
-<td style="text-align:center">1010000110101</td>
+<td align="center">63</td>
+<td align="center">51</td>
+<td align="center">5</td>
+<td align="center">$x^{12}+x^{10}+x^5+x^4+x^2+1$</td>
+<td align="center">1010000110101</td>
 </tr>
-</tbody>
-</table>
-<h2 id="模2除运算">模2除运算</h2>
-<p>来说一说crc里面最重要的一个运算吧，这不仅是发送方也是接收方编码的重要规则。具体的规则如下：</p>
+</tbody></table>
+<h2 id="模2除运算"><a href="#模2除运算" class="headerlink" title="模2除运算"></a>模2除运算</h2><p>来说一说crc里面最重要的一个运算吧，这不仅是发送方也是接收方编码的重要规则。具体的规则如下：</p>
 <p><strong>加减运算</strong> ：就是异或运算，加不进位减不借位</p>
-<p>$0 \pm 0 = 0, 0 \pm 1= 1, 1 \pm 0 = 1, 1 \pm 1 = 1$</p>
+<p>$0 \pm 0 &#x3D; 0, 0 \pm 1&#x3D; 1, 1 \pm 0 &#x3D; 1, 1 \pm 1 &#x3D; 1$</p>
 <p><strong>模2除法</strong> ： 除的时候呢按照上面减法的规则除，减的时候不借位，并且求部分余数。</p>
 <p><strong>上商</strong> ：当部分余数首位为1时，商为1，减除数； 当部分余数首位为0时，商为0，减0； 当部分余数的位数小与除数的位数时，该余数即为最后的余数。</p>
 <p>从这个上商的规则里面可以知道为什么当时选r+1位的多项式了。</p>
 <p>这啰嗦了半天，还是看不懂，直接上一张图吧。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDIwLzAzLzA3LzNYTWZ2Ri5wbmc?x-oss-process=image/format,png" alt=""></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDIwLzAzLzA3LzNYTWZ2Ri5wbmc?x-oss-process=image/format,png"></p>
 <p>其实这个跟除法还是差不多的，比较之后发现规则很像。但是这个除法再crc里很重要，务必要掌握，得会自己进行运算。</p>
-<h2 id="编码方法">编码方法</h2>
-<p>主要有五个步骤：</p>
+<h2 id="编码方法"><a href="#编码方法" class="headerlink" title="编码方法"></a>编码方法</h2><p>主要有五个步骤：</p>
 <ol>
-<li>
-<p>现根据公式 $N=k+r \leq 2^r -1$ 确定校验位的数量。k表示有效信息位数。假如有效信息时1100，k=4位，则需要r=3位校验位（代如公式算就行了）。</p>
+<li><p>现根据公式 $N&#x3D;k+r \leq 2^r -1$ 确定校验位的数量。k表示有效信息位数。假如有效信息时1100，k&#x3D;4位，则需要r&#x3D;3位校验位（代如公式算就行了）。</p>
 </li>
-<li>
-<p>根据多项式的选择原则（这里先不管是怎么选的），选择一个r+1位的生成多项式。这里针对例子我们选择$G(X)=1011$（主要目的是熟悉流程，后面讲怎么选）</p>
+<li><p>根据多项式的选择原则（这里先不管是怎么选的），选择一个r+1位的生成多项式。这里针对例子我们选择$G(X)&#x3D;1011$（主要目的是熟悉流程，后面讲怎么选）</p>
 </li>
-<li>
-<p>先把校验位用0补满，也就是把有效数据逻辑上向左移动r位。</p>
+<li><p>先把校验位用0补满，也就是把有效数据逻辑上向左移动r位。</p>
 </li>
-<li>
-<p>对补好的数据，进行模2运算法则。除数就是G(X)，被除数就是补好的数据。</p>
+<li><p>对补好的数据，进行模2运算法则。除数就是G(X)，被除数就是补好的数据。</p>
 </li>
-<li>
-<p>除好之后到最后会得到一个r位的余数，这个余数就是校验位。</p>
+<li><p>除好之后到最后会得到一个r位的余数，这个余数就是校验位。</p>
 </li>
 </ol>
 <p>这里把校验位用余数替换就相当于是把补好的数据再加上余数得到最终的数据。原先除的时候多了个余数，把余数加上后，再除就是0了。注意这不是突通的除法，普通的除法中被除数需要加上（除数-余数）才能再次除完之后变成0。而这个是模2的除法，所以加上余数之后就变成0了。</p>
-<h2 id="CRC检验与纠错">CRC检验与纠错</h2>
-<p>由上可知，加上余数后，再除余数就是０了，所以，当数据传输正确的时候，接收方拿相同的G(X)除完之后还得是0。</p>
+<h2 id="CRC检验与纠错"><a href="#CRC检验与纠错" class="headerlink" title="CRC检验与纠错"></a>CRC检验与纠错</h2><p>由上可知，加上余数后，再除余数就是０了，所以，当数据传输正确的时候，接收方拿相同的G(X)除完之后还得是0。</p>
 <p>如果有错的时候，余数就不为0了。</p>
 <p>具体来讲讲有错的时候。这个就比较有意思，有个规律。就是错的位数不一样，得到的余数也不一样。这个证明的话就用两张表格，拿数据说话。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$A_1$ ~ $A_7$</th>
-<th style="text-align:center">余数</th>
-<th style="text-align:center">出错位</th>
+<th align="center">$A_1$ ~ $A_7$</th>
+<th align="center">余数</th>
+<th align="center">出错位</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1100010</td>
-<td style="text-align:center">000</td>
-<td style="text-align:center">无</td>
+<tbody><tr>
+<td align="center">1100010</td>
+<td align="center">000</td>
+<td align="center">无</td>
 </tr>
 <tr>
-<td style="text-align:center">110001==1==</td>
-<td style="text-align:center">001</td>
-<td style="text-align:center">7</td>
+<td align="center">110001&#x3D;&#x3D;1&#x3D;&#x3D;</td>
+<td align="center">001</td>
+<td align="center">7</td>
 </tr>
 <tr>
-<td style="text-align:center">11000==0==0</td>
-<td style="text-align:center">010</td>
-<td style="text-align:center">6</td>
+<td align="center">11000&#x3D;&#x3D;0&#x3D;&#x3D;0</td>
+<td align="center">010</td>
+<td align="center">6</td>
 </tr>
 <tr>
-<td style="text-align:center">1100==1==10</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">5</td>
+<td align="center">1100&#x3D;&#x3D;1&#x3D;&#x3D;10</td>
+<td align="center">100</td>
+<td align="center">5</td>
 </tr>
 <tr>
-<td style="text-align:center">110==1==010</td>
-<td style="text-align:center">011</td>
-<td style="text-align:center">4</td>
+<td align="center">110&#x3D;&#x3D;1&#x3D;&#x3D;010</td>
+<td align="center">011</td>
+<td align="center">4</td>
 </tr>
 <tr>
-<td style="text-align:center">11==1==0010</td>
-<td style="text-align:center">110</td>
-<td style="text-align:center">3</td>
+<td align="center">11&#x3D;&#x3D;1&#x3D;&#x3D;0010</td>
+<td align="center">110</td>
+<td align="center">3</td>
 </tr>
 <tr>
-<td style="text-align:center">1==0==00010</td>
-<td style="text-align:center">111</td>
-<td style="text-align:center">2</td>
+<td align="center">1&#x3D;&#x3D;0&#x3D;&#x3D;00010</td>
+<td align="center">111</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">==0==100010</td>
-<td style="text-align:center">101</td>
-<td style="text-align:center">1</td>
+<td align="center">&#x3D;&#x3D;0&#x3D;&#x3D;100010</td>
+<td align="center">101</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
-<p>这张表是G(X)=1011的时候</p>
+</tbody></table>
+<p>这张表是G(X)&#x3D;1011的时候</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$A_1$ ~ $A_7$</th>
-<th style="text-align:center">余数</th>
-<th style="text-align:center">出错位</th>
+<th align="center">$A_1$ ~ $A_7$</th>
+<th align="center">余数</th>
+<th align="center">出错位</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1100101</td>
-<td style="text-align:center">000</td>
-<td style="text-align:center">无</td>
+<tbody><tr>
+<td align="center">1100101</td>
+<td align="center">000</td>
+<td align="center">无</td>
 </tr>
 <tr>
-<td style="text-align:center">110010==0==</td>
-<td style="text-align:center">001</td>
-<td style="text-align:center">7</td>
+<td align="center">110010&#x3D;&#x3D;0&#x3D;&#x3D;</td>
+<td align="center">001</td>
+<td align="center">7</td>
 </tr>
 <tr>
-<td style="text-align:center">11001==1==1</td>
-<td style="text-align:center">010</td>
-<td style="text-align:center">6</td>
+<td align="center">11001&#x3D;&#x3D;1&#x3D;&#x3D;1</td>
+<td align="center">010</td>
+<td align="center">6</td>
 </tr>
 <tr>
-<td style="text-align:center">1100==0==01</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">5</td>
+<td align="center">1100&#x3D;&#x3D;0&#x3D;&#x3D;01</td>
+<td align="center">100</td>
+<td align="center">5</td>
 </tr>
 <tr>
-<td style="text-align:center">110==1==101</td>
-<td style="text-align:center">101</td>
-<td style="text-align:center">4</td>
+<td align="center">110&#x3D;&#x3D;1&#x3D;&#x3D;101</td>
+<td align="center">101</td>
+<td align="center">4</td>
 </tr>
 <tr>
-<td style="text-align:center">11==1==0101</td>
-<td style="text-align:center">111</td>
-<td style="text-align:center">3</td>
+<td align="center">11&#x3D;&#x3D;1&#x3D;&#x3D;0101</td>
+<td align="center">111</td>
+<td align="center">3</td>
 </tr>
 <tr>
-<td style="text-align:center">1==0==00101</td>
-<td style="text-align:center">011</td>
-<td style="text-align:center">2</td>
+<td align="center">1&#x3D;&#x3D;0&#x3D;&#x3D;00101</td>
+<td align="center">011</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">==0==100101</td>
-<td style="text-align:center">110</td>
-<td style="text-align:center">1</td>
+<td align="center">&#x3D;&#x3D;0&#x3D;&#x3D;100101</td>
+<td align="center">110</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
-<p>这张表是G(X)=1101的时候的。</p>
+</tbody></table>
+<p>这张表是G(X)&#x3D;1101的时候的。</p>
 <p>有了这个规律我们不就可以定位错误了吗？对。</p>
-<p>现在这个校验方法还有一个神奇的规律，就是如果出错位数由第n位变成第n-1位，则相当于是第n位出错时得到的余数补上一个零再除以G(X)等于第n-1位出错时得到的余数。这个你可以自己去验证，我给你举个具体的数（G(X)=1011, 第n位出错：1100==1==10，第n-1位出错：110==1==010）。这种规律起个名字就是循环性。所以为什么叫CRC（Cyclic Redundancy Check）。</p>
+<p>现在这个校验方法还有一个神奇的规律，就是如果出错位数由第n位变成第n-1位，则相当于是第n位出错时得到的余数补上一个零再除以G(X)等于第n-1位出错时得到的余数。这个你可以自己去验证，我给你举个具体的数（G(X)&#x3D;1011, 第n位出错：1100&#x3D;&#x3D;1&#x3D;&#x3D;10，第n-1位出错：110&#x3D;&#x3D;1&#x3D;&#x3D;010）。这种规律起个名字就是循环性。所以为什么叫CRC（Cyclic Redundancy Check）。</p>
 <p>那有了这个规律我们可以做什么呢？</p>
 <p>对，纠错。怎么纠错呢？有一种简单的办法，既然知道哪位错了，直接再那位进行异或运算修正过来就好了嘛。</p>
 <p>但是想想，这样的话，是不是每一位都得设置一个引脚？数据量少了还好说，要是大了呢，电路就变的复杂起来，这样成本也增加了不少。所以，能不能只在一个位置设置一个引脚呢？</p>
 <p>能。就利用循环的特性。</p>
-<p>我们在第一位设置引脚，让出错的数据到达第一位。怎么到达？就是让数据循环滚动，让数据滚动到第一位。这个我之前一直不太理解。到底是怎么滚动的。我来举个例子，加入数据是111==0==0，最后一位是错的，那么滚动一次的意思就是变成这样：11==0==01。在滚动一次就是1==0==011。不知道能不能看懂。</p>
+<p>我们在第一位设置引脚，让出错的数据到达第一位。怎么到达？就是让数据循环滚动，让数据滚动到第一位。这个我之前一直不太理解。到底是怎么滚动的。我来举个例子，加入数据是111&#x3D;&#x3D;0&#x3D;&#x3D;0，最后一位是错的，那么滚动一次的意思就是变成这样：11&#x3D;&#x3D;0&#x3D;&#x3D;01。在滚动一次就是1&#x3D;&#x3D;0&#x3D;&#x3D;011。不知道能不能看懂。</p>
 <p>那么具体滚动几次呢？</p>
-<p>参照第一张图，假如错的数据在第4位，110==1==101，余数是101。根据循环性，我们给余数补零再做模2除运算，会得到出错位再第三位的余数。要想得到出错位再1时的余数，需要补0模2除3次。再看实际错的第四位要是滚动到第一位也得滚动3次。</p>
+<p>参照第一张图，假如错的数据在第4位，110&#x3D;&#x3D;1&#x3D;&#x3D;101，余数是101。根据循环性，我们给余数补零再做模2除运算，会得到出错位再第三位的余数。要想得到出错位再1时的余数，需要补0模2除3次。再看实际错的第四位要是滚动到第一位也得滚动3次。</p>
 <p>所以，我们边补0模2除，边滚动，知道发现余数等于出错位为第一位的时候的余数时，就是已经把出错位滚动到第一位了。</p>
 <p>这时候再对第一位进行异或运算。修正第一位。</p>
 <p>修正完咋回去呢？</p>
 <p>回去也是同样的原理，接着补0模2除，直到得到了当时第一次进行模2除时得到的余数时即停止滚动，数据回位。</p>
-<h2 id="G-X-满足条件">G(X)满足条件</h2>
-<p>知道了流程之后，对G(X)的满足条件就更好理解了。满足四个条件：</p>
+<h2 id="G-X-满足条件"><a href="#G-X-满足条件" class="headerlink" title="G(X)满足条件"></a>G(X)满足条件</h2><p>知道了流程之后，对G(X)的满足条件就更好理解了。满足四个条件：</p>
 <ol>
 <li>最高位和最低为必须为1</li>
 <li>当被传送信息任何一位发生错误时，被生成多项式除后余数不能为0</li>
 <li>不同位发生错误，模2除运算后余数不同</li>
 <li>对不为0余数补0模2除应使余数循环</li>
 </ol>
-<h1>海明码</h1>
-<p>海明码和之前那个CRC取的校验位数r的值的取值规则一样：$N=k+r \leq 2^r -1$</p>
+<h1 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h1><p>海明码和之前那个CRC取的校验位数r的值的取值规则一样：$N&#x3D;k+r \leq 2^r -1$</p>
 <p>但是他的编码放置位置比较特殊，和之前的所有编码都不一样，它不是放在后面了，它是<strong>插在中间</strong>的编码。</p>
 <p>怎么个插法？（：奸笑</p>
-<p>哎呀，当然是$P_i$放置在k+r位海明编码的第$2^{i-1}$位上。$(i = 1,2,\cdots, r)$</p>
+<p>哎呀，当然是$P_i$放置在k+r位海明编码的第$2^{i-1}$位上。$(i &#x3D; 1,2,\cdots, r)$</p>
 <p>剩下的位还按照原顺序放置有效信息位。</p>
 <p>举个例子：（7，4）海明码。就是7位有效数据，4位校验码。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
 <th>6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
-<th style="text-align:center">9</th>
-<th style="text-align:center">10</th>
-<th style="text-align:center">11</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+<th align="center">11</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">$P_1$</td>
-<td style="text-align:center">$P_2$</td>
-<td style="text-align:center">$b_1$</td>
-<td style="text-align:center">$P_3$</td>
-<td style="text-align:center">$b_2$</td>
+<tbody><tr>
+<td align="center">$P_1$</td>
+<td align="center">$P_2$</td>
+<td align="center">$b_1$</td>
+<td align="center">$P_3$</td>
+<td align="center">$b_2$</td>
 <td>$b_3$</td>
-<td style="text-align:center">$b_4$</td>
-<td style="text-align:center">$P_4$</td>
-<td style="text-align:center">$b_5$</td>
-<td style="text-align:center">$b_6$</td>
-<td style="text-align:center">$b_7$</td>
+<td align="center">$b_4$</td>
+<td align="center">$P_4$</td>
+<td align="center">$b_5$</td>
+<td align="center">$b_6$</td>
+<td align="center">$b_7$</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>P是校验码，b是有效信息位。</p>
 <p>b和P的制约关系是：$H_j$位的数据被编号小与j的若干个海明位号之和等于j的<strong>校验位</strong>所校验。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$H_1$</th>
-<th style="text-align:center">$H_2$</th>
-<th style="text-align:center">$H_3$</th>
-<th style="text-align:center">$H_4$</th>
-<th style="text-align:center">$H_5$</th>
-<th style="text-align:center">$H_6$</th>
-<th style="text-align:center">$H_7$</th>
-<th style="text-align:center">$H_8$</th>
-<th style="text-align:center">$H_9$</th>
-<th style="text-align:center">$H_{10}$</th>
-<th style="text-align:center">$H_{11}$</th>
+<th align="center">$H_1$</th>
+<th align="center">$H_2$</th>
+<th align="center">$H_3$</th>
+<th align="center">$H_4$</th>
+<th align="center">$H_5$</th>
+<th align="center">$H_6$</th>
+<th align="center">$H_7$</th>
+<th align="center">$H_8$</th>
+<th align="center">$H_9$</th>
+<th align="center">$H_{10}$</th>
+<th align="center">$H_{11}$</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1,2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1,4</td>
-<td style="text-align:center">2,4</td>
-<td style="text-align:center">1,2,4</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">1,8</td>
-<td style="text-align:center">2,8</td>
-<td style="text-align:center">1,2,8</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1,2</td>
+<td align="center">4</td>
+<td align="center">1,4</td>
+<td align="center">2,4</td>
+<td align="center">1,2,4</td>
+<td align="center">8</td>
+<td align="center">1,8</td>
+<td align="center">2,8</td>
+<td align="center">1,2,8</td>
 </tr>
 <tr>
-<td style="text-align:center">$P_1$</td>
-<td style="text-align:center">$P_2$</td>
-<td style="text-align:center">$b_1$</td>
-<td style="text-align:center">$P_3$</td>
-<td style="text-align:center">$b_2$</td>
-<td style="text-align:center">$b_3$</td>
-<td style="text-align:center">$b_4$</td>
-<td style="text-align:center">$P_4$</td>
-<td style="text-align:center">$b_5$</td>
-<td style="text-align:center">$b_6$</td>
-<td style="text-align:center">$b_7$</td>
+<td align="center">$P_1$</td>
+<td align="center">$P_2$</td>
+<td align="center">$b_1$</td>
+<td align="center">$P_3$</td>
+<td align="center">$b_2$</td>
+<td align="center">$b_3$</td>
+<td align="center">$b_4$</td>
+<td align="center">$P_4$</td>
+<td align="center">$b_5$</td>
+<td align="center">$b_6$</td>
+<td align="center">$b_7$</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>由这个表我们可以得知，$P_1$ ~ $P_4$ 的四个校验位值的计算公式（用的是</p>
 <p><strong>偶校验</strong>）：</p>
-<p>$P_1=b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$</p>
-<p>$P_2=b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$</p>
-<p>$P_3=b_2 \oplus b_3 \oplus b_4$</p>
-<p>$P_4=b_5 \oplus b_6 \oplus b_7$</p>
+<p>$P_1&#x3D;b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$</p>
+<p>$P_2&#x3D;b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$</p>
+<p>$P_3&#x3D;b_2 \oplus b_3 \oplus b_4$</p>
+<p>$P_4&#x3D;b_5 \oplus b_6 \oplus b_7$</p>
 <p>这只是4位的，其他的位数的按照规则类比4位的就行了。</p>
-<p>对于检错，这个检错和那个奇偶校验的原理比较类似。就拿$P_4$来说，用到它的位数有$b_5,b_6,b_7$，$P_4=b_5 \oplus b_6 \oplus b_7$， 那么$b_5 \oplus b_6 \oplus b_7 \oplus P_4 = P_4 \oplus P_4 = 0$</p>
+<p>对于检错，这个检错和那个奇偶校验的原理比较类似。就拿$P_4$来说，用到它的位数有$b_5,b_6,b_7$，$P_4&#x3D;b_5 \oplus b_6 \oplus b_7$， 那么$b_5 \oplus b_6 \oplus b_7 \oplus P_4 &#x3D; P_4 \oplus P_4 &#x3D; 0$</p>
 <p>这个$b_5 \oplus b_6 \oplus b_7 \oplus P_4$叫做指错字$G_4$。如果为0了，就是表明可能没错误，如果不为0则表明有错误，要么是$b_5,b_6,b_7$这几个数中有错了，要么就是$P_4$错了。针对这个例子，指错字有四个，因为有四个校验位。</p>
-<p>$G_1= P_1 \oplus b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$</p>
-<p>$G_2=P_2 \oplus b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$</p>
-<p>$G_3=P_3 \oplus b_2 \oplus b_3 \oplus b_4$</p>
-<p>$G_4=P_4 \oplus b_5 \oplus b_6 \oplus b_7$</p>
+<p>$G_1&#x3D; P_1 \oplus b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$</p>
+<p>$G_2&#x3D;P_2 \oplus b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$</p>
+<p>$G_3&#x3D;P_3 \oplus b_2 \oplus b_3 \oplus b_4$</p>
+<p>$G_4&#x3D;P_4 \oplus b_5 \oplus b_6 \oplus b_7$</p>
 <p>具体是怎么定位错误的呢？举个例子。（假如就1位错了）</p>
-<p>H= ==01==1==0==011==0==00<code>1</code></p>
-<p>根据公式我们可以算出来$G_4=1,G_3=0，G_2=1,G_1=1$。所以</p>
-<p>$G_4G_3G_2G_1=1011$，正好转换成十进制就是11，所以第十一位出错了。至于为什么这么“巧合”，也许得有复杂的公式推导，我不会，你感兴趣就自行百度。</p>
+<p>H&#x3D; &#x3D;&#x3D;01&#x3D;&#x3D;1&#x3D;&#x3D;0&#x3D;&#x3D;011&#x3D;&#x3D;0&#x3D;&#x3D;00<code>1</code></p>
+<p>根据公式我们可以算出来$G_4&#x3D;1,G_3&#x3D;0，G_2&#x3D;1,G_1&#x3D;1$。所以</p>
+<p>$G_4G_3G_2G_1&#x3D;1011$，正好转换成十进制就是11，所以第十一位出错了。至于为什么这么“巧合”，也许得有复杂的公式推导，我不会，你感兴趣就自行百度。</p>
 <p>这里，是已经知道到只有1位错了。所以我用这个能找到错误。如果不是1位错误呢？假如$b_2,b_3$同时出错了。</p>
-<p>H= ==01==1==0==<code>10</code>1==0==0000</p>
-<p>算出来$G_4G_3G_2G_1=0110$。这。。按照上面的规则应该是第三位错了啊，这可是两位出错呢。那看看第三位出错咋样。</p>
-<p>H= ==01==0==0==011==0==0000</p>
-<p>算一下$G_4G_3G_2G_1=0110$，果然，是一样的。看来这编码还是有缺陷的嘛。不能却别到底是1位错还是两位错。</p>
+<p>H&#x3D; &#x3D;&#x3D;01&#x3D;&#x3D;1&#x3D;&#x3D;0&#x3D;&#x3D;<code>10</code>1&#x3D;&#x3D;0&#x3D;&#x3D;0000</p>
+<p>算出来$G_4G_3G_2G_1&#x3D;0110$。这。。按照上面的规则应该是第三位错了啊，这可是两位出错呢。那看看第三位出错咋样。</p>
+<p>H&#x3D; &#x3D;&#x3D;01&#x3D;&#x3D;0&#x3D;&#x3D;0&#x3D;&#x3D;011&#x3D;&#x3D;0&#x3D;&#x3D;0000</p>
+<p>算一下$G_4G_3G_2G_1&#x3D;0110$，果然，是一样的。看来这编码还是有缺陷的嘛。不能却别到底是1位错还是两位错。</p>
 <p>唉，那怎么办啊？</p>
 <p>能改进啊，想想奇偶校验，是不是一位错检查出来，两位错检查不出来，因为1位错变了，两位错没变？这不就有办法区分到底是一位错还是两位错了吗？在最后面添加一个奇偶校验码。</p>
-<h1>小结</h1>
-<p>现在所有的内容都完了，总结一下。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>现在所有的内容都完了，总结一下。</p>
 <ol>
 <li>奇偶校验是检错码，正确不可信，并且只能查出奇数位错。只有1位。不能纠错。</li>
 <li>CRC有循环特性，主要借助模2除来体现。也是检错码，正确不可信。位数由公式确定。还能纠错。</li>
@@ -849,4 +757,4 @@ var $config = {
 <path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
 <path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
 </g>
-</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2023</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2024</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
