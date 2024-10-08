@@ -10,7 +10,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
 <path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
 </g>
-</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>The last Internal Node of a Complete Binary Tree</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2021-08-30T13:51:09.000Z">2021-08-30</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Data-Structrue/">Data Structrue</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Complete-Binary-Tree/">Complete Binary Tree  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">2 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">377 words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>The last Internal Node of a Complete Binary Tree</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2021-08-30T13:51:09.000Z">2021-08-30</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Data-Structrue/">Data Structrue</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Complete-Binary-Tree/">Complete Binary Tree  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">2 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">394 words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
@@ -32,56 +32,47 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>This problem derives from <em>Heap Sort</em>.</p>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>This problem derives from <em>Heap Sort</em>. </p>
 <span id="more"></span>
+
 <blockquote>
 <p>When you start to build the heap, you should start with the last internal node of the tree. And the index is usually <strong>$\frac{N}{2} - 1$</strong>, N is the total length of the array.</p>
 </blockquote>
 <p>But why is that ?</p>
-<h2 id="Complete-Binary-Tree">Complete Binary Tree</h2>
-<p>First, you need to know that when representing a tree using array, the tree is a <em>Complete Binary Tree</em>. See the following picture.</p>
+<h2 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h2><p>First, you need to know that when representing a tree using array, the tree is a <em>Complete Binary Tree</em>. See the following picture.</p>
 <img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post/20210831205110.svg" alt="complete-BT" style="zoom:75%;" />
+
 <p>The nodes in the array are stored like this: <code>[A, B, C, D, E, F, G, H, I, J]</code></p>
-<p>And the number of nodes $N$ can be represent as $2^{0}+2^{1}+\ldots +2^{k}+s$.  （$k = depth - 1$, $s$ is the number of nodes in the deepest layer）</p>
-<h2 id="Proof">Proof</h2>
-<p>I’m proving this in a graphical layer.</p>
+<p>And the number of nodes $N$ can be represent as $2^{0}+2^{1}+\ldots +2^{k}+s$.  （$k &#x3D; depth - 1$, $s$ is the number of nodes in the deepest layer）</p>
+<h2 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h2><p>I’m proving this in a graphical layer.</p>
 <p>First, let’s complete the tree to make it a <em>Full Binary Tree</em>.</p>
 <img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post/20210831200317.svg" alt="graphviz (1)" style="zoom:75%;" />
+
 <p>As we can see, before completion, the last internal node is $E$.</p>
-<p>Index of $E$ =<strong>$N$ - Red_Nodes - Deepest_Layer_Nodes</strong></p>
+<p>Index of $E$ &#x3D;<strong>$N$ - Red_Nodes - Deepest_Layer_Nodes</strong></p>
 <p>Let’s solve one by one.</p>
 <ol>
-<li>
-<p><em>Deepest_Layer_Nodes($s$)</em>:</p>
-<p>$$<br>
-N=2^{0}+2^{1}+\ldots +2^{k}+s \\<br>
-\Rightarrow s=N-2^{0}-2^{1}- \cdots -2^{k} \<br>
-$$<br>
-$k + 1$ is the depth of the tree. s</p>
+<li><p><em>Deepest_Layer_Nodes($s$)</em>: </p>
+<p>$$<br>N&#x3D;2^{0}+2^{1}+\ldots +2^{k}+s \\<br>\Rightarrow s&#x3D;N-2^{0}-2^{1}- \cdots -2^{k} \<br>$$<br>$k + 1$ is the depth of the tree. s</p>
 </li>
-<li>
-<p><em>Red_Nodes( R )</em></p>
+<li><p><em>Red_Nodes( R )</em></p>
 <p>As seen from the graph, number of red nodes is relative with the gray nodes.</p>
 <p>Assume <em>$F$</em> is number of nodes of Full Binary Tree, <em>$D$</em> is the number of Gray Nodes.</p>
-<p>$$<br>
-F=2^{0}+2^{1}+\ldots +2^{k+1}\\<br>
-D=F-N<br>
-$$</p>
-<p>From the previous graph we can see that <strong>when D is odd, $R = (D - 1) / 2$</strong></p>
+<p>$$<br>F&#x3D;2^{0}+2^{1}+\ldots +2^{k+1}\\<br>D&#x3D;F-N<br>$$</p>
+<p>From the previous graph we can see that <strong>when D is odd, $R &#x3D; (D - 1) &#x2F; 2$</strong></p>
 <p>Now let’s see another graph, when the number of gray nodes is even.</p>
 <img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post/20210831205206.svg" alt="graphviz (2)" style="zoom:75%;" />
-<p><strong>When D is even, $R = D / 2$</strong></p>
-<p>$\therefore R = floor(D / 2)$</p>
+
+<p><strong>When D is even, $R &#x3D; D &#x2F; 2$</strong></p>
+<p>$\therefore R &#x3D; floor(D &#x2F; 2)$</p>
 </li>
-<li>
-<p>Then $E=2^{0}+\ldots +2^{k}-R$</p>
-<p>$\because R=floor\left( \dfrac{\left( 2^{0}+\ldots +2^{k+1}-N\right) }{2}\right) $</p>
-<p>$=floor\left( \dfrac{1}{2}+2^{0}+\ldots +2^{k}-\dfrac{N}{2}\right) =floor\left( \dfrac{1}{2}\right) +floor\left( 2^{0}+\ldots +2^{k}\right) -floor\left( \dfrac{N}{2}\right)$</p>
-<p>$=2^{0}+\ldots +2^{k}-floor\left(\dfrac{N}{2}\right)$</p>
-<p>$\therefore E=floor\left(\dfrac{N}{2}\right)$</p>
+<li><p>Then $E&#x3D;2^{0}+\ldots +2^{k}-R$</p>
+<p>$\because R&#x3D;floor\left( \dfrac{\left( 2^{0}+\ldots +2^{k+1}-N\right) }{2}\right) $ </p>
+<p>$&#x3D;floor\left( \dfrac{1}{2}+2^{0}+\ldots +2^{k}-\dfrac{N}{2}\right) &#x3D;floor\left( \dfrac{1}{2}\right) +floor\left( 2^{0}+\ldots +2^{k}\right) -floor\left( \dfrac{N}{2}\right)$</p>
+<p>$&#x3D;2^{0}+\ldots +2^{k}-floor\left(\dfrac{N}{2}\right)$</p>
+<p>$\therefore E&#x3D;floor\left(\dfrac{N}{2}\right)$</p>
 </li>
-<li>
-<p>Because the index started from 0, so $E = floor\left(\dfrac{N}{2}\right) - 1$</p>
+<li><p>Because the index started from 0, so $E &#x3D; floor\left(\dfrac{N}{2}\right) - 1$</p>
 </li>
 </ol>
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2021/08/30/The-last-Internal-Node-of-a-Complete-Binary-Tree/">http://dyingdown.github.io/2021/08/30/The-last-Internal-Node-of-a-Complete-Binary-Tree/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2021/08/31/PicGo-GitHub-Typora-for-Blog/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post/20210831215411.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>PicGo+GitHub+Typora for Blog</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2021/08/24/%E6%97%B6%E9%97%B4-%E8%AE%B0%E5%BF%86/"><div class="img_fit imgR" style="background-color:#37474f"><img src="https://s1.ax1x.com/2020/05/05/YFjCtK.png"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>时间&amp;记忆</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
@@ -117,7 +108,7 @@ window.valine = new Valine({
 <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
 </g>
-</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "&lt;p&gt;This problem derives from &lt;em&gt;Heap Sort&lt;/em&gt;.&lt;/p&gt;";
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "&lt;p&gt;This problem derives from &lt;em&gt;Heap Sort&lt;/em&gt;. &lt;/p&gt;";
 var $config = {
     description         : desc,
     wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字

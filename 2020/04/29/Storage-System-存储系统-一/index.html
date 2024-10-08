@@ -10,7 +10,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
 <path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
 </g>
-</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>Storage System 存储系统(一)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-29T04:12:43.000Z">2020-04-29</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">13 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">3.7k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>Storage System 存储系统(一)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-04-29T04:12:43.000Z">2020-04-29</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Computer-Organization/">Computer Organization</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">13 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">3.8k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
@@ -34,9 +34,8 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>存储系统是指计算机中由存放程序和数据的各种存储设备、控制部件及管理信息调度的设备（硬件）和算法（软件）所组成的系统。计算机的主存储器不能同时满足存取速度快、存储容量大和成本低的要求，在计算机中必须有速度由慢到快、容量由大到小的多级层次存储器，以最优的控制调度算法和合理的成本，构成具有性能可接受的存储系统。</p>
 <span id="more"></span>
-<h2 id="存储系统层次结构">存储系统层次结构</h2>
-<h3 id="基本存储体系">基本存储体系</h3>
-<p>原理</p>
+
+<h2 id="存储系统层次结构"><a href="#存储系统层次结构" class="headerlink" title="存储系统层次结构"></a>存储系统层次结构</h2><h3 id="基本存储体系"><a href="#基本存储体系" class="headerlink" title="基本存储体系"></a>基本存储体系</h3><p>原理</p>
 <p>存储程序 （主存）</p>
 <ul>
 <li>输入设备将程序与数据写入主存</li>
@@ -47,19 +46,16 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 </ul>
 <p>程序控制（CPU）</p>
 <p><img src="https://s1.ax1x.com/2020/04/29/JoJn4U.png" alt="img"></p>
-<h3 id="主存速度慢的原因">主存速度慢的原因</h3>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoJHaV.png" alt="img"></p>
+<h3 id="主存速度慢的原因"><a href="#主存速度慢的原因" class="headerlink" title="主存速度慢的原因"></a>主存速度慢的原因</h3><p><img src="https://s1.ax1x.com/2020/04/29/JoJHaV.png" alt="img"></p>
 <ul>
 <li>主存增速与CPU增速不同</li>
 <li>指令执行期间多次访问存储器</li>
 </ul>
-<h3 id="主存容量不足的原因">主存容量不足的原因</h3>
-<ul>
+<h3 id="主存容量不足的原因"><a href="#主存容量不足的原因" class="headerlink" title="主存容量不足的原因"></a>主存容量不足的原因</h3><ul>
 <li>存在制约主存容量的技术因素 (由CPU、主板等相关技术指标确定)</li>
 <li>应用对主存的需求不断扩大</li>
 </ul>
-<h3 id="存储体系的层次化结构">存储体系的层次化结构</h3>
-<p><img src="https://s1.ax1x.com/2020/04/29/JodEDJ.png" alt="img"></p>
+<h3 id="存储体系的层次化结构"><a href="#存储体系的层次化结构" class="headerlink" title="存储体系的层次化结构"></a>存储体系的层次化结构</h3><p><img src="https://s1.ax1x.com/2020/04/29/JodEDJ.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/29/JodN5t.png" alt="img"></p>
 <p>CPU访问到的存储系统具有Cache的速度，辅存的容量和价格</p>
 <p>高速缓存又分为两部分</p>
@@ -68,33 +64,26 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>L1 Cache集成在CPU中，分数据Cache(D-Cache)和指令Cache(I-Cache)</li>
 <li>早期L2 Cache在主板上或与CPU集成在同一电路板上。随着工艺的提高L2Cache被集成在CPU内核中，不分D-Cache和I-Cache</li>
 </ul>
-<h3 id="存储体系层次化结构的理论基础">存储体系层次化结构的理论基础</h3>
-<p>局部性原理</p>
+<h3 id="存储体系层次化结构的理论基础"><a href="#存储体系层次化结构的理论基础" class="headerlink" title="存储体系层次化结构的理论基础"></a>存储体系层次化结构的理论基础</h3><p>局部性原理</p>
 <p><img src="https://s1.ax1x.com/2020/04/29/JTpOtU.png" alt="img"></p>
 <ul>
-<li>
-<p>时间局部性: 现在被访问的信息2在不久的将来还将再次被访问</p>
+<li><p>时间局部性: 现在被访问的信息2在不久的将来还将再次被访问</p>
 <p>时间局部性的程序结构体现：<strong>循环结构</strong></p>
 </li>
-<li>
-<p>空间局部性：现访问信息2 ，下一次访问2附近的信息。</p>
+<li><p>空间局部性：现访问信息2 ，下一次访问2附近的信息。</p>
 <p>空间局部性的程序结构体现：<strong>顺序结构</strong></p>
 </li>
 </ul>
-<h2 id="主存中的数据组织">主存中的数据组织</h2>
-<h3 id="存储字长">存储字长</h3>
-<ul>
+<h2 id="主存中的数据组织"><a href="#主存中的数据组织" class="headerlink" title="主存中的数据组织"></a>主存中的数据组织</h2><h3 id="存储字长"><a href="#存储字长" class="headerlink" title="存储字长"></a>存储字长</h3><ul>
 <li>主存的一个存储单元所包含的二进制位数</li>
 <li>目前大多数计算机的主存按字节编址，存储字长也不断加大,如16位字长、32位字长和64位字长</li>
-<li>ISA设计时要考虑的两个问题：
-<ul>
+<li>ISA设计时要考虑的两个问题：<ul>
 <li>如何根据字节地址读取一个32位的字？ - 字的存放问题</li>
 <li>一个字能否存放在主存的任何字节边界？ - 字的边界对齐问题</li>
 </ul>
 </li>
 </ul>
-<h3 id="数据存储与边界的关系">数据存储与边界的关系</h3>
-<ol>
+<h3 id="数据存储与边界的关系"><a href="#数据存储与边界的关系" class="headerlink" title="数据存储与边界的关系"></a>数据存储与边界的关系</h3><ol>
 <li>按边界对齐的数据存储</li>
 </ol>
 <p>边界也分好几种:字节边界,字边界,双字边界,半字长边界.</p>
@@ -111,47 +100,38 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>边界对齐与存储地址的关系(以32位为例)</li>
 </ol>
 <ul>
-<li>
-<p>双字长数据边界对齐的起始地址的最末三位为000(8字节整数倍)</p>
+<li><p>双字长数据边界对齐的起始地址的最末三位为000(8字节整数倍)</p>
 <p>双字长是64位,即八个字节,计算机中主存按字节,所以是八字节的整数倍.</p>
 </li>
-<li>
-<p>单字长边界对齐的起始地址的末二位为00(4字节整数倍)</p>
+<li><p>单字长边界对齐的起始地址的末二位为00(4字节整数倍)</p>
 </li>
-<li>
-<p>半字长边界对齐的起始地址的最末一位为0(２字节整数倍)</p>
+<li><p>半字长边界对齐的起始地址的最末一位为0(２字节整数倍)</p>
 </li>
 </ul>
 <ol>
-<li>
-<p>对齐情况下，哪种结构声明更好（32位为例）</p>
+<li><p>对齐情况下，哪种结构声明更好（32位为例）</p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JL3KDH.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JL8Zon.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JL8UW6.png" alt="img"></p>
 <p>如果每个只有一个的话，是第一种结构更好，但是如果是多维数组的话，两种方式没什么区别，因为都有浪费的地方。</p>
 </li>
 </ol>
-<h3 id="大端与小端存储方式">大端与小端存储方式</h3>
-<ul>
-<li>
-<p>Big-endian：最高字节地址(MSB)是数据地址</p>
+<h3 id="大端与小端存储方式"><a href="#大端与小端存储方式" class="headerlink" title="大端与小端存储方式"></a>大端与小端存储方式</h3><ul>
+<li><p>Big-endian：最高字节地址(MSB)是数据地址</p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JLYMSP.png" alt="img"></p>
 </li>
-<li>
-<p>Big-endian: 最高字节地址(MSB)是数据地址</p>
+<li><p>Big-endian: 最高字节地址(MSB)是数据地址</p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JLYdS0.png" alt="img"></p>
 </li>
 </ul>
-<p>设某程序执行前 r0 = 0x 11223344，执行下列指令：</p>
+<p>设某程序执行前 r0 &#x3D; 0x 11223344，执行下列指令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r1 = 0x100</span><br><span class="line">// 将r0中的内容放在r1的内容所指向的储存单元</span><br><span class="line">STR r0, [r1]</span><br><span class="line">// r1对应的组成单元取一个字节送到r2</span><br><span class="line">LDRB r2, [r1]</span><br></pre></td></tr></table></figure>
-<p>小端模式下：r2=0x44</p>
-<p>大选模式下：r2=0x11</p>
+
+<p>小端模式下：r2&#x3D;0x44</p>
+<p>大选模式下：r2&#x3D;0x11</p>
 <p>无论是大端还是小端，每个系统内部是一致的，但在系统间通信时可能会发生问题！因为顺序不同，需要进行顺序转换；</p>
-<h2 id="静态存储器工作原理">静态存储器工作原理</h2>
-<p>任何存储器都是由存储单元按照某种模式组合起来的。</p>
-<h3 id="SRAM存储单元结构">SRAM存储单元结构</h3>
-<h4 id="6管静态存储单元">6管静态存储单元</h4>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoZKL4.png" alt="img"></p>
+<h2 id="静态存储器工作原理"><a href="#静态存储器工作原理" class="headerlink" title="静态存储器工作原理"></a>静态存储器工作原理</h2><p>任何存储器都是由存储单元按照某种模式组合起来的。</p>
+<h3 id="SRAM存储单元结构"><a href="#SRAM存储单元结构" class="headerlink" title="SRAM存储单元结构"></a>SRAM存储单元结构</h3><h4 id="6管静态存储单元"><a href="#6管静态存储单元" class="headerlink" title="6管静态存储单元"></a>6管静态存储单元</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoZKL4.png" alt="img"></p>
 <ul>
 <li>工作管：$T_1, T_2$（保存数据）通过构成的稳定互锁状态来保存信息</li>
 <li>负载管：$T_3, T_4$（补充电荷）为工作管提供工作电流</li>
@@ -165,32 +145,24 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p>Y地址选通（列选通）</p>
 <ul>
 <li>Y通电导致$T_7, T_8$门控管被打开（饱和导通状态）</li>
-<li>A点与I/O相连</li>
+<li>A点与I&#x2F;O相连</li>
 </ul>
-<h4 id="基本读写过程">基本读写过程</h4>
-<p>写过程</p>
-<p>X有效→ T5、 T6 通→ A与 I/O 连通</p>
-<p>Y有效→ T7、 T8 通 → B与$\overline{I / O}$连通</p>
-<p>假定I/O端是高电平，$\overline{I / O}$是低电平，写入的是1，当X，Y都有效时，A点是高电位。<br>
-A点是高电位，T1饱和导通，Vss接地，所以B通过T2接地。所以T1是低点位，不饱和导通，维持A点高电位。</p>
+<h4 id="基本读写过程"><a href="#基本读写过程" class="headerlink" title="基本读写过程"></a>基本读写过程</h4><p>写过程</p>
+<p>X有效→ T5、 T6 通→ A与 I&#x2F;O 连通</p>
+<p>Y有效→ T7、 T8 通 → B与$\overline{I &#x2F; O}$连通</p>
+<p>假定I&#x2F;O端是高电平，$\overline{I &#x2F; O}$是低电平，写入的是1，当X，Y都有效时，A点是高电位。<br>A点是高电位，T1饱和导通，Vss接地，所以B通过T2接地。所以T1是低点位，不饱和导通，维持A点高电位。</p>
 <p>写入的是0则相反。</p>
 <p>读过程</p>
-<p>X有效→ T5、 T6 通→ A与 I/O 连通 1</p>
-<p>Y有效→ T7、 T8 通 → B与 $\overline{I / O}$ 连通 0</p>
-<p>通过外接于I/O与$\overline{I / O}$间的电流放大器中的电流方向可判断读出的是1还是0(与写入时定义的1和0有关)</p>
-<p>如果写入的是0，X，Y有效时，A点低电平，B点高电平<br>
-如果写入的是1，X，Y有效时，B点低电平，A点高电平</p>
+<p>X有效→ T5、 T6 通→ A与 I&#x2F;O 连通 1</p>
+<p>Y有效→ T7、 T8 通 → B与 $\overline{I &#x2F; O}$ 连通 0</p>
+<p>通过外接于I&#x2F;O与$\overline{I &#x2F; O}$间的电流放大器中的电流方向可判断读出的是1还是0(与写入时定义的1和0有关)</p>
+<p>如果写入的是0，X，Y有效时，A点低电平，B点高电平<br>如果写入的是1，X，Y有效时，B点低电平，A点高电平</p>
 <p><strong>无论是读写，X，Y译码线必须同时有效</strong></p>
-<h4 id="保持的工作原理">保持的工作原理</h4>
-<p>X、 Y撤销后，由负载管 T3、 T4 分别为工作管T1、 T2 提供工作电流，保持其稳定互锁状态不变。<br>
-T2饱和导通，T4为它提供工作电流。T1同理。</p>
-<h3 id="静态存储器的结构">静态存储器的结构</h3>
-<h4 id="单译码结构">单译码结构</h4>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoeCp6.png" alt="img"></p>
+<h4 id="保持的工作原理"><a href="#保持的工作原理" class="headerlink" title="保持的工作原理"></a>保持的工作原理</h4><p>X、 Y撤销后，由负载管 T3、 T4 分别为工作管T1、 T2 提供工作电流，保持其稳定互锁状态不变。<br>T2饱和导通，T4为它提供工作电流。T1同理。</p>
+<h3 id="静态存储器的结构"><a href="#静态存储器的结构" class="headerlink" title="静态存储器的结构"></a>静态存储器的结构</h3><h4 id="单译码结构"><a href="#单译码结构" class="headerlink" title="单译码结构"></a>单译码结构</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoeCp6.png" alt="img"></p>
 <p>N位地址，寻址$2^n$个存储单元，2n根译码线</p>
-<h4 id="双译码结构">双译码结构</h4>
-<p><img src="https://s1.ax1x.com/2020/04/29/JoeE0H.png" alt="img"></p>
-<p>N位地址，寻址$2^n$个存储单元，$2^{2(n/2)+1}$根译码线</p>
+<h4 id="双译码结构"><a href="#双译码结构" class="headerlink" title="双译码结构"></a>双译码结构</h4><p><img src="https://s1.ax1x.com/2020/04/29/JoeE0H.png" alt="img"></p>
+<p>N位地址，寻址$2^n$个存储单元，$2^{2(n&#x2F;2)+1}$根译码线</p>
 <p>由于每行每列有多个单元，实际应用中，地址译码器输出后面加驱动放大电路。</p>
 <p>双译码结构的好处：减少地址译码线的输出数量</p>
 <p>举例：双译码存储器</p>
@@ -216,21 +188,17 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 </ul>
 <p>2114内部结构图</p>
 <p><img src="https://s1.ax1x.com/2020/04/29/Joed3V.png" alt="img"></p>
-<p>列选通有四位，就可也表示2的4次方=16列。相当于第一列物理地址的编号是0000，第二列物理地址的编号是0001……</p>
-<h2 id="动态存储器工作原理">动态存储器工作原理</h2>
-<h3 id="SRAM存储单元的不足">SRAM存储单元的不足</h3>
-<ul>
+<p>列选通有四位，就可也表示2的4次方&#x3D;16列。相当于第一列物理地址的编号是0000，第二列物理地址的编号是0001……</p>
+<h2 id="动态存储器工作原理"><a href="#动态存储器工作原理" class="headerlink" title="动态存储器工作原理"></a>动态存储器工作原理</h2><h3 id="SRAM存储单元的不足"><a href="#SRAM存储单元的不足" class="headerlink" title="SRAM存储单元的不足"></a>SRAM存储单元的不足</h3><ul>
 <li>晶体管数量过多，一个存储单元就要6个晶体管</li>
 <li>存储密度低，晶体管数量多，存储器难以做大</li>
 <li>功耗大，无论保存的是0还是1，都有两个晶体管处在饱和导通状态。饱和导通电流较大，功耗较大，热效应明显。</li>
 </ul>
 <p>所以静态存储器芯片容量较小。</p>
-<h3 id="DRAM存储单元的基本结构">DRAM存储单元的基本结构</h3>
-<p><img src="https://s1.ax1x.com/2020/04/30/JLhdOS.png" alt="img"></p>
+<h3 id="DRAM存储单元的基本结构"><a href="#DRAM存储单元的基本结构" class="headerlink" title="DRAM存储单元的基本结构"></a>DRAM存储单元的基本结构</h3><p><img src="https://s1.ax1x.com/2020/04/30/JLhdOS.png" alt="img"></p>
 <p>解决SRAM不足采取的方法：</p>
 <ul>
-<li>去掉两个负载管T3、T4
-<ul>
+<li>去掉两个负载管T3、T4<ul>
 <li>提升存储密度</li>
 <li>降低功耗</li>
 <li>降低成本</li>
@@ -239,21 +207,19 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 <li>利用栅极分布电容缓存电荷</li>
 <li>增加电路协同存储单元工作</li>
 </ul>
-<h3 id="动态存储单元写操作">动态存储单元写操作</h3>
-<p>Y地址选通</p>
+<h3 id="动态存储单元写操作"><a href="#动态存储单元写操作" class="headerlink" title="动态存储单元写操作"></a>动态存储单元写操作</h3><p>Y地址选通</p>
 <ul>
 <li>T7，T8管导通</li>
-<li>I/O端数据写入到位线</li>
+<li>I&#x2F;O端数据写入到位线</li>
 </ul>
 <p>X地址选通</p>
 <ul>
 <li>T5，T6管导通</li>
 <li>位线相连与C2相连</li>
 </ul>
-<p>假定I/O端为高电平，写入1，A点饱和导通同时还给C2充电。</p>
+<p>假定I&#x2F;O端为高电平，写入1，A点饱和导通同时还给C2充电。</p>
 <p><img src="https://s1.ax1x.com/2020/04/30/JL4yHe.png" alt="img"></p>
-<h3 id="动态存储单元读操作">动态存储单元读操作</h3>
-<p>C2上的电量太少，不足以判断写入的数据。所以不能采用静态的方法。</p>
+<h3 id="动态存储单元读操作"><a href="#动态存储单元读操作" class="headerlink" title="动态存储单元读操作"></a>动态存储单元读操作</h3><p>C2上的电量太少，不足以判断写入的数据。所以不能采用静态的方法。</p>
 <p>给出预充信号</p>
 <ul>
 <li>T9、T10导通</li>
@@ -273,8 +239,7 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/30/JL5daQ.png" alt="img"></p>
 <p>读过程比写复杂、速度慢</p>
-<h3 id="动态存储单元保持操作">动态存储单元保持操作</h3>
-<ul>
+<h3 id="动态存储单元保持操作"><a href="#动态存储单元保持操作" class="headerlink" title="动态存储单元保持操作"></a>动态存储单元保持操作</h3><ul>
 <li>X地址选通信号撤销</li>
 <li>Y地址选通信号撤</li>
 </ul>
@@ -286,8 +251,7 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 <li>刷新操作是一次不完整的读操作</li>
 <li>刷新地址由刷新地址计数器给出</li>
 </ul>
-<h3 id="动态存储单元刷新操作">动态存储单元刷新操作</h3>
-<p>给出预充信号</p>
+<h3 id="动态存储单元刷新操作"><a href="#动态存储单元刷新操作" class="headerlink" title="动态存储单元刷新操作"></a>动态存储单元刷新操作</h3><p>给出预充信号</p>
 <ul>
 <li>T9，T10导通</li>
 <li>充电电压给左右CD充电</li>
@@ -300,60 +264,45 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 <li>左CD给C2充电</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/30/JLITYj.png" alt="img"></p>
-<h3 id="动态存储单元刷新操作-2">动态存储单元刷新操作</h3>
-<p>假定刷新周期为2ms, DRAM 内部128行，读写周期0.5µs</p>
-<h4 id="集中刷新">集中刷新</h4>
-<p><img src="https://s1.ax1x.com/2020/04/30/JLoWC9.png" alt="img"></p>
+<h3 id="动态存储单元刷新操作-1"><a href="#动态存储单元刷新操作-1" class="headerlink" title="动态存储单元刷新操作"></a>动态存储单元刷新操作</h3><p>假定刷新周期为2ms, DRAM 内部128行，读写周期0.5µs</p>
+<h4 id="集中刷新"><a href="#集中刷新" class="headerlink" title="集中刷新"></a>集中刷新</h4><p><img src="https://s1.ax1x.com/2020/04/30/JLoWC9.png" alt="img"></p>
 <p>集中刷新期间，CPU不能访问存储器，否则会导致相关行的内容丢失。</p>
-<p>采用集中刷新的存储器平均读写周期 $\overline{T} = 2ms/(4000-128) = 0.5165 \mu s$</p>
+<p>采用集中刷新的存储器平均读写周期 $\overline{T} &#x3D; 2ms&#x2F;(4000-128) &#x3D; 0.5165 \mu s$ </p>
 <p>集中刷新可以保持存储单体的高速特性</p>
-<h4 id="分散刷新">分散刷新</h4>
-<p><img src="https://s1.ax1x.com/2020/04/30/JLTGx1.png" alt="img"></p>
+<h4 id="分散刷新"><a href="#分散刷新" class="headerlink" title="分散刷新"></a>分散刷新</h4><p><img src="https://s1.ax1x.com/2020/04/30/JLTGx1.png" alt="img"></p>
 <p>读写周期由$0.5 \mu s$变成$0.1 \mu s$</p>
-<p>$\overline{T} = 1 \mu s$</p>
+<p>$\overline{T} &#x3D; 1 \mu s$</p>
 <p>分散刷新没有保持存储单体的高速特性，由于刷新次数2000大于需要刷新的次数128。</p>
-<h4 id="异步刷新">异步刷新</h4>
-<p><img src="https://s1.ax1x.com/2020/04/30/JLTXoF.png" alt="img"></p>
+<h4 id="异步刷新"><a href="#异步刷新" class="headerlink" title="异步刷新"></a>异步刷新</h4><p><img src="https://s1.ax1x.com/2020/04/30/JLTXoF.png" alt="img"></p>
 <p>将2ms分成128段，每段约$15.5 \mu s$，每段用最后一块刷新。</p>
-<p>$\overline{T} = 2ms/(4000-128) = 0.5165 \mu s$</p>
-<h3 id="DRAM与SRAM的对比">DRAM与SRAM的对比</h3>
-<p><img src="https://s1.ax1x.com/2020/04/30/JL7GFg.png" alt="img"></p>
+<p>$\overline{T} &#x3D; 2ms&#x2F;(4000-128) &#x3D; 0.5165 \mu s$ </p>
+<h3 id="DRAM与SRAM的对比"><a href="#DRAM与SRAM的对比" class="headerlink" title="DRAM与SRAM的对比"></a>DRAM与SRAM的对比</h3><p><img src="https://s1.ax1x.com/2020/04/30/JL7GFg.png" alt="img"></p>
 <p>动态读写单元行选通和列选通分开了，因为刷新按照行刷新不需要列选通。</p>
 <p>数据的入和出是两个不同的引脚</p>
 <p>DRAM: 地址线复用，$\overline{RAS}$兼为片选信号</p>
-<h3 id="其他结构的DRAM存储单元">其他结构的DRAM存储单元</h3>
-<p>进一步提高密度，剪裁冗余电路，核心是电容</p>
+<h3 id="其他结构的DRAM存储单元"><a href="#其他结构的DRAM存储单元" class="headerlink" title="其他结构的DRAM存储单元"></a>其他结构的DRAM存储单元</h3><p>进一步提高密度，剪裁冗余电路，核心是电容</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JLbWdK.png" alt="img"></p>
-<h2 id="存储扩展">存储扩展</h2>
-<h3 id="存储扩展的基本概念及类型">存储扩展的基本概念及类型</h3>
-<p><img src="https://s1.ax1x.com/2020/05/01/JLqJYD.png" alt="img"></p>
+<h2 id="存储扩展"><a href="#存储扩展" class="headerlink" title="存储扩展"></a>存储扩展</h2><h3 id="存储扩展的基本概念及类型"><a href="#存储扩展的基本概念及类型" class="headerlink" title="存储扩展的基本概念及类型"></a>存储扩展的基本概念及类型</h3><p><img src="https://s1.ax1x.com/2020/05/01/JLqJYD.png" alt="img"></p>
 <p>无论哪种类型的存储扩展都要完成CPU与主存间地址线、数据线、控制线的连接</p>
-<h3 id="位扩展举例">位扩展举例</h3>
-<p>例1 用$16K \times 8$芯片构建$16K \times 32$的存储器</p>
-<p>所需芯片数量：16K*32/(16K *8) =4</p>
+<h3 id="位扩展举例"><a href="#位扩展举例" class="headerlink" title="位扩展举例"></a>位扩展举例</h3><p>例1 用$16K \times 8$芯片构建$16K \times 32$的存储器</p>
+<p>所需芯片数量：16K*32&#x2F;(16K *8) &#x3D;4</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JLLP9e.png" alt="img"></p>
 <p>所有存储芯片并行工作，贡献32位数据中的不同8位</p>
-<h3 id="字扩展举例">字扩展举例</h3>
-<p>例2 用$16K \times 8$的存储芯片构建$128K \times 8$的存储器</p>
-<p>所需芯片数量：128K * 8/ (16K*8) = 8</p>
+<h3 id="字扩展举例"><a href="#字扩展举例" class="headerlink" title="字扩展举例"></a>字扩展举例</h3><p>例2 用$16K \times 8$的存储芯片构建$128K \times 8$的存储器</p>
+<p>所需芯片数量：128K * 8&#x2F; (16K*8) &#x3D; 8</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjCQij.png" alt="img"></p>
 <p>计算每片的全局地址空间</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjP9XV.png" alt="img"></p>
-<h3 id="字扩展举例-2">字扩展举例</h3>
-<p>例3 用$16K \times 8$的存储芯片构建$128K \times 8$的存储器，其中08000H~0BFFFH存储空间保留不用</p>
+<h3 id="字扩展举例-1"><a href="#字扩展举例-1" class="headerlink" title="字扩展举例"></a>字扩展举例</h3><p>例3 用$16K \times 8$的存储芯片构建$128K \times 8$的存储器，其中08000H~0BFFFH存储空间保留不用</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjiUPJ.png" alt="JjiUPJ.png"></p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjifxI.png" alt="JjifxI.png"></p>
-<p>所需芯片数量：（128K-16K）*8/（16K * 8）= 7</p>
+<p>所需芯片数量：（128K-16K）*8&#x2F;（16K * 8）&#x3D; 7</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjiORs.png" alt="JjiORs.png"></p>
-<h3 id="字位扩展举例">字位扩展举例</h3>
-<p>例4 用$16K \times 8$ 的存储芯片构建$128K \times 32$的存储器</p>
+<h3 id="字位扩展举例"><a href="#字位扩展举例" class="headerlink" title="字位扩展举例"></a>字位扩展举例</h3><p>例4 用$16K \times 8$ 的存储芯片构建$128K \times 32$的存储器</p>
 <p><img src="https://s1.ax1x.com/2020/05/01/JjV9XR.png" alt="JjV9XR.png"></p>
-<h2 id="多体交叉存储器">多体交叉存储器</h2>
-<h3 id="多体交叉存储器的提出背景">多体交叉存储器的提出背景</h3>
-<p>其基本思想是在不提高存储器速率、不扩展数据通路位数的前提下，通过存储芯片的交叉组织，提高CPU单位时间内访问的数据量，从而缓解快速的CPU与慢速的主存之间的速度差异。</p>
-<h3 id="高位多体交叉存储器的组织方式">高位多体交叉存储器的组织方式</h3>
-<p><img src="https://s1.ax1x.com/2020/05/07/YZdikV.png" alt="YZdikV.png"></p>
-<p>由图中可知，内存地址一共五个bit，一共有四个存储芯片，每一个存储芯片的容量是八个存储单元。由于$2^3=8$，所以，需要三个bit就能表示八个不同的位置。剩下两个bit正好做片选信号。$2^2=4$两个bit表示四种状态正好对应四个存储芯片。</p>
+<h2 id="多体交叉存储器"><a href="#多体交叉存储器" class="headerlink" title="多体交叉存储器"></a>多体交叉存储器</h2><h3 id="多体交叉存储器的提出背景"><a href="#多体交叉存储器的提出背景" class="headerlink" title="多体交叉存储器的提出背景"></a>多体交叉存储器的提出背景</h3><p>其基本思想是在不提高存储器速率、不扩展数据通路位数的前提下，通过存储芯片的交叉组织，提高CPU单位时间内访问的数据量，从而缓解快速的CPU与慢速的主存之间的速度差异。</p>
+<h3 id="高位多体交叉存储器的组织方式"><a href="#高位多体交叉存储器的组织方式" class="headerlink" title="高位多体交叉存储器的组织方式"></a>高位多体交叉存储器的组织方式</h3><p><img src="https://s1.ax1x.com/2020/05/07/YZdikV.png" alt="YZdikV.png"></p>
+<p>由图中可知，内存地址一共五个bit，一共有四个存储芯片，每一个存储芯片的容量是八个存储单元。由于$2^3&#x3D;8$，所以，需要三个bit就能表示八个不同的位置。剩下两个bit正好做片选信号。$2^2&#x3D;4$两个bit表示四种状态正好对应四个存储芯片。</p>
 <p><img src="https://s1.ax1x.com/2020/05/08/Ynnnpt.png" alt="Ynnnpt.png"></p>
 <p>这种方式有几个特点：</p>
 <ul>
@@ -363,8 +312,7 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 <li>性能无提升。若要访问一段的连续的数据，则只能等一个存储芯片访问完了，才能进行下一个芯片里面的访问。</li>
 <li>但是扩充容量很方便，直接再后面加一条就行了</li>
 </ul>
-<h3 id="低位多体交叉存储器的组织方式">低位多体交叉存储器的组织方式</h3>
-<p><img src="https://s1.ax1x.com/2020/05/08/YKvFqx.png" alt="YKvFqx.png"></p>
+<h3 id="低位多体交叉存储器的组织方式"><a href="#低位多体交叉存储器的组织方式" class="headerlink" title="低位多体交叉存储器的组织方式"></a>低位多体交叉存储器的组织方式</h3><p><img src="https://s1.ax1x.com/2020/05/08/YKvFqx.png" alt="YKvFqx.png"></p>
 <p>与高位不同的是，它采用高位三位表示地址，低2位做片选信号。</p>
 <p><img src="https://s1.ax1x.com/2020/05/08/YMCQyQ.png" alt="YMCQyQ.png"></p>
 <p>这样的话000000在第一个芯片， 000001就在第二个芯片。</p>
@@ -380,12 +328,12 @@ T2饱和导通，T4为它提供工作电流。T1同理。</p>
 <p><img src="https://s1.ax1x.com/2020/05/08/YMk48P.png" alt="YMk48P.png"></p>
 <p>送完第一个数据的地址，可以接着送第二个数据的地址（在第二片上）。等到第四个地址送完后，第一个数据的地址存储访问也已经完成，然后就依次取第一个数据，第二个等等。</p>
 <p>定量分析：</p>
-<p>设，存储周期为T，总线传输周期（CPU把地址传到每一个芯片的AR的传输周期为$\tau$），多体交叉的模块数量为m个。流水线方式存取的条件：$T=m \tau$</p>
+<p>设，存储周期为T，总线传输周期（CPU把地址传到每一个芯片的AR的传输周期为$\tau$），多体交叉的模块数量为m个。流水线方式存取的条件：$T&#x3D;m \tau$</p>
 <p>只有满足上述关系，才能实现流水线的并行工作。即每个模块启动后经过 $\tau$ 时间的延时，就可以启动下一个模块。</p>
 <p><img src="https://s1.ax1x.com/2020/05/10/Y1vmQg.png" alt="Y1vmQg.png"></p>
 <p>虽然每一个存储单体的周期没变，但是由于并行原理，单位时间内访问的数据量变大了。计算可知。</p>
-<p>连续并行读m个字的时间：$t_1=T+(m-1) \tau$</p>
-<p>顺序读m个字的时间：$t_1=Tm$</p>
+<p>连续并行读m个字的时间：$t_1&#x3D;T+(m-1) \tau$</p>
+<p>顺序读m个字的时间：$t_1&#x3D;Tm$</p>
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2020/04/29/Storage-System-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F-%E4%B8%80/">http://dyingdown.github.io/2020/04/29/Storage-System-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F-%E4%B8%80/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/04/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%B1%82/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/30/JH4NZ9.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>计算机网络-网络层</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/04/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/27/JWwws1.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>计算机网络-数据链路层</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];

@@ -32,8 +32,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><h2 id="Problem-Description">Problem Description</h2>
-<p>A city’s <strong>skyline</strong> is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return <em>the <strong>skyline</strong> formed by these buildings collectively</em>.</p>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>A city’s <strong>skyline</strong> is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return <em>the <strong>skyline</strong> formed by these buildings collectively</em>.</p>
 <p>The geometric information of each building is given in the array <code>buildings</code> where <code>buildings[i] = [lefti, righti, heighti]</code>:</p>
 <ul>
 <li><code>lefti</code> is the x coordinate of the left edge of the <code>ith</code> building.</li>
@@ -45,87 +44,80 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p><strong>Note:</strong> There must be no consecutive horizontal lines of equal height in the output skyline. For instance, <code>[...,[2 3],[4 5],[7 5],[11 5],[12 7],...]</code> is not acceptable; the three lines of height 5 should be merged into one in the final output as such: <code>[...,[2 3],[4 5],[12 7],...]</code></p>
 <p><strong>Example 1:</strong></p>
 <p><img src="https://assets.leetcode.com/uploads/2020/12/01/merged.jpg" alt="img"></p>
-<h2 id="Analysis">Analysis</h2>
-<h3 id="Pre-analysis">Pre-analysis</h3>
-<p>Let’s draw the sky line first with out the graph but with the bunch of input numbers.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h3 id="Pre-analysis"><a href="#Pre-analysis" class="headerlink" title="Pre-analysis"></a>Pre-analysis</h3><p>Let’s draw the sky line first with out the graph but with the bunch of input numbers.</p>
 <ol>
-<li>
-<p>We start from the leftmost building. $[2, 9, 10]$. We draw the left line of the building because the left line is not obscured by any other building.</p>
+<li><p>We start from the leftmost building. $[2, 9, 10]$. We draw the left line of the building because the left line is not obscured by any other building.</p>
 <p>Then we record the right line of the building, because we don’t know whether it will be covered or not.</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302010918017.png" style="zoom: 67%;" />
+
 <p>So the recorded lines are now $[line(9, 10)]$</p>
-<p>Noticed that after $point B$,  we started to draw horizontal line to right, so we know  that the height is greater than the original height 0. So we record the point B. $[B] $</p>
-<p>Also we save the height of this building [10]</p>
+<p> Noticed that after $point B$,  we started to draw horizontal line to right, so we know  that the height is greater than the original height 0. So we record the point B. $[B] $</p>
+<p> Also we save the height of this building [10]</p>
 </li>
-<li>
-<p>Draw the second building as the same. $[3, 7, 15]$</p>
+<li><p>Draw the second building as the same. $[3, 7, 15]$</p>
 <p>The second building stars from 3, so we move B horizontally to C</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302010936524.png" style="zoom:67%;" />
+
 <p>Then starts to draw the remaining left line and also puts its right line into the record lines $[line(9, 10), line(7, 15)]$</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302010939789.png" style="zoom:67%;" />
+
 <p>Since the height changes at D, we record the D point to points list: [B, D]</p>
 <p>Save height for this building [10, 15]</p>
 </li>
-<li>
-<p>Let’s look at the third building [5, 12, 12]</p>
+<li><p>Let’s look at the third building [5, 12, 12]</p>
 <p>We know the current highest building is 15 height, but the height of the third building is only 12 height, so the building is partially covered by the tallest building.</p>
 <p>But we also record its right line to lines $[line(9, 10), line(7, 15), line(12, 12)]$</p>
 <p>Save height: [10, 15, 12]</p>
 </li>
-<li>
-<p>Before considering for the next building, we know that the current building’s left lines contains lines that is in front of the next building. So we pick  the most front line, line(7, 15).</p>
+<li><p>Before considering for the next building, we know that the current building’s left lines contains lines that is in front of the next building. So we pick  the most front line, line(7, 15).</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302010952258.png" style="zoom:67%;" />
+
 <p>Since E is the right top point of the building, that means we’ve finished drawing the horizontal line of the tallest building, we remove the height from the height list [10, 12].</p>
 <p>Now the highest building is at height 12, that means we can only draw down from 15 to 12.</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302010955503.png" style="zoom:67%;" />
+
 <p>Notice there is a height change at point F, so record F. [B, D, F]</p>
 </li>
-<li>
-<p>The next right line is line(9, 10). However, the tallest building is now 12 height, so the line(9, 10) is covered within the current tallest building.</p>
+<li><p>The next right line is line(9, 10). However, the tallest building is now 12 height, so the line(9, 10) is covered within the current tallest building.</p>
 <p>Since the right line of the building is finished, we remove the height 10 . heights: [12]</p>
 </li>
-<li>
-<p>As before, we draw next right line, remove height, and record the next point H</p>
+<li><p>As before, we draw next right line, remove height, and record the next point H</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302011000159.png" style="zoom:67%;" />
+
 <p>heights: [], right lines: [],  record points: [B, D, F, H]</p>
 </li>
-<li>
-<p>And then, as before, we draw the other two buildings.</p>
-<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302011009556.png" style="zoom:67%;" />
-</li>
+<li><p>And then, as before, we draw the other two buildings.</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302011009556.png" style="zoom:67%;" /></li>
 </ol>
-<h3 id="Conclude">Conclude</h3>
-<p>From the analysis above, we distilled the main idea is we need to consider lines as separate parts not dealing the building as a whole.</p>
+<h3 id="Conclude"><a href="#Conclude" class="headerlink" title="Conclude"></a>Conclude</h3><p>From the analysis above, we distilled the main idea is we need to consider lines as separate parts not dealing the building as a whole.</p>
 <p>So instead of adding line to lines list when we meets a new building, we can add the lines together and sort the lines by its position in the x-axis.</p>
 <p>In order to distinguish the right line and the left line(because we need to know when to remove height from height list when finish drawing one building), we also need to store that property with other line information.</p>
 <p>Also we need to pick the highest buildings each time, so we can store heights in a container that can get the biggest number quickly like Priority Queue or Set to reduce time.</p>
 <p>So here comes the question, how do we sort the lines.</p>
 <ol>
-<li>
-<p><strong>The first criteria is that we sort by the x-axis value.</strong></p>
+<li><p><strong>The first criteria is that we sort by the x-axis value.</strong></p>
 </li>
-<li>
-<p>But what if the x-axis value is the same? then we need to distinguish the right and left line.</p>
+<li><p>But what if the x-axis value is the same? then we need to distinguish the right and left line.</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302011128277.png" style="zoom:67%;" />
-<p>For line $CD$ and $GD$, they have the same x-axis value but are different sides. In this case, we want the left side $GD$ calculate first.</p>
+
+<p>For line $CD$ and $GD$, they have the same x-axis value but are different sides. In this case, we want the left side $GD$ calculate first. </p>
 <p>Because if we remove $CD$ first, we max height would become zero(originally 15), which means there is a change in height, so we record point D. that is no the correct point.</p>
 <p>So <strong>If the x-axis value are the same, we want the left side line gets first</strong></p>
 </li>
-<li>
-<p>Let’s look at this situation</p>
+<li><p>Let’s look at this situation</p>
 <img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302011120927.png" style="zoom:67%;" />
+
 <p>AE, AG are all covered by AB, so we want to calculate the tallest building first. FD, HD are covered under CD, so for the right line, we want to calculate the shorter building because we don’t want to remove the highest height so quickly so that the tallest building changed which actually not.</p>
 <p>So, <strong>if the x-axis value are the same and they are both left sides, sort by heights in descending order, if both right sides, sort by heights in ascending order.</strong></p>
 </li>
 </ol>
-<h4 id="Sorting-criteria-summary">Sorting criteria summary</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Line&amp; a) <span class="type">const</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(xAxis == a.xAxis) &#123;</span><br><span class="line">        <span class="keyword">if</span>(isRight == a.isRight &amp;&amp; isRight == <span class="literal">false</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> height &gt; a.height; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(isRight == a.isRight &amp;&amp; isRight == <span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> height &lt; a.height;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isRight &lt; a.isRight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> xAxis &lt; a.xAxis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Easy-way-to-sort">Easy way to sort</h4>
-<p>There is a tricky thing to write sort easier. Since the left sides and right sides have different order requirements, we can <em>assign the left sides height into negative</em> and sort it in all ascending order.</p>
+<h4 id="Sorting-criteria-summary"><a href="#Sorting-criteria-summary" class="headerlink" title="Sorting criteria summary"></a>Sorting criteria summary</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Line&amp; a) <span class="type">const</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(xAxis == a.xAxis) &#123;</span><br><span class="line">        <span class="keyword">if</span>(isRight == a.isRight &amp;&amp; isRight == <span class="literal">false</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> height &gt; a.height; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(isRight == a.isRight &amp;&amp; isRight == <span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> height &lt; a.height;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isRight &lt; a.isRight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> xAxis &lt; a.xAxis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Easy-way-to-sort"><a href="#Easy-way-to-sort" class="headerlink" title="Easy way to sort"></a>Easy way to sort</h4><p>There is a tricky thing to write sort easier. Since the left sides and right sides have different order requirements, we can <em>assign the left sides height into negative</em> and sort it in all ascending order.</p>
 <p>So we can just sort the lines in x-axis and heights. because left sides’ height are negative, they will appear  fronter than the right sides when x-axis are the same.</p>
 <p>I use <code>pair&lt;int,int&gt;</code> and <code>sort()</code> will sorts the pairs in ascending order by the first element and then by second element.</p>
-<h2 id="Code">Code</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">getSkyline</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; buildings) &#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; lines;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i : buildings) &#123;</span><br><span class="line">            lines.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(i[<span class="number">1</span>], i[<span class="number">2</span>]));</span><br><span class="line">            lines.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(i[<span class="number">0</span>], -i[<span class="number">2</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        multiset&lt;<span class="type">int</span>&gt; maxHeight; <span class="comment">// there may be many buildings share the same height</span></span><br><span class="line">        <span class="type">int</span> prevHeight = <span class="number">0</span>;</span><br><span class="line">        maxHeight.<span class="built_in">insert</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">sort</span>(lines.<span class="built_in">begin</span>(), lines.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i : lines) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i.second &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                maxHeight.<span class="built_in">erase</span>(maxHeight.<span class="built_in">find</span>(i.second)); <span class="comment">// jus erase(i.second) will erase all the elements equal to i.second</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                maxHeight.<span class="built_in">insert</span>(-i.second);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> currentHeight = *maxHeight.<span class="built_in">rbegin</span>(); <span class="comment">// .end() is the length of sets</span></span><br><span class="line">            <span class="keyword">if</span>(currentHeight != prevHeight) &#123; <span class="comment">// there is a height change</span></span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;i.first, currentHeight&#125;); </span><br><span class="line">                prevHeight = currentHeight;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">getSkyline</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; buildings) &#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; lines;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i : buildings) &#123;</span><br><span class="line">            lines.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(i[<span class="number">1</span>], i[<span class="number">2</span>]));</span><br><span class="line">            lines.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(i[<span class="number">0</span>], -i[<span class="number">2</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        multiset&lt;<span class="type">int</span>&gt; maxHeight; <span class="comment">// there may be many buildings share the same height</span></span><br><span class="line">        <span class="type">int</span> prevHeight = <span class="number">0</span>;</span><br><span class="line">        maxHeight.<span class="built_in">insert</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">sort</span>(lines.<span class="built_in">begin</span>(), lines.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i : lines) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i.second &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                maxHeight.<span class="built_in">erase</span>(maxHeight.<span class="built_in">find</span>(i.second)); <span class="comment">// jus erase(i.second) will erase all the elements equal to i.second</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                maxHeight.<span class="built_in">insert</span>(-i.second);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> currentHeight = *maxHeight.<span class="built_in">rbegin</span>(); <span class="comment">// .end() is the length of sets</span></span><br><span class="line">            <span class="keyword">if</span>(currentHeight != prevHeight) &#123; <span class="comment">// there is a height change</span></span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;i.first, currentHeight&#125;); </span><br><span class="line">                prevHeight = currentHeight;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2023/01/31/LeetCode-218-The-Skyline-Problem/">http://dyingdown.github.io/2023/01/31/LeetCode-218-The-Skyline-Problem/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2023/02/03/Friends-Season1-04-Words-Expressions/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202301241045033.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>Friends Season1: 04 Words&amp;Expressions</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2023/01/16/Friends-Season1-03-Words-Expressions/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202301241045033.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Friends Season1: 03 Words&amp;Expressions</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];

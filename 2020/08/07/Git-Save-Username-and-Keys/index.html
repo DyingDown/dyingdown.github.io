@@ -34,15 +34,20 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>Every time I use git to commit to my repository, I need to type my username and keys. So how can I get rid of it?</p>
 <span id="more"></span>
-<p>First, type these:</p>
+
+<p>First, type these: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;your git email&quot;</span></span><br><span class="line">git config --global user.user <span class="string">&quot;your git username&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>Then type these:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+
 <p>store means save the keys and username forever until you manually delete them.</p>
 <p>If you want it to save just for a certain time, you can type:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure>
+
 <p>cache means 15mins.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper <span class="string">&#x27;cache --timeout=3600&#x27;</span></span><br></pre></td></tr></table></figure>
+
 <p>This means 2 hours.</p>
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2020/08/07/Git-Save-Username-and-Keys/">http://dyingdown.github.io/2020/08/07/Git-Save-Username-and-Keys/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/08/11/How-to-add-rating-star-to-Blog/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/08/11/aLZfjH.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>How to add rating star to Blog</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/08/07/Share-Functin-for-Website/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/08/07/afpASA.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Share Functin for Website</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;

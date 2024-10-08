@@ -10,7 +10,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
 <path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
 </g>
-</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>LeetCode 2335. Minimum Amount of Time to Fill Cups</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2023-02-05T20:44:20.000Z">2023-02-05</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/ACM/">ACM</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Math/">Math  </span><span class="words" href="/tags/Heap/">Heap  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">2 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">369 words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>LeetCode 2335. Minimum Amount of Time to Fill Cups</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2023-02-05T20:44:20.000Z">2023-02-05</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/ACM/">ACM</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Math/">Math  </span><span class="words" href="/tags/Heap/">Heap  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">2 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">378 words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
@@ -32,30 +32,24 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><h2 id="Problem-Description">Problem Description</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups/">2335. Minimum Amount of Time to Fill Cups</a></p>
-<h2 id="Analysis">Analysis</h2>
-<p>Denote the column value as <code>a &gt;= b &gt;= c</code></p>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups/">2335. Minimum Amount of Time to Fill Cups</a></p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>Denote the column value as <code>a &gt;= b &gt;= c</code></p>
 <p>From the above formula, we can get two situations:</p>
 <ol>
-<li>
-<p><code>a &gt;= b + c</code></p>
+<li><p><code>a &gt;= b + c</code></p>
 <p>In this situation, we can easily get that, first, use $b$ steps, then use $c$, steps,  then use $a - b - c$ steps.</p>
 <p>So the total steps are $a$ steps.</p>
 </li>
-<li>
-<p><code>a &lt; b + c</code></p>
-<p>define $b := c + x$, $a := b + y = c + x + y$</p>
+<li><p><code>a &lt; b + c</code></p>
+<p>define $b :&#x3D; c + x$, $a :&#x3D; b + y &#x3D; c + x + y$</p>
 <p>So the stones are <code>[c+x+y, c+x, c]</code></p>
 <p>In order to achieve min steps, we should distribute the a properly to b and c.</p>
 <ol>
-<li>
-<p>first, we use <strong>x</strong> steps to remove from the first two stones.</p>
+<li><p>first, we use <strong>x</strong> steps to remove from the first two stones.</p>
 <p>Now the stones are <code>[c+y, c, c]</code></p>
-<p>since a &gt;= b &gt;= c, so <code>c+x+y &lt; c+x + c =&gt; y &lt; c</code></p>
+<p>since a &gt;&#x3D; b &gt;&#x3D; c, so <code>c+x+y &lt; c+x + c =&gt; y &lt; c</code> </p>
 </li>
-<li>
-<p>if <code>c+y</code> is even</p>
+<li><p>if <code>c+y</code> is even</p>
 <p>define <code>c+y = 2k</code> because c+y is even.</p>
 <p>because <code>y &lt; c</code>, so <code>k &lt; c</code></p>
 <p>so the stones are <code>[2k, c, c]</code>. So the steps are:</p>
@@ -64,17 +58,9 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li><strong>k</strong> steps for the first and third stone, <code>[0, c-k, c-k]</code></li>
 <li><strong>c-k</strong> steps for the last two stones: <code>[0, 0, 0]</code></li>
 </ul>
-<p>So in this case, the total steps are:<br>
-$$<br>
-x + k + k + c - k \<br>
-= (b - c) + c + k \<br>
-= b + k<br>
-= b + \frac{c + y}{2} = b + \frac{c+a-b}{2} \<br>
-= \frac{a + b + c}{2}<br>
-$$</p>
+<p>So in this case, the total steps are:<br>$$<br>x + k + k + c - k \<br>&#x3D; (b - c) + c + k \<br>&#x3D; b + k<br>&#x3D; b + \frac{c + y}{2} &#x3D; b + \frac{c+a-b}{2} \<br>&#x3D; \frac{a + b + c}{2}<br>$$</p>
 </li>
-<li>
-<p>if <code>c+y</code> is even</p>
+<li><p>if <code>c+y</code> is even</p>
 <p>define <code>c+y = 2k + 1, k &lt; c</code></p>
 <p>so the stones are <code>[2k + 1, c, c]</code> and the steps are:</p>
 <ul>
@@ -83,16 +69,13 @@ $$</p>
 <li><strong>c - k</strong> steps for last two: <code>[1, 0, 0]</code></li>
 <li><strong>1</strong> step for first stone</li>
 </ul>
-<p>So the total steps are:<br>
-$$<br>
-x + k + k + c - k + 1 = \frac{a+b+c}{2} + 1 = ceil(\frac{a+b+c}{2})<br>
-$$</p>
+<p>So the total steps are:<br>$$<br>x + k + k + c - k + 1 &#x3D; \frac{a+b+c}{2} + 1 &#x3D; ceil(\frac{a+b+c}{2})<br>$$</p>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="Code">Code</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">fillCups</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; amount)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> maxN = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : amount) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">            maxN = <span class="built_in">max</span>(maxN, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>((sum + <span class="number">1</span>) / <span class="number">2</span>, maxN);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">fillCups</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; amount)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> maxN = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : amount) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">            maxN = <span class="built_in">max</span>(maxN, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>((sum + <span class="number">1</span>) / <span class="number">2</span>, maxN);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2023/02/05/LeetCode-2335-Minimum-Amount-of-Time-to-Fill-Cups/">http://dyingdown.github.io/2023/02/05/LeetCode-2335-Minimum-Amount-of-Time-to-Fill-Cups/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2023/02/07/Valine-Failed-to-load-resource-anonymous-avatar-not-shown/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302072153686.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>Valine: Failed to load resource &amp;&amp; anonymous avatar not shown</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2023/02/04/LeetCode-2231-Largest-Number-After-Digit-Swaps-by-Parity/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202302041812536.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>LeetCode 2231. Largest Number After Digit Swaps by Parity</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;
 var GUEST_INFO = ['nick','mail','link'];

@@ -34,14 +34,12 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>前面我们知道了，高速缓冲存储器在整个存储系统当中的视图及其功能，和构建高速缓冲存储器的理论（局部性原理）。</p>
 <span id="more"></span>
-<h2 id="Cache的基本原理">Cache的基本原理</h2>
-<h3 id="存储系统中的Cache-视图">存储系统中的Cache 视图</h3>
-<p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
+
+<h2 id="Cache的基本原理"><a href="#Cache的基本原理" class="headerlink" title="Cache的基本原理"></a>Cache的基本原理</h2><h3 id="存储系统中的Cache-视图"><a href="#存储系统中的Cache-视图" class="headerlink" title="存储系统中的Cache 视图"></a>存储系统中的Cache 视图</h3><p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
 <p>CPU中任何存在速度差异的地方都配有高速缓冲存储器，比如CPU的一级和二级Cache，以及磁盘当中的高速缓冲存储器。这一节主要侧重CPU和主存之间的高速缓冲存储器。</p>
 <p>Cache的功能：缓解快速CPU与慢速的主存之间的速度差异</p>
 <p>Cache的理论基础：局部性原理</p>
-<h3 id="Cache-的工作过程">Cache 的工作过程</h3>
-<p><strong>读操作</strong></p>
+<h3 id="Cache-的工作过程"><a href="#Cache-的工作过程" class="headerlink" title="Cache 的工作过程"></a>Cache 的工作过程</h3><p><strong>读操作</strong></p>
 <p><img src="https://s1.ax1x.com/2020/05/10/Y3A9aD.png" alt="Y3A9aD.png"></p>
 <p>CPU和Cache之间是字交换，而Cache和主存之间是块交换。</p>
 <p>命中时：CPU需要访问主存时，根据访问的地址在Cache中找到了想要的内容。若数据存在就命中。</p>
@@ -62,16 +60,14 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p><img src="https://s1.ax1x.com/2020/05/30/tQcib8.png" alt="tQcib8.png"></p>
 <p>由于Cache没有及时向主存中写数据，所以主存的数据不是最新的，而且如果外围设备有DMA操作，访问了主存，得到的数据就不是最新的。</p>
 <p>总结两种策略各有优缺点。第一个策略的缺点是，没有用上Cache的高速特性。每次都写主存还是慢。但是第二个就是，主存中的数据不是最新的。</p>
-<h3 id="Cache的地址映射机制">Cache的地址映射机制</h3>
-<p>刚才说到，Cache和主存之间是块交换。但是由于原本主存地址是一维的，Cache中的地址是二维的，所以我们要把主存分块。一个数据地址就有了两个参数，说明是那一块，在这一块里这个字是第几个。</p>
+<h3 id="Cache的地址映射机制"><a href="#Cache的地址映射机制" class="headerlink" title="Cache的地址映射机制"></a>Cache的地址映射机制</h3><p>刚才说到，Cache和主存之间是块交换。但是由于原本主存地址是一维的，Cache中的地址是二维的，所以我们要把主存分块。一个数据地址就有了两个参数，说明是那一块，在这一块里这个字是第几个。</p>
 <p>但是仅仅这样划分是不够的，还得细化分。刚才读操作命中时就有一个问题判断是不是再Cache中是如何判断的。现在通过细化分可以解决。将块地址再划分为一个tag和一个index。</p>
 <ul>
 <li>Tag用来判断数据是否在Cache中。</li>
 <li>Index用来判断在Cache的哪个位置读写数据。</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/05/30/tQWCWQ.png" alt="tQWCWQ.png"></p>
-<h3 id="Cache的结构">Cache的结构</h3>
-<p>为了迎合刚才主存做的一些变化以及解决刚才提出的三个问题，我们需要对Cache也做相应的变化。</p>
+<h3 id="Cache的结构"><a href="#Cache的结构" class="headerlink" title="Cache的结构"></a>Cache的结构</h3><p>为了迎合刚才主存做的一些变化以及解决刚才提出的三个问题，我们需要对Cache也做相应的变化。</p>
 <p>如图所示将Cache分为几行，几行里又分出不同区域。</p>
 <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/tQW1yR"><img src="https://s1.ax1x.com/2020/05/30/tQW1yR.png" alt="tQW1yR.png"></a></p>
 <ul>
@@ -82,9 +78,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p><img src="https://s1.ax1x.com/2020/05/30/tQ4llQ.png" alt="tQ4llQ.png"></p>
 <p>CPU根据剥离出来的Tag位判断数据是否在相连存储图表中判断数据是否在Cache中，如果在就直接让Cache给数据，如果不在，就把地址为传给主存，由主存将数据给CPU，然后主存再将那一块搬到Cache中的特定行。</p>
 <p>在搬迁过程中，如果Cache中的特定行被占用了，那还有一个替换策略。后面会讲到。</p>
-<h2 id="相联存储器">相联存储器</h2>
-<h3 id="相联存储器的作用">相联存储器的作用</h3>
-<p>前面说到Cache是解决快速的CPU和慢速的主存之间的速度差异。为了实现快速的查找，就需要用到相联存储器。</p>
+<h2 id="相联存储器"><a href="#相联存储器" class="headerlink" title="相联存储器"></a>相联存储器</h2><h3 id="相联存储器的作用"><a href="#相联存储器的作用" class="headerlink" title="相联存储器的作用"></a>相联存储器的作用</h3><p>前面说到Cache是解决快速的CPU和慢速的主存之间的速度差异。为了实现快速的查找，就需要用到相联存储器。</p>
 <p>首先我们得知道相联存储器要解决哪些问题。</p>
 <ul>
 <li>判断CPU要访问的内容是否在Cache 中</li>
@@ -93,10 +87,8 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p><img src="https://s1.ax1x.com/2020/05/10/Y3FSQx.png" alt="Y3FSQx.png"></p>
 <p>首先，根据上面的图，CPU是根据数据在主存的中的地址来访问主存的，这是冯诺依曼体系结构计算机的的工作原理里说明的。那为了实现快速的判断，如何实现按照主存地址查找Cache？是全部的地址信息吗？</p>
 <p>如果用主存的全部地址来查找，那和直接访问主存查找没什么区别，没提高速度，所以只采用一部分地址（即主存地址的部分内容作为查找依据）。那具体是哪一部分参与查找，不同的查找方法有不同的规则。</p>
-<h3 id="判断的基本思路">判断的基本思路</h3>
-<p>那么有了规则，如何实现快速查找呢？传统的查找算法有顺序，二分查找等等，但是这种查找方法，满足不了高速缓冲存储器中快速查找的要求。所以我们采用另一种方法：使用<strong>相联存储器</strong>，通过硬件并发查找。</p>
-<h3 id="相联存储器的基本结构及工作原理">相联存储器的基本结构及工作原理</h3>
-<p>先看一下相联存储器的结构图</p>
+<h3 id="判断的基本思路"><a href="#判断的基本思路" class="headerlink" title="判断的基本思路"></a>判断的基本思路</h3><p>那么有了规则，如何实现快速查找呢？传统的查找算法有顺序，二分查找等等，但是这种查找方法，满足不了高速缓冲存储器中快速查找的要求。所以我们采用另一种方法：使用<strong>相联存储器</strong>，通过硬件并发查找。</p>
+<h3 id="相联存储器的基本结构及工作原理"><a href="#相联存储器的基本结构及工作原理" class="headerlink" title="相联存储器的基本结构及工作原理"></a>相联存储器的基本结构及工作原理</h3><p>先看一下相联存储器的结构图</p>
 <p><img src="https://s1.ax1x.com/2020/05/31/t1b9EQ.png" alt="t1b9EQ.png"></p>
 <ul>
 <li>从地址中剥离出Key关键字</li>
@@ -111,16 +103,13 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>然后多路并发比较线路就是并发的查找的电路</li>
 <li>如果通过硬件比较电路判断出数据在Cache当中的时候，就在符合寄存器中记录要查找的数据是在哪个位置，然后相关部件就会利用这个位置信息，在存储体中快速找到数据。</li>
 </ul>
-<h3 id="相连存储器的一种技术实现">相连存储器的一种技术实现</h3>
-<p>先从主存地址数据中剥离出标记部分，标记部分送到相关电路。</p>
+<h3 id="相连存储器的一种技术实现"><a href="#相连存储器的一种技术实现" class="headerlink" title="相连存储器的一种技术实现"></a>相连存储器的一种技术实现</h3><p>先从主存地址数据中剥离出标记部分，标记部分送到相关电路。</p>
 <p>给出有效位和标记位的存储体，这些内容都会送到多路并发比较线路中进行比较。将从地址中玻璃出阿里的标记，与原来存放在相连存储体中的标记进行多路的并发比较。</p>
 <p><img src="https://s1.ax1x.com/2020/05/31/t1LSYj.png" alt="t1LSYj.png"></p>
 <p>比较命中的时候，就是要访问的数据是在Cache中时，比较就会给出命中的结论。命中信号会通过多路选择题，从Cache的数据存储体中，将CPU要访问的数据取出来送给CPU从而实现快速查找。</p>
-<h2 id="Cache地址映射与变换方法">Cache地址映射与变换方法</h2>
-<p>上面解决了如何查找，那么我们应该怎么把主存中的数据映射到Cache中呢？如何搬迁才能实现快速查找？</p>
+<h2 id="Cache地址映射与变换方法"><a href="#Cache地址映射与变换方法" class="headerlink" title="Cache地址映射与变换方法"></a>Cache地址映射与变换方法</h2><p>上面解决了如何查找，那么我们应该怎么把主存中的数据映射到Cache中呢？如何搬迁才能实现快速查找？</p>
 <p>最常见的映射方式有三种：全相联(fully-associated)，直接相连(direct mapped)，组相联(set-associated)。不用的映射方式，对应的搬迁时的规则和方法不同。下面来讲解三种映射的 特点和原理。</p>
-<h3 id="全相联映射的工作原理">全相联映射的工作原理</h3>
-<p>全相联映射首先要给主存分块，Cache分行（Line），而且两个分的单位大小要相同。如图所示</p>
+<h3 id="全相联映射的工作原理"><a href="#全相联映射的工作原理" class="headerlink" title="全相联映射的工作原理"></a>全相联映射的工作原理</h3><p>全相联映射首先要给主存分块，Cache分行（Line），而且两个分的单位大小要相同。如图所示</p>
 <p><img src="https://s1.ax1x.com/2020/06/01/tGXs2Q.png" alt="tGXs2Q.png"></p>
 <p>那么每一个字的地址就变为二维的。假如，一个块内有四个字，主存大小为1024个字，那么主存就能被分为256块。256表示为二进制就是8位二进制位。那么第61个字的主存地址为：00001111 01（块号 块内地址）。由于四个一块，第61个字在第15块里面，且是15块里面的第一个。将15转换为八位的二进制。</p>
 <p>由此可看出，地址变成了二维的。</p>

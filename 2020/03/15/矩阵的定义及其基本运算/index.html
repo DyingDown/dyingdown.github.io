@@ -10,7 +10,7 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <path class="rest-content" d="M3365 1207 c-68 -28 135 -605 260 -741 46 -50 52 -37 -103 -224 l-90 -107 57 -49 c148 -127 359 115 560 644 111 293 125 461 41 482 -102 25 -137 4 -165 -102 -71 -267 -154 -509 -169 -494 -9 9 -60 138 -112 286 -118 337 -140 361 -279 305z"/>
 <path class="rest-content" d="M1005 264 c-24 -16 -34 -62 -28 -129 3 -32 36 -35 399 -35 433 0 444 3 444 114 l0 66 -395 0 c-217 0 -406 -8 -420 -16z"/>
 </g>
-</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>矩阵的定义及其基本运算</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-03-15T13:32:19.000Z">2020-03-15</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Linear-Algebra/">Linear Algebra</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span><span class="words" href="/tags/Matrix/">Matrix  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">8 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">1.8k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>矩阵的定义及其基本运算</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2020-03-15T13:32:19.000Z">2020-03-15</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Linear-Algebra/">Linear Algebra</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Knowledge-points/">Knowledge points  </span><span class="words" href="/tags/Matrix/">Matrix  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">8 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">1.9k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
@@ -34,36 +34,28 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>学的BiliBili上面的《约学习 父子局》的视频。做一下笔记。</p>
 <span id="more"></span>
-<h1>矩阵的定义</h1>
-<p>由$m \times n$个数，排成的m行n列的表格</p>
+
+<h1 id="矩阵的定义"><a href="#矩阵的定义" class="headerlink" title="矩阵的定义"></a>矩阵的定义</h1><p>由$m \times n$个数，排成的m行n列的表格</p>
 <p>$\left[\begin{array}{llll}a_{11} &amp; a_{12} &amp; \cdots  &amp; a_{1n} \ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \ \vdots &amp; \vdots &amp;  &amp; \vdots \ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\end{array}\right]$称为一个$m \times n$的矩阵，记为A.</p>
-<p>若$m=n$，则称为<strong>n阶方阵</strong>；</p>
+<p>若$m&#x3D;n$，则称为<strong>n阶方阵</strong>；</p>
 <p>若A与B都是$m \times n$的矩阵，则称A与B是<strong>同型矩阵</strong>；</p>
-<p>若A与B是同型矩阵，且对应元素$a_{ij}=b_{ij}$，则$A=B$.</p>
-<h2 id="特殊的几个矩阵">特殊的几个矩阵</h2>
-<ol>
-<li>
-<p>零矩阵：每个元素都是0的矩阵，记为<strong>0</strong></p>
+<p>若A与B是同型矩阵，且对应元素$a_{ij}&#x3D;b_{ij}$，则$A&#x3D;B$.</p>
+<h2 id="特殊的几个矩阵"><a href="#特殊的几个矩阵" class="headerlink" title="特殊的几个矩阵"></a>特殊的几个矩阵</h2><ol>
+<li><p>零矩阵：每个元素都是0的矩阵，记为<strong>0</strong></p>
 </li>
-<li>
-<p>行向量：只有一行的矩阵称为行矩阵，也叫行向量</p>
+<li><p>行向量：只有一行的矩阵称为行矩阵，也叫行向量</p>
 <p>列向量：只有一列的矩阵称为列举阵，也叫列向量</p>
 </li>
-<li>
-<p>单位阵：主对角线元素均为1，其余元素全为0的n阶方阵</p>
+<li><p>单位阵：主对角线元素均为1，其余元素全为0的n阶方阵</p>
 </li>
-<li>
-<p>数量阵：主对角线元素均为k，其余元素全为零的n阶方阵</p>
+<li><p>数量阵：主对角线元素均为k，其余元素全为零的n阶方阵</p>
 </li>
-<li>
-<p>对角阵：主对角线以外的元素全为零</p>
+<li><p>对角阵：主对角线以外的元素全为零</p>
 </li>
-<li>
-<p>上（下）三角阵：主对角线以下以上元素全为0</p>
+<li><p>上（下）三角阵：主对角线以下以上元素全为0</p>
 </li>
 </ol>
-<h1>矩阵的基本运算</h1>
-<ol>
+<h1 id="矩阵的基本运算"><a href="#矩阵的基本运算" class="headerlink" title="矩阵的基本运算"></a>矩阵的基本运算</h1><ol>
 <li>加法运算【同型且对应元素相加】</li>
 <li>数乘运算【数k乘每一个元素】</li>
 <li>乘法运算【A的列等于B的行且对应元素相乘再相加】</li>
@@ -71,145 +63,115 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>转置运算【A的行列互换，记为$A^T$】</li>
 <li>方阵的行列式【n阶矩阵A的元素构成的行列式，记为$|A|$】</li>
 </ol>
-<h2 id="乘法运算的性质">乘法运算的性质</h2>
-<ol>
+<h2 id="乘法运算的性质"><a href="#乘法运算的性质" class="headerlink" title="乘法运算的性质"></a>乘法运算的性质</h2><ol>
 <li>$AB \neq BA$</li>
-<li>$AB=0 \nRightarrow A = 0 or B=0$</li>
-<li>$AB=AC,A \neq 0 \nRightarrow B = C$</li>
+<li>$AB&#x3D;0 \nRightarrow A &#x3D; 0 or B&#x3D;0$</li>
+<li>$AB&#x3D;AC,A \neq 0 \nRightarrow B &#x3D; C$</li>
 <li>同型对角阵相乘等于主对角线元素的对应元素相乘得到新的矩阵的相应的主对角线元素</li>
 </ol>
-<h2 id="方阵的幂的运算方法">方阵的幂的运算方法</h2>
-<ol>
+<h2 id="方阵的幂的运算方法"><a href="#方阵的幂的运算方法" class="headerlink" title="方阵的幂的运算方法"></a>方阵的幂的运算方法</h2><ol>
 <li>归纳法</li>
 <li>相似法：题目中包含其与对角矩阵的公式，则将其换为对角矩阵</li>
 <li>一列×一行：拆开重新合并</li>
-<li>$A= \left[\begin{array} {lll} 0 &amp; a &amp; c \ 0 &amp; 0 &amp; b \ 0 &amp; 0 &amp; 0\end{array}\right], A^2=\left[\begin{array} {lll} 0 &amp; 0 &amp; ab \ 0 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 0\end{array}\right],A^3=A^4=A^n=0$</li>
+<li>$A&#x3D; \left[\begin{array} {lll} 0 &amp; a &amp; c \ 0 &amp; 0 &amp; b \ 0 &amp; 0 &amp; 0\end{array}\right], A^2&#x3D;\left[\begin{array} {lll} 0 &amp; 0 &amp; ab \ 0 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 0\end{array}\right],A^3&#x3D;A^4&#x3D;A^n&#x3D;0$</li>
 </ol>
-<h2 id="转置运算的性质">转置运算的性质</h2>
-<p>满足$A^T=A$的矩阵$A$称为<strong>对称阵</strong>；</p>
-<p>满足$A^T=-A$的矩阵$A$称为<strong>反对称阵</strong></p>
-<h3 id="性质">性质</h3>
-<ol>
-<li>$(A^T)^T=A$</li>
-<li>$(kA)^T=kA^T$</li>
-<li>$(AB)^T=B^TA^T$</li>
-<li>$(A+B)^T=A^T+B^T$</li>
+<h2 id="转置运算的性质"><a href="#转置运算的性质" class="headerlink" title="转置运算的性质"></a>转置运算的性质</h2><p>满足$A^T&#x3D;A$的矩阵$A$称为<strong>对称阵</strong>；</p>
+<p>满足$A^T&#x3D;-A$的矩阵$A$称为<strong>反对称阵</strong></p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>$(A^T)^T&#x3D;A$</li>
+<li>$(kA)^T&#x3D;kA^T$</li>
+<li>$(AB)^T&#x3D;B^TA^T$</li>
+<li>$(A+B)^T&#x3D;A^T+B^T$</li>
 </ol>
-<h2 id="方阵的行列式的性质">方阵的行列式的性质</h2>
-<ol>
-<li>$|A^T|=A$</li>
-<li>$|kA|=k^n|A|$</li>
-<li>$|AB|=|A||B|$</li>
+<h2 id="方阵的行列式的性质"><a href="#方阵的行列式的性质" class="headerlink" title="方阵的行列式的性质"></a>方阵的行列式的性质</h2><ol>
+<li>$|A^T|&#x3D;A$</li>
+<li>$|kA|&#x3D;k^n|A|$</li>
+<li>$|AB|&#x3D;|A||B|$</li>
 </ol>
 <p><strong>注意：$|A+B|$没公式，通常利用单位阵E恒等变换</strong></p>
-<h1>伴随矩阵</h1>
-<h2 id="定义">定义</h2>
-<p>用$|A|$的代数余子式按$\left[\begin{array}{llll}A_{11} &amp; A_{21} &amp; \cdots  &amp; A_{n1} \ A_{12} &amp; A_{22} &amp; \cdots &amp; a_{n2} \ \vdots &amp; \vdots &amp;  &amp; \vdots \ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{nn}\end{array}\right]$拼成的矩阵称为伴随矩阵，记为$A^*$</p>
-<p>且有$AA^{*}=A^*A=|A|E$</p>
+<h1 id="伴随矩阵"><a href="#伴随矩阵" class="headerlink" title="伴随矩阵"></a>伴随矩阵</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>用$|A|$的代数余子式按$\left[\begin{array}{llll}A_{11} &amp; A_{21} &amp; \cdots  &amp; A_{n1} \ A_{12} &amp; A_{22} &amp; \cdots &amp; a_{n2} \ \vdots &amp; \vdots &amp;  &amp; \vdots \ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{nn}\end{array}\right]$拼成的矩阵称为伴随矩阵，记为$A^*$</p>
+<p>且有$AA^{<em>}&#x3D;A^</em>A&#x3D;|A|E$</p>
 <p><strong>注意：第n行代数余子式要写在第n列；代数余子式有符号</strong></p>
-<h2 id="性质-2">性质</h2>
-<ol>
-<li>$(A^<em>)^</em>=|A|^{n-2}A;(n \geq 2)$</li>
-<li>$(kA)^<em>=k^{n-1}A^</em>$</li>
-<li>$(AB)^*=B^<em>A^</em>;(A,B可逆)$</li>
-<li>$|A^*|=|A|^{n-1}$</li>
+<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h2><ol>
+<li>$(A^*)^*&#x3D;|A|^{n-2}A;(n \geq 2)$</li>
+<li>$(kA)^*&#x3D;k^{n-1}A^*$</li>
+<li>$(AB)^*&#x3D;B^<em>A^</em>;(A,B可逆)$</li>
+<li>$|A^*|&#x3D;|A|^{n-1}$</li>
 </ol>
-<p><strong>注意：$(A+B)^*$没公式</strong></p>
-<h2 id="求法">求法</h2>
-<p><strong>方法一：定义法</strong></p>
+<p><em><em>注意：$(A+B)^</em>$没公式</em>*</p>
+<h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><p><strong>方法一：定义法</strong></p>
 <pre><code>先求$A_&#123;ij&#125;$，然后拼成$A^*$
 </code></pre>
 <p><strong>方法二：公式法</strong></p>
 <pre><code>若$|A|\neq0$（即A可逆），则$A^*=|A|A^&#123;-1&#125;$
 </code></pre>
-<h1>逆矩阵</h1>
-<h2 id="定义-2">定义</h2>
-<p>$A 、B$是n阶方阵，E是n阶单位阵，若$AB=BA=E$，则称A可逆，且B是A的逆矩阵，记为$A^{-1}=B$</p>
+<h1 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>$A 、B$是n阶方阵，E是n阶单位阵，若$AB&#x3D;BA&#x3D;E$，则称A可逆，且B是A的逆矩阵，记为$A^{-1}&#x3D;B$</p>
 <p><strong>定理：</strong></p>
 <ol>
 <li>若A可逆，则A的逆矩阵唯一</li>
 <li>A可逆$\Leftrightarrow|A| \neq 0$</li>
 </ol>
 <p><strong>推论：</strong></p>
-<p>​	A，B是<strong>n阶方阵</strong>，E是n阶单位阵，若AB=E（或BA=E），则$A^{-1}=B$</p>
-<h2 id="性质-3">性质</h2>
-<ol>
-<li>$(A^{-1})^{-1}=A$</li>
-<li>$(kA)^{-1}=\frac{1}{k}A^{-1}(k \neq 0)$</li>
-<li>$(AB)=B^{-1}A^{-1}$</li>
-<li>$|A^{-1}|=|A|^{-1}$</li>
+<p>​	A，B是<strong>n阶方阵</strong>，E是n阶单位阵，若AB&#x3D;E（或BA&#x3D;E），则$A^{-1}&#x3D;B$</p>
+<h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h2><ol>
+<li>$(A^{-1})^{-1}&#x3D;A$</li>
+<li>$(kA)^{-1}&#x3D;\frac{1}{k}A^{-1}(k \neq 0)$</li>
+<li>$(AB)&#x3D;B^{-1}A^{-1}$</li>
+<li>$|A^{-1}|&#x3D;|A|^{-1}$</li>
 </ol>
 <p><strong>注意：$(A+B)^{-1}$没有公式</strong></p>
-<p>$(A^{T})^{-1}=(A^{-1})^T,(A^{<em>})^{-1}=(A^{-1})^</em>,(A^{T})^{<em>}=(A^{</em>})^T$</p>
-<h2 id="求法-2">求法</h2>
-<p><strong>方法一：用定义</strong></p>
-<p>​	A，B都是n阶矩阵，AB=E，则$A^{-1}=B$</p>
-<p><strong>方法二：用伴随</strong> $AA^{*}=A^*A=|A|E$</p>
-<p>​	若$|A|\neq0$，则$A^{-1}=\frac{A^<em>}{|A|},(A^</em>)^{-1}=\frac{A}{|A|}$</p>
+<p>$(A^{T})^{-1}&#x3D;(A^{-1})^T,(A^{<em>})^{-1}&#x3D;(A^{-1})^</em>,(A^{T})^{<em>}&#x3D;(A^{</em>})^T$</p>
+<h2 id="求法-1"><a href="#求法-1" class="headerlink" title="求法"></a>求法</h2><p><strong>方法一：用定义</strong></p>
+<p>​	A，B都是n阶矩阵，AB&#x3D;E，则$A^{-1}&#x3D;B$</p>
+<p><strong>方法二：用伴随</strong> $AA^{<em>}&#x3D;A^</em>A&#x3D;|A|E$</p>
+<p>​	若$|A|\neq0$，则$A^{-1}&#x3D;\frac{A^*}{|A|},(A^*)^{-1}&#x3D;\frac{A}{|A|}$</p>
 <p><strong>方法三：用初等变换</strong></p>
 <p>​	$(A|E) \rightarrow(E|A^{-1})$</p>
-<h1>分块矩阵</h1>
-<h2 id="矩阵的分块">矩阵的分块</h2>
-<p>将矩阵横着切n刀，竖着且m刀，就把矩阵分块了。$(m \geq 0, n\geq 0)$</p>
+<h1 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h1><h2 id="矩阵的分块"><a href="#矩阵的分块" class="headerlink" title="矩阵的分块"></a>矩阵的分块</h2><p>将矩阵横着切n刀，竖着且m刀，就把矩阵分块了。$(m \geq 0, n\geq 0)$</p>
 <p><strong>特殊的分块：全横着切，或者全竖着切</strong></p>
-<h2 id="运算">运算</h2>
-<p>（1）加法</p>
-<p>$\left[\begin{array}{ll}  A_1 &amp; A_2 \ A_3 &amp; A_4\end{array}\right]+\left[\begin{array}{ll}  B_1 &amp; B_2 \ B_3 &amp; B_4\end{array}\right]=\left[\begin{array}{ll}  A_1+B_1 &amp; A_2+B_2 \ A_3+B_3 &amp; A_4+B_4\end{array}\right]$</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>（1）加法</p>
+<p>$\left[\begin{array}{ll}  A_1 &amp; A_2 \ A_3 &amp; A_4\end{array}\right]+\left[\begin{array}{ll}  B_1 &amp; B_2 \ B_3 &amp; B_4\end{array}\right]&#x3D;\left[\begin{array}{ll}  A_1+B_1 &amp; A_2+B_2 \ A_3+B_3 &amp; A_4+B_4\end{array}\right]$</p>
 <p>（2）数乘</p>
-<p>$k\left[\begin{array}{ll}  A &amp; B \ C &amp; D\end{array}\right]=\left[\begin{array}{ll}  kA &amp; kB \ kC &amp; kD\end{array}\right]$</p>
+<p>$k\left[\begin{array}{ll}  A &amp; B \ C &amp; D\end{array}\right]&#x3D;\left[\begin{array}{ll}  kA &amp; kB \ kC &amp; kD\end{array}\right]$</p>
 <p>（3）乘法</p>
-<p>$\left[\begin{array}{ll}  A &amp; B \ C &amp; D\end{array}\right]\left[\begin{array}{ll}  X &amp; Y \ Z &amp; W\end{array}\right]=\left[\begin{array}{ll}  AX+BZ &amp; AY+BW \ CX+DZ &amp; CY+DW\end{array}\right]$</p>
-<h2 id="性质-4">性质</h2>
-<p>$\left[\begin{array}{ll}  A &amp; 0 \ 0 &amp; B\end{array}\right]^n =\left[\begin{array}{ll}  A^n &amp; 0 \ 0 &amp; B^n\end{array}\right]$</p>
-<p>$\left[\begin{array}{ll}  A &amp; 0 \ 0 &amp; B\end{array}\right]^{-1}=\left[\begin{array}{ll}  A^{-1} &amp; 0 \ 0 &amp; B^{-1}\end{array}\right]$</p>
-<p>$\left[\begin{array}{ll}  0 &amp; A \ B &amp; 0\end{array}\right]^{-1}=\left[\begin{array}{ll}  0 &amp; B^{-1} \ A^{-1} &amp; 0\end{array}\right]$</p>
-<h1>初等变换与初等矩阵</h1>
-<h2 id="初等变换">初等变换</h2>
-<ol>
+<p>$\left[\begin{array}{ll}  A &amp; B \ C &amp; D\end{array}\right]\left[\begin{array}{ll}  X &amp; Y \ Z &amp; W\end{array}\right]&#x3D;\left[\begin{array}{ll}  AX+BZ &amp; AY+BW \ CX+DZ &amp; CY+DW\end{array}\right]$</p>
+<h2 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h2><p>$\left[\begin{array}{ll}  A &amp; 0 \ 0 &amp; B\end{array}\right]^n &#x3D;\left[\begin{array}{ll}  A^n &amp; 0 \ 0 &amp; B^n\end{array}\right]$</p>
+<p>$\left[\begin{array}{ll}  A &amp; 0 \ 0 &amp; B\end{array}\right]^{-1}&#x3D;\left[\begin{array}{ll}  A^{-1} &amp; 0 \ 0 &amp; B^{-1}\end{array}\right]$</p>
+<p>$\left[\begin{array}{ll}  0 &amp; A \ B &amp; 0\end{array}\right]^{-1}&#x3D;\left[\begin{array}{ll}  0 &amp; B^{-1} \ A^{-1} &amp; 0\end{array}\right]$</p>
+<h1 id="初等变换与初等矩阵"><a href="#初等变换与初等矩阵" class="headerlink" title="初等变换与初等矩阵"></a>初等变换与初等矩阵</h1><h2 id="初等变换"><a href="#初等变换" class="headerlink" title="初等变换"></a>初等变换</h2><ol>
 <li>用一个非零常数k乘矩阵A的某一行（列）</li>
 <li>互换两个矩阵的某两行（列）</li>
 <li>将A的某行（列）k倍加到令一行（列）</li>
 </ol>
-<h2 id="初等矩阵">初等矩阵</h2>
-<p>由单位阵E经过<strong>一次</strong>初等变换的到的矩阵，称为初等矩阵</p>
-<h2 id="初等矩阵性质">初等矩阵性质</h2>
-<ol>
-<li>
-<p>初等矩阵都是可逆的，且其逆矩阵仍是同一类型的初等矩阵</p>
-<p>$E_{i}^{-1}(k)=E_i(\frac{1}{k}),E_{ij}^{-1}=E_{ij},E_{ij}^{-1}(k)=E_{ij}(-k)$</p>
+<h2 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h2><p>由单位阵E经过<strong>一次</strong>初等变换的到的矩阵，称为初等矩阵</p>
+<h2 id="初等矩阵性质"><a href="#初等矩阵性质" class="headerlink" title="初等矩阵性质"></a>初等矩阵性质</h2><ol>
+<li><p>初等矩阵都是可逆的，且其逆矩阵仍是同一类型的初等矩阵</p>
+<p>$E_{i}^{-1}(k)&#x3D;E_i(\frac{1}{k}),E_{ij}^{-1}&#x3D;E_{ij},E_{ij}^{-1}(k)&#x3D;E_{ij}(-k)$</p>
 </li>
-<li>
-<p>A左乘（右乘）初等矩阵，相当于对A做了一次相同类型的初等行（列）变换</p>
+<li><p>A左乘（右乘）初等矩阵，相当于对A做了一次相同类型的初等行（列）变换</p>
 </li>
-<li>
-<p>用初等变换求逆$(A|E)\rightarrow 行变换 \rightarrow (E|A^{-1})$；$(\frac{A}{E})\rightarrow 列变换\rightarrow (\frac{E}{A^{-1}})$</p>
+<li><p>用初等变换求逆$(A|E)\rightarrow 行变换 \rightarrow (E|A^{-1})$；$(\frac{A}{E})\rightarrow 列变换\rightarrow (\frac{E}{A^{-1}})$</p>
 </li>
 </ol>
-<h1>矩阵等价</h1>
-<h2 id="定义-3">定义</h2>
-<p>A经过有限次初等变换变换到B，称A与B等价，记为$A\cong B$</p>
+<h1 id="矩阵等价"><a href="#矩阵等价" class="headerlink" title="矩阵等价"></a>矩阵等价</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><p>A经过有限次初等变换变换到B，称A与B等价，记为$A\cong B$</p>
 <p>有限次初等行变换称行等价，有限次初等列变换称列等价</p>
-<p><strong>充要条件：</strong>$A \cong B \Leftrightarrow \exists$可逆矩阵$P,Q$使得$PAQ=B \Leftrightarrow r(A)=r(B)$</p>
-<h1>矩阵的秩</h1>
-<h2 id="定义-4">定义</h2>
-<p>$A_{m\times n}$中<strong>非零子式</strong>的最高阶数称为A的秩，记为$r(A)$</p>
+<p><strong>充要条件：</strong>$A \cong B \Leftrightarrow \exists$可逆矩阵$P,Q$使得$PAQ&#x3D;B \Leftrightarrow r(A)&#x3D;r(B)$</p>
+<h1 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>$A_{m\times n}$中<strong>非零子式</strong>的最高阶数称为A的秩，记为$r(A)$</p>
 <p>子式：$A_{m\times n}$中任取k行，任取k列，拼成的k阶行列式，称为k阶子式</p>
-<p><strong>定理：<strong>矩阵A的秩等于它对应的</strong>行阶梯 形矩阵</strong>非零行的行数。</p>
+<p><strong>定理：</strong>矩阵A的秩等于它对应的<strong>行阶梯 形矩阵</strong>非零行的行数。</p>
 <p><strong>行阶梯 形矩阵：</strong> 零行元素在最下行，且每行坐起第一个非零元素所在的列下方元素全是0.</p>
-<p>e.g. $A\rightarrow \left[\begin{array}{llll} 1&amp;2&amp;3&amp;4 \ 0&amp;1&amp;2&amp;3 \ 0&amp;0&amp;0&amp;0  \end{array} \right]$ $r(A)=2$</p>
-<h2 id="性质-5">性质</h2>
-<ol>
-<li>$r(A)=r(A^T)$</li>
-<li>$r(kA)=r(A)(k \neq 0)$</li>
+<p>e.g. $A\rightarrow \left[\begin{array}{llll} 1&amp;2&amp;3&amp;4 \ 0&amp;1&amp;2&amp;3 \ 0&amp;0&amp;0&amp;0  \end{array} \right]$ $r(A)&#x3D;2$ </p>
+<h2 id="性质-4"><a href="#性质-4" class="headerlink" title="性质"></a>性质</h2><ol>
+<li>$r(A)&#x3D;r(A^T)$</li>
+<li>$r(kA)&#x3D;r(A)(k \neq 0)$</li>
 <li>$r(A_{m \times n}) \leq min {m,n}$</li>
-<li>A可逆，则$r(AB)=r(B)$，B可逆，则$r(AB)=r(A)$</li>
+<li>A可逆，则$r(AB)&#x3D;r(B)$，B可逆，则$r(AB)&#x3D;r(A)$</li>
 <li>$r(AB) \leq min { r(A),r(B)}$</li>
 <li>$r(AB) \leq r(A)+r(B)$</li>
-<li>$A_{m\times n}B_{n \times s}=0$，则$r(A)+r(B) \leq n$</li>
-<li>$r(A)=r(A^TA)=r(AA^T)=r(A^T)$</li>
+<li>$A_{m\times n}B_{n \times s}&#x3D;0$，则$r(A)+r(B) \leq n$</li>
+<li>$r(A)&#x3D;r(A^TA)&#x3D;r(AA^T)&#x3D;r(A^T)$</li>
 </ol>
-<h2 id="求法-3">求法</h2>
-<ol>
+<h2 id="求法-2"><a href="#求法-2" class="headerlink" title="求法"></a>求法</h2><ol>
 <li>具体矩阵：化成行阶梯形矩阵</li>
 <li>抽象矩阵：夹逼（让秩大于等于n并且小于等于n，结合性质）</li>
 </ol>

@@ -34,26 +34,22 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>学习计算机网络这门课，由于是网络视频授课，效果不佳，容易忘记，便总结课堂笔记。</p>
 <span id="more"></span>
-<h2 id="物理层的基本概念">物理层的基本概念</h2>
-<p>物理层解决如何在连接各种计算机的<strong>传输媒体</strong>上传输<strong>数据比特流</strong>，而不是指具体的传出媒体</p>
-<p>物理层的主要任务描述为：确定与传输媒体接口的一些特性，即：</p>
+
+<h2 id="物理层的基本概念"><a href="#物理层的基本概念" class="headerlink" title="物理层的基本概念"></a>物理层的基本概念</h2><p> 物理层解决如何在连接各种计算机的<strong>传输媒体</strong>上传输<strong>数据比特流</strong>，而不是指具体的传出媒体</p>
+<p> 物理层的主要任务描述为：确定与传输媒体接口的一些特性，即：</p>
 <ul>
 <li>机械特性：例接口形状，大小，引线数目</li>
 <li>电气特性：例规定电压范围（-5V到+5V）</li>
 <li>功能特性：例规定-5V表示0，+5V表示1</li>
 <li>过程特性：也称规程特性，规定建立连接时各个相关部件的工作步骤</li>
 </ul>
-<h2 id="数据通信的基础知识">数据通信的基础知识</h2>
-<h3 id="典型的数据通信模型">典型的数据通信模型</h3>
-<p><img src="https://s1.ax1x.com/2020/04/25/Js1fHK.png" alt="img"></p>
+<h2 id="数据通信的基础知识"><a href="#数据通信的基础知识" class="headerlink" title="数据通信的基础知识"></a>数据通信的基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="https://s1.ax1x.com/2020/04/25/Js1fHK.png" alt="img"></p>
 <p>源系统（PC机，调制解调器）→→ 传输系统（公用电话网）→→ 目的系统（调制解调器，PC机）</p>
 <p>⟶输入信息源点⟶输入数据发送器⟶发送的信号传输系统⟶接收的信号接收器⟶输出数据终点⟶输出信息⟶输入信息源点⟶输入数据发送器⟶发送的信号传输系统⟶接收的信号接收器⟶输出数据终点⟶输出信息</p>
-<h3 id="相关术语">相关术语</h3>
-<p>通信的目的是传送消息。</p>
+<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息。</p>
 <ul>
 <li>数据（data）——运送消息的实体。</li>
-<li>信号（signal）——数据的电气的或电磁的表现
-<ul>
+<li>信号（signal）——数据的电气的或电磁的表现<ul>
 <li>模拟信号——代表消息的参数取值是连续的</li>
 <li>数字信号——代表消息的参数的取值是离散的</li>
 </ul>
@@ -61,28 +57,24 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>码元（code）——在使用时间域的波形表示数字信号时，则代表不同离散数值的基本波形就称为码元。</li>
 </ul>
 <p>在数字通信中常常用时间间隔相同的符号来表示一个二进制数字，这样的时间间隔内的信号称为二进制码元。而这 个间隔被称为码元长度。1码元可以携带nbit的信息量</p>
-<h3 id="有关信道的基本概念">有关信道的基本概念</h3>
-<p>信道一般表示向一个方向传送信息的媒体。所以咱们说平常的通信线路往往包含一条发送信息的信道和一条接收信息的信道。</p>
+<h3 id="有关信道的基本概念"><a href="#有关信道的基本概念" class="headerlink" title="有关信道的基本概念"></a>有关信道的基本概念</h3><p>信道一般表示向一个方向传送信息的媒体。所以咱们说平常的通信线路往往包含一条发送信息的信道和一条接收信息的信道。</p>
 <ul>
 <li>单向通信(单工通信)——只能有一 个方向的通信而没有反方向的交互。</li>
 <li>双向交替通信(半双工通信)——通信的双方都可以发 送信息，但不能双方同时发送(当然也就不能同时接收)。</li>
 <li>双向同时通信(全双工通信)——通信的双方 可以同时发送和接收信息。</li>
 </ul>
-<h3 id="其他概念">其他概念</h3>
-<p>基带（baseband）信号和带通（band pass）信号</p>
+<h3 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h3><p>基带（baseband）信号和带通（band pass）信号</p>
 <p>基带信号(即基本频带信号) —— 来自信源的信号。像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号，比如我们说话的声波就是基带信号</p>
 <p>带通信号——把基带信号经过载波调制后， 把信号的频率范围搬移到较高的频段以便在信道中传输(即仅在一段频率范围内能够通过信道)。</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsY9oV.png" alt="img"></p>
 <p>因此在传输距离较近时，计算机网络都采用基带传输方式由于在近距离范围内基带信号的衰减不大，从而信号内容不会发生变化。因此在传输距离较近时，计算机网络都采用基带传输方式。如从计算机到监视器、打印机等外设的信号就是基带传输的。</p>
-<h3 id="基本的调制方法">基本的调制方法</h3>
-<ul>
+<h3 id="基本的调制方法"><a href="#基本的调制方法" class="headerlink" title="基本的调制方法"></a>基本的调制方法</h3><ul>
 <li>调幅（AM）：载波的振幅随基带数字信号而变化</li>
 <li>调频（FM）：载波的频率随基带数字信号而变化</li>
 <li>调相（PM）：载波的初始相位随基带数字信号而变化</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/25/JstJ9U.png" alt="img"></p>
-<h3 id="常用编码">常用编码</h3>
-<p>单极性不归零码</p>
+<h3 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h3><p>单极性不归零码</p>
 <ul>
 <li>只使用-一个电压值，用高电平表示1，没电压表示0</li>
 <li><img src="https://s1.ax1x.com/2020/04/25/JstxU0.png" alt="img"></li>
@@ -103,20 +95,17 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 </ul>
 <p>曼彻斯特编码</p>
 <ul>
-<li>
-<p>bit中间有信号低-高跳变为0<img src="https://s1.ax1x.com/2020/04/25/JsUSeA.png" alt="img"></p>
+<li><p>bit中间有信号低-高跳变为0<img src="https://s1.ax1x.com/2020/04/25/JsUSeA.png" alt="img"></p>
 </li>
-<li>
-<p>bit中间有信号高-低跳变为1<img src="https://s1.ax1x.com/2020/04/25/JsUQYV.png" alt="img"></p>
+<li><p>bit中间有信号高-低跳变为1<img src="https://s1.ax1x.com/2020/04/25/JsUQYV.png" alt="img"></p>
 <p>采用曼切斯特编码，一个时钟周期只可以表示一个bit，并且必须通过两次采样才能得到一个bit</p>
 <p>但它能携带时钟信号，且可以表示没有数据传输</p>
 </li>
 </ul>
 <p>差分曼彻斯特编码</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsUdFx.png" alt="img"></p>
-<p>差分曼彻斯特编码与曼彻斯特编码相同，但抗干扰性能强于曼彻斯特编码</p>
-<h3 id="信道的极限容量">信道的极限容量</h3>
-<ul>
+<p> 差分曼彻斯特编码与曼彻斯特编码相同，但抗干扰性能强于曼彻斯特编码</p>
+<h3 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h3><ul>
 <li>有失真，但可识别</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsBdzV.png" alt="img"></p>
@@ -124,50 +113,40 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>有失真，不能识别</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsBgiR.png" alt="img"></p>
-<h3 id="奈氏准则">奈氏准则</h3>
-<p>奈氏准则：1924年，奈奎斯特（Nyquist）就推导出了著名的奈氏准则。他给出了在假定的理想条件下，为了避免码间串扰，码元的传输速率的上限值。</p>
+<h3 id="奈氏准则"><a href="#奈氏准则" class="headerlink" title="奈氏准则"></a>奈氏准则</h3><p>奈氏准则：1924年，奈奎斯特（Nyquist）就推导出了著名的奈氏准则。他给出了在假定的理想条件下，为了避免码间串扰，码元的传输速率的上限值。</p>
 <p>在任何信道中，码元传输的速率是有上限的，否则就会出现码间串扰的问题，使接收端对码元的判决（即识别）成为不可能。</p>
 <p>如果信道的频带越宽，也就是能够通过的信号高频分量越多，那么就可以用更高的速率传送码元而不出现码间串扰。</p>
-<p><strong>奈氏准则: 理想低通信道的最高码元传输速率=2WBound</strong></p>
+<p><strong>奈氏准则: 理想低通信道的最高码元传输速率&#x3D;2WBound</strong></p>
 <ul>
 <li>W是理想低通信道的带宽，单位为Hz。</li>
 <li>Baund是波特，是码元传输速率的单位</li>
 </ul>
-<h4 id="波特与Bit的区别">波特与Bit的区别</h4>
-<p>波特 在调制解调器中经常用用到波特这个概念</p>
+<h4 id="波特与Bit的区别"><a href="#波特与Bit的区别" class="headerlink" title="波特与Bit的区别"></a>波特与Bit的区别</h4><p>波特 在调制解调器中经常用用到波特这个概念</p>
 <p>Bit是信息量</p>
-<p>如果一个马原中含有3个Bit信息能量 1波特=3Bit/s</p>
+<p>如果一个马原中含有3个Bit信息能量 1波特&#x3D;3Bit&#x2F;s</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/Jsg59J.png" alt="img"></p>
-<h3 id="香农公式（信噪比">香农公式（信噪比)</h3>
-<p>香农(Shannon)用信息论的理论推导出了带宽受限且有高斯白噪声干扰的信道的<strong>极限、无差错</strong>的信息传输速率。</p>
+<h3 id="香农公式（信噪比"><a href="#香农公式（信噪比" class="headerlink" title="香农公式（信噪比)"></a>香农公式（信噪比)</h3><p>香农(Shannon)用信息论的理论推导出了带宽受限且有高斯白噪声干扰的信道的<strong>极限、无差错</strong>的信息传输速率。</p>
 <p>信道的极限信息传输速率C可表示为</p>
-<p>c=Wlog2(1+S/N) b/s�=�log2⁡(1+�/�) �/�</p>
+<p>c&#x3D;Wlog2(1+S&#x2F;N) b&#x2F;s�&#x3D;�log2⁡(1+�&#x2F;�) �&#x2F;�</p>
 <ul>
 <li>W为信道的带宽（以Hz为单位）</li>
 <li>S为信道内所传信号的平均功率</li>
 <li>N为信道内部的高斯噪声功率</li>
 </ul>
 <p>香农公式表明</p>
-<p>信道的带宽或信道中的信噪比越大，信息的极限传输速率越高。<br>
-只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。<br>
-若信道带宽W或信噪比S/N没有上限(当然实际信道不可能是这样的)，则信道的极限信息传输速率C也就没有上限。<br>
-实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。</p>
+<p>信道的带宽或信道中的信噪比越大，信息的极限传输速率越高。<br>只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。<br>若信道带宽W或信噪比S&#x2F;N没有上限(当然实际信道不可能是这样的)，则信道的极限信息传输速率C也就没有上限。<br>实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。</p>
 <p>香农公式奈氏准则使用范围</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsRdzj.png" alt="img"></p>
-<h2 id="物理层下面的传输媒体">物理层下面的传输媒体</h2>
-<p>电信领域使用的电磁波的频谱</p>
+<h2 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h2><p>电信领域使用的电磁波的频谱</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsW0hD.png" alt="img"></p>
-<h3 id="导向传输媒体">导向传输媒体</h3>
-<p>导向传输媒体中，电磁波沿着固体媒体传播。</p>
+<h3 id="导向传输媒体"><a href="#导向传输媒体" class="headerlink" title="导向传输媒体"></a>导向传输媒体</h3><p>导向传输媒体中，电磁波沿着固体媒体传播。</p>
 <ul>
-<li>双绞线
-<ul>
+<li>双绞线<ul>
 <li>屏蔽双绞线 STP</li>
 <li>无屏蔽双绞线 UTP</li>
 </ul>
 </li>
-<li>同轴电缆
-<ul>
+<li>同轴电缆<ul>
 <li>50ΩΩ 同轴电缆 用于数字传输，由于多用于基带传输，也叫基带同轴电缆</li>
 <li>75ΩΩ 同轴电缆用于模拟传输，即宽带同轴电缆</li>
 </ul>
@@ -189,20 +168,16 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsIeot.png" alt="img"></p>
 <p>单模光纤指只能传输一种电磁波模式，多模光纤只可以传输多个电磁波模式，实际上单模光纤和多模光纤之分，也就是纤芯的直径之分。单模光纤细，多模光纤粗。在有线电视网络中使用的光纤全是单模光纤，其传播特性好，带宽可达10GHZ,可以在一根光纤中传输60套PAL- D电视节目。</p>
-<h3 id="非导向传输媒体">非导向传输媒体</h3>
-<p>非导向传输媒体是指自由空间，其中的电磁波传输被称为无线传输。</p>
+<h3 id="非导向传输媒体"><a href="#非导向传输媒体" class="headerlink" title="非导向传输媒体"></a>非导向传输媒体</h3><p>非导向传输媒体是指自由空间，其中的电磁波传输被称为无线传输。</p>
 <p>无线传输所使用的频段很广。</p>
 <p>短波通信主要是靠电离层的反射，但短波通信的通信质量较差。</p>
 <p>微波在空间主要是直线传播。</p>
-<h3 id="物理层设备——集线器">物理层设备——集线器</h3>
-<p>工作特点：它在网络中只起到信号放大和重发的作用，其目的是扩大网络的传输范围，而不具备信号的定向传送能力</p>
+<h3 id="物理层设备——集线器"><a href="#物理层设备——集线器" class="headerlink" title="物理层设备——集线器"></a>物理层设备——集线器</h3><p>工作特点：它在网络中只起到信号放大和重发的作用，其目的是扩大网络的传输范围，而不具备信号的定向传送能力</p>
 <p>最大传输距离：100m</p>
 <p>集线器是一个很大的冲突域</p>
-<h2 id="信道复用技术">信道复用技术</h2>
-<p>复用（multiplexing）是通信技术中的基本概念。</p>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p>复用（multiplexing）是通信技术中的基本概念。</p>
 <p><img src="https://s1.ax1x.com/2020/04/26/JcRRv4.png" alt="img"></p>
-<h3 id="频分复用-FDM">频分复用 FDM</h3>
-<p>Frequency Division Multiplexing</p>
+<h3 id="频分复用-FDM"><a href="#频分复用-FDM" class="headerlink" title="频分复用 FDM"></a>频分复用 FDM</h3><p>Frequency Division Multiplexing</p>
 <p>用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。</p>
 <p>频分复用的所有用户在同样的是按占用不用的带宽资源（频率带宽非数据发送速率）</p>
 <p><img src="https://s1.ax1x.com/2020/04/26/JcWMGT.png" alt="img"></p>
@@ -211,13 +186,8 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <p><img src="https://s1.ax1x.com/2020/04/26/JcfZlD.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/26/Jcf1tP.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/26/JcfBt0.png" alt="img"></p>
-<h3 id="时分复用-TDM">时分复用 TDM</h3>
-<p>Time Division Multiplexing</p>
-<p><strong>时分复用</strong>则是将时间划分为一段段等长的<strong>时分复用帧</strong>。<br>
-每一个时分复用的用户在每一个TDM之中占用固定序号的时隙。<br>
-每一个用户所占用的时隙是<strong>周期性</strong>地出现（其周期就是TDM帧的长度<strong>对应的时间</strong>）。<br>
-TDM信号也称为<strong>等时</strong>（isochronous）信号。<br>
-时分复用的所有用户是在不同的时间占用<strong>同样的</strong>频带宽度。</p>
+<h3 id="时分复用-TDM"><a href="#时分复用-TDM" class="headerlink" title="时分复用 TDM"></a>时分复用 TDM</h3><p>Time Division Multiplexing</p>
+<p><strong>时分复用</strong>则是将时间划分为一段段等长的<strong>时分复用帧</strong>。<br>每一个时分复用的用户在每一个TDM之中占用固定序号的时隙。<br>每一个用户所占用的时隙是<strong>周期性</strong>地出现（其周期就是TDM帧的长度<strong>对应的时间</strong>）。<br>TDM信号也称为<strong>等时</strong>（isochronous）信号。<br>时分复用的所有用户是在不同的时间占用<strong>同样的</strong>频带宽度。</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JRyP6H.png" alt="[]"></p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JRymh8.png" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JRyc4K.png" alt="img"></p>
@@ -225,36 +195,30 @@ TDM信号也称为<strong>等时</strong>（isochronous）信号。<br>
 <p>时分复用可能会造成线路资源的浪费。</p>
 <p>使用时分复用系统传送计算机数据时，由于计算机数据的突发性质，用户对分配到的子信道的利用率一般是不高的。</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JW9ArF.png" alt="img"></p>
-<h3 id="统计时分复用-STDW">统计时分复用 STDW</h3>
-<p>Statistic TDM</p>
+<h3 id="统计时分复用-STDW"><a href="#统计时分复用-STDW" class="headerlink" title="统计时分复用 STDW"></a>统计时分复用 STDW</h3><p>Statistic TDM</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWCaTJ.png" alt="img"></p>
-<h3 id="波分复用-WDM">波分复用 WDM</h3>
-<p>Wavelength Division Multiplexing</p>
-<p>![image-20200427111427399](file:///C:/Users/o_oyao/AppData/Roaming/Typora/typora-user-images/image-20200427111427399.png)</p>
+<h3 id="波分复用-WDM"><a href="#波分复用-WDM" class="headerlink" title="波分复用 WDM"></a>波分复用 WDM</h3><p>Wavelength Division Multiplexing</p>
+<p><img src="file:///C:/Users/o_oyao/AppData/Roaming/Typora/typora-user-images/image-20200427111427399.png" alt="image-20200427111427399"></p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWA6dU.png" alt="img"></p>
-<h3 id="码分复用-CDM">码分复用 CDM</h3>
-<p>Code Division Multiplexing</p>
+<h3 id="码分复用-CDM"><a href="#码分复用-CDM" class="headerlink" title="码分复用 CDM"></a>码分复用 CDM</h3><p>Code Division Multiplexing</p>
 <p>常用的名词是<strong>码分多址</strong> CDMA （Code Division Multiple Access）</p>
 <p>各用户使用经过特殊挑选的不同码型，因此彼此不会造成干扰。</p>
 <p>这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。</p>
 <p>每一个比特时间划分为m个短的间隔，称为<strong>码片</strong>（chip）。</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWV0bV.png" alt="img"></p>
 <p>任何一个码片向量和改码片向量自己的格式化内积都是1。</p>
-<p>S∙S=1m∑i=1mSiSi=1m∑i=1mS2i=1m∑i=1m(±1)2=1�∙�=1�∑�=1�����=1�∑�=1���2=1�∑�=1�(±1)2=1</p>
+<p>S∙S&#x3D;1m∑i&#x3D;1mSiSi&#x3D;1m∑i&#x3D;1mS2i&#x3D;1m∑i&#x3D;1m(±1)2&#x3D;1�∙�&#x3D;1�∑�&#x3D;1�����&#x3D;1�∑�&#x3D;1���2&#x3D;1�∑�&#x3D;1�(±1)2&#x3D;1</p>
 <p>一个码片向量和改码片反码的向量的格式化内积值是-1。</p>
 <p>不同码片之间得是正交关系。即相乘得0。</p>
 <p>缺点：发送1bit使用得数据变多</p>
-<h2 id="数字传输系统">数字传输系统</h2>
-<p>脉码调制PCM体制最初是为了再电话局之间的中继线上传送多路电话。</p>
+<h2 id="数字传输系统"><a href="#数字传输系统" class="headerlink" title="数字传输系统"></a>数字传输系统</h2><p>脉码调制PCM体制最初是为了再电话局之间的中继线上传送多路电话。</p>
 <p>由于历史上的原因，PCM有两个互不兼容的国际标准，即北美的24路PCM（简称T1）和欧洲的30路PCM简称（E1）。我国采用的是欧洲的E1标准。</p>
-<p>E1的速率是2.048Mb/s，而T1的速率是1.544Mb/s。</p>
+<p>E1的速率是2.048Mb&#x2F;s，而T1的速率是1.544Mb&#x2F;s。</p>
 <p>当需要更高的数据率时，可采用复用的方法。</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JW8uvT.jpg" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JW8G5R.jpg" alt="img"></p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JW87in.jpg" alt="img"></p>
-<h2 id="宽带接入技术1">宽带接入技术1</h2>
-<h3 id="xDXL">xDXL</h3>
-<p>(用数字技术对现有的模拟电话用户线进行)</p>
+<h2 id="宽带接入技术1"><a href="#宽带接入技术1" class="headerlink" title="宽带接入技术1"></a>宽带接入技术1</h2><h3 id="xDXL"><a href="#xDXL" class="headerlink" title="xDXL"></a>xDXL</h3><p>(用数字技术对现有的模拟电话用户线进行)</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWGiz6.jpg" alt="img"></p>
 <p>标准模拟电话信号的频带被限制再300~3400Hz的范围内，但用户线本身实际可通过的信号频率仍然超过1MHz。</p>
 <p>xDSL技术就把0~4kHz低端频谱留给传统电话使用，而把原来没有被利用的高端频谱留给用户上网使用。</p>
@@ -264,20 +228,14 @@ TDM信号也称为<strong>等时</strong>（isochronous）信号。<br>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWNpnK.jpg" alt="img"></p>
 <p>ADSL的组成</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWNaHU.jpg" alt="img"></p>
-<p>数字用户线接入复用器DSLAM（DSL Access Multiplier）<br>
-接入端单元ATU（Access Termination Unit）<br>
-ATU-C（C代表端局 Central Office）<br>
-ATU-R（R代表远端 Remote）<br>
-电话分离器 PS（POST Splitter）</p>
-<h3 id="光纤同轴混合网HFC（Hybrid-Fiber-Coax）">光纤同轴混合网HFC（Hybrid Fiber Coax）</h3>
-<p>HFC网是目前覆盖面积很广的有线电视网CATV的基础上开发的一种居民宽带接入网。</p>
+<p>数字用户线接入复用器DSLAM（DSL Access Multiplier）<br>接入端单元ATU（Access Termination Unit）<br>ATU-C（C代表端局 Central Office）<br>ATU-R（R代表远端 Remote）<br>电话分离器 PS（POST Splitter）</p>
+<h3 id="光纤同轴混合网HFC（Hybrid-Fiber-Coax）"><a href="#光纤同轴混合网HFC（Hybrid-Fiber-Coax）" class="headerlink" title="光纤同轴混合网HFC（Hybrid Fiber Coax）"></a>光纤同轴混合网HFC（Hybrid Fiber Coax）</h3><p>HFC网是目前覆盖面积很广的有线电视网CATV的基础上开发的一种居民宽带接入网。</p>
 <p>HFC网除可传送CATV外，还提供电话、数据和其他宽带交互型业务</p>
 <p>现有的CATV网是树形拓扑结构的同轴电缆网络，它采用<strong>模拟技术的频分复用</strong>对电视节目进心单向传输。而HFC网则需要对CATV网进行改造。</p>
 <p>HFC网采用节点体系结构</p>
 <p><img src="https://s1.ax1x.com/2020/04/27/JWakQI.jpg" alt="img"></p>
-<h3 id="FTTx-技术">FTTx 技术</h3>
-<p>FTTx（光纤到……）也是一种实现宽带居民接入网的方案。x课代表不同的意思。</p>
-<p><strong>光纤到家</strong> FTTH（Fiber To The Home）：光纤一直铺设到用户家庭可能是居民接入网最后的解决方法（155Mb/s）</p>
+<h3 id="FTTx-技术"><a href="#FTTx-技术" class="headerlink" title="FTTx 技术"></a>FTTx 技术</h3><p>FTTx（光纤到……）也是一种实现宽带居民接入网的方案。x课代表不同的意思。</p>
+<p><strong>光纤到家</strong> FTTH（Fiber To The Home）：光纤一直铺设到用户家庭可能是居民接入网最后的解决方法（155Mb&#x2F;s）</p>
 <p><strong>光纤到大楼</strong> FTTB（Fiber To The Building）：光纤进入大楼后就转换为电信号，然后用电缆或双绞线分配到各用户。</p>
 <p><strong>光纤到路边</strong> FTTC（Fiber To The Curb）：从路边到各用户可使用星型结构双绞线作为传输媒体。</p>
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%89%A9%E7%90%86%E5%B1%82/">http://dyingdown.github.io/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%89%A9%E7%90%86%E5%B1%82/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2020/04/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/27/JWwws1.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>计算机网络-数据链路层</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://s1.ax1x.com/2020/04/26/Jc1ad0.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>计算机网络概述</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;

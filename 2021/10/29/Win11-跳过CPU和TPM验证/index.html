@@ -34,33 +34,27 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>之前装过win11，笔记本没问题，去教室电脑装了一下，各种不支持，CPU和TPM都不支持。但是并不是真的是硬件不支持，可以跳过检测。</p>
 <span id="more"></span>
-<h2 id="方法一：修改ios文件（对我无效）">方法一：修改ios文件（对我无效）</h2>
-<p>首先条件是使用的win11的制作启动盘程序自动刻录的U盘。</p>
+
+<h2 id="方法一：修改ios文件（对我无效）"><a href="#方法一：修改ios文件（对我无效）" class="headerlink" title="方法一：修改ios文件（对我无效）"></a>方法一：修改ios文件（对我无效）</h2><p>首先条件是使用的win11的制作启动盘程序自动刻录的U盘。</p>
 <ol>
 <li>进入U盘找到镜像文件下的<code>source/appraiserres.dll</code></li>
 <li>将他替换成win10镜像里的<code>appraiserres.dll</code>并设置为只读模式，或者，直接删除该文件，创一个文件夹或者文件命名为这个设置为只读模式。</li>
 <li>然后就是通过引导程序安装</li>
 </ol>
 <p>对我不奏效，还是不行。</p>
-<h2 id="方法二：修改注册表">方法二：修改注册表</h2>
-<p>该方法是在引导程序里修改注册表。并且使用的是自己手动刻录的ios镜像。</p>
+<h2 id="方法二：修改注册表"><a href="#方法二：修改注册表" class="headerlink" title="方法二：修改注册表"></a>方法二：修改注册表</h2><p>该方法是在引导程序里修改注册表。并且使用的是自己手动刻录的ios镜像。</p>
 <p>自己刻录的原因是因为：不知道为什么它给我自动刻录的不支持UEFI引导，然后就会显示电脑硬盘不支持什么的。</p>
-<h3 id="自己刻录">自己刻录</h3>
-<ol>
-<li>
-<p>去官网下载ios镜像：<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">下载地址</a></p>
+<h3 id="自己刻录"><a href="#自己刻录" class="headerlink" title="自己刻录"></a>自己刻录</h3><ol>
+<li><p>去官网下载ios镜像：<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">下载地址</a></p>
 <p>下载到哪里无所谓，能打开就行。</p>
 </li>
-<li>
-<p>下载<em>Refug</em> <a target="_blank" rel="noopener" href="https://rufus.ie/downloads/">下载地址</a></p>
+<li><p>下载<em>Refug</em> <a target="_blank" rel="noopener" href="https://rufus.ie/downloads/">下载地址</a></p>
 <p>一般选第一个就行，下载后运行然后在里面选择好ios和U盘，就可以开始了，进度条结束后就刻录好了。</p>
 </li>
-<li>
-<p>使用U盘作为启动盘</p>
+<li><p>使用U盘作为启动盘</p>
 </li>
 </ol>
-<h3 id="跳过验证">跳过验证</h3>
-<p>进入之后一系列下一步后会遇见“不支持”的页面。在那个页面进行如下操作</p>
+<h3 id="跳过验证"><a href="#跳过验证" class="headerlink" title="跳过验证"></a>跳过验证</h3><p>进入之后一系列下一步后会遇见“不支持”的页面。在那个页面进行如下操作</p>
 <ol>
 <li>按<code>Shift+F10</code></li>
 <li>输入<code>regedit</code>，此时打开注册表页面，编辑注册表</li>
@@ -73,22 +67,18 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 <li>点击左上角返回上一步</li>
 <li>继续下一步，正常安装</li>
 </ol>
-<h2 id="方法三：用于直接升级（对我有效一半）">方法三：用于直接升级（对我有效一半）</h2>
-<p>前两种方法都是用于全新安装的，如果直接升级的话，通过修改当前系统注册表。</p>
+<h2 id="方法三：用于直接升级（对我有效一半）"><a href="#方法三：用于直接升级（对我有效一半）" class="headerlink" title="方法三：用于直接升级（对我有效一半）"></a>方法三：用于直接升级（对我有效一半）</h2><p>前两种方法都是用于全新安装的，如果直接升级的话，通过修改当前系统注册表。</p>
 <ol>
-<li>
-<p>新建一个空白文件，命名随意，位置随意</p>
+<li><p>新建一个空白文件，命名随意，位置随意</p>
 </li>
-<li>
-<p>写入以下内容</p>
+<li><p>写入以下内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup]</span><br><span class="line">&quot;AllowUpgradesWithUnsupportedTPMOrCPU&quot;=dword:00000001</span><br></pre></td></tr></table></figure>
+
 <p>相当于在<code>HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup</code>注册表目录创建一个DWORD</p>
 </li>
-<li>
-<p>将文件后缀改为<code>.reg</code>（表示注册表文件）</p>
+<li><p>将文件后缀改为<code>.reg</code>（表示注册表文件）</p>
 </li>
-<li>
-<p>双击执行该文件</p>
+<li><p>双击执行该文件</p>
 </li>
 </ol>
 <p>然后再进行检测就发现对CPU和TPM的限制没了，这是别人成功的方法，对我来说，只是解除了CPU的限制，依然没有解除TPM的限制。</p>

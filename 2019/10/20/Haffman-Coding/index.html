@@ -34,47 +34,41 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>Assume that we have a bunch of points, each point has a number means the occurrence times of the point.</p>
 <span id="more"></span>
+
 <p><img src="https://s2.ax1x.com/2019/10/20/KKaXWt.png" alt="img"></p>
 <p>If we want to label these points with a unique code for each, what do we do?</p>
 <p>Well, there are many ways, but I’m just going to show the Haffman coding method.</p>
-<h3 id="What-is-Haffman-Coding">What is Haffman Coding</h3>
-<blockquote>
+<h3 id="What-is-Haffman-Coding"><a href="#What-is-Haffman-Coding" class="headerlink" title="What is Haffman Coding"></a>What is Haffman Coding</h3><blockquote>
 <p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Computer_science">computer science</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Information_theory">information theory</a>, a <strong>Huffman code</strong> is a particular type of optimal <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prefix_code">prefix code</a> that is commonly used for <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lossless_data_compression">lossless data compression</a>. The process of finding or using such a code proceeds by means of <strong>Huffman coding</strong>, an algorithm developed by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/David_A._Huffman">David A. Huffman</a> while he was a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Doctor_of_Science">Sc.D.</a> student at <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">MIT</a>, and published in the 1952 paper “A Method for the Construction of Minimum-Redundancy Codes”.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Huffman_coding#cite_note-1">1]</a> ——From Wikipedia</p>
 </blockquote>
-<h3 id="Illustration">Illustration</h3>
-<ol>
-<li>
-<p>First we pick up two smallest points and make it one point.</p>
+<h3 id="Illustration"><a href="#Illustration" class="headerlink" title="Illustration"></a>Illustration</h3><ol>
+<li><p>First we pick up two smallest points and make it one point.</p>
 <img src="https://s2.ax1x.com/2019/10/20/KKD0Df.png" alt="img" style="zoom: 67%;" />
 </li>
-<li>
-<p>Do the same as 1</p>
+<li><p>Do the same as 1</p>
 <img src="https://s2.ax1x.com/2019/10/20/KKyS9H.png" alt="img" style="zoom:67%;" />
 </li>
-<li>
-<p>Same to 1</p>
+<li><p>Same to 1</p>
 </li>
 </ol>
 <img src="https://s2.ax1x.com/2019/10/20/KKy0Dx.png" alt="img" style="zoom:67%;" />
+
 <ol>
 <li>Same to 1</li>
 </ol>
 <img src="https://s2.ax1x.com/2019/10/20/KKchAf.png" alt="img" style="zoom:67%;" />
+
 <ol>
-<li>
-<p>Same to 1</p>
+<li><p>Same to 1</p>
 <img src="https://s2.ax1x.com/2019/10/20/KK2SdP.png" alt="img" style="zoom:67%;" />
 </li>
-<li>
-<p>Same to 1</p>
+<li><p>Same to 1</p>
 <img src="https://s2.ax1x.com/2019/10/20/KM3VjH.png" alt="img" style="zoom:67%;" />
 </li>
-<li>
-<p>Finally we start label the nodes. From the root to the bottom, the code add one digit when the layer is also one deeper. The left is 0 and right is 1.</p>
+<li><p>Finally we start label the nodes. From the root to the bottom, the code add one digit when the layer is also one deeper. The left is 0 and right is 1.</p>
 <img src="https://s2.ax1x.com/2019/10/20/KMJdUI.png" alt="img" style="zoom:67%;" />
 </li>
-<li>
-<p>So we got the haffman code of all the nodes.</p>
+<li><p>So we got the haffman code of all the nodes.</p>
 <p><img src="https://s2.ax1x.com/2019/10/20/KMdbqO.png" alt="img"></p>
 </li>
 </ol>

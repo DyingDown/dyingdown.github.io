@@ -940,28 +940,28 @@
 .space {
   color: #000;
 }
-#post-BB .post-title {
+#post-Trie .post-title {
   color: #225485 !important;
 }
-#post-BB .box-body h2 {
+#post-Trie .box-body h2 {
   color: #225485;
 }
-#post-BB .box-body .tags a {
+#post-Trie .box-body .tags a {
   color: #225485;
   border: 1px solid #225485;
 }
-#post-BB .box-body .tags a:hover {
+#post-Trie .box-body .tags a:hover {
   color: #fff;
   background: #225485;
 }
-#post-BB .ribbon .ri {
+#post-Trie .ribbon .ri {
   background-color: #225485;
 }
-#post-BB .ribbon .ri:before {
+#post-Trie .ribbon .ri:before {
   border-left: 3px solid #183b5d;
   border-top: 3px solid #183b5d;
 }
-#post-BB .ribbon .ri:after {
+#post-Trie .ribbon .ri:after {
   border-right: 3px solid #183b5d;
   border-top: 3px solid #183b5d;
 }

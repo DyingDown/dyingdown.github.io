@@ -34,33 +34,28 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>Recently, I planned to write a database project to improve my ability. It’s hard to start because I knows little about the structure of SQL, so first, I learnt SQLite. I write this article to steady what I‘ve learnt.</p>
 <span id="more"></span>
+
 <p>本来想用英语写，但是写到一半又改变主意，觉得还是中文吧，毕竟是笔记，中文我自己看起来更方便。唉、</p>
-<h2 id="工作流程">工作流程</h2>
-<p>SQLite是一个可以嵌入的数据库，但是它最基本的是可以在Terminal运行，使用命令行的方式，可交互的运行，就像python一样，SQLite也是一样，输入一行SQL语句，就执行一行SQL语句。</p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>SQLite是一个可以嵌入的数据库，但是它最基本的是可以在Terminal运行，使用命令行的方式，可交互的运行，就像python一样，SQLite也是一样，输入一行SQL语句，就执行一行SQL语句。</p>
 <p>那么当我输入了一个SQL语句后，会发生如下的过程：</p>
 <ol>
-<li>
-<p>首先会有<em>词法分析器</em>将SQL语句分解成一堆词，然后<em>语法分析器</em>模块会将那些词变成语法树。此过程中需要产生更为简单的字节码。字节码就是相当于汇编代码（并不等用，只是用来理解）。</p>
+<li><p>首先会有<em>词法分析器</em>将SQL语句分解成一堆词，然后<em>语法分析器</em>模块会将那些词变成语法树。此过程中需要产生更为简单的字节码。字节码就是相当于汇编代码（并不等用，只是用来理解）。</p>
 </li>
-<li>
-<p>以上这些都是<strong>前端</strong>，用来处理SQL语句。下面说的都属于<strong>后端</strong>。</p>
+<li><p>以上这些都是<strong>前端</strong>，用来处理SQL语句。下面说的都属于<strong>后端</strong>。</p>
 </li>
-<li>
-<p>然后，生成的语法树再传给<em>虚拟机</em>模块（这里的虚拟机不是那个虚拟硬件的虚拟机），虚拟机的作用就是执行这些字节码。比如，</p>
+<li><p>然后，生成的语法树再传给<em>虚拟机</em>模块（这里的虚拟机不是那个虚拟硬件的虚拟机），虚拟机的作用就是执行这些字节码。比如，</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string command <span class="operator">=</span> &quot;mul&quot;</span><br><span class="line">if(command <span class="operator">=</span><span class="operator">=</span> &quot;add&quot;) <span class="keyword">add</span>(a, b);</span><br><span class="line"><span class="keyword">else</span> mul(a, b);</span><br></pre></td></tr></table></figure>
+
 <p>这就叫做虚拟机。</p>
 <p>之前我被这个虚拟机的概念迷惑住好久，我一直以为字节码就是等同于汇编，然后字节码可以自己定义，那就不就得在硬件上再实现一套认识自己的字节码的东西吗？</p>
 <p>后来才明白，你只要用高级编程语言里判断，遇到什么命令就去进行进行什么操作，而这些操作也是用编程语言写的，比如C++，到了最后，C++的编译器会帮你把它编译成汇编语言，不用自己翻译。</p>
 </li>
-<li>
-<p>后端具体存储一般就是管理磁盘存储，而磁盘存储一般都是B树结构来方便查询。</p>
+<li><p>后端具体存储一般就是管理磁盘存储，而磁盘存储一般都是B树结构来方便查询。</p>
 </li>
-<li>
-<p>还有就是页缓存功能，来负责页面的读写和缓存。</p>
+<li><p>还有就是页缓存功能，来负责页面的读写和缓存。</p>
 </li>
 </ol>
-<h2 id="模块">模块</h2>
-<p>综上所述，一个数据库大概主要的模块包括：词法分析器、语法分析器、字节码生成器、虚拟机（执行字节码）、B树、页缓存。</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>综上所述，一个数据库大概主要的模块包括：词法分析器、语法分析器、字节码生成器、虚拟机（执行字节码）、B树、页缓存。</p>
 <p>下一篇文章，根据本次所学内容，列一个详细的模块结构图。</p>
 <div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2021/09/09/Database-Project-Learn-basic-structure/">http://dyingdown.github.io/2021/09/09/Database-Project-Learn-basic-structure/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2021/09/14/%E5%8E%BB%E5%93%AA%E5%84%BF%E7%BD%912021%E7%A7%8B%E6%8B%9B%E7%AC%94%E8%AF%95/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post/20210918203824.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>去哪儿网2021秋招笔试</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2021/08/31/%E5%BC%80%E5%85%B3%E7%81%AF-%E8%B0%83%E6%95%B4%E7%94%B5%E5%B9%B3/"><div class="img_fit imgR" style="background-color:#undefined"><img></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>开关灯&amp;调整电平</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
 var verify = 'true' == true ? true : false;

@@ -34,181 +34,153 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>本次笔试在赛码网，记录一下编程题。</p>
 <span id="more"></span>
-<h2 id="女生数量最多的专业名称和对应的女生人数">女生数量最多的专业名称和对应的女生人数</h2>
-<p><strong>时间限制</strong>： 3000MS<br>
-<strong>内存限制</strong>： 589824KB<br>
-<strong>题目描述</strong>：<br>
-现有如下MySQL数据表，请写出合适的SQL语句，查询出女生数量最多的前三个专业名称和对应的女生人数？（gender字段说明：1为男，2为女）。要求查询结果的表头如<code>subject_name</code>, <code>girl_count</code>。</p>
+
+<h2 id="女生数量最多的专业名称和对应的女生人数"><a href="#女生数量最多的专业名称和对应的女生人数" class="headerlink" title="女生数量最多的专业名称和对应的女生人数"></a>女生数量最多的专业名称和对应的女生人数</h2><p><strong>时间限制</strong>： 3000MS<br><strong>内存限制</strong>： 589824KB<br><strong>题目描述</strong>：<br>现有如下MySQL数据表，请写出合适的SQL语句，查询出女生数量最多的前三个专业名称和对应的女生人数？（gender字段说明：1为男，2为女）。要求查询结果的表头如<code>subject_name</code>, <code>girl_count</code>。</p>
 <p><strong>大学学生基本信息表<code>Studen_Info</code></strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">name</th>
-<th style="text-align:center">gender</th>
+<th align="center">id</th>
+<th align="center">name</th>
+<th align="center">gender</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Kate</td>
-<td style="text-align:center">2</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">Kate</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Mary</td>
-<td style="text-align:center">2</td>
+<td align="center">2</td>
+<td align="center">Mary</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Tom</td>
-<td style="text-align:center">1</td>
+<td align="center">3</td>
+<td align="center">Tom</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Jim</td>
-<td style="text-align:center">1</td>
+<td align="center">4</td>
+<td align="center">Jim</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">Lily</td>
-<td style="text-align:center">2</td>
+<td align="center">5</td>
+<td align="center">Lily</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">Rose</td>
-<td style="text-align:center">2</td>
+<td align="center">6</td>
+<td align="center">Rose</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">Lucy</td>
-<td style="text-align:center">2</td>
+<td align="center">7</td>
+<td align="center">Lucy</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">Meimei</td>
-<td style="text-align:center">2</td>
+<td align="center">8</td>
+<td align="center">Meimei</td>
+<td align="center">2</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>专业信息登记表<code>Subject_Register</code></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">student_id</th>
-<th style="text-align:center">subject_id</th>
+<th align="center">student_id</th>
+<th align="center">subject_id</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3</td>
+<td align="center">3</td>
+<td align="center">3</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">3</td>
+<td align="center">4</td>
+<td align="center">3</td>
 </tr>
 <tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2</td>
+<td align="center">5</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">4</td>
+<td align="center">6</td>
+<td align="center">4</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">4</td>
+<td align="center">7</td>
+<td align="center">4</td>
 </tr>
 <tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">4</td>
+<td align="center">8</td>
+<td align="center">4</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>专业基本信息表<code>Subject_Info</code></strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">name</th>
+<th align="center">id</th>
+<th align="center">name</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Math</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">Math</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">English</td>
+<td align="center">2</td>
+<td align="center">English</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Computer</td>
+<td align="center">3</td>
+<td align="center">Computer</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">News</td>
+<td align="center">4</td>
+<td align="center">News</td>
 </tr>
-</tbody>
-</table>
-<p><strong>输入描述</strong><br>
-MySQL数据表</p>
-<p><strong>输出描述</strong><br>
-查询出女生数量最多的前三个专业名称和对应的女生人数, 要求查询结果的表头如<code>subject_name</code>, <code>girl_count</code></p>
+</tbody></table>
+<p><strong>输入描述</strong><br>MySQL数据表</p>
+<p><strong>输出描述</strong><br>查询出女生数量最多的前三个专业名称和对应的女生人数, 要求查询结果的表头如<code>subject_name</code>, <code>girl_count</code></p>
 <p><strong>样例输入</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Student_Info(id <span class="type">int</span> <span class="keyword">primary</span> key <span class="keyword">not</span> <span class="keyword">null</span>,  name <span class="type">varchar</span>(<span class="number">30</span>),  gender <span class="type">int</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">&#x27;Kate&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">&#x27;Mary&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">&#x27;Tom&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">4</span>,<span class="string">&#x27;Jim&#x27;</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">5</span>,<span class="string">&#x27;Lily&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">6</span>,<span class="string">&#x27;Rose&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">7</span>,<span class="string">&#x27;Lucy&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student_Info(id,name,gender) <span class="keyword">values</span>(<span class="number">8</span>,<span class="string">&#x27;Meimei&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Subject_Register(student_id <span class="type">int</span> <span class="keyword">primary</span> key <span class="keyword">not</span> <span class="keyword">null</span>,  subject_id <span class="type">int</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">3</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">4</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">5</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">6</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">7</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Register(student_id,subject_id) <span class="keyword">values</span>(<span class="number">8</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Subject_Info(id <span class="type">int</span> <span class="keyword">primary</span> key <span class="keyword">not</span> <span class="keyword">null</span>,  name <span class="type">varchar</span>(<span class="number">30</span>));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Info(id,name) <span class="keyword">values</span>(<span class="number">1</span>, <span class="string">&#x27;Math&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Info(id,name) <span class="keyword">values</span>(<span class="number">2</span>, <span class="string">&#x27;English&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Info(id,name) <span class="keyword">values</span>(<span class="number">3</span>, <span class="string">&#x27;Computer&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Subject_Info(id,name) <span class="keyword">values</span>(<span class="number">4</span>, <span class="string">&#x27;News&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <p><strong>样例输出</strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">News</th>
-<th style="text-align:center">3</th>
+<th align="center">News</th>
+<th align="center">3</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">English</td>
-<td style="text-align:center">2</td>
+<tbody><tr>
+<td align="center">English</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">Math</td>
-<td style="text-align:center">1</td>
+<td align="center">Math</td>
+<td align="center">1</td>
 </tr>
-</tbody>
-</table>
-<h2 id="最大振幅计算">最大振幅计算</h2>
-<p><strong>时间限制</strong>： 1000MS<br>
-<strong>内存限制</strong>： 65536KB<br>
-<strong>题目描述</strong>：<br>
-在监控与BI报表系统中，我们经常会采集数据指标进行分析，这里的数据往往都是时序数据，对于时序数据，我们可以用一个数组来表示，例如数组下标表示时间顺序，数组的值表示采集的指标数据大小。现在作为分析师的你，得到如下一个任务：在给定一个整数形式的时序数据，求出这个时序里最大的振幅（“落差”）（振幅 = 时序里相邻的“波峰”与“波谷”相差绝对值）</p>
-<p><strong>输入描述</strong><br>
-一个数组，下标代表x轴的时间顺序，数组里的每个数值代表y轴的具体值</p>
-<p><strong>输出描述</strong><br>
-整个曲线的相邻波峰与波谷的最大振幅落差</p>
-<p><strong>样例输入</strong><br>
-1,2,3,8,5,3,6<br>
-2,2,3,8,8,6,5,10,7,6<br>
-1,2,3,4,5,6<br>
-<strong>样例输出</strong><br>
-7<br>
-6<br>
-5</p>
-<h2 id="多线程打印奇偶数">多线程打印奇偶数</h2>
-<p><strong>时间限制</strong>： 1000MS<br>
-<strong>内存限制</strong>： 524288KB<br>
-<strong>题目描述</strong>：<br>
-假设有这么一个类：</p>
+</tbody></table>
+<h2 id="最大振幅计算"><a href="#最大振幅计算" class="headerlink" title="最大振幅计算"></a>最大振幅计算</h2><p><strong>时间限制</strong>： 1000MS<br><strong>内存限制</strong>： 65536KB<br><strong>题目描述</strong>：<br>在监控与BI报表系统中，我们经常会采集数据指标进行分析，这里的数据往往都是时序数据，对于时序数据，我们可以用一个数组来表示，例如数组下标表示时间顺序，数组的值表示采集的指标数据大小。现在作为分析师的你，得到如下一个任务：在给定一个整数形式的时序数据，求出这个时序里最大的振幅（“落差”）（振幅 &#x3D; 时序里相邻的“波峰”与“波谷”相差绝对值）</p>
+<p><strong>输入描述</strong><br>一个数组，下标代表x轴的时间顺序，数组里的每个数值代表y轴的具体值</p>
+<p><strong>输出描述</strong><br>整个曲线的相邻波峰与波谷的最大振幅落差</p>
+<p><strong>样例输入</strong><br>1,2,3,8,5,3,6<br>2,2,3,8,8,6,5,10,7,6<br>1,2,3,4,5,6<br><strong>样例输出</strong><br>7<br>6<br>5</p>
+<h2 id="多线程打印奇偶数"><a href="#多线程打印奇偶数" class="headerlink" title="多线程打印奇偶数"></a>多线程打印奇偶数</h2><p><strong>时间限制</strong>： 1000MS<br><strong>内存限制</strong>： 524288KB<br><strong>题目描述</strong>：<br>假设有这么一个类：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ZeroAndEvenOdd</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ZeroAndEvenOdd</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123; ... &#125;      <span class="comment">// 构造函数</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="type">void</span> <span class="title">printZero</span><span class="params">(printNumber)</span> </span>&#123; ... &#125;  <span class="comment">// 仅打印出 0</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="type">void</span> <span class="title">printEven</span><span class="params">(printNumber)</span> </span>&#123; ... &#125;  <span class="comment">// 仅打印出 偶数</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="type">void</span> <span class="title">printOdd</span><span class="params">(printNumber)</span> </span>&#123; ... &#125;   <span class="comment">// 仅打印出 奇数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>相同的一个 ZeroAndEvenOdd类实例将会传递给三个不同的线程：</p>
 <p>线程 A 将调用 printZero()，它只输出 0 。</p>
 <p>线程 B 将调用 printEven()，它只输出偶数。</p>

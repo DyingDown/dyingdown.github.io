@@ -34,13 +34,12 @@ var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head
 });
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>昨天刚刚装了win11，又遇到了那个经典的bug，没有声音，声音图标显示一个叉号。这个之前在Win10我就遇见过好多回了，每次都搞好长时间。</p>
 <span id="more"></span>
-<h2 id="问题描述">问题描述</h2>
-<p>不管是win10 还是win11，都出现过相同的bug。</p>
+
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>不管是win10 还是win11，都出现过相同的bug。</p>
 <p>首先检查驱动，查看是否安装声音驱动。通过那种驱动管家，我发现显示我已安装驱动。我又下载<code>realtek</code>自动安装，安装流程是先卸载已有的，然后重启，然后装新的。然后重启。</p>
 <p>卸载完已有的重启之后，我发现我的声音恢复了，但是它紧接着马上又给你装，然后我的声音又没了，然后又重启还是没有。</p>
 <p>至少这证明不是硬件问题。而是驱动的问题，并且两个系统都出现过，证明跟系统没关系。</p>
-<h2 id="解决方案">解决方案</h2>
-<ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
 <li>在搜索框搜索<strong>设备管理器</strong>；<img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post20211010145631.png" alt="image-20211010145631689"></li>
 <li>找到<strong>系统设备</strong><img src="https://cdn.jsdelivr.net/gh/dyingdown/img-host-repo/Blog/post20211010145738.png" alt="image-20211010145738673"></li>
 <li>在下面找到<strong>英特尔智音技术音频控制器</strong>（现已修复无法截图），很容易看到，有一个黄色三角形里面加一个感叹号的图标，那个是一个英特尔智音的一个什么东西，然后下面紧接着就是控制器。</li>
