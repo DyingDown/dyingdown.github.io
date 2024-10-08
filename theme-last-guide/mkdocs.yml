@@ -41,8 +41,12 @@ plugins:
   - i18n:
       docs_structure: folder
       languages:
+          - locale: zh
+            name: 中文
+            build: true
+            default: true
           - locale: en
-            default: false
+            default: true
             name: English
             build: true
             nav:
@@ -54,8 +58,3 @@ plugins:
                 - Main Page: page.md
                 - Basic Configuration: config.md
                 - Third-party Functions: functions.md
-          - locale: zh
-            name: 中文
-            build: true
-            default: true
-      lang_switcher: true

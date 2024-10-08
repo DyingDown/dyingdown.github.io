@@ -1,5 +1,7 @@
 ![site Preview](../assets/images/config/carousel.png)
 
+![site preview](../assets/images/config/carousel1.png)
+
 ## Theme Features
 - High Customization: Tailor the theme to your liking with a range of customization options, allowing you to achieve anything from a sleek and minimal appearance to a more intricate design.
 

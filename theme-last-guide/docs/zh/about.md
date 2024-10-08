@@ -1,5 +1,7 @@
 ![site Preview](../assets/images/config/carousel.png)
 
+![site preview](../assets/images/config/carousel1.png)
+
 ## 主题特性
 
 - 自定义程度高，从简洁到复杂

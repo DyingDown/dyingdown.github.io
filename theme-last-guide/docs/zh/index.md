@@ -1,5 +1,7 @@
 ![site Preview](assets/images/config/carousel.png)
 
+![site Preview](assets/images/config/carousel1.png)
+
 ## 主题预览
 
 - [「o_oyao」](https://dyingdown.github.io)
