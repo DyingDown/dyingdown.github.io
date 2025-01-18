@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>Expand picture in Photoshop on Windows</title>
+      <link href="/2025/01/18/Expand-picture-in-Photoshop/"/>
+      <url>/2025/01/18/Expand-picture-in-Photoshop/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Expand-canvas"><a href="#Expand-canvas" class="headerlink" title="Expand canvas"></a>Expand canvas</h2><ol><li>Unlock the layer (if there is little lock besides the layer)</li><li>Crop tool, choose ratio</li><li>press Alt and drag the frame (Alt make it spread from center)</li></ol><h2 id="Fill-the-rest"><a href="#Fill-the-rest" class="headerlink" title="Fill the rest"></a>Fill the rest</h2><ol><li>Ctrl + click the first layer</li><li>Ctrl + Shift + i (Select the opposite)</li><li>Select-&gt;Modify-&gt;Expand (for me: choose 5 pixels)</li><li>Edit-&gt;Content-Aware Fill</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Photoshp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Expand </tag>
+            
+            <tag> Fill </tag>
+            
+            <tag> PS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>EEG-EMG-ProcessingPipeline工具使用说明</title>
+      <link href="/2025/01/18/EEG-EMG-ProcessingPipeline%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+      <url>/2025/01/18/EEG-EMG-ProcessingPipeline%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</url>
+      
+        <content type="html"><![CDATA[<p>我自己开发的一个针对EEG EMG数据自动化处理流程的使用说明。</p><h2 id="数据说明"><a href="#数据说明" class="headerlink" title="数据说明"></a>数据说明</h2><p>该工具是针对txt格式的数据进行的处理，其中EEG和EMG数据混合在一起。并且该实验只有两个事件，a和b，数据格式如下：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># MIX|None|0+True+胫骨前肌+1000|1+True+腓骨长肌+1000|2+True+腓肠肌内侧+1000|3+True+腓肠肌外侧+1000|4+True+股直肌+1000|5+True+股内侧肌+1000|6+True+股二头肌长头+1000|7+True+半腱肌+1000|8+False+胫骨前肌+1000|9+False+腓骨长肌+1000|10+False+肠肌内侧+1000|11+False+肠肌外侧+1000|12+False+EMG13+1000|13+False+EMG14+1000|14+False+EMG15+1000|15+False+EMG16+1000|0+True+P4+80|1+True+CP2+80|2+True+FC5+80|3+True+C3+80|4+True+P3+80|5+True+C2+80|6+True+FC6+80|7+True+C4+80|8+True+CP6+80|9+True+F3+80|10+True+FC2+80|11+True+FC1+80|12+True+F4+80|13+True+CP5+80|14+True+C1+80|15+True+CP1+80</span><br><span class="line"># 13425+24732+39459+51551+66531+77703+93361+104448</span><br><span class="line">0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>其中第二行是打点信息。</p><p>为了能使得流程自动发现数据，数据依据如下存放格式</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├─code_locs</span><br><span class="line">├─subj0</span><br><span class="line">│  └─original</span><br><span class="line">│       ├─b.txt</span><br><span class="line">│  └─a.txt</span><br><span class="line">└─subj1</span><br><span class="line">    └─original</span><br></pre></td></tr></table></figure><p>subj0, subj1分别表示数据采集源，将数据直接存在original文件夹下。</p><h2 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h2><p>使用Matlab进行数据分析，并需要预先安装EEGLAB</p><h2 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h2><ol><li><code>dataBaseFolder</code>：该项指定了存储所有原始数据文件的根目录。在这个目录中，程序将会查找并加载包含脑电（EEG）和肌电（EMG）混合数据的 .txt 文件。</li><li><code>avgDatasFolder</code>：该项指定了存储经过处理后的数据，特别是用于计算平均数据时存放结果的目录。所有经过清洗或处理后的数据将保存至此文件夹。</li><li><code>startPoint</code>：指定了事件的起始点定位方式。<br><code>isPeak </code>布尔值， 属性表示打点位置是否为信号的峰值（中间）。若为 true，则事件标记将位于信号的最中间峰值。</li><li><code>Fs</code>：此项指定采样率，即每秒钟读取多少数据点。一般用于数据预处理步骤中。</li><li><code>artifacts</code>：该部分指定了伪影（artifacts）的阈值，用于从数据中识别并去除无效的信号。每一类伪影均指定了其上限与下限，用于过滤符合条件的数据。<br>每个类别包含：<br>  <code>lower_limit</code>：此伪影种类的下限值，用于过滤信号值小于此阈值的数据。<br>  <code>upper_limit</code>：此伪影种类的上限值，用于过滤信号值大于此阈值的数据。<br>  伪影类别说明：<ul><li>Brain：脑电伪影。</li><li>Muscle：肌电伪影。</li><li>Eye、Heart、Line Noise、Channel Noise、Other：其余伪影类别，分别对应眼部伪影、心脏伪影、线噪声、通道噪声以及其他伪影类型。</li></ul></li></ol><h2 id="流程功能介绍"><a href="#流程功能介绍" class="headerlink" title="流程功能介绍"></a>流程功能介绍</h2><p>运行main.m文件</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172136204.png" style="zoom:50%;" /><p>共有五个功能：</p><ol><li><strong>Point Info Man Corr</strong>： 通过展示波形图，对打点数据进行补充或者修正，同时自动进行滤波和剪切</li><li><strong>EEGLAB Preprocessing</strong>（EEGLAB预处理）：将数据导入EEGLAB中，进行坏导插值和去除伪影</li><li><strong>Calculate Data</strong>（计算数据）：计算EEG和EMG数据的相关性，使用</li><li><strong>Plot Data</strong>（绘制数据）绘制相干性的图</li><li><strong>Plot Coh Avg</strong>（绘制相干平均）：计算并绘制一组数据的平均相干性和图</li></ol><h3 id="Point-Info-Man-Corr"><a href="#Point-Info-Man-Corr" class="headerlink" title="Point Info Man Corr"></a>Point Info Man Corr</h3><p>点击该按钮会出现如下图形界面：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172304731.png" style="zoom: 67%;" /><p>并且会展示，它所找到的第一个数据画出来图形：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172309990.png" style="zoom:67%;" /><p>输入窗口解释：</p><ul><li>TL_a表示事件A的时长，单位ms</li><li>TL_b：事件B的时长</li><li>Start points：大点信息，单位ms，数据用英文逗号分割</li><li>Banned EMG List：不显示EMG通道的哪些通道，数据按照y轴顺序，输入数字，表示EMG通道里的第几个通道，英文逗号分割</li><li>Banned EEG List：同上，不显示EEG通道里的第几个通道。</li></ul><p>按钮解释：</p><ul><li>Save &amp; Update figure: 保存打点信息并更新图</li><li>Update Banned Channel： 修改了Banned EEG EMG List之后点击该按钮更新图</li><li>View Cutted Figure：查看剪切过的数据的样子（剪切并表示把无用的事件信息之外的部分数据剪切掉）</li><li>Close：关闭当前数据文件，但是不会保存任何信息，需要先Save &amp; Update figure才会保存输入窗口修改的信息。 仅关闭表示暂时搁置当前数据，下次打开还能看到它</li><li>Mark Finish Permanently：将该数据标记完成，下次不再展示</li><li>Discard this file：该数据太乱无法使用，直接抛弃该数据</li></ul><h3 id="EEGLAB-Preprocessing"><a href="#EEGLAB-Preprocessing" class="headerlink" title="EEGLAB Preprocessing"></a><strong>EEGLAB Preprocessing</strong></h3><h4 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h4><p>点击小窗口里的 <code>EEGLAB Preprocessing</code> 按钮会自动查找切片好的数据，并导入EEGLAB，导入好的数据存储在<code>subjx/set/beforeInterp</code>下面</p><h4 id="坏导插值"><a href="#坏导插值" class="headerlink" title="坏导插值"></a>坏导插值</h4><p>然后回自动进行EEGLAB里的第一步，坏导插值</p><p>首先展示当前数据的波形图：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172321558.png" style="zoom:50%;" /><p>然后展示一个新的操作界面：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172322451.png" style="zoom: 67%;" /><p>按钮解释：</p><ul><li>p4~cp1： 点击按钮，变成红色，表示该通道被选中，选中表示要进行插值</li><li>Interp Sel Chann：表示对选中的通道进行插值，每次执行都是针对原始数据的副本进行插值，所以这个步骤可以无限执行且不保存</li><li>Plot Unsel Chann：画出没有进行插值的电极的波形图</li><li>Plot aft Interp：画出插值过后的波形图</li><li>Done &amp; Save：结束退出并保存</li></ul><p>插值过的set数据存储在<code>subjx/set/afterInterp</code>目录下</p><h4 id="ICA"><a href="#ICA" class="headerlink" title="ICA"></a>ICA</h4><p>上一步按下Done &amp; save按钮之后，会自动进入到下一步执行ICA，并自动执行，跑完ICA的数据存储如下<code>/subjx/set/afterICA/</code></p><h4 id="去除伪影"><a href="#去除伪影" class="headerlink" title="去除伪影"></a>去除伪影</h4><p>执行完后回自动进行伪影标记阶段，出现如下图形窗口：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172336921.png" style="zoom:67%;" /><p>点击 Flag Artifacts会对数据进行伪影标记，其中这一步默认展示的阈值在前面的config文件里设置。</p><p>之后会出现新的弹窗：</p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172338042.png" style="zoom: 67%;" /><p>该弹窗显示对哪些通道进行了标记，按钮解释如下：</p><ul><li>Preview Rejection：展示去除伪影之后的波形图</li><li>Confirm：确定，表示删除伪影，并保存</li><li>Cancel：取消，想要重新设置阈值</li></ul><p>去除伪影之后的数据存储位置如下：<code>/subjx/set/afterArtifact</code></p><h3 id="Calculate-Data"><a href="#Calculate-Data" class="headerlink" title="Calculate Data"></a><strong>Calculate Data</strong></h3><p>这一步是用来自动计算EEG和EMG数据的时频域分析，采用的是所有subject，<code>/subjx/set/afterArtifact</code>下的所有set文件</p><p>采用Morlet小波进行小波连续变换，得到相关性矩阵。</p><p>算出来的结果在：<code>rootDataDir/CMCresults_lowerLimb/subjx/</code></p><h3 id="Plot-Data"><a href="#Plot-Data" class="headerlink" title="Plot Data"></a><strong>Plot Data</strong></h3><p>绘制相关性的图，绘制完成会自动保存，关闭，绘制下一个。绘制内容如下所示：</p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501172351494.png"></p><p>图片存储在：<code>dataRootDir/CMCplots_lowerLimb/subjx</code></p><h3 id="Plot-Coh-Avg"><a href="#Plot-Coh-Avg" class="headerlink" title="Plot Coh Avg"></a><strong>Plot Coh Avg</strong></h3><p>计算相关性的平均数据，并得出平均后的时频域图，一般执行这个步骤是因为上图显示的相关性太不均匀了。</p><p>要将要计算的mat数据存放在一起，一个文件夹下。</p><p>点击这个按钮会让你选择要计算平均的数据的目录。</p><p>执行出来的结果存放在你选择的目录下。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> EEG </category>
+          
+          <category> EMG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EEG </tag>
+            
+            <tag> EMG </tag>
+            
+            <tag> EEGLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>EEG and EMG Data Processing (Matlab)</title>
       <link href="/2025/01/17/EEG-and-EMG-Data-Processing-Matlab/"/>
       <url>/2025/01/17/EEG-and-EMG-Data-Processing-Matlab/</url>
