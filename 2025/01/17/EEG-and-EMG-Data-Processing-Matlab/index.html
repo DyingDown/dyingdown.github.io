@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>EEG and EMG Data Processing (Matlab) [ o_oyao's Blog ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/includes/alert/alert.css"><link rel="stylesheet" href="/css/third-party/valine.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/includes/copyright.css"><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script>var isHome = false;
+var isCenter = false;</script><meta name="generator" content="Hexo 6.3.0"></head><body class="post"><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="300.000000pt" height="125.000000pt" viewBox="0 0 300.000000 125.000000" preserveAspectRatio="xMidYMid meet"  id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"  stroke="none">
+<path class="rest-content" d="M70 635 c0 -340 4 -545 10 -545 5 0 335 27 734 60 399 33 730 60 736 60 6 0 10 28 10 70 0 56 -3 70 -15 70 -12 0 -15 -13 -15 -55 0 -48 -3 -55 -20 -55 -10 0 -320 -25 -688 -55 -368 -30 -679 -55 -691 -55 l-21 0 0 505 c0 474 1 505 18 505 9 0 316 -25 682 -55 366 -30 677 -55 693 -55 26 0 27 -2 27 -55 0 -42 3 -55 15 -55 12 0 15 14 15 70 0 55 -3 70 -15 70 -8 0 -341 27 -740 60 -399 33 -727 60 -730 60 -3 0 -5 -245 -5 -545z"/>
+<path class="rest-content" d="M301 858 c-62 -33 -94 -94 -88 -166 6 -81 51 -131 139 -154 85 -22 204 19 238 83 23 42 24 115 1 161 -32 66 -79 92 -170 96 -65 3 -83 0 -120 -20z m140 -97 c14 -46 5 -124 -17 -142 -12 -10 -18 -9 -32 5 -22 21 -24 135 -3 159 22 27 39 20 52 -22z"/>
+<path class="rest-content" d="M1230 858 c-24 -13 -53 -35 -64 -50 -24 -34 -33 -126 -16 -168 17 -42 72 -87 122 -101 82 -22 198 11 234 66 38 58 36 150 -4 204 -53 71 -182 94 -272 49z m127 -70 c27 -34 20 -151 -9 -169 -23 -15 -48 28 -48 81 0 81 28 124 57 88z"/>
+<path class="rest-content" d="M1633 872 c-22 -14 -33 -63 -33 -149 0 -69 4 -93 22 -124 30 -54 76 -74 139 -62 43 9 49 8 49 -7 0 -50 -60 -66 -128 -36 -70 32 -99 -5 -44 -56 37 -37 73 -48 146 -48 80 0 121 25 156 95 21 44 25 65 28 195 4 137 3 146 -18 173 -25 31 -72 37 -108 11 -20 -14 -22 -24 -22 -103 0 -99 -15 -135 -47 -115 -15 9 -18 27 -21 105 -2 81 -5 96 -23 112 -22 17 -75 23 -96 9z"/>
+<path class="rest-content" d="M2085 847 c-66 -66 -68 -213 -4 -277 38 -38 86 -47 146 -27 31 10 53 12 64 6 10 -5 36 -9 58 -9 62 0 71 20 71 168 0 117 -1 124 -25 147 -28 29 -70 32 -103 10 -19 -14 -24 -14 -51 0 -17 8 -51 15 -77 15 -39 0 -51 -5 -79 -33z m175 -138 c0 -65 -3 -81 -17 -86 -10 -4 -23 2 -36 18 -39 48 -8 170 39 152 10 -4 14 -26 14 -84z"/>
+<path class="rest-content" d="M2585 863 c-53 -28 -83 -63 -95 -113 -24 -100 32 -188 133 -210 101 -23 185 6 235 80 20 29 23 45 20 95 -5 74 -33 119 -92 146 -52 23 -158 25 -201 2z m125 -89 c15 -38 12 -117 -5 -141 -45 -64 -84 72 -43 150 13 25 37 21 48 -9z"/>
+<path class="rest-content" d="M666 624 c-19 -18 -21 -55 -4 -72 9 -9 69 -12 210 -12 185 0 198 1 208 19 14 27 13 47 -6 65 -23 24 -385 24 -408 0z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/memory"><i class="fas fa-camera"></i> Memory</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>EEG and EMG Data Processing (Matlab)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2025-01-17T22:07:46.000Z">2025-01-17</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/EEG/">EEG</span><span class="words" href="/categories/EEG/EMG/">EMG</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/EEG/">EEG  </span><span class="words" href="/tags/EMG/">EMG  </span><span class="words" href="/tags/Matlab/">Matlab  </span><span class="words" href="/tags/EEGLAB/">EEGLAB  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">15 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">2.4k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><p>This article introduces the preprocessing of EEG and EMG data. The goal is to analyze the correlation between EEG and EMG data on the same timescale, and the raw data collected is in TXT format with EEG and EMG data stored together. You can directly use the graphical interface here: <a target="_blank" rel="noopener" href="https://github.com/DyingDown/EEG_EMG_Process">Github Repo: EEG_EMG Process</a></p>
+<!--more--->
+
+<p>This article covers the processing of single data. If you use my graphical UI interface, you can process data in batches. It will automatically read data from files for processing.</p>
+<h2 id="Data-Format-Overview"><a href="#Data-Format-Overview" class="headerlink" title="Data Format Overview"></a>Data Format Overview</h2><p>Before preprocessing the EEG data, understanding the basic format of the data is crucial. Below is an example of the format of the collected EEG and EMG data:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># MIX|None|0+True+胫骨前肌+1000|1+True+腓骨长肌+1000|2+True+腓肠肌内侧+1000|3+True+腓肠肌外侧+1000|4+True+股直肌+1000|5+True+股内侧肌+1000|6+True+股二头肌长头+1000|7+True+半腱肌+1000|8+False+胫骨前肌+1000|9+False+腓骨长肌+1000|10+False+肠肌内侧+1000|11+False+肠肌外侧+1000|12+False+EMG13+1000|13+False+EMG14+1000|14+False+EMG15+1000|15+False+EMG16+1000|0+True+P4+80|1+True+CP2+80|2+True+FC5+80|3+True+C3+80|4+True+P3+80|5+True+C2+80|6+True+FC6+80|7+True+C4+80|8+True+CP6+80|9+True+F3+80|10+True+FC2+80|11+True+FC1+80|12+True+F4+80|13+True+CP5+80|14+True+C1+80|15+True+CP1+80</span><br><span class="line"># 13425+24732+39459+51551+66531+77703+93361+104448+119984+130913+145827+157066</span><br><span class="line">0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="Data-Format-Description"><a href="#Data-Format-Description" class="headerlink" title="Data Format Description"></a>Data Format Description</h3><ol>
+<li><strong>Header</strong>:<ul>
+<li><code>MIX|None|</code>: Describes the data type (e.g., MIX could be mixed signals).</li>
+<li><code>X+True/False+Channel+SampleRate</code>: Represents information about different channels, including whether they are enabled (<code>True/False</code>), the channel name (e.g., Tibialis Anterior, P4, etc.), and the sampling rate (in Hz).</li>
+</ul>
+</li>
+<li><strong>Marker Information</strong>: Timepoint data starting with <code>#</code>, such as <code>13425+24732+39459...</code>. This represents marker data from the experiment. However, in this experiment, markers are not used due to inaccuracies.</li>
+<li><strong>Signal Data</strong>: Each line represents the signal values at a specific time point, with columns corresponding to different channels.</li>
+</ol>
+<h2 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h2><h3 id="Data-Filtering"><a href="#Data-Filtering" class="headerlink" title="Data Filtering"></a>Data Filtering</h3><p>If you use my graphical interface for processing, you don’t need to worry about this step—it will be done automatically.</p>
+<h4 id="Read-Data-from-File"><a href="#Read-Data-from-File" class="headerlink" title="Read Data from File"></a>Read Data from File</h4><p>First, use MATLAB to read the raw data from the file with the following code:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fid = fopen(filepath);</span><br><span class="line"><span class="comment">% ... verify fid</span></span><br><span class="line">datafile = textscan(fid, <span class="built_in">repmat</span>(<span class="string">&#x27;%f&#x27;</span>, <span class="number">1</span>, <span class="number">32</span>), <span class="string">&#x27;Delimiter&#x27;</span>, <span class="string">&#x27;\t&#x27;</span>, <span class="string">&#x27;CommentStyle&#x27;</span>, <span class="string">&#x27;#&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Extract-EEG-EMG"><a href="#Extract-EEG-EMG" class="headerlink" title="Extract EEG, EMG"></a>Extract EEG, EMG</h4><p>Based on the experimental requirements, extract the EEG and EMG data. EMG is from columns 1-8, and EEG is from columns 17-32.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EMGData = [datafile&#123;<span class="number">1</span>:<span class="number">8</span>&#125;]; </span><br><span class="line">EEGData = [datafile&#123;<span class="number">17</span>:<span class="number">32</span>&#125;];</span><br></pre></td></tr></table></figure>
+
+<h4 id="Filtering-Process"><a href="#Filtering-Process" class="headerlink" title="Filtering Process"></a>Filtering Process</h4><ul>
+<li><strong>EEG Signal</strong>: Focuses on the 1-49 Hz frequency range, which contains most of the brainwave activity, such as alpha and beta waves. Eliminate 50 Hz power line interference.</li>
+<li><strong>EMG Signal</strong>: Focuses on the 20-150 Hz frequency range, which contains the main features of the electromyogram. Also eliminate 50 Hz interference.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[EMGData, EEGData]</span> = <span class="title">filterData</span><span class="params">(EMGData, EEGData)</span></span></span><br><span class="line">    fs = <span class="number">1000</span>; <span class="comment">% Sampling frequency</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Power line interference filter: 50 Hz and its harmonics</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">9</span></span><br><span class="line">        [b, a] = butter(<span class="number">2</span>, [<span class="number">2</span>*(<span class="number">50</span>*<span class="built_in">j</span><span class="number">-1</span>)/fs, <span class="number">2</span>*(<span class="number">50</span>*<span class="built_in">j</span>+<span class="number">1</span>)/fs], <span class="string">&quot;stop&quot;</span>);</span><br><span class="line">        EMGData = filter(b, a, EMGData);</span><br><span class="line">        EEGData = filter(b, a, EEGData);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Band-pass filter: Extract relevant frequency ranges</span></span><br><span class="line">    <span class="comment">% EMG 20-150 Hz</span></span><br><span class="line">    [b, a] = butter(<span class="number">4</span>, [<span class="number">2</span>*<span class="number">20</span>/fs, <span class="number">2</span>*<span class="number">150</span>/fs], <span class="string">&quot;bandpass&quot;</span>);</span><br><span class="line">    EMGData = filter(b, a, EMGData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% EEG 1-49 Hz</span></span><br><span class="line">    [b, a] = butter(<span class="number">4</span>, [<span class="number">2</span>*<span class="number">1</span>/fs, <span class="number">2</span>*<span class="number">49</span>/fs], <span class="string">&quot;bandpass&quot;</span>);</span><br><span class="line">    EEGData = filter(b, a, EEGData);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Manual-Correction-of-Markers"><a href="#Manual-Correction-of-Markers" class="headerlink" title="Manual Correction of Markers"></a>Manual Correction of Markers</h3><p>Due to missing or inaccurate marker information, you need to manually correct the marker data. First, plot the data and find the precise positions from the graph.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">N1 = <span class="built_in">length</span>(EMGData(<span class="number">1</span>,:)); <span class="comment">% Number of EMG channels</span></span><br><span class="line">N2 = <span class="built_in">length</span>(EEGData(<span class="number">1</span>,:)); <span class="comment">% Number of EEG channels</span></span><br><span class="line">N = N1 + N2; <span class="comment">% Total number of channels (24 channels corresponding to the 24 channels in eegemg_sitstand_locs.ced file)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">isempty</span>(findall(<span class="number">0</span>, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)], <span class="string">&#x27;Type&#x27;</span>, <span class="string">&#x27;figure&#x27;</span>))</span><br><span class="line">    hFig = <span class="built_in">figure</span>;  <span class="comment">% Create a new window if not found</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">&quot;Didn&#x27;t find existing window, create a new one&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    hFig = findall(<span class="number">0</span>, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)], <span class="string">&#x27;Type&#x27;</span>, <span class="string">&#x27;figure&#x27;</span>);</span><br><span class="line">    close(hFig);  <span class="comment">% Close any existing figure</span></span><br><span class="line">    hFig = <span class="built_in">figure</span>;  <span class="comment">% Create a new figure</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% Data Display - excluding certain EMG channels</span></span><br><span class="line">yrangeEMG = <span class="number">200</span>;</span><br><span class="line">yrangeEEG = <span class="number">100</span>;</span><br><span class="line">t = <span class="number">0.001</span>:<span class="number">0.001</span>:<span class="built_in">length</span>(EMGData(:,<span class="number">1</span>))/<span class="number">1000</span>; <span class="comment">% Time vector in seconds</span></span><br><span class="line">offsets = <span class="built_in">zeros</span>(N, <span class="number">1</span>); <span class="comment">% Create an offset matrix initialized with zeros</span></span><br><span class="line"></span><br><span class="line">set(gcf, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)]);</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">8</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">ismember</span>(<span class="built_in">j</span>, EMGBanList)</span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    offsets(<span class="built_in">j</span>) = yrangeEMG*(N1-<span class="built_in">j</span>);</span><br><span class="line">    <span class="built_in">plot</span>(t, (EMGData(:,<span class="built_in">j</span>)+offsets(<span class="built_in">j</span>))*result)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">16</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">ismember</span>(<span class="built_in">j</span>, EEGBanList)</span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    offsets(N1+<span class="built_in">j</span>) = yrangeEMG*(N1)+<span class="number">200</span>+yrangeEEG*(<span class="number">16</span>-<span class="built_in">j</span>);</span><br><span class="line">    <span class="built_in">plot</span>(t, (EEGData(:,<span class="built_in">j</span>)+offsets(N1+<span class="built_in">j</span>))*result)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> off</span><br><span class="line">channelLabels = &#123;<span class="string">&#x27;TA&#x27;</span>,<span class="string">&#x27;PL&#x27;</span>,<span class="string">&#x27;MG&#x27;</span>,<span class="string">&#x27;LG&#x27;</span>,<span class="string">&#x27;RF&#x27;</span>,<span class="string">&#x27;VM&#x27;</span>,<span class="string">&#x27;LBF&#x27;</span>,<span class="string">&#x27;Semi&#x27;</span>, <span class="string">&#x27;P4&#x27;</span>,<span class="string">&#x27;CP2&#x27;</span>,<span class="string">&#x27;FC5&#x27;</span>,<span class="string">&#x27;C3&#x27;</span>,<span class="string">&#x27;P3&#x27;</span>,<span class="string">&#x27;C2&#x27;</span>,<span class="string">&#x27;FC6&#x27;</span>,<span class="string">&#x27;C4&#x27;</span>,<span class="string">&#x27;CP6&#x27;</span>,<span class="string">&#x27;F3</span></span><br></pre></td></tr></table></figure>
+
+<p>You can manually recover the original positions after obtaining the dotting information, or store them separately.</p>
+<h3 id="Generating-Event-Information"><a href="#Generating-Event-Information" class="headerlink" title="Generating Event Information"></a>Generating Event Information</h3><p>You need to manually construct the event information file.</p>
+<h4 id="File-Format-Requirements"><a href="#File-Format-Requirements" class="headerlink" title="File Format Requirements"></a>File Format Requirements</h4><p>Event information files must use <strong>plain text format</strong> (<code>.txt</code>), where each line represents a single event record, and fields are separated by spaces, commas, or tabs. It is recommended to use <strong>tab-separated (tab-separated values)</strong> for easy parsing.</p>
+<h4 id="Required-Fields-and-Descriptions"><a href="#Required-Fields-and-Descriptions" class="headerlink" title="Required Fields and Descriptions"></a>Required Fields and Descriptions</h4><table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Data Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>String</td>
+<td>Yes</td>
+<td>Event type identifier, e.g., <code>&#39;Stimulus&#39;</code> or <code>&#39;Response&#39;</code>.</td>
+</tr>
+<tr>
+<td><code>latency</code></td>
+<td>Numeric</td>
+<td>Yes</td>
+<td>The sampling point of the event in the EEG data (in samples).</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>Numeric</td>
+<td>No</td>
+<td>Duration of the event in samples, fill with <code>0</code> if unknown.</td>
+</tr>
+<tr>
+<td><code>epoch</code></td>
+<td>Numeric</td>
+<td>No</td>
+<td>The segment number, required only when EEG data is segmented.</td>
+</tr>
+<tr>
+<td><code>urevent</code></td>
+<td>Numeric</td>
+<td>No</td>
+<td>The event number linked to the original event data for traceability.</td>
+</tr>
+</tbody></table>
+<h4 id="Example-Content-TXT-Format"><a href="#Example-Content-TXT-Format" class="headerlink" title="Example Content (TXT Format)"></a>Example Content (TXT Format)</h4><p>The file can be stored simply as <code>events.txt</code>, for example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type    latency duration</span><br><span class="line">a        512     100</span><br><span class="line">b        1024    50</span><br><span class="line">a        2048    100</span><br></pre></td></tr></table></figure>
+
+<h3 id="Data-Cutting"><a href="#Data-Cutting" class="headerlink" title="Data Cutting"></a>Data Cutting</h3><p>At this step, cut the data based on the dotting information and the duration of each event, leaving only the useful parts.</p>
+<h2 id="Using-EEGLAB-for-Processing"><a href="#Using-EEGLAB-for-Processing" class="headerlink" title="Using EEGLAB for Processing"></a>Using EEGLAB for Processing</h2><h3 id="Data-Import-set"><a href="#Data-Import-set" class="headerlink" title="Data Import (set)"></a>Data Import (<code>set</code>)</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EEG = pop_importdata(<span class="string">&#x27;dataformat&#x27;</span>,<span class="string">&#x27;ascii&#x27;</span>,<span class="string">&#x27;nbchan&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;data&#x27;</span>,filepath,<span class="string">&#x27;setname&#x27;</span>,eventFileName,<span class="string">&#x27;srate&#x27;</span>,<span class="number">1000</span>,<span class="string">&#x27;pnts&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;xmin&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;chanlocs&#x27;</span>,locs_path);</span><br><span class="line">pop_importdata</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>This is one of the core functions in EEGLAB for importing raw data.</li>
+<li>It allows importing multiple formats (e.g., ASCII, MATLAB variables) and setting key parameters (like sampling rate and number of channels).</li>
+</ul>
+<p>Parameter Explanation:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Example Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dataformat</code></td>
+<td><code>&#39;ascii&#39;</code></td>
+<td>Data format type; <code>&#39;ascii&#39;</code> means the data is stored in text format, other values can be <code>&#39;matlab&#39;</code> or native formats.</td>
+</tr>
+<tr>
+<td><code>nbchan</code></td>
+<td><code>0</code></td>
+<td>Number of channels in the data, <code>0</code> means auto-detect the number of channels (common), or you can specify the actual count.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>filepath</code></td>
+<td>Path to the data file, which contains actual signal data; each row represents a time point, and columns represent channel data.</td>
+</tr>
+<tr>
+<td><code>setname</code></td>
+<td><code>eventFileName</code></td>
+<td>Name of the dataset that will appear in the EEGLAB graphical interface, used to identify the imported EEG dataset.</td>
+</tr>
+<tr>
+<td><code>srate</code></td>
+<td><code>1000</code></td>
+<td>Sampling rate of the data in Hz. For example, <code>1000</code> means 1000 samples per second.</td>
+</tr>
+<tr>
+<td><code>pnts</code></td>
+<td><code>0</code></td>
+<td>Number of samples per channel, <code>0</code> means auto-detected from the file.</td>
+</tr>
+<tr>
+<td><code>xmin</code></td>
+<td><code>0</code></td>
+<td>The start time of the data (in seconds); <code>0</code> means from the first sample point.</td>
+</tr>
+<tr>
+<td><code>chanlocs</code></td>
+<td><code>locs_path</code></td>
+<td>The path to the channel location information file, typically <code>.loc</code> or <code>.ced</code> files, which define the spatial locations (electrode positions).</td>
+</tr>
+</tbody></table>
+<p>My <code>chanlocs</code> file looks like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Number	labels	theta	radius	X	Y	Z	sph_theta	sph_phi	sph_radius	type	</span><br><span class="line">1	TA	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">2	PL	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">3	MG	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">4	LG	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">5	RF	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">6	VM	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">7	LBF	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">8	SEM	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">9	P4	145	0.331	-78.6	-55.7	56.6	-145	30.4	112	EEG	</span><br><span class="line">10	CP2	141	0.188	-47.1	-38.4	90.7	-141	56.2	109	EEG	</span><br><span class="line">11	FC5	-76.4	0.405	18.6	77.2	24.5	76.4	17.1	83.1	EEG	</span><br><span class="line">12	C3	-100	0.255	-11.6	65.4	64.4	100	44.1	92.5	EEG	</span><br><span class="line">13	P3	-146	0.331	-78.8	 53	55.9	146	30.5	110	EEG	</span><br><span class="line">14	C2	104	0.132	-9.62	-37.7	88.4	-104	66.3	96.6	EEG	</span><br><span class="line">15	FC6	75.9	0.408	19.9	-79.5	24.4	-75.9	16.6	85.6	EEG	</span><br><span class="line">16	C4	99.2	0.261	-10.9	-67.1	63.6	-99.2	43.1	93.1	EEG	</span><br><span class="line">17	CP6	119	0.399	-46.1	-83.3	31.2	-119	18.1	100	EEG	</span><br><span class="line">18	F3	-43.4	0.333	53.1	50.2	42.2	43.4	 30	84.4	EEG	</span><br><span class="line">19	FC2	52.8	0.161	26.4	-34.8	78.8	-52.8	 61	90.1	EEG	</span><br><span class="line">20	FC1	-52.6	0.157	 26	34.1	 80	52.6	61.8	90.7	EEG	</span><br><span class="line">21	F4	43.7	0.341	54.3	-51.8	40.8	-43.7	28.5	85.5	EEG	</span><br><span class="line">22	CP5	-120	0.397	-46.6	79.6	30.9	120	18.6	97.3	EEG	</span><br><span class="line">23	C1	-105	0.126	-9.98	36.2	89.8	105	67.3	97.3	EEG	</span><br><span class="line">24	CP1	-143	0.183	-47.3	35.5	91.3	143	57.1	109	EEG	</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note: The original file did not look like this. However, when directly importing raw EEG, the position may rotate 90 degrees, leading to an error. It requires manual correction each time the data is imported, or once the positions are fixed, export the corrected map and store it for future use.</strong></p>
+<h3 id="Bad-Channel-Interpolation"><a href="#Bad-Channel-Interpolation" class="headerlink" title="Bad Channel Interpolation"></a>Bad Channel Interpolation</h3><h4 id="Plotting-Waveform"><a href="#Plotting-Waveform" class="headerlink" title="Plotting Waveform"></a>Plotting Waveform</h4><ol>
+<li>Use the built-in EEGLAB function <code>pop_eegplot</code> to draw <strong>EEG waveform</strong> graphs.</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pop_eegplot(EEG, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>); <span class="comment">% Draw the waveform for the data</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Parameter-Explanation"><a href="#Parameter-Explanation" class="headerlink" title="Parameter Explanation:"></a>Parameter Explanation:</h4><ul>
+<li><strong><code>EEG</code></strong>: The EEGLAB data structure, containing the imported data.</li>
+<li><strong><code>1</code> (continuous signal mode)</strong>: Plot the raw continuous signal.</li>
+<li><strong><code>1</code> (channel index label)</strong>: Display channel labels on the plot.</li>
+<li><strong><code>0</code> (single window)</strong>: Display all channels in a single window; <code>1</code> would show each channel in a separate window.</li>
+</ul>
+<ol>
+<li><p>Plotting via the graphical interface</p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171828124.png" alt="Waveform Plot"></p>
+</li>
+</ol>
+<h4 id="Identifying-Bad-Channels"><a href="#Identifying-Bad-Channels" class="headerlink" title="Identifying Bad Channels"></a>Identifying Bad Channels</h4><p>Based on the waveform plot, determine which channels are corrupted by checking:</p>
+<p><strong>Signal Anomalies:</strong></p>
+<ul>
+<li><strong>Flat signal</strong>: A channel data is just a flat line, indicating the sensor may have disconnected or the signal was lost.</li>
+<li><strong>Abnormal high amplitude</strong>: If a channel shows consistently higher amplitude than others, this could indicate a poor connection or equipment issue.</li>
+<li><strong>High-frequency noise</strong>: If a channel shows irregular high-frequency signals, this could indicate technical issues.</li>
+</ul>
+<p><strong>Spatial Inconsistency:</strong></p>
+<p>Check the head map for the electrode distribution. A damaged channel may appear isolated on the map with abnormal signal spikes&#x2F;drops in contrast to neighboring channels.</p>
+<h4 id="Interpolating-Bad-Channels"><a href="#Interpolating-Bad-Channels" class="headerlink" title="Interpolating Bad Channels"></a>Interpolating Bad Channels</h4><ol>
+<li>Use code for interpolation:</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEG_interp = pop_interp(EEG, selectedIndices, <span class="string">&#x27;spherical&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Parameter Explanation:</p>
+<ul>
+<li><code>EEG</code>: The original EEG data structure.</li>
+<li><code>selectedIndices</code>: An array of indices for channels requiring interpolation.</li>
+<li><code>&#39;spherical&#39;</code>: The interpolation method. This spherical interpolation takes into account the three-dimensional spatial arrangement of electrodes on a sphere, which is appropriate for EEG data.</li>
+</ul>
+<ol>
+<li><p>Manual Interpolation</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171840066.png" alt="Manual Interpolation" style="zoom:67%;" />
+
+<p>Select the channels that need interpolation.</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171842031.png" alt="Select Channels" style="zoom:67%;" /></li>
+</ol>
+<p><strong>Note:</strong> Interpolation must be done for all channels at once, and cannot be performed in multiple steps.</p>
+<h3 id="Removing-Artifacts-and-Noise"><a href="#Removing-Artifacts-and-Noise" class="headerlink" title="Removing Artifacts and Noise"></a>Removing Artifacts and Noise</h3><h4 id="Independent-Component-Analysis-ICA"><a href="#Independent-Component-Analysis-ICA" class="headerlink" title="Independent Component Analysis (ICA)"></a>Independent Component Analysis (ICA)</h4><p>To remove artifacts such as eye movements or muscle activities, use ICA:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEG = pop_runica(EEG, <span class="string">&#x27;icatype&#x27;</span>, <span class="string">&#x27;runica&#x27;</span>, <span class="string">&#x27;extended&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;interrupt&#x27;</span>, <span class="string">&#x27;on&#x27;</span>, <span class="string">&#x27;chanind&#x27;</span>, EEG_chans, <span class="string">&#x27;pca&#x27;</span>, restLen);</span><br></pre></td></tr></table></figure>
+
+<p>Parameter Explanation:</p>
+<ul>
+<li><code>icatype</code>, <code>runica</code>: The ICA algorithm to be used (RunICA).</li>
+<li><code>extended</code>, <code>1</code>: Use extended mode, which adds dimensionality to the analysis, suitable for multichannel data.</li>
+<li><code>interrupt</code>, <code>on</code>: Allow interruption during ICA computation.</li>
+<li><code>chanind</code>, <code>EEG_chans</code>: Indices of EEG channels that will participate in ICA (since EEG and EMG data are together, we should select the EEG channels).</li>
+<li><code>pca</code>, <code>restLen</code>: Using PCA to reduce the data’s dimensions. <code>restLen</code> represents the number of principal components (EEG electrode count - interpolated bad channel count).</li>
+</ul>
+<p>This step aims to extract independent components from EEG data to eliminate artifacts while retaining components that reflect neural activity.</p>
+<p>Or you can use the manual approach.</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171853703.png" alt="Manual ICA" style="zoom:67%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171855039.png" alt="ICA Components" style="zoom:67%;" />
+
+<p>The data selection can be done in two ways, assuming categories for channels are already labeled.</p>
+<p>During the execution, windows can pop up for real-time interruptions if necessary.</p>
+<h4 id="Mark-Artifacts"><a href="#Mark-Artifacts" class="headerlink" title="Mark Artifacts"></a>Mark Artifacts</h4><p>You can mark the data with labels, tagging artifacts as necessary:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">EEG_temp = EEG;  <span class="comment">% </span></span><br><span class="line">EEG_temp = pop_icflag(EEG_temp, [</span><br><span class="line">    <span class="number">0.2</span> <span class="number">0.6</span>;   <span class="comment">% Brain: Brain activity components</span></span><br><span class="line">    <span class="number">0.1</span> <span class="number">0.8</span>;   <span class="comment">% Muscle: Electromyographic artifacts</span></span><br><span class="line">    <span class="number">0.2</span> <span class="number">0.7</span>;   <span class="comment">% Eye: Eye movement artifacts</span></span><br><span class="line">    <span class="number">0.3</span> <span class="number">0.7</span>;   <span class="comment">% Heart: Electrocardiographic artifacts</span></span><br><span class="line">    <span class="number">0.4</span> <span class="number">0.6</span>;   <span class="comment">% Line Noise: Power line noise</span></span><br><span class="line">    <span class="number">0.1</span> <span class="number">0.9</span>;   <span class="comment">% Channel Noise: Channel signal noise</span></span><br><span class="line">    <span class="number">0.0</span> <span class="number">0.9</span>    <span class="comment">% Other: Other artifacts</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>Manual execution:<br><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171906151.png" style="zoom:67%;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171907300.png" style="zoom: 50%;" /><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171907453.png" style="zoom:67%;" /></p>
+<p>After marking, the flagged content will pop up. This image doesn’t serve any particular purpose and can be closed directly; it’s the classification drawn after automatic artifact analysis.</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171910670.png" style="zoom:67%;" />
+Then use the "flag components as artifact" function to automatically mark the artifacts.
+
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171918905.png" style="zoom:67%;" />
+Set thresholds for different categories.
+
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171919555.png" style="zoom:67%;" />
+Set the required thresholds based on your data. For my own data, I set the threshold for each category to 0.55, because my data has many interference factors.
+
+<h4 id="Delete-artifacts"><a href="#Delete-artifacts" class="headerlink" title="Delete artifacts"></a>Delete artifacts</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rejected_comps = <span class="built_in">find</span>(EEG_temp.reject.gcompreject &gt; <span class="number">0</span>);</span><br><span class="line">EEG_temp = pop_subcomp(EEG_temp, rejected_comps);</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171922714.png" style="zoom:67%;" />
+
+<p>At this point, all data processing has been completed.</p>
+<div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2025/01/17/EEG-and-EMG-Data-Processing-Matlab/">http://dyingdown.github.io/2025/01/17/EEG-and-EMG-Data-Processing-Matlab/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2025/01/17/%E5%8C%85%E5%90%ABEMG%E7%9A%84EEG%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171954245.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>包含EMG的EEG数据处理(Matlab)</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2024/10/20/Nim-Game/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202410211001007.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Nim Game</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
+})
+
+    </script><div id="sideButtons"><div id="back-to-top"><span>TOP</span></div><div id="go-to-comment"><span>COMMENT</span></div></div></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa-brands fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="X-Twitter"><i class="fa-brands fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa-brands fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></div><div id="incons"><a class="icon" href=" https://www.linkedin.com/in/yaogu0304/" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa-brands fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" https://www.instagram.com/o_oyao0304/" title="Instagram"><i class="fa-brands fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="TikTok"><i class="fa-brands fa-tiktok"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2025</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
