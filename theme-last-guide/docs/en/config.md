@@ -434,7 +434,7 @@ SideButtons:
 === "both"
 
     <img src="../../assets/images/config/navigation-buttons-both.png" style="zoom: 47%;" />
-    
+
 === "word"
 
     <img src="../../assets/images/config/navigation-buttons-text.png" style="zoom: 47%;" />
@@ -452,7 +452,7 @@ SideButtons:
 ScrollBar:
   style: "bicolor" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
-  radius: 10 # 0~xxx px, 
+  shape: "square" # "square", "round"
   gradient:
     color1: "skyblue"
     color2: "purple"
@@ -462,7 +462,7 @@ ScrollBar:
 
 - `color`: Customizable scrollbar color or use `theme` to follow the theme color.
 
-- `radius`: Sets the corner radius of the scrollbar, 0 means no rounded corners.
+- `shape`: Shape of scrollbar, wether round or square
 
 - `gradient`: The scrollbar will gradient from `color1` to `color2`.
 
