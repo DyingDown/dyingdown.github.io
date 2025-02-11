@@ -481,6 +481,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      图集
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -605,6 +614,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      图集
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -706,6 +724,34 @@
 </ul>
 <p><strong>注意：里面的看起来像是tabs的缩进，其实是空格，而且必须是空格</strong></p>
 <p><img alt="friends preview page" src="../assets/images/page/friends.png" /></p>
+<h2 id="_3">图集</h2>
+<p>图集页面就是普通的categories页面，所以一个图集就是一个普通的post文件。</p>
+<p>无需配置额外的页面，只需给顶部菜单配置一个访问的按钮即可，路径则需填写<code>/categories/Gallery</code> 才可以正常生效</p>
+<div class="highlight"><pre><span></span><code>xxx:
+  path: /categories/Gallery
+  ico: ico-name
+</code></pre></div>
+<p>还需要在文件头部进行以下配置：</p>
+<div class="highlight"><pre><span></span><code>title: xxxx
+date: xxxx-xx-11 04:39:38
+layout: gallery
+tags: 
+categories: Gallery
+cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
+color: 8b9238
+</code></pre></div>
+<ul>
+<li><code>layout: gallery</code> 添加这一条，可以在首页过滤相册展示</li>
+<li>
+<p><code>categories: Gallery</code> 大小写敏感，给该文件分类到</p>
+</li>
+<li>
+<p><code>cover:</code> 每个图集的封面图片，输入图片的地址</p>
+</li>
+<li><code>color:</code>每个图集展示的背景颜色（在album</li>
+</ul>
+<p>页面预览</p>
+<p><img alt="friends preview page" src="../assets/images/page/gallery.png" /></p>
 
 
 

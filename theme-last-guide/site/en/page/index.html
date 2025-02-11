@@ -481,6 +481,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gallery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gallery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Preview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -605,6 +629,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gallery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gallery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Preview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -706,6 +754,30 @@
 </ul>
 <p><strong>Note: The seemingly tab-like indentation inside must be spaces, not tabs.</strong></p>
 <p><img alt="friends preview page" src="../../assets/images/page/friends.png" /></p>
+<h2 id="gallery">Gallery</h2>
+<p>The gallery page is essentially a regular categories page, so each gallery is just a normal post file.</p>
+<p>There is no need to configure an additional page; simply add a button in the top menu to access it. The path must be set to <code>/categories/Gallery</code> for it to work correctly.</p>
+<div class="highlight"><pre><span></span><code>ymlCopyEditxxx:
+  path: /categories/Gallery
+  ico: ico-name
+</code></pre></div>
+<p>You also need to configure the following in the front matter of the post:</p>
+<div class="highlight"><pre><span></span><code>ymlCopyEdittitle: xxxx
+date: xxxx-xx-11 04:39:38
+layout: gallery
+tags: 
+categories: Gallery
+cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
+color: 8b9238
+</code></pre></div>
+<ul>
+<li><code>layout: gallery</code> Adding this line allows filtering out gallery posts from the homepage.</li>
+<li><code>categories: Gallery</code> Case-sensitive; categorizes the file under "Gallery."</li>
+<li><code>cover:</code> The cover image for each gallery; provide the image URL.</li>
+<li><code>color:</code> The background color for each gallery display (in the album module).</li>
+</ul>
+<h3 id="module-preview">Module Preview</h3>
+<p><img alt="friends preview page" src="../../assets/images/page/gallery.png" /></p>
 
 
 

@@ -84,3 +84,36 @@ How to add friends links:
 **Note: The seemingly tab-like indentation inside must be spaces, not tabs.**
 
 ![friends preview page](../assets/images/page/friends.png)
+
+## Gallery
+
+The gallery page is essentially a regular categories page, so each gallery is just a normal post file.
+
+There is no need to configure an additional page; simply add a button in the top menu to access it. The path must be set to `/categories/Gallery` for it to work correctly.
+
+```yml
+ymlCopyEditxxx:
+  path: /categories/Gallery
+  ico: ico-name
+```
+
+You also need to configure the following in the front matter of the post:
+
+```yml
+ymlCopyEdittitle: xxxx
+date: xxxx-xx-11 04:39:38
+layout: gallery
+tags: 
+categories: Gallery
+cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
+color: 8b9238
+```
+
+- `layout: gallery` Adding this line allows filtering out gallery posts from the homepage.
+- `categories: Gallery` Case-sensitive; categorizes the file under "Gallery."
+- `cover:` The cover image for each gallery; provide the image URL.
+- `color:` The background color for each gallery display (in the album module).
+
+### Module Preview
+
+![friends preview page](../assets/images/page/gallery.png)

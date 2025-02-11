@@ -84,3 +84,37 @@ hexo new page links
 **注意：里面的看起来像是tabs的缩进，其实是空格，而且必须是空格**
 
 ![friends preview page](../assets/images/page/friends.png)
+
+## 图集
+
+图集页面就是普通的categories页面，所以一个图集就是一个普通的post文件。
+
+无需配置额外的页面，只需给顶部菜单配置一个访问的按钮即可，路径则需填写`/categories/Gallery` 才可以正常生效
+
+```yml
+xxx:
+  path: /categories/Gallery
+  ico: ico-name
+```
+
+还需要在文件头部进行以下配置：
+
+```yml
+title: xxxx
+date: xxxx-xx-11 04:39:38
+layout: gallery
+tags: 
+categories: Gallery
+cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
+color: 8b9238
+```
+
+- `layout: gallery` 添加这一条，可以在首页过滤相册展示
+- `categories: Gallery` 大小写敏感，给该文件分类到
+
+- `cover:` 每个图集的封面图片，输入图片的地址
+- `color: `每个图集展示的背景颜色（在album
+
+页面预览
+
+![friends preview page](../assets/images/page/gallery.png)
