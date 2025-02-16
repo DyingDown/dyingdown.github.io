@@ -331,12 +331,22 @@ postStyle:
 
 - `contentStyle`：文章页面的样式选项
 
+
 	=== "github"
 		![post-github.png](../assets/images/config/post-github.png)
+
 	=== "music"
 		![post-music.png](../assets/images/config/post-music.png)
+		
 	=== "microsoft"
 		![post-microsoft.png](../assets/images/config/post-microsoft.png)
+
+	=== "lapis"
+		![post-microsoft.png](../assets/images/config/post-lapis.png)
+
+	=== "gitbook"
+		![post-microsoft.png](../assets/images/config/post-gitbook.png)
+  
 
 - `color`：文章页面的主题颜色
 
