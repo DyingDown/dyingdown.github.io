@@ -1,3 +1,7 @@
+import { initImageViewer } from "./third-party/view-image.js";
+
+initImageViewer("#post-content img");
+
 /********** set share function position  ***********/
 var share = document.getElementById("share-col");
 var shareIn = document.getElementById("shareButtons")
@@ -112,6 +116,8 @@ uniqId();
 /********* initialize a toc  **********/
 // using tocbot API
 tocbot.init({
+    headingsOffset: 80,
+    scrollSmoothOffset: -80,
     // Where to render the table of contents.
     tocSelector: '#tocs', // 放置目录的容器
     // Where to grab the headings to build the table of contents.
