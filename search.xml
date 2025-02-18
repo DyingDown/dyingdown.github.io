@@ -4,11 +4,24 @@
   
     
     <entry>
+      <title>How to use Gitalk on Hexo</title>
+      <link href="/2025/02/16/How-to-use-Gitalk-on-Hexo/"/>
+      <url>/2025/02/16/How-to-use-Gitalk-on-Hexo/</url>
+      
+        <content type="html"><![CDATA[<p>The link is <a href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202502161802848.png"></p><p>And then this</p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202502161806299.png"></p><p>click on it</p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202502161807245.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Under water city</title>
       <link href="/2025/02/11/gallery/Under-water-city/"/>
       <url>/2025/02/11/gallery/Under-water-city/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110506153.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110508344.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509150.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509992.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110512982.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202502161339872.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509882.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110513243.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110510794.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110510366.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110513243.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110512544.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110511897.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110511117.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110515714.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110515143.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516660.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516661.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516272.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110517828.png"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110506153.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110508344.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509150.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509992.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110512982.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110509882.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110513243.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110510794.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110510366.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110513243.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110512544.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110511897.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110511117.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110515714.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110515143.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516660.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516661.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110516272.png"></p><p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110517828.png"></p>]]></content>
       
       
       <categories>
@@ -495,9 +508,9 @@
             
             <tag> AI Image </tag>
             
-            <tag> Leaf Lora </tag>
-            
             <tag> girl </tag>
+            
+            <tag> Leaf Lora </tag>
             
             <tag> Cartoon style </tag>
             
@@ -555,11 +568,11 @@
             
             <tag> AI Image </tag>
             
-            <tag> Leaf Lora </tag>
-            
             <tag> girl </tag>
             
             <tag> purple theme </tag>
+            
+            <tag> Leaf Lora </tag>
             
         </tags>
       
@@ -1318,9 +1331,9 @@
             
             <tag> DP </tag>
             
-            <tag> Array </tag>
-            
             <tag> Two Pointers </tag>
+            
+            <tag> Array </tag>
             
             <tag> 2P </tag>
             

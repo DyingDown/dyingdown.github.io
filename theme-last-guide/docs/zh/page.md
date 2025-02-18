@@ -102,18 +102,15 @@ xxx:
 ```yml
 title: xxxx
 date: xxxx-xx-11 04:39:38
-layout: gallery
 tags: 
 categories: Gallery
 cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
 color: 8b9238
 ```
 
-- `layout: gallery` 添加这一条，可以在首页过滤相册展示
-- `categories: Gallery` 大小写敏感，给该文件分类到
-
+- `categories: Gallery` 大小写敏感，用来指定该文章属于Gallery页面
 - `cover:` 每个图集的封面图片，输入图片的地址
-- `color: `每个图集展示的背景颜色（在album
+- `color: `每个图集展示的背景颜色（在gallery主页面）十六进制的颜色。
 
 页面预览
 

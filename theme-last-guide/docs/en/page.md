@@ -102,17 +102,15 @@ You also need to configure the following in the front matter of the post:
 ```yml
 ymlCopyEdittitle: xxxx
 date: xxxx-xx-11 04:39:38
-layout: gallery
 tags: 
 categories: Gallery
 cover: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/AI/202502110542366.png
 color: 8b9238
 ```
 
-- `layout: gallery` Adding this line allows filtering out gallery posts from the homepage.
 - `categories: Gallery` Case-sensitive; categorizes the file under "Gallery."
 - `cover:` The cover image for each gallery; provide the image URL.
-- `color:` The background color for each gallery display (in the album module).
+- `color:` The background color(hex color) for each gallery display (in the album module).
 
 ### Module Preview
 
