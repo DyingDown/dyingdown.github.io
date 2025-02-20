@@ -188,10 +188,16 @@ PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
 ``` yaml
 homeCover:
   fixed: true
-  url: https://
+  url: ""
 ```
 
-首页的图是否是固定的，不随着滑动而向上移动
+- `fixed`: 图片是否固定不随网页滚动
+- `url`: 图片位置
+  - url
+  - 本地路径，存放于/img/下
+  - 还可以不配置该项，直接替换主题目录下的/img/home_cover.jpg 文件
+
+![home page default cover](../assets/images/config/home-default-cover.png)
 
 ### 首页的轮播图
 

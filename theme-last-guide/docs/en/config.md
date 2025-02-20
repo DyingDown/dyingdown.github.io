@@ -186,10 +186,16 @@ For Markdown files without a configured `postImage`, the default configuration f
 ``` yaml
 homeCover:
   fixed: true
-  url: https://
+  url: ""
 ```
 
-Specify whether the image on the homepage is fixed and does not move upward with scrolling.
+- `fixed`: Is the background image move upwards with scrolling
+- `url`: location of the picture
+  - url
+  - Or the local path, under the folder `source/img/` of theme folder
+  - Or you can leave it blank，and replace the file under theme folder `source/img/home_cover.jpg` 
+
+![home page default cover](../assets/images/config/home-default-cover.png)
 
 ### Homepage Carousel
 

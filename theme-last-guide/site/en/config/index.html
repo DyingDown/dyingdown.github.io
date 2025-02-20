@@ -1338,9 +1338,16 @@ description: XXXX
 <h3 id="large-image-display">Large Image Display</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">homeCover</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">fixed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://</span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 </code></pre></div>
-<p>Specify whether the image on the homepage is fixed and does not move upward with scrolling.</p>
+<ul>
+<li><code>fixed</code>: Is the background image move upwards with scrolling</li>
+<li><code>url</code>: location of the picture</li>
+<li>url</li>
+<li>Or the local path, under the folder <code>source/img/</code> of theme folder</li>
+<li>Or you can leave it blank，and replace the file under theme folder <code>source/img/home_cover.jpg</code> </li>
+</ul>
+<p><img alt="home page default cover" src="../../assets/images/config/home-default-cover.png" /></p>
 <h3 id="homepage-carousel">Homepage Carousel</h3>
 <p>The homepage carousel is composed of the featured image and introduction of each article. To set up the carousel, you need to select the content you want to include.</p>
 <p>Add the following information to the header of the Markdown file for the articles you want to include in the carousel:</p>
