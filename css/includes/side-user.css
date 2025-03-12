@@ -35,10 +35,12 @@
   fill: #4870ac;
 }
 .avatar {
-  width: 50%;
+  width: 150px;
+  height: 150px;
   margin: 25px 25% 15px;
   border-radius: 90px;
   background-color: #d3d3d3;
+  object-fit: cover;
 }
 #author-description {
   margin-left: 8%;

@@ -9,11 +9,11 @@
 #home-cover {
   width: 100%;
   height: 100vh;
-  background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center no-repeat;
-  background-attachment: fixed;
+  background: url("/img/home_cover.jpg") center center no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
+  background-attachment: fixed;
 }
 /********** carcousel **********/
 .postCarousel {

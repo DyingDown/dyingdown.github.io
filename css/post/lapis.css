@@ -67,10 +67,13 @@ This is a very good looking theme from typora
   display: inline-block;
   font-weight: bold;
   background: #4870ac;
-  color: #fff;
+  color: #fff !important;
   padding: 1px 15px 1px;
   border-radius: 4px;
   margin-right: 3px;
+}
+#post-content h2 span {
+  color: #fff !important;
 }
 h2::after {
   width: 100%;
