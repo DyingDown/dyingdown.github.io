@@ -158,6 +158,8 @@ window.addEventListener("scroll", function() {
         } else {
             toc.style = "";
         }
+    } else {
+        console.log("toc is undefined");
     }
 });
 
