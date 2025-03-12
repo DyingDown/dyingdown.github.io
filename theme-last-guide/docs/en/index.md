@@ -16,3 +16,5 @@
 - [「o_oyao」](https://dyingdown.github.io)
 
 - [hexo-theme-last](https://hexo-theme-last.github.io/)
+
+- [「Sylvia」](https://sylvia417.github.io/)

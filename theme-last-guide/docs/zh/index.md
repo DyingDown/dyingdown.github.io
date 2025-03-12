@@ -8,6 +8,8 @@
 
 - [hexo-theme-last](https://hexo-theme-last.github.io/)
 
+- [「Sylvia」](https://sylvia417.github.io/)
+
 ## 主题特性
 
 - 自定义程度高，从简洁到复杂    

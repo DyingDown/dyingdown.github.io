@@ -15,4 +15,4 @@
 
 - [hexo-theme-last](https://hexo-theme-last.github.io/)
 
-- [Sylvia](https://sylvia417.github.io/)
+- [「Sylvia」](https://sylvia417.github.io/)
