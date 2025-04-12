@@ -141,13 +141,6 @@ menuIcon.onclick = function() {
 
 
 window.addEventListener("scroll", function() {
-    // if (isHome) {
-    if (this.window.scrollY > 0) {
-        modifyClass(menuOuter, "newMenuOuterColor", 1);
-    } else {
-        modifyClass(menuOuter, "newMenuOuterColor", 0);
-    }
-    // }
     /******** fix toc *******/
     let s = document.body.scrollTop || document.documentElement.scrollTop;
     if (typeof(toc) != 'undefined') {
@@ -158,8 +151,6 @@ window.addEventListener("scroll", function() {
         } else {
             toc.style = "";
         }
-    } else {
-        console.log("toc is undefined");
     }
 });
 
