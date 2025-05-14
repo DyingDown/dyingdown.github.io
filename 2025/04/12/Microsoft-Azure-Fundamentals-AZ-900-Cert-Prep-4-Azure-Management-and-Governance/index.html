@@ -1,0 +1,1257 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 4 Azure Management and Governance [ o_oyao's Blog ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/includes/alert/alert.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/includes/copyright.css"><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script>var isHome = false;
+var isCenter = false;
+var i18n = {
+    copy: {
+        success: "Copy successful!",
+        error: "Copy failed, please try again!"
+    }
+};
+</script><meta name="generator" content="Hexo 6.3.0"></head><body class="post"><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="300.000000pt" height="125.000000pt" viewBox="0 0 300.000000 125.000000" preserveAspectRatio="xMidYMid meet"  id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"  stroke="none">
+<path class="rest-content" d="M70 635 c0 -340 4 -545 10 -545 5 0 335 27 734 60 399 33 730 60 736 60 6 0 10 28 10 70 0 56 -3 70 -15 70 -12 0 -15 -13 -15 -55 0 -48 -3 -55 -20 -55 -10 0 -320 -25 -688 -55 -368 -30 -679 -55 -691 -55 l-21 0 0 505 c0 474 1 505 18 505 9 0 316 -25 682 -55 366 -30 677 -55 693 -55 26 0 27 -2 27 -55 0 -42 3 -55 15 -55 12 0 15 14 15 70 0 55 -3 70 -15 70 -8 0 -341 27 -740 60 -399 33 -727 60 -730 60 -3 0 -5 -245 -5 -545z"/>
+<path class="rest-content" d="M301 858 c-62 -33 -94 -94 -88 -166 6 -81 51 -131 139 -154 85 -22 204 19 238 83 23 42 24 115 1 161 -32 66 -79 92 -170 96 -65 3 -83 0 -120 -20z m140 -97 c14 -46 5 -124 -17 -142 -12 -10 -18 -9 -32 5 -22 21 -24 135 -3 159 22 27 39 20 52 -22z"/>
+<path class="rest-content" d="M1230 858 c-24 -13 -53 -35 -64 -50 -24 -34 -33 -126 -16 -168 17 -42 72 -87 122 -101 82 -22 198 11 234 66 38 58 36 150 -4 204 -53 71 -182 94 -272 49z m127 -70 c27 -34 20 -151 -9 -169 -23 -15 -48 28 -48 81 0 81 28 124 57 88z"/>
+<path class="rest-content" d="M1633 872 c-22 -14 -33 -63 -33 -149 0 -69 4 -93 22 -124 30 -54 76 -74 139 -62 43 9 49 8 49 -7 0 -50 -60 -66 -128 -36 -70 32 -99 -5 -44 -56 37 -37 73 -48 146 -48 80 0 121 25 156 95 21 44 25 65 28 195 4 137 3 146 -18 173 -25 31 -72 37 -108 11 -20 -14 -22 -24 -22 -103 0 -99 -15 -135 -47 -115 -15 9 -18 27 -21 105 -2 81 -5 96 -23 112 -22 17 -75 23 -96 9z"/>
+<path class="rest-content" d="M2085 847 c-66 -66 -68 -213 -4 -277 38 -38 86 -47 146 -27 31 10 53 12 64 6 10 -5 36 -9 58 -9 62 0 71 20 71 168 0 117 -1 124 -25 147 -28 29 -70 32 -103 10 -19 -14 -24 -14 -51 0 -17 8 -51 15 -77 15 -39 0 -51 -5 -79 -33z m175 -138 c0 -65 -3 -81 -17 -86 -10 -4 -23 2 -36 18 -39 48 -8 170 39 152 10 -4 14 -26 14 -84z"/>
+<path class="rest-content" d="M2585 863 c-53 -28 -83 -63 -95 -113 -24 -100 32 -188 133 -210 101 -23 185 6 235 80 20 29 23 45 20 95 -5 74 -33 119 -92 146 -52 23 -158 25 -201 2z m125 -89 c15 -38 12 -117 -5 -141 -45 -64 -84 72 -43 150 13 25 37 21 48 -9z"/>
+<path class="rest-content" d="M666 624 c-19 -18 -21 -55 -4 -72 9 -9 69 -12 210 -12 185 0 198 1 208 19 14 27 13 47 -6 65 -23 24 -385 24 -408 0z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/Gallery"><i class="fas fa-camera"></i> Gallery</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 4 Azure Management and Governance</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2025-04-12T23:10:39.000Z">2025-04-12</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Azure/">Azure</span><span class="words" href="/categories/Azure/AZ-900/">AZ-900</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Azure/">Azure  </span><span class="words" href="/tags/AZ-900-Cert/">AZ-900 Cert  </span><span class="words" href="/tags/Azure-Management/">Azure Management  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">39 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">6.4k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>31</strong><span> days ago. The content of the article may be out of date.</span></div><p>This note covers the management and monitoring, governance and compliance  and cost management. This section account for about <strong>30%-35%</strong> of the exam and provide a solid understanding of manage and governance Azure.</p>
+<span id="more"></span>
+
+<h2 id="Management-And-Monitoring"><a href="#Management-And-Monitoring" class="headerlink" title="Management And Monitoring"></a>Management And Monitoring</h2><h3 id="Azure-Resource-Manager"><a href="#Azure-Resource-Manager" class="headerlink" title="Azure Resource Manager"></a>Azure Resource Manager</h3><p>Azure Resource Manager (ARM) is the core management layer in Azure. Without it, no operation — deployment, configuration, or monitoring — is possible. It acts as the central controller for all resource interactions.</p>
+<p><strong>Tools That Interact with ARM</strong></p>
+<p>You can use various tools to interact with Azure:</p>
+<ul>
+<li>Azure Portal (GUI)</li>
+<li>Azure PowerShell</li>
+<li>Azure CLI</li>
+<li>SDKs &#x2F; REST APIs</li>
+<li>Custom client apps</li>
+</ul>
+<p>No matter which tool you use, all requests are routed through ARM.</p>
+<p><strong>How a Resource Deployment Request Flows</strong></p>
+<ol>
+<li><p>User sends a request through any management tool.</p>
+</li>
+<li><p>The request reaches ARM.</p>
+<p>ARM then:</p>
+<ul>
+<li>Authenticates the user (using Azure Active Directory).</li>
+<li>Authorizes the user (using Role-Based Access Control).</li>
+<li>Validates the request (checks if all required parameters are present and valid).</li>
+<li>Standardizes the request (so every request looks the same regardless of source).</li>
+</ul>
+</li>
+<li><p>ARM identifies the appropriate resource provider:</p>
+<ul>
+<li>Microsoft.Compute for VMs</li>
+<li>Microsoft.Network for networking</li>
+<li>Microsoft.Storage for storage</li>
+<li>etc.</li>
+</ul>
+</li>
+<li><p>ARM forwards the request to the registered resource provider.</p>
+<ul>
+<li>“Registered” is important: not all providers are available by default. Some need to be manually registered in the subscription.</li>
+</ul>
+</li>
+<li><p>The provider provisions the requested resource.</p>
+</li>
+<li><p>ARM generates an ARM Template (a JSON file) capturing:</p>
+<ul>
+<li>Resource type and name</li>
+<li>Subscription and resource group</li>
+<li>Region</li>
+<li>Configuration parameters</li>
+</ul>
+</li>
+</ol>
+<p><strong>ARM Templates</strong></p>
+<ul>
+<li>JSON-based infrastructure-as-code representations of a deployment.</li>
+<li>Allows for repeatable deployments.</li>
+<li>Useful for automation and consistency.</li>
+<li>You can redeploy similar resources by reusing or modifying the template.</li>
+</ul>
+<p><strong>Azure Bicep (Advanced Option)</strong></p>
+<ul>
+<li>A domain-specific language (DSL) that simplifies writing infrastructure as code.</li>
+<li>Easier to read&#x2F;write than raw ARM JSON templates.</li>
+<li>Compiles to ARM template JSON under the hood.</li>
+</ul>
+<p><strong>Security &amp; Consistency</strong></p>
+<ul>
+<li>All tools communicate with ARM over TLS 1.2 (secure channel).</li>
+<li>Prevents interception or tampering.</li>
+<li>Because ARM standardizes the requests, it ensures consistent behavior across all tools.</li>
+</ul>
+<p><strong>Summary of Roles</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Azure Portal &#x2F; CLI</td>
+<td>Interface layer (user interaction)</td>
+</tr>
+<tr>
+<td>Azure Resource Manager (ARM)</td>
+<td>Core management layer: validates, routes, and standardizes</td>
+</tr>
+<tr>
+<td>Azure AD</td>
+<td>Authenticates users</td>
+</tr>
+<tr>
+<td>RBAC</td>
+<td>Authorizes users</td>
+</tr>
+<tr>
+<td>Resource Providers</td>
+<td>Actual services that provision and manage the resources</td>
+</tr>
+<tr>
+<td>ARM Templates</td>
+<td>Save deployment details for repeatability</td>
+</tr>
+<tr>
+<td>Bicep</td>
+<td>Higher-level IaC language over ARM templates</td>
+</tr>
+</tbody></table>
+<h3 id="Azure-PowerShell"><a href="#Azure-PowerShell" class="headerlink" title="Azure PowerShell"></a>Azure PowerShell</h3><ul>
+<li>A cross-platform scripting interface by Microsoft.</li>
+<li>Text-based console where you type commands to manage Azure.</li>
+<li>“Cross-platform” &#x3D; works on Windows, Linux, and macOS.</li>
+</ul>
+<p><strong>Why Use PowerShell?</strong></p>
+<ul>
+<li>Ideal for repetitive, consistent, and scalable tasks.</li>
+<li>Example: Deploying 100 virtual machines is tedious via the Portal, but quick with a script.</li>
+</ul>
+<p><strong>Cmdlet Structure</strong></p>
+<ul>
+<li>PowerShell commands are called “cmdlets”.</li>
+<li>They follow the Verb-Noun format:<ul>
+<li>Example: New-Cake (hypothetical)<ul>
+<li>Verb: New</li>
+<li>Noun: Cake</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You can customize a cmdlet using:</p>
+<ul>
+<li>Parameters (require a value)<ul>
+<li>e.g. -Message “Happy Birthday” (string in quotes)</li>
+<li>e.g. -Flavor Chocolate (value without quotes, assuming it’s not a string)</li>
+</ul>
+</li>
+<li>Switches (don’t need a value)<ul>
+<li>e.g. -Now</li>
+</ul>
+</li>
+</ul>
+<p><strong>Getting Started</strong></p>
+<ul>
+<li><p>PowerShell is built into most Windows machines.</p>
+</li>
+<li><p>You can install it on Linux&#x2F;macOS.</p>
+</li>
+<li><p>To manage Azure, you need the Azure PowerShell module:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131343093.png"></p>
+<p>Wait a few minutes to allow it to install.</p>
+</li>
+</ul>
+<p><strong>Authentication</strong></p>
+<ul>
+<li><p>You must connect to Azure with valid credentials.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connect-AzAccount</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131351808.png"></p>
+</li>
+<li><p>Then you can check connection</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-AzContext</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\o_oya\AppData\Roaming\Typora\typora-user-images\image-20250513135305393.png" alt="image-20250513135305393"></p>
+</li>
+</ul>
+<p><strong>Common Cmdlets for Azure Resource Deployment</strong></p>
+<ul>
+<li><code>New-AzVM</code> → deploy a new virtual machine</li>
+<li><code>New-AzVirtualNetwork</code> → create a virtual network</li>
+<li><code>New-AzStorageAccount</code> → set up a storage account</li>
+</ul>
+<p>Combine these with the right parameters and switches to automate deployments.</p>
+<h3 id="Azure-CLI"><a href="#Azure-CLI" class="headerlink" title="Azure CLI"></a>Azure CLI</h3><p>Azure CLI is Microsoft’s cross-platform command-line tool for managing Azure resources. It allows you to execute tasks via text commands in various terminal environments.</p>
+<p><strong>How Is It Different from PowerShell?</strong></p>
+<ul>
+<li>PowerShell is a full scripting language and environment.</li>
+<li>Azure CLI is a command-line tool (a module) that runs inside:<ul>
+<li>Windows Command Prompt</li>
+<li>PowerShell</li>
+<li>macOS Terminal</li>
+<li>Bash on Linux</li>
+</ul>
+</li>
+</ul>
+<p>Both can manage Azure, but the syntax and style differ.</p>
+<p><strong>Who Should Use Which?</strong></p>
+<ul>
+<li>Use PowerShell if you have a Windows&#x2F;Microsoft admin background.</li>
+<li>Use CLI if you’re more familiar with Linux&#x2F;Unix systems.</li>
+</ul>
+<p>Both tools support most of the same actions, just in different formats.</p>
+<p><strong>Command Syntax</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Syntax Style</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PowerShell</td>
+<td>Verb-Noun</td>
+<td>New-AzVM</td>
+</tr>
+<tr>
+<td>Azure CLI</td>
+<td>az noun verb</td>
+<td>az vm create</td>
+</tr>
+</tbody></table>
+<p><strong>Fun Example</strong></p>
+<p>Imagine ordering a cake:</p>
+<ul>
+<li>PowerShell: New-Cake -Message “Happy Birthday” -Flavor Chocolate -Now</li>
+<li>CLI: az cake create –message “Happy Birthday” –flavor chocolate –now</li>
+</ul>
+<p><strong>Installing Azure CLI</strong></p>
+<p>You must install the Azure CLI module before using it:</p>
+<p>🔗 Official install instructions: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli">https://learn.microsoft.com/en-us/cli/azure/install-azure-cli</a></p>
+<p>Or see below for a quick guide:</p>
+<p><strong>Windows</strong></p>
+<ul>
+<li><p>Download the installer from:<br> <a target="_blank" rel="noopener" href="https://aka.ms/installazurecliwindows">https://aka.ms/installazurecliwindows</a></p>
+</li>
+<li><p>Run the .MSI and follow the instructions. Then restart the CMD.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131753689.png"></p>
+</li>
+</ul>
+<p><strong>macOS</strong></p>
+<p>Using Homebrew:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update &amp;&amp; brew install azure-cli</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linux (Debian&#x2F;Ubuntu)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sign In to Azure via CLI</strong></p>
+<p>After installation, open your terminal and run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az login</span><br></pre></td></tr></table></figure>
+
+<p>It will open a browser window for authentication.</p>
+<p><strong>Common Commands</strong></p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Azure CLI Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Create VM</td>
+<td>az vm create</td>
+</tr>
+<tr>
+<td>Create virtual network</td>
+<td>az network vnet create</td>
+</tr>
+<tr>
+<td>Create storage account</td>
+<td>az storage account create</td>
+</tr>
+</tbody></table>
+<p>Each command supports flags like –name, –resource-group, –location, etc.</p>
+<h3 id="Azure-Cloud-Shell"><a href="#Azure-Cloud-Shell" class="headerlink" title="Azure Cloud Shell"></a>Azure Cloud Shell</h3><p>Azure Cloud Shell is a browser-based command-line tool provided by Microsoft. It lets you manage your Azure resources without needing to install anything on your computer.</p>
+<p><strong>Key Features</strong></p>
+<ul>
+<li><strong>Web-Based</strong>: No download or installation needed—just open a browser.</li>
+<li><strong>Available Anywhere</strong>: Works on any device (PC, Mac, phone, tablet).</li>
+<li><strong>Supports Both Bash and PowerShell</strong>: Choose your preferred environment.</li>
+<li><strong>Integrated with Azure Portal</strong>: Use it directly from the Azure Portal or go full screen at <a target="_blank" rel="noopener" href="https://shell.azure.com/">shell.azure.com</a>.</li>
+<li><strong>Single Sign-On</strong>: If you’re logged in to the Azure Portal, Cloud Shell logs you in automatically—no extra authentication needed.</li>
+<li><strong>Persistent Storage</strong>: Cloud Shell uses an Azure storage account to save your files and scripts between sessions. The first time you use it, it will prompt you to create one automatically.</li>
+</ul>
+<p><strong>How to Open Cloud Shell</strong></p>
+<ol>
+<li>Go to the <a target="_blank" rel="noopener" href="https://portal.azure.com/">Azure Portal</a>.</li>
+<li>Click the “Cloud Shell” icon at the top-right of the portal (it looks like a terminal window).</li>
+<li>Choose either <strong>PowerShell</strong> or <strong>Bash</strong>.</li>
+<li>The shell loads in the bottom half of the screen. You can resize the window if needed.</li>
+</ol>
+<p>Alternatively, go directly to: <a target="_blank" rel="noopener" href="https://shell.azure.com/">https://shell.azure.com</a></p>
+<p><strong>Using PowerShell in Cloud Shell</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131904070.png"></p>
+<p>You can run any PowerShell cmdlet.</p>
+<p>Bonus: IntelliSense (auto-complete suggestions) helps you fill in parameters.</p>
+<p><strong>Using Bash in Cloud Shell (with Azure CLI)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131904155.png"></p>
+<p><strong>Why Use Azure Cloud Shell?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No setup</td>
+<td>Use instantly without installing CLI or PowerShell</td>
+</tr>
+<tr>
+<td>Multi-platform</td>
+<td>Works on Windows, Mac, Linux, and mobile</td>
+</tr>
+<tr>
+<td>Integrated help</td>
+<td>Use <code>Get-Help</code> or <code>--help</code> to learn commands on the fly</td>
+</tr>
+<tr>
+<td>Visual feedback</td>
+<td>See your actions reflected in the Azure Portal in real-time</td>
+</tr>
+</tbody></table>
+<h3 id="Azure-Arc"><a href="#Azure-Arc" class="headerlink" title="Azure Arc"></a>Azure Arc</h3><p><strong>Azure Arc</strong> is a service that lets you manage <strong>on-premises</strong>, <strong>multi-cloud</strong>, and <strong>edge</strong> resources (like servers, VMs, databases) just like you manage native Azure resources—through the Azure Portal, Azure CLI, PowerShell, ARM templates, and policy.</p>
+<p><strong>Why do we need Azure Arc?</strong></p>
+<p>Most companies use:</p>
+<ul>
+<li>Some resources in <strong>Azure</strong></li>
+<li>Some in <strong>on-premises datacenters</strong></li>
+<li>Some in other clouds like <strong>AWS or GCP</strong></li>
+</ul>
+<p>These environments typically need separate tools for management. Azure Arc removes that barrier by bringing all these resources into Azure’s management layer.</p>
+<p><strong>How Azure Arc Works (Simplified Flow):</strong></p>
+<ol>
+<li><strong>You have an external resource</strong><br> Example: A physical server in your datacenter or a VM in AWS.</li>
+<li><strong>Azure Arc creates a “projection”</strong> of that resource in Azure<br> It’s like a digital twin or a mirror of that external resource inside Azure.</li>
+<li><strong>You install an agent or run a script</strong> on the external machine<br> This connects the external machine to its Azure projection.</li>
+<li><strong>Now you can manage it like a regular Azure resource!</strong><br> You can:<ul>
+<li>Apply RBAC (role-based access control)</li>
+<li>Use Azure Policy</li>
+<li>Monitor it with Azure Monitor</li>
+<li>Enable Defender for Cloud</li>
+<li>Tag and organize it</li>
+</ul>
+</li>
+<li><strong>Heartbeat mechanism</strong><br> The resource sends a heartbeat every 5 minutes to Azure.<ul>
+<li>If no heartbeat &#x3D; status becomes “Disconnected”</li>
+<li>If heartbeat resumes &#x3D; “Connected”</li>
+</ul>
+</li>
+</ol>
+<p><strong>What kinds of resources can Azure Arc manage?</strong></p>
+<ul>
+<li>Physical or virtual servers (Windows&#x2F;Linux)</li>
+<li>SQL Server instances</li>
+<li>Kubernetes clusters (AKS, on-prem, or even GKE&#x2F;EKS)</li>
+<li>Azure Stack HCI</li>
+<li>VMware vSphere environments</li>
+</ul>
+<h3 id="Azure-Monitor"><a href="#Azure-Monitor" class="headerlink" title="Azure Monitor"></a>Azure Monitor</h3><p><strong>Azure Monitor</strong> is a full-featured monitoring platform that lets you track the health, performance, and availability of:</p>
+<ul>
+<li>Azure resources</li>
+<li>On-premises systems</li>
+<li>Multi-cloud resources (e.g., AWS, GCP)</li>
+</ul>
+<p><strong>What Can Azure Monitor Track?</strong></p>
+<ul>
+<li>Virtual Machines (VMs)</li>
+<li>Operating Systems</li>
+<li>Containers (e.g., in AKS, Kubernetes)</li>
+<li>Networking events</li>
+<li>Databases (e.g., SQL, Cosmos DB)</li>
+<li> Security-related events</li>
+<li>Custom applications and events</li>
+</ul>
+<p><strong>Key Features of Azure Monitor</strong></p>
+<p><strong>1. Log Collection &amp; Storage</strong></p>
+<ul>
+<li>Azure Monitor collects and stores <strong>metrics and logs</strong>.</li>
+<li>By default, logs are stored in <strong>Azure Monitor Logs</strong>.</li>
+<li>You can route logs to a <strong>Log Analytics Workspace</strong> for deeper analysis.</li>
+</ul>
+<p><strong>2. Analysis Tools</strong></p>
+<ul>
+<li><strong>Log Analytics</strong>: Query log data using Kusto Query Language (KQL).</li>
+<li><strong>Metrics Explorer</strong>: Visualize metrics as charts to spot trends&#x2F;spikes.</li>
+</ul>
+<p><strong>3. Visualization Options</strong></p>
+<ul>
+<li>Azure Monitor integrates with:<ul>
+<li><strong>Workbooks</strong> (interactive dashboards)</li>
+<li><strong>Azure Dashboards</strong></li>
+<li><strong>Power BI</strong></li>
+<li>Or any external visualization tool (since logs can be exported)</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Alerting and Automation</strong></p>
+<ul>
+<li>You can define <strong>Alert Rules</strong> based on thresholds or conditions.<ul>
+<li>E.g., CPU &gt; 90% for 10 minutes.</li>
+</ul>
+</li>
+<li>Alerts can:<ul>
+<li>Send emails, SMS, push notifications</li>
+<li>Trigger an <strong>automated action</strong>, like restarting a VM or scaling a service</li>
+</ul>
+</li>
+</ul>
+<p><strong>Specialized Insights (Built-in Views)</strong></p>
+<p>Azure Monitor provides specific dashboards for:</p>
+<ul>
+<li><strong>Application Insights</strong> (for app telemetry &amp; performance)</li>
+<li><strong>VM Insights</strong></li>
+<li><strong>Container Insights</strong></li>
+<li><strong>Network Insights</strong></li>
+</ul>
+<p>These save time—you don’t need to build dashboards or alerts from scratch.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505131952847.png"></p>
+<h3 id="Azure-Advisor"><a href="#Azure-Advisor" class="headerlink" title="Azure Advisor"></a>Azure Advisor</h3><p><strong>Azure Advisor</strong> is your personalized, built-in cloud consultant in Azure.<br> It analyzes your deployed services and usage patterns and gives you practical, actionable recommendations to:</p>
+<ul>
+<li>Improve performance</li>
+<li>Strengthen security</li>
+<li>Increase reliability</li>
+<li>Achieve operational excellence</li>
+<li>Reduce costs</li>
+</ul>
+<p>Think of it as a smart helper that constantly reviews your environment and nudges you toward best practices.</p>
+<p><strong>The 5 Key Areas of Recommendations</strong></p>
+<ol>
+<li><p>Security: Helps you detect threats, fix misconfigurations, and align with industry standards.</p>
+</li>
+<li><p>Reliability: Ensures business continuity and application availability. Example: use of NAT gateway for stable outbound connectivity.</p>
+</li>
+<li><p>Performance: Improves app responsiveness and reduces latency. Suggests configuration tweaks or resource upgrades.</p>
+</li>
+<li><p>Operational Excellence: Guides you toward smoother workflows and best practices in deployment and management.</p>
+</li>
+<li><p>Cost: Helps you optimize cloud spend. Detects underutilized resources, suggests right-sizing, and other ways to save money.</p>
+</li>
+</ol>
+<p><strong>How Does It Work?</strong></p>
+<ul>
+<li>Advisor regularly scans your environment.</li>
+<li>It presents a list of <strong>recommendations</strong>, each with:<ul>
+<li>A <strong>category</strong> (e.g., cost, security)</li>
+<li>A <strong>description</strong> and potential <strong>impact</strong></li>
+<li>Recommended <strong>actions</strong></li>
+<li>Links to implement the fix directly or learn more</li>
+</ul>
+</li>
+</ul>
+<p>You can:</p>
+<ul>
+<li>Apply recommendations directly</li>
+<li>Postpone them</li>
+<li>Dismiss them (if not applicable)</li>
+</ul>
+<p><strong>Azure Advisor Score</strong></p>
+<ul>
+<li>A numerical score (e.g., 81%) gives a quick idea of how well you’re following best practices.</li>
+<li>The score increases as you implement more recommendations.</li>
+<li>Smaller environments may show fewer suggestions, but as your cloud usage grows, more insights appear.</li>
+</ul>
+<h3 id="Azure-Mobile-App"><a href="#Azure-Mobile-App" class="headerlink" title="Azure Mobile App"></a>Azure Mobile App</h3><p>The <strong>Azure Mobile App</strong> is a lightweight management tool designed for administrators who need to monitor and manage their Azure resources while on the move. It’s available on both iOS and Android.</p>
+<p><strong>Key Features</strong></p>
+<ol>
+<li><p>Quick Access &amp; Overview</p>
+<ul>
+<li><p>Log in using your Azure credentials.</p>
+</li>
+<li><p>See a <strong>high-level overview</strong> of your environment right from the home page.</p>
+</li>
+</ul>
+</li>
+<li><p>Manage Resources</p>
+<p>You can perform basic administrative tasks such as:</p>
+<ul>
+<li><p>Start, stop, and restart <strong>Virtual Machines (VMs)</strong> and containers.</p>
+</li>
+<li><p>View and manage:</p>
+<ul>
+<li><strong>Subscriptions</strong></li>
+<li><strong>Resource Groups</strong></li>
+<li><strong>Individual Resources</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Identity &amp; Access</p>
+<ul>
+<li><p>Configure <strong>role-based access control (RBAC)</strong> for users.</p>
+</li>
+<li><p>Manage identity and permissions on the go.</p>
+</li>
+</ul>
+</li>
+<li><p>Monitoring &amp; Notifications</p>
+<ul>
+<li><p>View <strong>activity logs</strong> and <strong>usage metrics</strong>.</p>
+</li>
+<li><p>Get <strong>real-time alerts</strong> and updates on resource health and Azure service status.</p>
+</li>
+</ul>
+</li>
+<li><p>Built-in Cloud Shell</p>
+<ul>
+<li><p>Use <strong>PowerShell or Azure CLI</strong> directly in the app.</p>
+</li>
+<li><p>Execute nearly any command or script without needing a laptop.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Why It’s Useful</strong></p>
+<ul>
+<li>Great for quick <strong>check-ins and actions</strong> when you’re away from your computer.</li>
+<li>Ideal for <strong>incident response</strong> or <strong>urgent fixes</strong>.</li>
+<li>Keeps you <strong>connected and notified</strong> in real-time, no matter where you are.</li>
+</ul>
+<p><strong>How to Get Started</strong></p>
+<ol>
+<li>Go to the App Store (iOS) or Play Store (Android).</li>
+<li>Search for “Azure”.</li>
+<li>Download and install the <strong>Azure app</strong>.</li>
+<li>Log in with your Microsoft credentials.</li>
+</ol>
+<h3 id="Azure-Service-Health"><a href="#Azure-Service-Health" class="headerlink" title="Azure Service Health"></a>Azure Service Health</h3><p><strong>Azure Service Health</strong> helps you stay informed about issues that may impact your Azure services—but from Microsoft’s side (the platform), not yours. It complements other monitoring tools by giving visibility into the <strong>health of the Azure cloud itself</strong>, rather than just your environment.</p>
+<p><strong>Shared Responsibility Model</strong></p>
+<ul>
+<li><strong>Your responsibility</strong>: Your resources and configurations.</li>
+<li><strong>Microsoft’s responsibility</strong>: The availability and health of Azure services.</li>
+</ul>
+<p>Azure Service Health focuses on Microsoft’s side and tells you when issues originate from Azure itself.</p>
+<p><strong>Key Components</strong></p>
+<ol>
+<li><strong>Azure Status Page (Public)</strong></li>
+</ol>
+<ul>
+<li>URL: <a target="_blank" rel="noopener" href="https://status.azure.com/">https://status.azure.com</a></li>
+<li>Covers all Azure regions and services globally.</li>
+<li>Publicly available (no login required).</li>
+<li>Shows:<ul>
+<li>Current and historical issues</li>
+<li>Root cause analysis (RCA)</li>
+<li>Uptime transparency</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>Service Health (in Azure Portal)</strong></li>
+</ol>
+<ul>
+<li>Personalized: Shows only the services and regions your tenant uses.</li>
+<li>Includes:<ul>
+<li>Active incidents</li>
+<li>Planned maintenance</li>
+<li>Health advisories</li>
+<li>Security advisories</li>
+</ul>
+</li>
+</ul>
+<p><strong>Key Features in the Portal</strong></p>
+<p><strong>Health Alerts</strong></p>
+<ul>
+<li>Get notified automatically when Azure services you rely on experience issues.</li>
+<li>Alert customization:<ul>
+<li>Pick specific services (e.g., Azure Active Directory)</li>
+<li>Select target regions (e.g., South India)</li>
+<li>Choose types of events (incidents, maintenance, advisories)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example Alert Setup Steps</strong></p>
+<ol>
+<li>Go to <strong>Service Health</strong> in the Azure Portal.</li>
+<li>Click <strong>Create Service Health Alert</strong>.</li>
+<li>Select:<ul>
+<li>Scope (subscription)</li>
+<li>Services (e.g., Azure AD)</li>
+<li>Region (e.g., South India)</li>
+<li>Event types (e.g., incidents, advisories)</li>
+</ul>
+</li>
+<li>Define action group (e.g., email or webhook for notifications).</li>
+<li>Review and create.</li>
+</ol>
+<p><strong>Benefits</strong></p>
+<ul>
+<li>Get real-time updates on Azure platform issues that affect you.</li>
+<li>Avoid wasting time diagnosing problems that aren’t your fault.</li>
+<li>Quickly identify impacted resources without manual checks.</li>
+<li>Maintain transparency and trust through clear communication from Microsoft.</li>
+</ul>
+<h2 id="Governance-and-Compliance"><a href="#Governance-and-Compliance" class="headerlink" title="Governance and Compliance"></a>Governance and Compliance</h2><h3 id="Resource-Locks"><a href="#Resource-Locks" class="headerlink" title="Resource Locks"></a>Resource Locks</h3><p>Azure Resource Locks are governance tools used to prevent accidental or unauthorized changes or deletions of resources within an Azure environment.</p>
+<p><strong>Key Features</strong></p>
+<ul>
+<li><strong>Purpose</strong>:<ul>
+<li>Prevent unintended changes or deletions.</li>
+<li>Protect against malicious modifications.</li>
+</ul>
+</li>
+<li><strong>Types of Locks</strong>:<ul>
+<li><strong>Read-only</strong>: Prevents all modifications; resource is accessible but not changeable.</li>
+<li><strong>Delete</strong>: Allows modifications but prevents deletion.</li>
+</ul>
+</li>
+<li><strong>Scope of Application</strong>:<ul>
+<li>Can be applied at:<ul>
+<li>Subscription level (affects all resources under it)</li>
+<li>Resource group level (affects all resources within the group)</li>
+<li>Individual resource level</li>
+</ul>
+</li>
+<li>Inheritance applies: locks cascade down from higher scopes.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Difference from RBAC (Role-Based Access Control)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Resource Locks</th>
+<th>RBAC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Applied to resources</td>
+<td>Applied to users&#x2F;groups</td>
+</tr>
+<tr>
+<td>Prevents actions like delete&#x2F;modify</td>
+<td>Controls what actions users can perform</td>
+</tr>
+<tr>
+<td>Overrides all roles (even admin users)</td>
+<td>Permissions depend on assigned roles</td>
+</tr>
+</tbody></table>
+<p><strong>Important Notes</strong></p>
+<ul>
+<li>Locks work through Azure Resource Manager (ARM), which blocks unauthorized operations.</li>
+<li>Locks do not affect runtime behavior of apps:<ul>
+<li>E.g., a VM with a lock can still be used by an app to read&#x2F;write to its disk.</li>
+<li>But you can’t delete or change the VM settings until the lock is removed.</li>
+</ul>
+</li>
+</ul>
+<p><strong>How to Apply a Lock</strong></p>
+<ol>
+<li>Navigate to the Azure resource (e.g., a VM).</li>
+<li>In the left menu, go to <strong>Locks</strong>.</li>
+<li>Click <strong>Add</strong>.</li>
+<li>Provide:<ul>
+<li>Lock name (e.g., AZ 900 Lock 1)</li>
+<li>Lock type (e.g., Delete)</li>
+<li>Optional notes for context</li>
+</ul>
+</li>
+<li>Save. The lock is now active.</li>
+</ol>
+<p>Attempting to delete the resource after locking will result in an error</p>
+<h3 id="Resource-Tags"><a href="#Resource-Tags" class="headerlink" title="Resource Tags"></a>Resource Tags</h3><p>Resource Tags in Azure are <strong>Name:Value pairs</strong> used to add metadata to your resources for the purpose of organization, management, cost tracking, and visibility.</p>
+<p>Think of them like sticky labels on storage boxes—helpful for sorting, finding, and categorizing.</p>
+<p><strong>Key Characteristics</strong></p>
+<ul>
+<li><strong>Format</strong>:<ul>
+<li>Each tag consists of a Name and a Value (e.g., <code>environment: testing</code>).</li>
+</ul>
+</li>
+<li><strong>Scope</strong>:<ul>
+<li>Can be applied at the:<ul>
+<li>Subscription level</li>
+<li>Resource group level</li>
+<li>Individual resource level</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Flexible Usage</strong>:<ul>
+<li>There’s no fixed set of tags; you define them based on your needs.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Common Tag Use Cases</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tag Name</th>
+<th>Example Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>environment</td>
+<td>testing, prod</td>
+<td>Identify resource environments</td>
+</tr>
+<tr>
+<td>department</td>
+<td>IT, HR, Sales</td>
+<td>Group resources by internal teams</td>
+</tr>
+<tr>
+<td>application</td>
+<td>app1, app2</td>
+<td>Relate resources to specific apps</td>
+</tr>
+<tr>
+<td>owner</td>
+<td><a href="mailto:&#117;&#x73;&#101;&#x72;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;&#46;&#99;&#x6f;&#x6d;">&#117;&#x73;&#101;&#x72;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;&#46;&#99;&#x6f;&#x6d;</a></td>
+<td>Identify responsible person</td>
+</tr>
+</tbody></table>
+<p>You can apply multiple tags to a single resource.</p>
+<p><strong>Why Use Tags?</strong></p>
+<ul>
+<li><strong>Organization</strong>: Easily group and find related resources.</li>
+<li><strong>Cost Management</strong>: Break down billing by tags (e.g., total cost of “app1” resources).</li>
+<li><strong>Visibility</strong>: View or filter by specific tags in the Azure Portal.</li>
+<li><strong>Automation</strong>: Tags can be used in scripts or policies to automate resource governance.</li>
+</ul>
+<p><strong>Tagging Best Practices</strong></p>
+<ul>
+<li>Tags are stored in plain text (not encrypted).</li>
+<li><strong>Do not store confidential info</strong> (e.g., passwords or keys) in tags.</li>
+<li>Maintain consistent naming conventions across your organization for easy filtering and standardization.</li>
+</ul>
+<p><strong>How to Add a Tag (Demo Summary)</strong></p>
+<ol>
+<li>Go to the Azure resource (e.g., VM: az 900 vm1).</li>
+<li>Click on <strong>“Click here to add tags”</strong>.</li>
+<li>Add a tag (e.g., <code>environment: az900 demolab</code>).</li>
+<li>(Optionally) Add more tags.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Once saved, clicking on a tag shows all other resources with that same tag—making it easy to manage groupings like demo labs or test environments.</p>
+<h3 id="Azure-Policy"><a href="#Azure-Policy" class="headerlink" title="Azure Policy"></a>Azure Policy</h3><p><strong>Azure Policy</strong> is a governance tool in Azure that helps <strong>enforce organizational standards and compliance</strong> rules automatically — <strong>before</strong> or <strong>after</strong> resources are created.</p>
+<p>Why Use It?</p>
+<p>Without policy:<br> Users can freely create any resource, with any name, size, region, or config — this gets messy fast in large orgs.</p>
+<p>With Azure Policy:<br> You can control and streamline how resources are created, improving <strong>security</strong>, <strong>cost management</strong>, <strong>performance</strong>, and <strong>standardization</strong>.</p>
+<p><strong>What Can Azure Policy Do?</strong></p>
+<p>Here are examples of what you can enforce:</p>
+<ul>
+<li><strong>Naming conventions</strong><br> e.g., force all production resources to start with <code>prod-</code>.</li>
+<li><strong>Allowed VM sizes</strong><br> Only allow sizes between 4 vCPUs&#x2F;8GB and 16 vCPUs&#x2F;32GB RAM.</li>
+<li><strong>Storage type</strong><br> Enforce premium storage only for performance-sensitive workloads.</li>
+<li><strong>Use of service endpoints</strong><br> Block public IPs in VNets for better security.</li>
+<li><strong>Allowed or disallowed regions</strong><br> Ensure resources are only deployed in approved Azure regions.</li>
+<li><strong>Mandatory tags</strong><br> Enforce that all resources include tags like <code>environment</code>, <code>owner</code>, or <code>costCenter</code>.</li>
+<li><strong>Resource locks</strong><br> Automatically apply locks on critical resources to prevent accidental deletion or modification.</li>
+</ul>
+<p><strong>Scope of Application</strong></p>
+<p>You can apply policies at different levels:</p>
+<ul>
+<li>🔹 Management Group (highest)</li>
+<li>🔹 Subscription</li>
+<li>🔹 Resource Group</li>
+<li>🔹 Individual Resource (lowest)</li>
+</ul>
+<p>Policies inherit <strong>top-down</strong>, but you can <strong>exclude specific child scopes</strong> if needed.</p>
+<p><strong>How Is It Defined?</strong></p>
+<ul>
+<li>Azure Policy is written in <strong>JSON</strong> format.</li>
+<li>You can use built-in policies, modify them, or write custom ones.</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Require a tag on resources&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;policyType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;BuiltIn&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;mode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;All&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;This policy ensures that all resources have the tag &#x27;environment&#x27;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;parameters&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;tagName&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;String&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;metadata&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;displayName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Tag Name&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Name of the tag to enforce&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;defaultValue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;environment&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;policyRule&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;if&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;field&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[concat(&#x27;tags[&#x27;, parameters(&#x27;tagName&#x27;), &#x27;]&#x27;)]&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;exists&quot;</span><span class="punctuation">:</span> <span class="string">&quot;false&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;then&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;deny&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Remediation</strong></p>
+<p>If you apply a new policy and some existing resources don’t comply, you can run a <strong>remediation task</strong> to bring them into compliance (e.g., adding missing tags, changing SKU types).</p>
+<h3 id="Azure-Blueprint"><a href="#Azure-Blueprint" class="headerlink" title="Azure Blueprint"></a>Azure Blueprint</h3><p>Azure Blueprint is a way to package everything that defines your Azure environment — including infrastructure, policies, access control — so you can recreate that same environment in a consistent, repeatable way across subscriptions.</p>
+<p><strong>What does an Azure Blueprint include</strong> (i.e., its “artifacts”)?</p>
+<ol>
+<li>ARM Templates – Infrastructure-as-code definitions for the resources you want to deploy.</li>
+<li>Resource Groups – Logical containers to organize and place your resources.</li>
+<li>Role Assignments – Who has access to what, based on RBAC.</li>
+<li>Azure Policy Assignments – Governance rules that should apply to the environment.</li>
+</ol>
+<p><strong>Why use Blueprints?</strong></p>
+<ul>
+<li>Reuse: Create a known-good configuration once and reuse it across teams or environments.</li>
+<li>Standardization: Enforce organizational standards from the beginning.</li>
+<li>Speed: Deploy complex environments to new subscriptions quickly and consistently.</li>
+<li>Compliance: Ensure things like tagging, region restrictions, and VM sizes are enforced right from deployment.</li>
+</ul>
+<p><strong>Blueprint Lifecycle</strong></p>
+<ol>
+<li>Draft – You define the blueprint and add artifacts.</li>
+<li>Publish – Once finalized, publish the blueprint (you must do this before using it).</li>
+<li>Assign – Apply the published blueprint to a subscription.</li>
+<li>Parameters – Can be defined inside the blueprint or provided at assignment time (like region, resource name prefixes, etc.).</li>
+</ol>
+<p><strong>Global Reach</strong></p>
+<p>Blueprints are stored globally, so you can apply them across regions and subscriptions — ensuring consistency even in multi-region environments.</p>
+<h3 id="Azure-Purview"><a href="#Azure-Purview" class="headerlink" title="Azure Purview"></a>Azure Purview</h3><p>Azure Purview is a comprehensive data governance solution designed to help organizations manage their data across various environments, including on-premises, cloud, and hybrid setups. Here’s a breakdown of how it works:</p>
+<p><strong>What Does Azure Purview Do?</strong></p>
+<ul>
+<li><strong>Data Governance</strong>: Helps organizations manage, protect, and classify data across multiple environments (Azure, AWS, GCP, on-premises).</li>
+<li><strong>Data Map</strong>: Purview creates a centralized data map that identifies where sensitive data is located across different platforms and applications.</li>
+<li><strong>Compliance &amp; Security</strong>: Ensures compliance by applying sensitivity labels to data and monitoring its usage and access.</li>
+<li><strong>Risk Management</strong>: Purview helps in identifying risks and creating a secure environment for data access and consumption.</li>
+<li><strong>Data Lineage</strong>: Tracks how data flows through systems, providing visibility into its origin, movement, and transformation.</li>
+</ul>
+<p><strong>Onboarding Data to Purview (4 Steps)</strong>:</p>
+<ol>
+<li><strong>Register</strong>: Define the scope of data sources to be included in Purview, which could be from Azure, AWS, GCP, or on-premises systems.</li>
+<li><strong>Scan</strong>: Purview scans the registered data sources to create an accurate data map.</li>
+<li><strong>Ingest</strong>: Once the data sources are registered, Purview ingests the data, categorizing it and adding necessary metadata.</li>
+<li><strong>Assign Sensitivity Labels</strong>: Apply sensitivity labels to categorize data (e.g., personal data, financial data) to ensure that appropriate policies are applied for security and compliance.</li>
+</ol>
+<p><strong>Supported Data Sources</strong>:</p>
+<p>Purview supports a wide variety of both Microsoft and non-Microsoft data sources:</p>
+<ul>
+<li><strong>Microsoft</strong>: Azure Storage, SharePoint Online, OneDrive, Power BI, Exchange Online, etc.</li>
+<li><strong>Non-Microsoft</strong>: Amazon S3, Google BigQuery, Oracle Databases, SAP HANA, Salesforce, and more.</li>
+</ul>
+<p><strong>Authentication Methods</strong>:</p>
+<p>Purview supports multiple authentication methods to handle different data sources:</p>
+<ul>
+<li><strong>Managed Identities</strong></li>
+<li><strong>SQL Authentication</strong></li>
+<li><strong>Windows Authentication</strong></li>
+<li><strong>Basic Authentication</strong></li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li><strong>Data Protection</strong>: Identify and classify sensitive data across platforms to ensure it’s protected appropriately.</li>
+<li><strong>Data Compliance</strong>: Ensure data complies with organizational or regulatory requirements by applying and managing sensitivity labels.</li>
+<li><strong>Data Insights</strong>: Gain visibility into how data is used, where it is stored, and how it flows through the system.</li>
+</ul>
+<h3 id="Service-Trust-Portal"><a href="#Service-Trust-Portal" class="headerlink" title="Service Trust Portal"></a><strong>Service Trust Portal</strong></h3><p> <a target="_blank" rel="noopener" href="https://servicetrust.microsoft.com/">https://servicetrust.microsoft.com</a></p>
+<ul>
+<li><strong>Public Website</strong>: Unlike Azure tools, the Service Trust Portal is a public-facing site that provides resources related to compliance, security, and privacy for Azure users.</li>
+<li><strong>Certification &amp; Compliance</strong>: It hosts detailed information about technical certifications, standards, and regulations Azure complies with. This includes:<ul>
+<li><strong>ISO Certification</strong></li>
+<li><strong>SOC (System and Organization Controls)</strong></li>
+<li><strong>GDPR (General Data Protection Regulation)</strong></li>
+<li><strong>FedRAMP (Federal Risk and Authorization Management Program)</strong></li>
+<li><strong>PCI-DSS (Payment Card Industry Data Security Standard)</strong></li>
+</ul>
+</li>
+</ul>
+<p>These certifications prove that Azure meets certain security and privacy standards across different industries and regions.</p>
+<p><strong>Key Features of the Service Trust Portal:</strong></p>
+<ol>
+<li><strong>Industry and Regional Compliance</strong>:<ul>
+<li>Azure provides compliance with industry-specific regulations, such as <strong>financial services</strong>, <strong>healthcare</strong>, and <strong>media &amp; entertainment</strong>.</li>
+<li>It also complies with regional regulations in many countries, including the <strong>U.S. government</strong> compliance standards.</li>
+</ul>
+</li>
+<li><strong>Reports, Whitepapers, and Artifacts</strong>:<ul>
+<li><strong>Business Continuity &amp; Disaster Recovery</strong>: Reports on Azure’s business continuity plans.</li>
+<li><strong>Pentesting &amp; Security</strong>: Documents detailing how Azure manages security risks and conducts penetration testing.</li>
+<li><strong>Privacy &amp; Data</strong>: Information on how Azure protects customer data and maintains privacy.</li>
+</ul>
+</li>
+<li><strong>Frequently Asked Questions</strong>:<ul>
+<li>Common customer questions about Azure’s security, compliance, and governance measures are answered by Microsoft.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li><strong>Instill Trust</strong>: The Service Trust Portal is meant to showcase Microsoft’s commitment to security, compliance, and privacy. It is particularly useful for customers who have stringent security and compliance needs.</li>
+<li><strong>Transparency</strong>: It helps customers understand how Azure meets regulatory and industry-specific requirements.</li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li><strong>For Compliance Officers</strong>: To ensure your organization meets necessary standards and regulations.</li>
+<li><strong>For Security Teams</strong>: To understand the security measures Azure has in place, such as penetration testing and disaster recovery strategies.</li>
+<li><strong>For Legal and Privacy Teams</strong>: To review Azure’s compliance with privacy laws like GDPR(General Data Protection Regulation).</li>
+</ul>
+<h2 id="Cost-Management"><a href="#Cost-Management" class="headerlink" title="Cost Management"></a>Cost Management</h2><h3 id="Cost-Factors"><a href="#Cost-Factors" class="headerlink" title="Cost Factors"></a>Cost Factors</h3><ol>
+<li><strong>Type of Resource and Its Usage</strong></li>
+</ol>
+<ul>
+<li>You’re only charged for resources that <strong>perform compute, networking, or storage functions</strong>.</li>
+<li>Resources like <strong>subscriptions, management groups, and resource groups</strong> are free because they define structure but don’t consume compute power.</li>
+</ul>
+<ol start="2">
+<li><strong>Compute Resources</strong></li>
+</ol>
+<p>Cost factors include:</p>
+<ul>
+<li><strong>Size</strong> of the resource (e.g., small vs. large VM).</li>
+<li><strong>Operating System</strong> (Windows typically costs more than Linux).</li>
+<li><strong>Runtime environment</strong> (e.g., .NET, Java).</li>
+<li><strong>Number of instances</strong> (for containers, functions).</li>
+<li><strong>Transactions or executions</strong> (especially for functions and app services).</li>
+</ul>
+<ol start="3">
+<li><strong>Networking Resources</strong></li>
+</ol>
+<p>Costs vary based on:</p>
+<ul>
+<li><strong>Ingress</strong> (data coming into Azure) – usually free.</li>
+<li><strong>Egress</strong> (data going out) – charged based on destination:<ul>
+<li>Same region (cheaper or free),</li>
+<li>Cross-region,</li>
+<li>Outside Azure (most expensive).</li>
+</ul>
+</li>
+<li><strong>DNS</strong> usage is billed based on the number of name resolution queries.</li>
+</ul>
+<ol start="4">
+<li><strong>Storage Resources</strong></li>
+</ol>
+<p>Key pricing elements include:</p>
+<ul>
+<li><strong>Account type</strong> (Standard vs. Premium).</li>
+<li><strong>Data type</strong> (Blobs, Queues, Tables).</li>
+<li><strong>Data size</strong> (more storage &#x3D; higher cost).</li>
+<li><strong>Access tier</strong> (Hot &gt; Cool &gt; Archive in cost).</li>
+<li><strong>Redundancy level</strong>:<ul>
+<li>LRS (Locally Redundant),</li>
+<li>ZRS (Zone Redundant),</li>
+<li>GRS (Geo Redundant),</li>
+<li>GZRS (Geo-Zone Redundant).</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li><strong>Region of Deployment</strong></li>
+</ol>
+<ul>
+<li>Prices vary by region due to differences in:<ul>
+<li>Energy costs,</li>
+<li>Water and internet infrastructure,</li>
+<li>Salaries for local data center personnel.</li>
+</ul>
+</li>
+<li>Cost variation is typically <strong>a few dollars</strong> between regions.</li>
+</ul>
+<ol start="6">
+<li><strong>Purchase Method</strong></li>
+</ol>
+<ul>
+<li><strong>Pay-as-you-go</strong>: Standard retail price.</li>
+<li><strong>Enterprise Agreement (EA)</strong>: Negotiated bulk pricing with Microsoft.</li>
+<li><strong>Microsoft Sales Partner</strong>: Helps negotiate and manage your licensing and may offer bundled deals.</li>
+</ul>
+<p><strong>Summary Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Examples &amp; Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Resource Type &amp; Usage</td>
+<td>VMs, containers, functions – measured by size, OS, transactions, instances</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>Egress&#x2F;ingress traffic, region, DNS query volume</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Data size, access tier (Hot&#x2F;Cool&#x2F;Archive), redundancy (LRS, GRS, etc.)</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>Based on local infrastructure &amp; labor costs – slight variations across geographies</td>
+</tr>
+<tr>
+<td>Purchase Source</td>
+<td>Pay-as-you-go vs. EA vs. Partner pricing</td>
+</tr>
+</tbody></table>
+<h3 id="Pricing-Calculator"><a href="#Pricing-Calculator" class="headerlink" title="Pricing Calculator"></a>Pricing Calculator</h3><p>The <strong>Azure Pricing Calculator</strong> is a powerful tool that helps you estimate the monthly cost of running services and resources in Azure. It allows you to configure different resources, such as virtual machines, networking, storage, and more, and gives you a price estimate based on the selected configurations. Here’s a breakdown of how it works:</p>
+<p><strong>Key Features:</strong></p>
+<ol>
+<li><strong>Customization</strong>:<ul>
+<li>You can specify the type of services and resources (compute, networking, storage, etc.) you want to deploy in your Azure subscription.</li>
+<li>For each resource, you can select its configuration (e.g., size of a virtual machine, region of deployment, operating system, etc.).</li>
+</ul>
+</li>
+<li><strong>Savings Options</strong>:<ul>
+<li><strong>Savings Plan</strong>: You can commit to a fixed hourly amount for a term of 1 or 3 years, unlocking discounts (up to 32%).</li>
+<li><strong>Reserved Instances</strong>: You can reserve resources for 1 or 3 years and pay in advance, unlocking larger discounts (up to 57%).</li>
+<li><strong>Hybrid Benefit</strong>: If you already have on-premises licenses (like Windows Server or SQL Server), you can use them to reduce costs for Azure resources.</li>
+</ul>
+</li>
+<li><strong>Support Plan</strong>:<ul>
+<li>The tool allows you to add a technical support plan (basic is free, but you can upgrade to more comprehensive options).</li>
+</ul>
+</li>
+<li><strong>Estimates and Sharing</strong>:<ul>
+<li>Once you’ve entered all your resources and parameters, the calculator provides an estimated monthly cost.</li>
+<li>You can save the estimate for later, export it for business records, or share it with teams (finance, executive, etc.) for review.</li>
+</ul>
+</li>
+<li><strong>Example Scenarios and FAQs</strong>:<ul>
+<li>The calculator also includes example scenarios and frequently asked questions, helping you better understand the pricing structure and how to use the tool effectively.</li>
+</ul>
+</li>
+</ol>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Select Resources</strong>: You start by selecting the resources (e.g., Virtual Machines) you want to estimate the cost for. The calculator allows you to add multiple resources.</li>
+<li><strong>Customize Configuration</strong>: Once the resource is added (like a VM), you can select things like:<ul>
+<li><strong>Region</strong>: Where the service will be deployed.</li>
+<li><strong>Operating System</strong>: Windows or Linux.</li>
+<li><strong>Instance Size</strong>: The number of CPUs, memory, and storage required.</li>
+</ul>
+</li>
+<li><strong>Apply Savings</strong>: You can choose savings plans, reserved instances, and hybrid benefits to get discounts.</li>
+<li><strong>View Estimate</strong>: The tool then shows you the cost estimate based on your configurations, and you can adjust the plan if needed.</li>
+<li><strong>Export&#x2F;Save</strong>: Once you’re happy with your estimates, you can save them to your Azure account or export them for later use.</li>
+</ol>
+<p><strong>Example Walkthrough:</strong></p>
+<ul>
+<li><strong>Virtual Machine Estimate</strong>:<ul>
+<li>Suppose you select a Windows VM with 2 CPUs, 8 GB of RAM, and 50 GB of storage.</li>
+<li>You can then adjust the instance size to something larger like a DS14-8 VM with 8 CPUs, 112 GB RAM, and 225 GB of storage.</li>
+<li>The tool shows you the estimated price ($1,643). You can then apply a <strong>1-year savings plan</strong>, which reduces the cost to $1,495, or use a <strong>3-year reserved instance</strong> to lower it further to ​$1,095.</li>
+</ul>
+</li>
+<li><strong>Cheaper VMs</strong>: If you opt for smaller VMs, like one with 1 CPU and 1 GB of RAM, the estimate may drop to as low as $7 per month.</li>
+</ul>
+<p>The <strong>Total Cost of Ownership (TCO) Calculator</strong> is another tool designed by Azure to help organizations assess the financial implications of running workloads in the cloud versus on-premises. It differs from the <strong>Pricing Calculator</strong> in that it takes into account <strong>tangential costs</strong>—the additional costs associated with running infrastructure on-premises.</p>
+<p><strong>Key Features of the TCO Calculator:</strong></p>
+<ol>
+<li><strong>Comparison Between On-Premises and Cloud Costs</strong>:<ul>
+<li>The primary purpose of the TCO calculator is to compare the cost of running workloads <strong>on-premises</strong> vs. <strong>in Azure</strong>.</li>
+<li>This helps you understand whether migrating to the cloud will be more economical over time.</li>
+</ul>
+</li>
+<li><strong>Tangential Costs</strong>:<ul>
+<li>The calculator includes <strong>indirect costs</strong> that organizations often overlook, such as:<ul>
+<li><strong>Hardware</strong>: The cost of purchasing and maintaining servers and other infrastructure.</li>
+<li><strong>Electricity and Cooling</strong>: The energy costs to power and cool your on-premises equipment.</li>
+<li><strong>Physical Security</strong>: The cost of securing the physical premises.</li>
+<li><strong>IT Staff</strong>: The cost of IT personnel needed to manage and maintain on-prem infrastructure.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Easy Input</strong>:<ul>
+<li>You don’t need to list every cost individually. You simply need to provide information about your on-premises <strong>workloads</strong> and their configurations (e.g., virtual machines, storage, databases).</li>
+<li>Based on this data, the TCO calculator <strong>automatically estimates</strong> your on-premises costs.</li>
+</ul>
+</li>
+<li><strong>Adjustable Values</strong>:<ul>
+<li>If the default cost estimates seem incorrect, you can adjust them with actual figures and set the <strong>currency</strong> you prefer for the calculation.</li>
+</ul>
+</li>
+<li><strong>Five-Year Cost Comparison</strong>:<ul>
+<li>Once all the data is entered, the TCO calculator shows a <strong>side-by-side comparison</strong> of your on-premises vs. Azure costs over the next <strong>five years</strong>.</li>
+<li>This comparison helps you decide whether moving to Azure is financially advantageous or if maintaining on-prem infrastructure is still more cost-effective.</li>
+</ul>
+</li>
+<li><strong>Hybrid Approach</strong>:<ul>
+<li>Often, organizations may find a <strong>hybrid approach</strong> (a mix of on-prem and cloud solutions) to be the most economical. The TCO calculator helps in making this decision by showing the costs for both options.</li>
+</ul>
+</li>
+<li><strong>Export and Save</strong>:<ul>
+<li>Like the pricing calculator, you can <strong>save</strong> and <strong>export</strong> the TCO estimate for future reference or to share with other stakeholders, such as the finance team or executives.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Why It’s Useful:</strong></p>
+<ul>
+<li><strong>Informed Decision-Making</strong>: The TCO calculator provides an in-depth view of the total costs involved in running workloads in the cloud versus on-premises, helping you make a more informed decision about your cloud migration.</li>
+<li><strong>Cost Optimization</strong>: By factoring in all the additional costs of maintaining on-premises infrastructure, the TCO calculator can help you identify areas where you can save money by moving to the cloud.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>If your organization is considering migrating a web application to Azure, the TCO calculator would take into account the <strong>cost of servers</strong> you need to run the app, the <strong>electricity costs</strong> for powering these servers, the <strong>cooling requirements</strong> to keep the servers running efficiently, and the <strong>physical security</strong> required to protect the infrastructure. It would then compare these total costs with the cost of running the same workloads on Azure.</p>
+<h3 id="Cloud-Pricing-Model"><a href="#Cloud-Pricing-Model" class="headerlink" title="Cloud Pricing Model"></a>Cloud Pricing Model</h3><p>In Azure, there are different <strong>cloud pricing models</strong> for <strong>Virtual Machines (VMs)</strong>, each designed to optimize costs based on your usage needs. Here are the three primary models:</p>
+<ol>
+<li><strong>Pay-As-You-Go (PAYG)</strong></li>
+</ol>
+<ul>
+<li><strong>Description</strong>: This is the <strong>default pricing model</strong> for Azure. You pay for the resources (VMs, storage, etc.) you use, <strong>without any upfront commitment</strong>.</li>
+<li><strong>How it works</strong>: You can spin up a VM and delete it anytime. You’re billed at the <strong>retail price</strong> for the time the VM is running.</li>
+<li><strong>Ideal for</strong>:<ul>
+<li>Short-term projects.</li>
+<li>Flexible usage where you don’t need long-term commitments.</li>
+<li>On-demand resources where uptime and performance requirements are not as critical.</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>Reserved Instances</strong></li>
+</ol>
+<ul>
+<li><strong>Description</strong>: With <strong>Reserved Instances (RIs)</strong>, you make a <strong>1- or 3-year commitment</strong> to use a specific VM configuration and pay <strong>upfront</strong> for the term.</li>
+<li><strong>Discount</strong>: In exchange for this upfront commitment, you get a <strong>discount</strong> on the regular pay-as-you-go price. The longer the commitment, the higher the discount.</li>
+<li><strong>How it works</strong>: You lock in resources (e.g., VM size, region, operating system) for the term, and Azure will reserve that capacity for you.</li>
+<li><strong>Ideal for</strong>:<ul>
+<li>Long-term, predictable workloads.</li>
+<li>Applications that need consistent compute capacity over a long period (e.g., production servers).</li>
+<li>Users who want to save money on VMs by making an upfront commitment.</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Spot Instances</strong></li>
+</ol>
+<ul>
+<li><strong>Description</strong>: <strong>Spot Instances</strong> allow you to take advantage of <strong>unused Azure compute capacity</strong> that is being auctioned at a significantly reduced price.</li>
+<li><strong>How it works</strong>:<ul>
+<li>Spot Instances are only available when <strong>Azure has extra unused capacity</strong>.</li>
+<li>Azure can <strong>reclaim the capacity</strong> at any time, meaning your workloads may be <strong>interrupted</strong> and your VMs can be stopped without notice.</li>
+</ul>
+</li>
+<li><strong>Ideal for</strong>:<ul>
+<li><strong>Low-priority workloads</strong> that can tolerate interruptions (e.g., testing, batch processing, or research).</li>
+<li>Applications where it doesn’t matter if the VM is shut down unexpectedly.</li>
+<li>Cost-sensitive users who can take advantage of lower prices but can work around the potential disruptions.</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Hybrid Benefit (for existing on-premises licenses)</strong></li>
+</ol>
+<ul>
+<li><strong>Description</strong>: If you already have <strong>on-premises licenses</strong> for Windows Server or SQL Server, you can <strong>reuse those licenses</strong> in Azure for <strong>a discount</strong> on virtual machine resources.</li>
+<li><strong>How it works</strong>: You <strong>don’t need to purchase new licenses</strong> for Azure. You can apply your existing licenses to reduce the overall cost of running workloads on Azure.</li>
+<li><strong>Ideal for</strong>:<ul>
+<li>Organizations with existing software licenses who want to migrate workloads to the cloud without buying new licenses.</li>
+<li>Businesses that want to reduce their <strong>Azure licensing costs</strong> by leveraging their <strong>existing investments</strong> in on-premises software.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Cost-Management-and-Billing"><a href="#Cost-Management-and-Billing" class="headerlink" title="Cost Management and Billing"></a>Cost Management and Billing</h3><p><strong>Key Features of Cost Management and Billing:</strong></p>
+<ol>
+<li><strong>Cost Insights</strong><ul>
+<li>This tool provides detailed <strong>cost insights</strong> into your Azure resources, allowing you to analyze your <strong>spending trends</strong> over time.</li>
+<li>It helps you understand <strong>where your money is going</strong>, which services or resources are consuming the most budget, and which regions or resource groups are incurring the highest costs.</li>
+</ul>
+</li>
+<li><strong>Cost Analysis</strong><ul>
+<li>You can view detailed <strong>cost breakdowns</strong> by parameters like services, resource groups, resources, tags, and more.</li>
+<li>It helps you track your current and forecasted spending, breaking it down by day and estimating monthly totals.</li>
+<li>You can also change the <strong>currency</strong> to match your preferred unit for reporting.</li>
+</ul>
+</li>
+<li><strong>Setting Up Alerts and Budgets</strong><ul>
+<li>One of the most powerful features is the ability to set up <strong>spending alerts</strong>. You can define thresholds, so you’re notified when your costs approach or exceed a set limit.</li>
+<li><strong>Budgets</strong> can be created to <strong>track</strong> your expenses against a target and help prevent overspending.</li>
+</ul>
+</li>
+<li><strong>Advisor Recommendations</strong><ul>
+<li><strong>Azure Advisor</strong> provides recommendations on how to <strong>optimize costs</strong>, such as downsizing resources, shutting down unused services, or adjusting configurations to save money.</li>
+<li>This feature helps to ensure that you’re not overprovisioning and that you’re using resources efficiently.</li>
+</ul>
+</li>
+<li><strong>Manage Billing Settings</strong><ul>
+<li>You can modify <strong>payment settings</strong>, add or change credit cards, configure <strong>wire transfers</strong>, and view <strong>past invoices</strong>.</li>
+<li>Additionally, you can <strong>transfer billing ownership</strong> between accounts, set up email notifications for invoices, and manage subscription status.</li>
+</ul>
+</li>
+<li><strong>Delegating Billing Management</strong><ul>
+<li>It’s a best practice to <strong>delegate the task of cost management</strong> to a dedicated <strong>billing administrator</strong>, ideally someone in the finance department.</li>
+<li>By doing so, you can ensure that cost monitoring is handled by someone who understands <strong>cloud costs</strong> while you focus on more critical tasks related to your business operations.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Cost Management and Billing in Action:</strong></p>
+<ul>
+<li>Once you’re in the <strong>Azure portal</strong>, you can navigate to <strong>Cost Management and Billing</strong>.</li>
+<li>On the <strong>overview page</strong>, you’ll find links to tools and resources that will help you analyze and optimize costs.</li>
+<li>The <strong>Cost Analysis</strong> tool displays <strong>daily spending graphs</strong> and forecasts your expenses for the rest of the month. You can see a breakdown by <strong>resource type</strong>, <strong>region</strong>, and <strong>resource group</strong>, making it easy to pinpoint where the most significant expenses are occurring.</li>
+<li>You can also <strong>create alerts</strong> for certain spending thresholds, helping prevent unexpected cost overruns.</li>
+</ul>
+<p><strong>Use Case:</strong></p>
+<p>In practice, you might notice that certain resource groups or regions are consuming more budget than expected. For example, if you’re using <strong>South US region</strong> the most, you might find that resources deployed there are causing higher-than-expected costs. This could prompt you to either optimize the resources, switch to another region, or adjust configurations to save costs.</p>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li><strong>Delegate billing</strong> to someone from the finance department who can manage costs and understand the financial impact of cloud services.</li>
+<li><strong>Use cost alerts</strong> and <strong>budgets</strong> to monitor spending and avoid surprises.</li>
+<li><strong>Leverage Advisor recommendations</strong> to ensure your resources are optimized for cost-efficiency.</li>
+</ul>
+<div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-4-Azure-Management-and-Governance/">http://dyingdown.github.io/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-4-Azure-Management-and-Governance/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="next-post pull-right"><a id="next" href="/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-3-Azure-Services/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505132327450.png"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 3 Azure Services</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
+})</script><div id="sideButtons"><div id="back-to-top"><span>TOP</span></div><div id="go-to-comment"><span>COMMENT</span></div></div></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "&lt;p&gt;This note covers the management and monitoring, governance and compliance  and cost management. This section account for about &lt;strong&gt;30%-35%&lt;/strong&gt; of the exam and provide a solid understanding of manage and governance Azure.&lt;/p&gt;";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa-brands fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="X-Twitter"><i class="fa-brands fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa-brands fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></div><div id="incons"><a class="icon" href=" https://www.linkedin.com/in/yaogu0304/" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa-brands fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" https://www.instagram.com/o_oyao0304/" title="Instagram"><i class="fa-brands fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="TikTok"><i class="fa-brands fa-tiktok"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2025</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js" type="module"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
