@@ -85,6 +85,9 @@ var i18n = {
 <p>Check the difference between working section and the newest edition in repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD -- filename</span><br></pre></td></tr></table></figure>
 
+<p>This high light the change in words</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --color-words</span><br></pre></td></tr></table></figure>
+
 <h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><p>Check the submit history</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
@@ -179,7 +182,10 @@ var i18n = {
 <p>Copy modified file from another branch</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick commit_id</span><br></pre></td></tr></table></figure>
 
-<h3 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h3><p>Check remote information</p>
+<h3 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h3><p>Add remote</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;name&gt; &lt;url&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Check remote information</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></table></figure>
 
 <p>For more detail</p>
@@ -203,8 +209,14 @@ var i18n = {
 <h2 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h2><h3 id="Create-a-tag"><a href="#Create-a-tag" class="headerlink" title="Create a tag"></a>Create a tag</h3><p>Create a tag for a version of repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag tag_name</span><br><span class="line">git tag tag_name </span><br><span class="line">git tag tag_name -m <span class="string">&quot;description&quot;</span></span><br></pre></td></tr></table></figure>
 
+<p>Tag to a specific commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.0 &lt;SHA&gt;</span><br></pre></td></tr></table></figure>
+
 <p>Check for tags information</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show tag_name</span><br></pre></td></tr></table></figure>
+
+<p>See all tags</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag --list</span><br></pre></td></tr></table></figure>
 
 <h3 id="Operate-tags"><a href="#Operate-tags" class="headerlink" title="Operate tags"></a>Operate tags</h3><p>Delete a tag</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d tag_name</span><br></pre></td></tr></table></figure>
@@ -212,7 +224,7 @@ var i18n = {
 <p>Push the tag to remote repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin tag_name</span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
 
-<p>Deleter a tag from remote repository</p>
+<p>Delete a tag from remote repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag -d tag_name</span><br><span class="line">git push origin :refs/tags/tag_name</span><br></pre></td></tr></table></figure>
 
 <h2 id="Custom-Git"><a href="#Custom-Git" class="headerlink" title="Custom Git"></a>Custom Git</h2><p>Let Git display with color</p>
