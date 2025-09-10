@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+.code-block-header {
+  color: #ccc;
+}
+.code-block-header .code-lang,
+.code-block-header .code-info {
+  background-color: #23272c;
+  box-shadow: inset 2px 3px 1px 0px #3c3d39;
+  border: 1px solid #0b0c0a;
+  padding: 10px 18px;
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+  color: #fff;
+  letter-spacing: 0px;
+}
+.code-block-header a {
+  border-bottom: 0px !important;
+  margin-left: 0px !important;
+}
+.code-block-header i {
+  padding: 9px 10px;
+  margin: 0 3px;
+}
+.highlight {
+  box-shadow: inset 1px 0px 1px 1px #3c3d39, 0 0 15px rgba(0,0,0,0.4);
+  border: 1px solid #0b0c0a;
+  background: #1d1f21;
+  border-radius: 0 8px 8px 8px;
+}
+.highlight table {
+  border: none;
+}
+.highlight table td {
+  border: none !important;
+}
+.highlight table td:last-child {
+  width: 100%;
+}
+.highlight td.gutter {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: top;
+  left: 0;
+  width: 30px;
+}
+.highlight td.gutter pre {
+  text-align: right;
+  color: #888f96 !important;
+}
+.highlight pre {
+  font-family: "consolas" !important;
+  text-align: left;
+  color: #fff;
+}
+.highlight pre .line {
+  display: inline-block;
+  width: 100%;
+}
+.highlight pre .line:hover {
+  background-color: rgba(200,200,200,0.1);
+}
+.highlight pre .marked {
+  background-color: rgba(200,200,200,0.1);
+}
+.code-head-fullscreen {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  height: 34px;
+  z-index: 99;
+  margin: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.code-head-fullscreen .code-lang,
+.code-head-fullscreen .code-info {
+  margin-top: 10px;
+  padding: 10px 5px;
+}
