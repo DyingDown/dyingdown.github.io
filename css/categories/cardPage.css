@@ -902,28 +902,28 @@
 .space {
   color: #000;
 }
-#post-AA .post-title {
+#post-Prefix .post-title {
   color: #f4c701 !important;
 }
-#post-AA .box-body h2 {
+#post-Prefix .box-body h2 {
   color: #f4c701;
 }
-#post-AA .box-body .tags a {
+#post-Prefix .box-body .tags a {
   color: #f4c701;
   border: 1px solid #f4c701;
 }
-#post-AA .box-body .tags a:hover {
+#post-Prefix .box-body .tags a:hover {
   color: #fff;
   background: #f4c701;
 }
-#post-AA .ribbon .ri {
+#post-Prefix .ribbon .ri {
   background-color: #f4c701;
 }
-#post-AA .ribbon .ri:before {
+#post-Prefix .ribbon .ri:before {
   border-left: 3px solid #ab8b01;
   border-top: 3px solid #ab8b01;
 }
-#post-AA .ribbon .ri:after {
+#post-Prefix .ribbon .ri:after {
   border-right: 3px solid #ab8b01;
   border-top: 3px solid #ab8b01;
 }
