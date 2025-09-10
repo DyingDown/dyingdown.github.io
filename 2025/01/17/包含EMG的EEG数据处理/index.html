@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>包含EMG的EEG数据处理(Matlab) [ o_oyao's Blog ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/includes/alert/alert.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/includes/copyright.css"><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script>var isHome = false;
+var isCenter = false;
+var i18n = {
+    copy: {
+        success: "Copy successful!",
+        error: "Copy failed, please try again!"
+    }
+};
+</script><meta name="generator" content="Hexo 6.3.0"></head><body class="post"><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="300.000000pt" height="125.000000pt" viewBox="0 0 300.000000 125.000000" preserveAspectRatio="xMidYMid meet"  id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"  stroke="none">
+<path class="rest-content" d="M70 635 c0 -340 4 -545 10 -545 5 0 335 27 734 60 399 33 730 60 736 60 6 0 10 28 10 70 0 56 -3 70 -15 70 -12 0 -15 -13 -15 -55 0 -48 -3 -55 -20 -55 -10 0 -320 -25 -688 -55 -368 -30 -679 -55 -691 -55 l-21 0 0 505 c0 474 1 505 18 505 9 0 316 -25 682 -55 366 -30 677 -55 693 -55 26 0 27 -2 27 -55 0 -42 3 -55 15 -55 12 0 15 14 15 70 0 55 -3 70 -15 70 -8 0 -341 27 -740 60 -399 33 -727 60 -730 60 -3 0 -5 -245 -5 -545z"/>
+<path class="rest-content" d="M301 858 c-62 -33 -94 -94 -88 -166 6 -81 51 -131 139 -154 85 -22 204 19 238 83 23 42 24 115 1 161 -32 66 -79 92 -170 96 -65 3 -83 0 -120 -20z m140 -97 c14 -46 5 -124 -17 -142 -12 -10 -18 -9 -32 5 -22 21 -24 135 -3 159 22 27 39 20 52 -22z"/>
+<path class="rest-content" d="M1230 858 c-24 -13 -53 -35 -64 -50 -24 -34 -33 -126 -16 -168 17 -42 72 -87 122 -101 82 -22 198 11 234 66 38 58 36 150 -4 204 -53 71 -182 94 -272 49z m127 -70 c27 -34 20 -151 -9 -169 -23 -15 -48 28 -48 81 0 81 28 124 57 88z"/>
+<path class="rest-content" d="M1633 872 c-22 -14 -33 -63 -33 -149 0 -69 4 -93 22 -124 30 -54 76 -74 139 -62 43 9 49 8 49 -7 0 -50 -60 -66 -128 -36 -70 32 -99 -5 -44 -56 37 -37 73 -48 146 -48 80 0 121 25 156 95 21 44 25 65 28 195 4 137 3 146 -18 173 -25 31 -72 37 -108 11 -20 -14 -22 -24 -22 -103 0 -99 -15 -135 -47 -115 -15 9 -18 27 -21 105 -2 81 -5 96 -23 112 -22 17 -75 23 -96 9z"/>
+<path class="rest-content" d="M2085 847 c-66 -66 -68 -213 -4 -277 38 -38 86 -47 146 -27 31 10 53 12 64 6 10 -5 36 -9 58 -9 62 0 71 20 71 168 0 117 -1 124 -25 147 -28 29 -70 32 -103 10 -19 -14 -24 -14 -51 0 -17 8 -51 15 -77 15 -39 0 -51 -5 -79 -33z m175 -138 c0 -65 -3 -81 -17 -86 -10 -4 -23 2 -36 18 -39 48 -8 170 39 152 10 -4 14 -26 14 -84z"/>
+<path class="rest-content" d="M2585 863 c-53 -28 -83 -63 -95 -113 -24 -100 32 -188 133 -210 101 -23 185 6 235 80 20 29 23 45 20 95 -5 74 -33 119 -92 146 -52 23 -158 25 -201 2z m125 -89 c15 -38 12 -117 -5 -141 -45 -64 -84 72 -43 150 13 25 37 21 48 -9z"/>
+<path class="rest-content" d="M666 624 c-19 -18 -21 -55 -4 -72 9 -9 69 -12 210 -12 185 0 198 1 208 19 14 27 13 47 -6 65 -23 24 -385 24 -408 0z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/Gallery"><i class="fas fa-camera"></i> Gallery</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>包含EMG的EEG数据处理(Matlab)</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2025-01-17T22:07:46.000Z">2025-01-17</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/EEG/">EEG</span><span class="words" href="/categories/EEG/EMG/">EMG</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/EEG/">EEG  </span><span class="words" href="/tags/EMG/">EMG  </span><span class="words" href="/tags/EEGLAB/">EEGLAB  </span><span class="words" href="/tags/Matlab/">Matlab  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">14 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">3.4k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>235</strong><span> days ago. The content of the article may be out of date.</span></div><p>本文章介绍了EEG和EMG数据的预处理，由于目的是对EEG和EMG数据在同一时间尺度上的相关性，所以 其中采集的原始数据为TXT格式，且EMG和EEG数据存放在一起。直接使用的图形界面在此：<a target="_blank" rel="noopener" href="https://github.com/DyingDown/EEG_EMG_Process">Github Repo: EEG_EMG Process</a></p>
+<!--more--->
+
+<p>本文为单一数据的处理，使用我写的图形UI界面则可以批量处理数据。自动从文件里查找数据进行处理。</p>
+<h2 id="数据格式简介"><a href="#数据格式简介" class="headerlink" title="数据格式简介"></a>数据格式简介</h2><p>在进行EEG数据预处理之前，了解数据的基本格式是关键。以下是采集的EEG和EMG数据的格式示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># MIX|None|0+True+胫骨前肌+1000|1+True+腓骨长肌+1000|2+True+腓肠肌内侧+1000|3+True+腓肠肌外侧+1000|4+True+股直肌+1000|5+True+股内侧肌+1000|6+True+股二头肌长头+1000|7+True+半腱肌+1000|8+False+胫骨前肌+1000|9+False+腓骨长肌+1000|10+False+肠肌内侧+1000|11+False+肠肌外侧+1000|12+False+EMG13+1000|13+False+EMG14+1000|14+False+EMG15+1000|15+False+EMG16+1000|0+True+P4+80|1+True+CP2+80|2+True+FC5+80|3+True+C3+80|4+True+P3+80|5+True+C2+80|6+True+FC6+80|7+True+C4+80|8+True+CP6+80|9+True+F3+80|10+True+FC2+80|11+True+FC1+80|12+True+F4+80|13+True+CP5+80|14+True+C1+80|15+True+CP1+80</span><br><span class="line"># 13425+24732+39459+51551+66531+77703+93361+104448+119984+130913+145827+157066</span><br><span class="line">0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据格式说明"><a href="#数据格式说明" class="headerlink" title="数据格式说明"></a>数据格式说明</h3><ol>
+<li><strong>Header部分</strong>：<ul>
+<li><code>MIX|None|</code>：描述了数据类型（例如MIX可能是混合信号）。</li>
+<li><code>X+True/False+Channel+SampleRate</code>：表示不同通道的信息，包括是否启用（True&#x2F;False）、通道名称（如胫骨前肌、P4等）、以及采样率（单位Hz）。</li>
+</ul>
+</li>
+<li><strong>打点标记</strong>：以<code>#</code>开头的时间点数据，如 <code>13425+24732+39459...</code>。表示实验中的打点信息。但是本次实验中没有用上，因为打点不准确</li>
+<li><strong>信号值部分</strong>：每行表示一个时间点的信号值，各列对应不同的通道。</li>
+</ol>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><h3 id="数据滤波"><a href="#数据滤波" class="headerlink" title="数据滤波"></a>数据滤波</h3><p>若使用我写的图形界面进行处理，则无需关心，此步骤自动实现。</p>
+<h4 id="从文件读取数据"><a href="#从文件读取数据" class="headerlink" title="从文件读取数据"></a>从文件读取数据</h4><p>首先使用MATLAB从文件中读取原始数据，可以采用以下代码：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fid = fopen(filepath);</span><br><span class="line"><span class="comment">% ... verify fid</span></span><br><span class="line">datafile = textscan(fid, <span class="built_in">repmat</span>(<span class="string">&#x27;%f&#x27;</span>, <span class="number">1</span>, <span class="number">32</span>), <span class="string">&#x27;Delimiter&#x27;</span>, <span class="string">&#x27;\t&#x27;</span>, <span class="string">&#x27;CommentStyle&#x27;</span>, <span class="string">&#x27;#&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="提取EEG，EMG"><a href="#提取EEG，EMG" class="headerlink" title="提取EEG，EMG"></a>提取EEG，EMG</h4><p>根据实验需求，分别提取EEG数据和EMG数据。其中EMG是1-8列，EEG是17-32列</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EMGData = [datafile&#123;<span class="number">1</span>:<span class="number">8</span>&#125;]; </span><br><span class="line">EEGData = [datafile&#123;<span class="number">17</span>:<span class="number">32</span>&#125;];</span><br></pre></td></tr></table></figure>
+
+<h4 id="滤波处理"><a href="#滤波处理" class="headerlink" title="滤波处理"></a>滤波处理</h4><ul>
+<li><strong>EEG信号</strong>：关注1-49 Hz频段，此频段包含了主要的脑电信息，例如α波、β波等。消除50 Hz及其倍频的工频噪声。</li>
+<li><strong>EMG信号</strong>：关注20-150 Hz频段，此频段包含了肌电信号的主要特征。同样需要消除50 Hz工频干扰。</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[EMGData, EEGData]</span> = <span class="title">filterData</span><span class="params">(EMGData, EEGData)</span></span></span><br><span class="line">    fs = <span class="number">1000</span>; <span class="comment">% 采样频率</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% 工频干扰滤波：50 Hz及其倍频</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">9</span></span><br><span class="line">        [b, a] = butter(<span class="number">2</span>, [<span class="number">2</span>*(<span class="number">50</span>*<span class="built_in">j</span><span class="number">-1</span>)/fs, <span class="number">2</span>*(<span class="number">50</span>*<span class="built_in">j</span>+<span class="number">1</span>)/fs], <span class="string">&quot;stop&quot;</span>);</span><br><span class="line">        EMGData = filter(b, a, EMGData);</span><br><span class="line">        EEGData = filter(b, a, EEGData);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% 带通滤波：提取感兴趣频段</span></span><br><span class="line">    <span class="comment">% EMG 20-150 Hz</span></span><br><span class="line">    [b, a] = butter(<span class="number">4</span>, [<span class="number">2</span>*<span class="number">20</span>/fs, <span class="number">2</span>*<span class="number">150</span>/fs], <span class="string">&quot;bandpass&quot;</span>);</span><br><span class="line">    EMGData = filter(b, a, EMGData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% EEG 1-49 Hz</span></span><br><span class="line">    [b, a] = butter(<span class="number">4</span>, [<span class="number">2</span>*<span class="number">1</span>/fs, <span class="number">2</span>*<span class="number">49</span>/fs], <span class="string">&quot;bandpass&quot;</span>);</span><br><span class="line">    EEGData = filter(b, a, EEGData);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="手动修正打点"><a href="#手动修正打点" class="headerlink" title="手动修正打点"></a>手动修正打点</h3><p>由于数据打点信息缺失，或者打点数据不够精确，所以需要手动修正打点数据。所以要先把图画出来，根据图找出精确的位置。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">N1 = <span class="built_in">length</span>(EMGData(<span class="number">1</span>,:)); <span class="comment">% EMG通道数量</span></span><br><span class="line">N2 = <span class="built_in">length</span>(EEGData(<span class="number">1</span>,:)); <span class="comment">% EEG通道数量</span></span><br><span class="line">N = N1 + N2; <span class="comment">% 总通道数量 24个，对应了24eegemg_sitstand_locs.ced文件里的24个</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">isempty</span>(findall(<span class="number">0</span>, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)], <span class="string">&#x27;Type&#x27;</span>, <span class="string">&#x27;figure&#x27;</span>))</span><br><span class="line">hFig = <span class="built_in">figure</span>;  <span class="comment">% 如果没有找到已命名的窗口，就新建一个</span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&quot;Didn&#x27;t find exisiting window, create a new one&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">hFig = findall(<span class="number">0</span>, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)], <span class="string">&#x27;Type&#x27;</span>, <span class="string">&#x27;figure&#x27;</span>);</span><br><span class="line">close(hFig);  <span class="comment">% 关闭已打开的图形窗口</span></span><br><span class="line">hFig = <span class="built_in">figure</span>;  <span class="comment">% 重新创建一个新的图形窗口</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 数据展示-不展示特定meg通道</span></span><br><span class="line">yrangeEMG = <span class="number">200</span>;</span><br><span class="line">yrangeEEG = <span class="number">100</span>;</span><br><span class="line">t = <span class="number">0.001</span>:<span class="number">0.001</span>:<span class="built_in">length</span>(EMGData(:,<span class="number">1</span>))/<span class="number">1000</span>; <span class="comment">% 以秒为单位的时间向量</span></span><br><span class="line">offsets = <span class="built_in">zeros</span>(N, <span class="number">1</span>); <span class="comment">% 创建一个N*1的竖矩阵，所有元素为0， 用来在y轴体现偏移</span></span><br><span class="line"></span><br><span class="line">set(gcf, <span class="string">&#x27;Name&#x27;</span>, [<span class="string">&#x27;Window &#x27;</span> char(filename)]);</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">8</span></span><br><span class="line"><span class="comment">%if j == 2 || j == 3</span></span><br><span class="line"><span class="comment">%j=9不需要删除emg通道</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">ismember</span>(<span class="built_in">j</span>, EMGBanList)</span><br><span class="line">result = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">result = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">offsets(<span class="built_in">j</span>) = yrangeEMG*(N1-<span class="built_in">j</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, (EMGData(:,<span class="built_in">j</span>)+offsets(<span class="built_in">j</span>))*result)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">16</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">ismember</span>(<span class="built_in">j</span>, EEGBanList)</span><br><span class="line">result = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">result = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">offsets(N1+<span class="built_in">j</span>) = yrangeEMG*(N1)+<span class="number">200</span>+yrangeEEG*(<span class="number">16</span>-<span class="built_in">j</span>);</span><br><span class="line"><span class="built_in">plot</span>(t, (EEGData(:,<span class="built_in">j</span>)+offsets(N1+<span class="built_in">j</span>))*result)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">hold</span> off</span><br><span class="line">channelLabels = &#123;<span class="string">&#x27;TA&#x27;</span>,<span class="string">&#x27;PL&#x27;</span>,<span class="string">&#x27;MG&#x27;</span>,<span class="string">&#x27;LG&#x27;</span>,<span class="string">&#x27;RF&#x27;</span>,<span class="string">&#x27;VM&#x27;</span>,<span class="string">&#x27;LBF&#x27;</span>,<span class="string">&#x27;Semi&#x27;</span>,...</span><br><span class="line"><span class="string">&#x27;P4&#x27;</span>,<span class="string">&#x27;CP2&#x27;</span>,<span class="string">&#x27;FC5&#x27;</span>,<span class="string">&#x27;C3&#x27;</span>,<span class="string">&#x27;P3&#x27;</span>,<span class="string">&#x27;C2&#x27;</span>,<span class="string">&#x27;FC6&#x27;</span>,<span class="string">&#x27;C4&#x27;</span>,<span class="string">&#x27;CP6&#x27;</span>,<span class="string">&#x27;F3&#x27;</span>,<span class="string">&#x27;FC2&#x27;</span>,<span class="string">&#x27;FC1&#x27;</span>, <span class="string">&#x27;F4&#x27;</span>,...</span><br><span class="line"><span class="string">&#x27;CP5&#x27;</span>,<span class="string">&#x27;C1&#x27;</span>,<span class="string">&#x27;CP1&#x27;</span>&#125;;</span><br><span class="line"><span class="comment">% Ensure offsets are sorted in increasing order</span></span><br><span class="line">[offsets_sorted, idx] = <span class="built_in">sort</span>(offsets);</span><br><span class="line"><span class="comment">% disp(idx);</span></span><br><span class="line">channelLabels_sorted = channelLabels(idx);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Plot settings</span></span><br><span class="line">set(gca, <span class="string">&#x27;YTick&#x27;</span>, offsets_sorted, <span class="string">&#x27;YTickLabel&#x27;</span>, channelLabels_sorted)</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">30</span>])</span><br><span class="line">ylim([-yrangeEMG yrangeEMG * N1 + yrangeEEG * N2 + <span class="number">400</span>])</span><br></pre></td></tr></table></figure>
+
+<p>获取到打点信息可以手动补回原来的位置。或者另外存进去。</p>
+<h3 id="生成event信息"><a href="#生成event信息" class="headerlink" title="生成event信息"></a>生成event信息</h3><p>需要手动构造需要Event 信息文件</p>
+<h4 id="文件格式要求"><a href="#文件格式要求" class="headerlink" title="文件格式要求"></a>文件格式要求</h4><p>事件信息文件使用 <strong>纯文本格式</strong>（<code>.txt</code>），每一行为一个事件记录，各字段以空格、逗号或制表符分隔。推荐使用**制表符分隔 (tab-separated)**，方便解析。</p>
+<h4 id="必要字段及说明"><a href="#必要字段及说明" class="headerlink" title="必要字段及说明"></a>必要字段及说明</h4><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>事件类型标识符，例如 <code>&#39;Stimulus&#39;</code> 或 <code>&#39;Response&#39;</code>。</td>
+</tr>
+<tr>
+<td><code>latency</code></td>
+<td>数字</td>
+<td>是</td>
+<td>事件在 EEG 数据中的采样点位置（单位：采样点）。</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>数字</td>
+<td>否</td>
+<td>事件持续时间，以采样点为单位，若未知可填 <code>0</code>。</td>
+</tr>
+<tr>
+<td><code>epoch</code></td>
+<td>数字</td>
+<td>否</td>
+<td>所属分段编号，仅当 EEG 数据是分段形式时需要填写。</td>
+</tr>
+<tr>
+<td><code>urevent</code></td>
+<td>数字</td>
+<td>否</td>
+<td>链接到源事件数据的编号，用于溯源原始事件。</td>
+</tr>
+</tbody></table>
+<h4 id="示例内容-TXT-格式"><a href="#示例内容-TXT-格式" class="headerlink" title="示例内容 (TXT 格式)"></a>示例内容 (TXT 格式)</h4><p>文件可以简单存储为 <code>events.txt</code>，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type    latency duration</span><br><span class="line">a        512     100</span><br><span class="line">b        1024    50</span><br><span class="line">a        2048    100</span><br></pre></td></tr></table></figure>
+
+<h3 id="剪切数据"><a href="#剪切数据" class="headerlink" title="剪切数据"></a>剪切数据</h3><p>在这个步骤直接把数据，依据打点信息，和每个事件的时长，进行剪切，只留下有用的部分。</p>
+<h2 id="使用EEGLAB进行处理"><a href="#使用EEGLAB进行处理" class="headerlink" title="使用EEGLAB进行处理"></a>使用EEGLAB进行处理</h2><h3 id="数据导入（set）"><a href="#数据导入（set）" class="headerlink" title="数据导入（set）"></a>数据导入（set）</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEG = pop_importdata(<span class="string">&#x27;dataformat&#x27;</span>,<span class="string">&#x27;ascii&#x27;</span>,<span class="string">&#x27;nbchan&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;data&#x27;</span>,filepath,<span class="string">&#x27;setname&#x27;</span>,eventFileName,<span class="string">&#x27;srate&#x27;</span>,<span class="number">1000</span>,<span class="string">&#x27;pnts&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;xmin&#x27;</span>,<span class="number">0</span>,<span class="string">&#x27;chanlocs&#x27;</span>,locs_path);</span><br></pre></td></tr></table></figure>
+
+<p><code>pop_importdata</code></p>
+<ul>
+<li>这是 EEGLAB 用于导入原始数据的核心函数之一。</li>
+<li>它允许导入多种格式（如 ASCII、MATLAB 变量）并设置关键参数（如采样率、通道数）。</li>
+</ul>
+<p>代码参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>示例值</th>
+<th>作用说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dataformat</code></td>
+<td><code>&#39;ascii&#39;</code></td>
+<td>数据格式类型，<code>&#39;ascii&#39;</code> 表示数据以文本格式存储；其他值可以是 <code>&#39;matlab&#39;</code> 或原生格式。</td>
+</tr>
+<tr>
+<td><code>nbchan</code></td>
+<td><code>0</code></td>
+<td>数据的通道数，<code>0</code> 表示自动检测通道数（常用）；您也可以根据实际情况直接填写通道数量。</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>filepath</code></td>
+<td>数据文件路径，包含实际信号数据的文件路径变量；即每一行是一个时间点，列对应通道数据。</td>
+</tr>
+<tr>
+<td><code>setname</code></td>
+<td><code>eventFileName</code></td>
+<td>数据集的名称，显示在 EEGLAB 图形界面中，用于识别导入的 EEG 数据集。</td>
+</tr>
+<tr>
+<td><code>srate</code></td>
+<td><code>1000</code></td>
+<td>数据采样率，单位为 Hz。例如，<code>1000</code> 表示每秒采样 1000 次。</td>
+</tr>
+<tr>
+<td><code>pnts</code></td>
+<td><code>0</code></td>
+<td>每个通道的采样点数，<code>0</code> 表示从文件中自动检测。</td>
+</tr>
+<tr>
+<td><code>xmin</code></td>
+<td><code>0</code></td>
+<td>数据起始时间（以秒为单位），<code>0</code> 表示时间从第一个采样点开始。</td>
+</tr>
+<tr>
+<td><code>chanlocs</code></td>
+<td><code>locs_path</code></td>
+<td>通道位置信息文件路径，常用 <code>.loc</code> 或 <code>.ced</code> 文件定义通道的空间位置（头皮电极的位置映射）。</td>
+</tr>
+</tbody></table>
+<p>其中我的chanlocs文件长这样：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Number	labels	theta	radius	X	Y	Z	sph_theta	sph_phi	sph_radius	type	</span><br><span class="line">1	TA	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">2	PL	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">3	MG	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">4	LG	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">5	RF	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">6	VM	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">7	LBF	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">8	SEM	   	   	   	   	   	   	   	   	EMG	</span><br><span class="line">9	P4	145	0.331	-78.6	-55.7	56.6	-145	30.4	112	EEG	</span><br><span class="line">10	CP2	141	0.188	-47.1	-38.4	90.7	-141	56.2	109	EEG	</span><br><span class="line">11	FC5	-76.4	0.405	18.6	77.2	24.5	76.4	17.1	83.1	EEG	</span><br><span class="line">12	C3	-100	0.255	-11.6	65.4	64.4	100	44.1	92.5	EEG	</span><br><span class="line">13	P3	-146	0.331	-78.8	 53	55.9	146	30.5	110	EEG	</span><br><span class="line">14	C2	104	0.132	-9.62	-37.7	88.4	-104	66.3	96.6	EEG	</span><br><span class="line">15	FC6	75.9	0.408	19.9	-79.5	24.4	-75.9	16.6	85.6	EEG	</span><br><span class="line">16	C4	99.2	0.261	-10.9	-67.1	63.6	-99.2	43.1	93.1	EEG	</span><br><span class="line">17	CP6	119	0.399	-46.1	-83.3	31.2	-119	18.1	100	EEG	</span><br><span class="line">18	F3	-43.4	0.333	53.1	50.2	42.2	43.4	 30	84.4	EEG	</span><br><span class="line">19	FC2	52.8	0.161	26.4	-34.8	78.8	-52.8	 61	90.1	EEG	</span><br><span class="line">20	FC1	-52.6	0.157	 26	34.1	 80	52.6	61.8	90.7	EEG	</span><br><span class="line">21	F4	43.7	0.341	54.3	-51.8	40.8	-43.7	28.5	85.5	EEG	</span><br><span class="line">22	CP5	-120	0.397	-46.6	79.6	30.9	120	18.6	97.3	EEG	</span><br><span class="line">23	C1	-105	0.126	-9.98	36.2	89.8	105	67.3	97.3	EEG	</span><br><span class="line">24	CP1	-143	0.183	-47.3	35.5	91.3	143	57.1	109	EEG	</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意注意： 原来的文件不长这样。但是直接讲原始的导入EEG会有错误，位置回旋转90度，需要每次导入的时候手动修正。或者修正完后导出修正后的位置图，存下来，后续每次加载使用。</strong></p>
+<h3 id="坏导插值"><a href="#坏导插值" class="headerlink" title="坏导插值"></a>坏导插值</h3><h4 id="画出波形图"><a href="#画出波形图" class="headerlink" title="画出波形图"></a>画出波形图</h4><ol>
+<li><p>使用代码绘制：EEGLAB 提供的函数， <strong>EEG 时域波形图</strong> (<code>pop_plotdata</code>) </p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pop_eegplot(EEG, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>); <span class="comment">% 绘制数据的图形</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ul>
+<li><strong><code>EEG</code></strong>: EEGLAB 的数据结构，包含导入的数据。</li>
+<li><strong><code>1</code>（连续信号模式）</strong>: 绘制原始连续信号。</li>
+<li><strong><code>1</code>（频道索引标注）</strong>: 在图上显示通道标注。</li>
+<li><strong><code>0</code>（分离窗口）</strong>: 是否将每个通道分开显示在单独的窗口中。<code>0</code>表示在一个窗口显示所有通道。</li>
+</ul>
+</li>
+<li><p>在图形界面进行绘图</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171828124.png" alt="image-20250117182757708" style="zoom: 67%;" /></li>
+</ol>
+<h4 id="找出坏导"><a href="#找出坏导" class="headerlink" title="找出坏导"></a>找出坏导</h4><p>根绝图判断哪个通道的数据损坏，判断方法如下：</p>
+<p><strong>数据波形异常</strong></p>
+<ul>
+<li><strong>信号平直</strong>：通道数据完全为一条水平线，说明传感器可能已断开连接或信号丢失。</li>
+<li><strong>高幅度异常</strong>：通道信号显示了远高于其他通道的持续高幅度振幅，通常是接触不良或设备问题。</li>
+<li><strong>高频噪声</strong>：单个通道的信号中有明显不规则的高频信号。</li>
+</ul>
+<p><strong>地理不一致性</strong></p>
+<p>查看电极分布的头皮地图，损坏的通道通常在头皮拓扑图上呈现孤立的高&#x2F;低信号区域，与相邻通道不一致。</p>
+<h4 id="插值坏导"><a href="#插值坏导" class="headerlink" title="插值坏导"></a>插值坏导</h4><ol>
+<li><p>用代码进行插值：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEG_interp = pop_interp(EEG, selectedIndices, <span class="string">&#x27;spherical&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数解释：</p>
+<ul>
+<li><code>EEG</code>: 这是你原始的 EEG 数据结构，包含了所有信号和信息</li>
+<li><code>selectedIndices</code>: 一个包含索引的数组，对应了需要进行插值的电极。</li>
+<li><code>&#39;spherical&#39;</code>: 这个参数指定了插值方法。在这里，选择了 <code>&#39;spherical&#39;</code> 插值方式。它是一种通过球面坐标系统进行插值的方法，适合当电极的位置遵循球面几何结构时。这种插值方法会考虑到电极的三维空间布局，依据其在球体表面的空间关系来进行插值，而不是简单地用线性方式连接相邻电极的值。</li>
+</ul>
+</li>
+<li><p>手动插值</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171840066.png" style="zoom:67%;" />
+
+<p>选择需要插值的通道：</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171842031.png" style="zoom:67%;" /></li>
+</ol>
+<p><strong>注意：需要一次性对所有的通道进行插值，不可以分多次进行</strong></p>
+<h3 id="去除伪影和噪音"><a href="#去除伪影和噪音" class="headerlink" title="去除伪影和噪音"></a>去除伪影和噪音</h3><h4 id="ICA（独立成分分析）"><a href="#ICA（独立成分分析）" class="headerlink" title="ICA（独立成分分析）"></a>ICA（独立成分分析）</h4><p>使用如下代码执行ICA</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EEG = pop_runica(EEG, <span class="string">&#x27;icatype&#x27;</span>, <span class="string">&#x27;runica&#x27;</span>, <span class="string">&#x27;extended&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;interrupt&#x27;</span>, <span class="string">&#x27;on&#x27;</span>, <span class="string">&#x27;chanind&#x27;</span>, EEG_chans, <span class="string">&#x27;pca&#x27;</span>, restLen);</span><br></pre></td></tr></table></figure>
+
+<p>参数解释：</p>
+<ul>
+<li><code>icatype</code>, runica：使用 RunICA 算法进行独立成分分析。</li>
+<li><code>extended</code>, 1：启用扩展模式（增加维度，适用于多通道数据）。</li>
+<li><code>interrupt</code>, on：允许中断 ICA 计算。</li>
+<li><code>chanind</code>, EEG_chans：指定参与 ICA 计算的通道（因为EEG，EMG数据存在一起，所以要选出来EEG）。</li>
+<li><code>pca</code>, restLen：使用 PCA 对数据进行降维，<code>restLen</code> 表示主成分数（EEG电极数量-插值过的坏导数量）。</li>
+</ul>
+<p>该步骤的目标是从 EEG 数据中提取独立成分，以便去除如眼动、肌电等伪影，留下更多反映神经信号的成分。</p>
+<p>或者使用手动的方式：</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171853703.png" style="zoom:67%;" />
+
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171855039.png"></p>
+<p>选择EEG数据可以通过图中两种方式，前提是我已经给我的通道进行了类别标记。</p>
+<p>执行过程中会弹出窗口，可以随时interrupt中断。</p>
+<h4 id="标记伪影"><a href="#标记伪影" class="headerlink" title="标记伪影"></a>标记伪影</h4><p>给数据打上标签，对各种伪影类别进行标记</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">EEG_temp = EEG;  <span class="comment">% 使用一个临时的 EEG 数据避免直接修改原始数据</span></span><br><span class="line">EEG_temp = pop_icflag(EEG_temp, [</span><br><span class="line">    <span class="number">0.2</span> <span class="number">0.6</span>;   <span class="comment">% Brain: 大脑活动成分</span></span><br><span class="line">    <span class="number">0.1</span> <span class="number">0.8</span>;   <span class="comment">% Muscle: 肌电伪影</span></span><br><span class="line">    <span class="number">0.2</span> <span class="number">0.7</span>;   <span class="comment">% Eye: 眼动伪影</span></span><br><span class="line">    <span class="number">0.3</span> <span class="number">0.7</span>;   <span class="comment">% Heart: 心电伪影</span></span><br><span class="line">    <span class="number">0.4</span> <span class="number">0.6</span>;   <span class="comment">% Line Noise: 电源噪声</span></span><br><span class="line">    <span class="number">0.1</span> <span class="number">0.9</span>;   <span class="comment">% Channel Noise: 信号通道噪声</span></span><br><span class="line">    <span class="number">0.0</span> <span class="number">0.9</span>    <span class="comment">% Other: 其他伪影</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>手动执行：<br><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171906151.png" style="zoom:67%;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171907300.png" style="zoom: 50%;" /><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171907453.png" style="zoom:67%;" /></p>
+<p>标记完之后会弹出来标记好的内容，这个图没什么特别的用处可以直接关掉，是自动分析伪影之后画出来的分类。</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171910670.png" style="zoom:67%;" />
+
+<p>然后使用flag components as artifact功能，自动标记伪影</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171918905.png" style="zoom:67%;" />
+
+<p>让给不同的类别设置阈值</p>
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171919555.png" style="zoom:67%;" />
+
+<p>根据自己的数据设置需要的阈值。我自己的数据设置的是每个类别都是0.55，因为我的数据干扰因素很多。</p>
+<h4 id="删除伪影"><a href="#删除伪影" class="headerlink" title="删除伪影"></a>删除伪影</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rejected_comps = <span class="built_in">find</span>(EEG_temp.reject.gcompreject &gt; <span class="number">0</span>);</span><br><span class="line">EEG_temp = pop_subcomp(EEG_temp, rejected_comps);</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171922714.png" style="zoom:67%;" />
+
+<p>至此，所有的数据处理部分都已经完成了。</p>
+<div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2025/01/17/%E5%8C%85%E5%90%ABEMG%E7%9A%84EEG%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">http://dyingdown.github.io/2025/01/17/%E5%8C%85%E5%90%ABEMG%E7%9A%84EEG%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2025/01/17/EEG-and-EMG-Data-Processing-Matlab/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501171954245.jpg"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>EEG and EMG Data Processing (Matlab)</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2024/10/20/Nim-Game/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202410211001007.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Nim Game</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
+})</script><div id="sideButtons"><div id="back-to-top"><span>TOP</span></div><div id="go-to-comment"><span>COMMENT</span></div></div></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa-brands fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="X-Twitter"><i class="fa-brands fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa-brands fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></div><div id="incons"><a class="icon" href=" https://www.linkedin.com/in/yaogu0304/" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa-brands fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" https://www.instagram.com/o_oyao0304/" title="Instagram"><i class="fa-brands fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="TikTok"><i class="fa-brands fa-tiktok"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2025</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js" type="module"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>

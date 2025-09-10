@@ -1,0 +1,115 @@
+#container {
+  width: 95%;
+  margin: 6em auto 0em;
+  height: auto;
+}
+[data-columns]::before {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  font-size: 1px;
+}
+.cols {
+  float: left;
+  -moz-column-count: 4;
+  -moz-column-gap: 0%;
+  -moz-column-width: calc((100% - 40px) / 4);
+  -webkit-column-count: 4;
+  -webkit-column-gap: 0%;
+  -webkit-column-width: calc((100% - 40px) / 4);
+  column-count: 4;
+  column-gap: 0%;
+  column-width: calc((100% - 40px) / 4);
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+@media (max-width: 1500px) {
+  .cols {
+    -moz-column-count: 3;
+    -moz-column-gap: 0%;
+    -moz-column-width: calc((100% - 30px) / 3);
+    -webkit-column-count: 3;
+    -webkit-column-gap: 0%;
+    -webkit-column-width: calc((100% - 30px) / 3);
+    column-count: 3;
+    column-gap: 0%;
+    column-width: calc((100% - 30px) / 3);
+  }
+}
+@media (max-width: 1000px) {
+  .cols {
+    -moz-column-count: 1;
+    -moz-column-gap: 0%;
+    -moz-column-width: 100%;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 0%;
+    -webkit-column-width: 100%;
+    column-count: 1;
+    column-gap: 0%;
+    column-width: 100%;
+  }
+}
+/* Again, you’re free to use and define the classes: */
+.column {
+  float: left;
+}
+/* These are the classes that are going to be applied: */
+.box {
+  float: left;
+  break-inside: avoid;
+  margin: 0 5px 15px 5px;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #aaa;
+  -webkit-box-shadow: 2px 2px 4px #aaa;
+  -moz-box-shadow: 2px 2px 4px #aaa;
+  color: rgba(255,255,255,0.72);
+}
+.box:hover {
+  box-shadow: 3px 3px 6px #aaa;
+  -webkit-box-shadow: 3px 3px 6px #aaa;
+  -webkit-box-shadow: 3px 3px 6px #aaa;
+}
+.feat-image {
+  border-radius: 4px 4px 0 0;
+  width: 100%;
+}
+.container {
+  padding: 15px;
+}
+.container h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.container a {
+  color: #eee;
+  text-decoration: none;
+}
+.grid-item img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  border: none;
+}
+.action {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+.action .fa {
+  float: right;
+  opacity: 0.9;
+  color: #eee;
+}
+.action .fa:hover {
+  opacity: 0.8;
+}
+.social-full h3,
+.social-full fa {
+  display: inline-block;
+}
+.content {
+  padding: 2em;
+}
+body {
+  background-color: #fff !important;
+}

@@ -1,0 +1,295 @@
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+.navDots {
+  left: 5%;
+}
+#home-cover {
+  width: 100%;
+  height: 100vh;
+  background: url("/img/home_cover.jpg") center center no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+/********** carcousel **********/
+.postCarousel {
+  float: left;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+}
+.postList {
+  width: 500vw;
+  position: absolute;
+}
+.navDots {
+  position: absolute;
+  bottom: 5%;
+}
+.navDots .navDot {
+  width: 35px;
+  height: 10px;
+  background-color: #fff;
+  float: left;
+  margin: 8px;
+  border-radius: 20px;
+  opacity: 1;
+}
+.navDots .currentDot {
+  background: #222;
+  opacity: 0.9;
+  width: 35px;
+  height: 10px;
+}
+.navDots .navDot:hover {
+  background-color: #222;
+  opacity: 0.9;
+}
+.shadowBox {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  float: left;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blur {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  float: left;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fa-chevron-left,
+.fa-chevron-right {
+  position: absolute;
+  font-size: 50px;
+  color: #fff;
+  opacity: 0.5;
+  top: 50%;
+}
+.fa-chevron-left {
+  left: 10px;
+}
+.fa-chevron-right {
+  right: 10px;
+}
+/********** carousel content *************/
+.carouselContent {
+  width: 75vw;
+  margin: 0;
+  text-align: center;
+  z-index: 5;
+  color: #fff;
+}
+.carouselContent {
+  padding: 150px 40px;
+  border-radius: 15px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(35px);
+  border: 2px solid rgba(220,220,220,0.1);
+  box-shadow: 0 0 80px rgba(0,0,0,0.25);
+}
+.carouselContent h2 {
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: bold;
+}
+.carouselContent p {
+  font-size: 18px;
+  line-height: 30px;
+}
+.carouselContent table {
+  margin: auto;
+}
+.readMore {
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: #fff;
+  border: #fff solid 1px;
+  text-decoration: none;
+}
+.readMore:hover {
+  background-color: #fff;
+  color: #202020;
+}
+@media only screen and (max-width: 1000px) {
+  .navDots .currentDot,
+  .navDots .navDot {
+    width: 28px;
+    height: 8px;
+  }
+  .carouselContent h2 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .carouselContent {
+    padding: 40px;
+  }
+}
+/******* articles **********/
+.recent-post-item {
+  float: left;
+  height: 692px;
+  color: #bfbfbf;
+  flex: 1 0 18.75em;
+  margin: 0 0 1.875rem;
+  display: inline-block;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 37.5rem) {
+  .recent-post-item {
+    margin: 0 0.9375em 15px;
+  }
+}
+@media (min-width: calc((2 * 0.625em) + (2 * 15.75em))) {
+  .recent-post-item {
+    max-width: calc(100%/2 - 0.9375em*2);
+  }
+}
+@media (min-width: calc((2 * 0.625em) + (3 * 15.75em))) {
+  .recent-post-item {
+    max-width: calc(100%/3 - 0.9375em*2);
+  }
+}
+@media (min-width: calc((2 * 0.625em) + (4 * 15.75em))) {
+  .recent-post-item {
+    max-width: calc(100%/4 - 0.9375em*2);
+  }
+}
+@media (min-width: calc((2 * 0.625em) + (5 * 15.75em))) {
+  .recent-post-item {
+    max-width: calc(100%/5 - 0.9375em*2);
+  }
+}
+@media (min-width: calc((2 * 0.625em) + (6 * 15.75em))) {
+  .recent-post-item {
+    max-width: calc(100%/6 - 0.9375em*2);
+  }
+}
+@media (min-width: calc(2 * 0.625em + 6 * $s)) {
+  .recent-post-item {
+    flex: 1 0 calc(100%/6 - 0.9375em*2);
+  }
+}
+.recent-post-item:hover {
+  z-index: 2;
+  transform: scale(1.1);
+}
+.recent-post-item:hover img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transform: scale(1.05);
+}
+.recent-post-item:hover img[src$="pic_load_fail.png"] {
+  object-fit: contain;
+}
+.category {
+  background-color: opacity 0;
+  display: block;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0 0.9375rem;
+  color: #fff;
+}
+#recent-post-content .box-cover {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+}
+#recent-post-content .cover {
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#recent-post-content .content table,
+#recent-post-content .content img {
+  display: none;
+}
+.content-tags {
+  background-color: #202020;
+  padding: 0.9375rem;
+}
+.time {
+  color: #737373;
+  pointer-events: none;
+  font-size: 1rem;
+  line-height: 2em;
+}
+.recent-post-tag {
+  height: 22px;
+  line-height: 26px;
+  color: #fff;
+  padding: 0 10px 5px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  z-index: 50;
+  text-align: center;
+  text-decoration: none;
+}
+.recent-post-tag:hover {
+  background-color: #fff;
+  color: #202020;
+}
+.post_title {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #fff;
+  line-height: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+a.content {
+  margin: 0 0 30px;
+  color: #bfbfbf;
+  font-family: $recent-post-article-content-text-font;
+  font-size: 17px !important;
+  line-height: 26px;
+  text-decoration: none;
+  -webkit-line-clamp: 8; /* 设置超出多少行隐藏 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+/* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
+  display: -webkit-inline-box;
+  word-break: break-word;
+}
+a.content,
+a {
+  color: #bfbfbf;
+}
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+#content-outer {
+  margin-top: 0px !important;
+}

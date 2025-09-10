@@ -1,0 +1,229 @@
+/*
+https://github.com/YiNNx/typora-theme-lapis
+
+This is a very good looking theme from typora
+
+*/
+@font-face {
+  font-family: "fontawesome";
+  src: url("/font-awesome/webfonts/fa-solid-900.eot");
+  src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg");
+}
+#post-content {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: left;
+/* font-family: 'Cantarell','Source Han Serif CN','JetBrains Mono'; */
+  font-family: 'Cantarell', 'SourceHanSerifCN', 'JetBrainsMono';
+  margin-bottom: 20rem;
+}
+#post-content strong {
+  color: #4870ac;
+}
+#post-content a {
+  text-decoration: none;
+  word-wrap: break-word;
+  color: #4870ac;
+  border-bottom: 1px solid #4870ac;
+  margin: 2px;
+}
+#post-content p,
+#post-content blockquote p {
+  font-size: 1.1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin: 0;
+  line-height: 1.8rem;
+  color: #3a4749;
+}
+#post-content blockquote footer {
+  display: block;
+  margin-top: 8px;
+  text-align: right;
+  word-break: break-all;
+}
+#post-content blockquote footer:before {
+  content: "——";
+}
+#post-content h1,
+#post-content h2,
+#post-content h3,
+#post-content h4,
+#post-content h5,
+#post-content h6 {
+  margin: 1em 0 1em;
+  padding: 0px;
+  color: #4870ac;
+}
+#post-content h1 {
+  text-align: center;
+}
+#post-content h2 {
+  display: inline-block;
+  font-weight: bold;
+  background: #4870ac;
+  color: #fff !important;
+  padding: 1px 15px 1px;
+  border-radius: 4px;
+  margin-right: 3px;
+}
+#post-content h2 span {
+  color: #fff !important;
+}
+h2::after {
+  width: 100%;
+}
+#post-content h1 {
+  font-size: 2rem;
+}
+#post-content h2 {
+  font-size: 1.5rem;
+}
+#post-content h3 {
+  font-size: 1.4rem;
+}
+#post-content h4 {
+  font-size: 1.2rem;
+}
+#post-content h5 {
+  font-size: 1.1rem;
+}
+#post-content h6 {
+  font-size: 1.1rem;
+}
+#post-content  li::marker {
+  font-weight: bold;
+  color: rgba(72,112,172,0.5);
+}
+#post-content ul li,
+#post-content ol li {
+  margin: 0.4rem 0;
+}
+#post-content ul,
+#post-content ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+#post-content ul li:not(:has(input[type="checkbox"])) {
+  list-style-type: disc;
+}
+#post-content ul ul li {
+  list-style-type: square;
+}
+#post-content ol li {
+  list-style-type: decimal;
+}
+#post-content li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.7rem;
+  text-align: justify;
+  font-weight: 500;
+}
+#post-content  em {
+  padding: 0 3px 0 0;
+  font-style: italic;
+}
+#post-content blockquote {
+  display: block;
+  font-size: 0.9em;
+  overflow: auto;
+  border-left: 3px solid #4870ac;
+  padding: 15px 30px 15px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: rgba(72,112,172,0.05);
+}
+/*
+ * Inline code
+ */
+#post-content p code,
+#post-content li code {
+  color: #4870ac;
+  font-size: 1rem;
+  word-wrap: break-word;
+  padding: 2px 4px 2px;
+  border-radius: 3px;
+  margin: 2px;
+  background-color: rgba(72,112,172,0.05);
+  word-break: break-all;
+}
+#post-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  filter: drop-shadow(#d2dff4 0px 0px 8px);
+  border-radius: 1rem;
+}
+#post-content table {
+  white-space: nowrap;
+  display: table;
+  text-align: left;
+  display: block;
+  overflow-x: auto;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  font-size: 1em;
+  margin: 0px 0px 20px;
+  width: 100%;
+}
+#post-content tbody {
+  border: 0;
+}
+#post-content table tr {
+  border: 0;
+}
+#post-content table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+#post-content table tr th,
+#post-content table tr td {
+  font-size: 1rem;
+  border: 1px solid #d9dfe4;
+  padding: 5px 20px;
+  text-align: left;
+}
+#post-content table tr th {
+  font-weight: bold;
+  background-color: #fff;
+  color: #4870ac;
+}
+#post-content hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid #eef2f5;
+  border-radius: 2px;
+}
+/* checkbox 样式 */
+#post-content input[type=checkbox] {
+  width: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+#post-content li > input:checked:before,
+#post-content li > input[checked]:before,
+#post-content input[type="checkbox"]:checked:before {
+  content: '';
+  background-color: #fff;
+  background: url("/img/checked.svg") no-repeat center, rgba(72,112,172,0.5);
+}
+#post-content li input::before {
+  content: "";
+  display: inline-block;
+  width: 1.0125rem;
+  height: 1.0125rem;
+  border: 1px solid rgba(72,112,172,0.5);
+  border-radius: 0.2rem;
+  background-color: #fdfdfd;
+  margin-left: -1rem;
+  margin-right: 0.1rem;
+  margin-top: -0.1rem;
+}

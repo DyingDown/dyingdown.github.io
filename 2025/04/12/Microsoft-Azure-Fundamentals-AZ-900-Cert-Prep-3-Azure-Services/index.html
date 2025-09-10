@@ -1,0 +1,1861 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 3 Azure Services [ o_oyao's Blog ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/includes/alert/alert.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/includes/copyright.css"><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script>var isHome = false;
+var isCenter = false;
+var i18n = {
+    copy: {
+        success: "Copy successful!",
+        error: "Copy failed, please try again!"
+    }
+};
+</script><meta name="generator" content="Hexo 6.3.0"></head><body class="post"><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="300.000000pt" height="125.000000pt" viewBox="0 0 300.000000 125.000000" preserveAspectRatio="xMidYMid meet"  id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"  stroke="none">
+<path class="rest-content" d="M70 635 c0 -340 4 -545 10 -545 5 0 335 27 734 60 399 33 730 60 736 60 6 0 10 28 10 70 0 56 -3 70 -15 70 -12 0 -15 -13 -15 -55 0 -48 -3 -55 -20 -55 -10 0 -320 -25 -688 -55 -368 -30 -679 -55 -691 -55 l-21 0 0 505 c0 474 1 505 18 505 9 0 316 -25 682 -55 366 -30 677 -55 693 -55 26 0 27 -2 27 -55 0 -42 3 -55 15 -55 12 0 15 14 15 70 0 55 -3 70 -15 70 -8 0 -341 27 -740 60 -399 33 -727 60 -730 60 -3 0 -5 -245 -5 -545z"/>
+<path class="rest-content" d="M301 858 c-62 -33 -94 -94 -88 -166 6 -81 51 -131 139 -154 85 -22 204 19 238 83 23 42 24 115 1 161 -32 66 -79 92 -170 96 -65 3 -83 0 -120 -20z m140 -97 c14 -46 5 -124 -17 -142 -12 -10 -18 -9 -32 5 -22 21 -24 135 -3 159 22 27 39 20 52 -22z"/>
+<path class="rest-content" d="M1230 858 c-24 -13 -53 -35 -64 -50 -24 -34 -33 -126 -16 -168 17 -42 72 -87 122 -101 82 -22 198 11 234 66 38 58 36 150 -4 204 -53 71 -182 94 -272 49z m127 -70 c27 -34 20 -151 -9 -169 -23 -15 -48 28 -48 81 0 81 28 124 57 88z"/>
+<path class="rest-content" d="M1633 872 c-22 -14 -33 -63 -33 -149 0 -69 4 -93 22 -124 30 -54 76 -74 139 -62 43 9 49 8 49 -7 0 -50 -60 -66 -128 -36 -70 32 -99 -5 -44 -56 37 -37 73 -48 146 -48 80 0 121 25 156 95 21 44 25 65 28 195 4 137 3 146 -18 173 -25 31 -72 37 -108 11 -20 -14 -22 -24 -22 -103 0 -99 -15 -135 -47 -115 -15 9 -18 27 -21 105 -2 81 -5 96 -23 112 -22 17 -75 23 -96 9z"/>
+<path class="rest-content" d="M2085 847 c-66 -66 -68 -213 -4 -277 38 -38 86 -47 146 -27 31 10 53 12 64 6 10 -5 36 -9 58 -9 62 0 71 20 71 168 0 117 -1 124 -25 147 -28 29 -70 32 -103 10 -19 -14 -24 -14 -51 0 -17 8 -51 15 -77 15 -39 0 -51 -5 -79 -33z m175 -138 c0 -65 -3 -81 -17 -86 -10 -4 -23 2 -36 18 -39 48 -8 170 39 152 10 -4 14 -26 14 -84z"/>
+<path class="rest-content" d="M2585 863 c-53 -28 -83 -63 -95 -113 -24 -100 32 -188 133 -210 101 -23 185 6 235 80 20 29 23 45 20 95 -5 74 -33 119 -92 146 -52 23 -158 25 -201 2z m125 -89 c15 -38 12 -117 -5 -141 -45 -64 -84 72 -43 150 13 25 37 21 48 -9z"/>
+<path class="rest-content" d="M666 624 c-19 -18 -21 -55 -4 -72 9 -9 69 -12 210 -12 185 0 198 1 208 19 14 27 13 47 -6 65 -23 24 -385 24 -408 0z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="First Search, loading index file... please wait"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/Gallery"><i class="fas fa-camera"></i> Gallery</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 3 Azure Services</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2025-04-12T23:10:28.000Z">2025-04-12</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Azure/">Azure</span><span class="words" href="/categories/Azure/AZ-900/">AZ-900</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/Azure/">Azure  </span><span class="words" href="/tags/AZ-900-Cert/">AZ-900 Cert  </span><span class="words" href="/tags/Azure-Services/">Azure Services  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">55 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">8.9k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>150</strong><span> days ago. The content of the article may be out of date.</span></div><p>This note covers the compute, networking, and storage services sections of the AZ-900 exam. It includes key Azure services such as virtual machines, virtual networks, and storage accounts, along with modern tools like Azure Functions and Azure OpenAI. These sections account for about <strong>35–40%</strong> of the exam and provide a solid understanding of Azure’s core service offerings.</p>
+<span id="more"></span>
+
+<h2 id="Compute-Services"><a href="#Compute-Services" class="headerlink" title="Compute Services"></a>Compute Services</h2><h3 id="Virtual-Machine"><a href="#Virtual-Machine" class="headerlink" title="Virtual Machine"></a><strong>Virtual Machine</strong></h3><p>A <strong>Virtual Machine (VM)</strong> is a software-based emulation of a physical computer. It has:</p>
+<ul>
+<li>Its own virtual CPU, memory, disk, and network interface.</li>
+<li>An operating system installed (Windows, Linux, etc.).</li>
+<li>The ability to run applications independently.</li>
+</ul>
+<p><strong>Difference from a Physical Computer</strong></p>
+<ul>
+<li>In a <strong>physical system</strong>, all apps share one OS—if one crashes, the whole system might go down.</li>
+<li>In a <strong>virtualized system</strong>, each VM is isolated. A crash or misconfiguration in one VM <strong>doesn’t affect others</strong> or the host machine.</li>
+</ul>
+<p><strong>Why It Matters</strong></p>
+<ul>
+<li><strong>Isolation</strong>: Every VM runs in its own sandbox.</li>
+<li><strong>Multi-tenancy</strong>: Many users or companies can safely use the same physical hardware.</li>
+<li><strong>Flexibility</strong>: You can choose your OS, install software, configure settings freely.</li>
+</ul>
+<p><strong>How Azure Manages VMs</strong></p>
+<ul>
+<li>Azure provides the <strong>infrastructure</strong>: virtual hardware, storage, networking.</li>
+<li>You manage the <strong>OS and applications</strong>.</li>
+<li>This makes Azure VMs part of <strong>Infrastructure as a Service (IaaS)</strong>.</li>
+</ul>
+<p><strong>Creating a VM in Azure: Key Steps</strong></p>
+<p>When creating a VM, you choose:</p>
+<ul>
+<li><strong>Subscription</strong>: Which Azure plan to charge.</li>
+<li><strong>Resource Group</strong>: A logical container for your VM and related resources.</li>
+<li><strong>Region</strong>: Where in the world to host your VM.</li>
+<li><strong>Size</strong>: CPU, RAM specs (e.g., 2 vCPU, 8 GB RAM).</li>
+<li><strong>OS</strong>: Windows Server, Linux, etc.</li>
+<li><strong>Authentication</strong>: Set a username and password or integrate with Azure AD.</li>
+<li><strong>Inbound Ports</strong>: For example, open port 3389 for RDP remote access.</li>
+</ul>
+<h4 id="VM-Access-and-Use"><a href="#VM-Access-and-Use" class="headerlink" title="VM Access and Use"></a><strong>VM Access and Use</strong></h4><h5 id="Connecting-to-a-Windows-VM-using-RDP"><a href="#Connecting-to-a-Windows-VM-using-RDP" class="headerlink" title="Connecting to a Windows VM using RDP"></a><strong>Connecting to a Windows VM using RDP</strong></h5><p><strong>RDP (Remote Desktop Protocol)</strong> allows you to interact with your Windows VM just like a local computer with a graphical interface</p>
+<ol>
+<li><strong>Open the Azure Portal</strong> and go to your Virtual Machine’s <strong>Overview page</strong>.</li>
+<li>Click the <strong>“Connect”</strong> button at the top menu.</li>
+<li>Select <strong>“RDP”</strong> from the available connection options.</li>
+<li>In the <strong>“Connect with RDP”</strong> panel:<ul>
+<li>You will see the <strong>public IP address</strong> of your VM.</li>
+<li>Option to download the <strong>.rdp file</strong> will appear — click <strong>“Download RDP File”</strong>.</li>
+</ul>
+</li>
+<li>Once downloaded, <strong>double-click</strong> the <code>.rdp</code> file.</li>
+<li>You will be prompted to enter the <strong>username and password</strong> that you configured while creating the VM.</li>
+<li>You might see a warning about certificates — it’s safe to <strong>proceed</strong> if you’re connecting to your own VM.</li>
+<li>After successful login, you’ll see the <strong>Windows desktop environment</strong> of your VM.</li>
+</ol>
+<blockquote>
+<p> In production environments, it’s a best practice to <strong>disable RDP</strong> or restrict it to specific IP addresses to reduce attack surface.</p>
+</blockquote>
+<h5 id="Connecting-to-a-Linux-VM-using-SSH"><a href="#Connecting-to-a-Linux-VM-using-SSH" class="headerlink" title="Connecting to a Linux VM using SSH"></a><strong>Connecting to a Linux VM using SSH</strong></h5><p><strong>SSH (Secure Shell)</strong> is a secure command-line connection method for Linux virtual machines.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>A <strong>public SSH key</strong> must have been added during VM creation.</li>
+<li>Or, a <strong>username&#x2F;password</strong> combination for password-based login.</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><p>Go to your <strong>VM Overview page</strong> in the Azure Portal.</p>
+</li>
+<li><p>Click <strong>“Connect”</strong> → Select <strong>“SSH”</strong>.</p>
+</li>
+<li><p>You’ll see an <strong>SSH command</strong> similar to this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh azureuser@&lt;PublicIP&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Open a terminal on your local machine (Linux, macOS, or Windows with WSL&#x2F;Git Bash).</p>
+</li>
+<li><p>Run the SSH command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i /path/to/your/private-key.pem azureuser@&lt;PublicIP&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Replace <code>/path/to/your/private-key.pem</code> with the actual path to your SSH private key.</li>
+<li>Replace <code>azureuser</code> with your actual username.</li>
+</ul>
+</li>
+<li><p>If prompted, type <code>yes</code> to continue the connection the first time.</p>
+</li>
+<li><p>You’ll now be inside your Linux VM’s command line interface.</p>
+</li>
+</ol>
+<p><strong>VM Use Cases</strong></p>
+<ul>
+<li>Development&#x2F;test environments</li>
+<li>Running legacy apps</li>
+<li>Hosting small websites</li>
+<li>Extending on-prem systems to the cloud (hybrid cloud)</li>
+</ul>
+<h3 id="Virtual-Machine-Availability-Sets"><a href="#Virtual-Machine-Availability-Sets" class="headerlink" title="Virtual Machine Availability Sets"></a>Virtual Machine Availability Sets</h3><p><strong>Availability Sets</strong> in Azure are used to improve the <strong>high availability</strong> of applications by preventing a single point of failure. This is especially important for enterprise applications that require more than one virtual machine (VM) instance to support user requests.</p>
+<p><strong>The Problem Without Availability Sets:</strong></p>
+<p>If all VMs in an application are placed on a <strong>single server rack</strong>, they share the same <strong>power and networking switches</strong>. If any of these switches fail, all VMs on that rack could go down, affecting the availability of your application. <strong>Availability Sets</strong> help prevent this scenario by spreading VMs across multiple <strong>server racks</strong>, each with its own power and networking switches.</p>
+<h4 id="Fault-Domains-and-Update-Domains"><a href="#Fault-Domains-and-Update-Domains" class="headerlink" title="Fault Domains and Update Domains"></a><strong>Fault Domains and Update Domains</strong></h4><p><strong>Fault Domains (FD):</strong></p>
+<ul>
+<li><strong>Fault Domains</strong> represent groups of VMs that share a <strong>common power</strong> and <strong>networking switch</strong>.</li>
+<li>In the event of a failure of a switch (power or networking), only the VMs within the same fault domain are impacted.</li>
+<li>VMs in an availability set are <strong>spread across different fault domains</strong> to ensure that not all VMs are affected by a failure at the same time.</li>
+</ul>
+<p><strong>Update Domains (UD):</strong></p>
+<ul>
+<li><strong>Update Domains</strong> are used during maintenance and updates. When Azure needs to perform maintenance (e.g., update the underlying hardware or reboot VMs), it does so in <strong>stages</strong> to avoid bringing down all VMs at once.</li>
+<li>VMs within the same <strong>update domain</strong> will undergo maintenance together (e.g., rebooting).</li>
+<li>The more <strong>update domains</strong> you have, the fewer VMs will be affected at once during maintenance.</li>
+</ul>
+<p><strong>How Fault Domains and Update Domains Work Together</strong></p>
+<p>Let’s look at an example with <strong>9 VMs</strong>, where we use <strong>3 fault domains</strong> and <strong>5 update domains</strong>.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505091752735.png"></p>
+<p>Only one Update domain go down for maintenance. In this case, at most 2 VM go down for maintenance, and we will always have at least one available.</p>
+<h4 id="Benefits-of-Availability-Sets"><a href="#Benefits-of-Availability-Sets" class="headerlink" title="Benefits of Availability Sets"></a><strong>Benefits of Availability Sets</strong></h4><ol>
+<li><strong>Higher Availability:</strong><ul>
+<li>VMs are spread across <strong>multiple fault domains</strong> and <strong>update domains</strong>, ensuring that if a failure happens in one domain, the others remain unaffected.</li>
+<li>Even if one rack fails or one update cycle causes downtime, the rest of your VMs remain available to serve the application.</li>
+</ul>
+</li>
+<li><strong>Reduced Maintenance Impact:</strong><ul>
+<li>By spreading out VMs into <strong>update domains</strong>, Azure ensures that only a <strong>small subset</strong> of VMs is impacted by maintenance, ensuring better uptime.</li>
+</ul>
+</li>
+<li><strong>Cost-Free Feature:</strong><ul>
+<li>The <strong>availability set</strong> itself does not have a direct cost. You only pay for the VMs, not for the arrangement of the VMs in fault or update domains.</li>
+</ul>
+</li>
+<li><strong>Predictable Workloads:</strong><ul>
+<li>This setup is ideal for <strong>predictable workloads</strong> with steady demand. For applications that need high availability and cannot afford downtime, availability sets are critical.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Virtual-Machine-Scale-Set-VMSS"><a href="#Virtual-Machine-Scale-Set-VMSS" class="headerlink" title="Virtual Machine Scale Set (VMSS)"></a>Virtual Machine Scale Set (VMSS)</h3><p>A <strong>VM scale set</strong> is an Azure compute resource that lets you:</p>
+<ul>
+<li>Automatically deploy and manage <strong>a group of identical or similar VMs</strong>.</li>
+<li>Automatically scale the number of VMs <strong>up (scale out)</strong> or <strong>down (scale in)</strong> based on demand (CPU, memory, network, etc.).</li>
+<li>Achieve <strong>high availability</strong> and <strong>high scalability</strong>.</li>
+</ul>
+<p><strong>How is it different from an Availability Set?</strong></p>
+<ul>
+<li><strong>Availability Set</strong>: Ensures your VMs are distributed across <strong>fault domains</strong> and <strong>update domains</strong> to protect against hardware failures and maintenance events.</li>
+<li><strong>Scale Set</strong>: <strong>Includes</strong> those benefits (built on availability sets), but adds <strong>scaling capabilities</strong> for handling <strong>fluctuating workloads</strong>.</li>
+</ul>
+<h4 id="Key-Concepts-in-VMSS"><a href="#Key-Concepts-in-VMSS" class="headerlink" title="Key Concepts in VMSS:"></a><strong>Key Concepts in VMSS:</strong></h4><ol>
+<li><strong>Configuration Model</strong> containsx	:</li>
+</ol>
+<ul>
+<li>OS image</li>
+<li>VM size (e.g., Standard B2s)</li>
+<li>Network settings</li>
+<li>Installed applications</li>
+</ul>
+<p>Azure uses this as a <strong>template</strong> to deploy new VMs. </p>
+<ol start="2">
+<li><strong>Orchestration Modes</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description (When to choose)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Uniform</strong></td>
+<td>All VMs are identical. Good for simple scenarios (e.g., web servers).</td>
+</tr>
+<tr>
+<td><strong>Flexible</strong></td>
+<td>VMs can be different (e.g., mix of Windows&#x2F;Linux or different configurations).</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li><strong>Initial VM Count</strong></li>
+</ol>
+<p>You start with a set number (e.g., 5 VMs).</p>
+<ol start="4">
+<li><strong>Scaling Options</strong></li>
+</ol>
+<ul>
+<li><strong>Manual Scaling</strong>: You decide when to add&#x2F;remove instances.</li>
+<li><strong>Auto Scaling</strong>: Based on metrics like:<ul>
+<li>CPU usage</li>
+<li>Memory usage</li>
+<li>Network traffic</li>
+<li>Disk IO</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li><strong>Scale-In Policy</strong></li>
+</ol>
+<p>When load decreases, VMs are removed. You decide whether:</p>
+<ul>
+<li><strong>Newest VMs</strong> are deleted first</li>
+<li><strong>Oldest VMs</strong> are deleted first</li>
+</ul>
+<ol start="6">
+<li><strong>Cost</strong></li>
+</ol>
+<p>You <strong>only pay</strong> for the number of VM instances running. The orchestration&#x2F;configuration setup itself has <strong>no cost</strong>.</p>
+<h4 id="Example-Use-Case"><a href="#Example-Use-Case" class="headerlink" title="Example Use Case"></a>Example Use Case</h4><ol>
+<li><strong>You define a scaling rule</strong></li>
+</ol>
+<p>You set a condition in the VMSS settings, for example:</p>
+<blockquote>
+<p>“If average CPU usage exceeds 70% for 10 minutes, add 2 more VMs.”</p>
+</blockquote>
+<p>You also set:</p>
+<ul>
+<li>Minimum and maximum number of VMs (e.g., min: 2, max: 10)</li>
+<li>Cool-down period (e.g., 5 minutes between scaling actions)</li>
+</ul>
+<ol start="2">
+<li><strong>Azure Monitor watches your VMs</strong></li>
+</ol>
+<p>Azure continuously monitors performance metrics:</p>
+<ul>
+<li>CPU usage</li>
+<li>Memory usage</li>
+<li>Network in&#x2F;out</li>
+<li>Custom metrics (if you define them)</li>
+</ul>
+<ol start="3">
+<li><strong>Threshold is triggered</strong></li>
+</ol>
+<p>If your app gets busy (e.g., more users &#x3D; more CPU), and the defined threshold is breached (e.g., CPU &gt; 70% for 10 mins), <strong>Azure triggers scale-out</strong>.</p>
+<ol start="4">
+<li><strong>Azure uses your configuration model</strong></li>
+</ol>
+<p>Azure launches <strong>new VM instances</strong> using the template you originally defined:</p>
+<ul>
+<li>Same OS image</li>
+<li>Same app setup</li>
+<li>Same network settings</li>
+<li>Same load balancer integration</li>
+</ul>
+<p>These VMs are:</p>
+<ul>
+<li>Placed across <strong>fault and update domains</strong> (for high availability)</li>
+<li><strong>Added to the backend pool</strong> of your Azure Load Balancer (so they start handling traffic)</li>
+</ul>
+<ol start="5">
+<li><strong>New VMs boot up and join the group</strong></li>
+</ol>
+<p>Within minutes, the new VMs are:</p>
+<ul>
+<li>Running</li>
+<li>Serving traffic</li>
+<li>Monitored just like the existing ones</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Let’s say you have a web app under heavy load.</p>
+<p>If the CPU spikes:</p>
+<ol>
+<li>Azure waits 10 minutes (as defined).</li>
+<li>It sees 80% CPU usage consistently.</li>
+<li>Triggers scale-out: launches 2 more identical VMs.</li>
+<li>Load balancer starts routing traffic to the new VMs.</li>
+</ol>
+<p>Result: Your app remains responsive without downtime.</p>
+<h3 id="Azure-Virtual-Desktop-AVD"><a href="#Azure-Virtual-Desktop-AVD" class="headerlink" title="Azure Virtual Desktop (AVD)"></a>Azure Virtual Desktop (AVD)</h3><p>Azure Virtual Desktop (AVD) is a cloud-based service that provides employees with access to virtual desktops and applications hosted in Azure. Instead of relying on local machines, users connect to virtual machines (VMs) in the cloud, ensuring centralized management and enhanced security.</p>
+<p><strong>Key Benefits</strong></p>
+<ul>
+<li><strong>Centralized Storage and Management</strong>: Apps and data are stored on VMs in Azure, not on local devices.</li>
+<li><strong>Device Flexibility</strong>: Users can connect from Windows, macOS, iOS, or Android devices.</li>
+<li><strong>Enhanced Security</strong>: Data remains in Azure even if a device is lost or stolen.</li>
+<li><strong>Cost Efficiency</strong>: Reduces the need for high-spec personal devices and Windows licenses.</li>
+</ul>
+<p><strong>Deployment Options</strong></p>
+<ul>
+<li><strong>Single-Session</strong>: One user per VM (dedicated desktops).</li>
+<li><strong>Multi-Session</strong>: Multiple users share one VM (cost-saving shared desktops), with isolated user profiles.</li>
+</ul>
+<p><strong>Components</strong></p>
+<ol>
+<li><strong>Host Pools</strong></li>
+</ol>
+<ul>
+<li>A <strong>host pool</strong> is a collection of virtual machines in Azure used to deliver desktops or apps to users.</li>
+<li>Each host pool is associated with:<ul>
+<li>A <strong>session type</strong> (single-session or multi-session)</li>
+<li>A VM configuration (size, OS image, etc.)</li>
+<li>User assignment settings</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>Session Types</strong></li>
+</ol>
+<ul>
+<li><strong>Single-session</strong>: One user per VM (like a personal desktop).</li>
+<li><strong>Multi-session</strong>: Multiple users share one VM, with isolated profiles (more cost-efficient).</li>
+</ul>
+<ol start="3">
+<li><strong>User Profiles</strong></li>
+</ol>
+<ul>
+<li>Each user’s data is separated into a <strong>user profile</strong>.</li>
+<li>Even in multi-session setups, users cannot access others’ data.</li>
+</ul>
+<ol start="4">
+<li><strong>Remote Apps</strong></li>
+</ol>
+<ul>
+<li>Instead of providing a full desktop, AVD can stream individual applications (e.g., Excel, Outlook) to the user’s device.</li>
+<li>Think of it as <strong>app streaming</strong> similar to streaming movies, but for software.</li>
+</ul>
+<p><strong>Integration and Access</strong></p>
+<ul>
+<li>Supports Azure AD, MFA, conditional access, and OneDrive integration.</li>
+<li>Enables streaming of apps and desktops without requiring high local hardware specs.</li>
+</ul>
+<p><strong>Costs</strong></p>
+<ul>
+<li>There is <strong>no charge for using the AVD infrastructure</strong> (host pools, configurations).</li>
+<li>You only pay for:<ul>
+<li><strong>Virtual Machines</strong> (compute costs)</li>
+<li><strong>Storage</strong> (user profiles, OS disks, etc.)</li>
+<li><strong>Software licenses</strong> (Windows or Microsoft 365 apps, depending on your agreement)</li>
+</ul>
+</li>
+</ul>
+<p> <strong>Scalability &amp; Flexibility</strong></p>
+<ul>
+<li>Organizations can <strong>scale up&#x2F;down</strong> VM instances based on:<ul>
+<li>Workload requirements</li>
+<li>Time of day</li>
+<li>Number of active users</li>
+</ul>
+</li>
+<li>AVD supports <strong>automation and auto-scaling</strong> to reduce costs and optimize performance.</li>
+</ul>
+<h3 id="Azure-App-Service"><a href="#Azure-App-Service" class="headerlink" title="Azure App Service"></a>Azure App Service</h3><p><strong>Azure App Service</strong> is a <strong>Platform as a Service (PaaS)</strong> offering that enables users to host <strong>web apps</strong>, <strong>mobile backends</strong>, and <strong>REST APIs</strong> without managing underlying infrastructure.</p>
+<p><strong>How It Differs from Virtual Machines (IaaS)</strong></p>
+<ul>
+<li>In <strong>Infrastructure as a Service (IaaS)</strong> (like with Azure Virtual Machines), the <strong>cloud provider</strong> manages the <strong>hardware</strong>, but the <strong>customer</strong> manages the <strong>OS</strong>, <strong>frameworks</strong>, and <strong>application</strong>.</li>
+<li>In <strong>App Service (PaaS)</strong>, Azure manages <strong>hardware</strong>, <strong>OS</strong>, and <strong>runtime&#x2F;frameworks</strong>. The <strong>customer</strong> only manages the <strong>application code</strong>.</li>
+<li>This shifts operational burden from the user to Microsoft, increasing efficiency and ease of deployment.</li>
+</ul>
+<p><strong>Key Features</strong></p>
+<ul>
+<li><strong>Supports multiple languages</strong>: ASP.NET, Java, Ruby, Node.js, PHP, Python, and more.</li>
+<li><strong>Flexible development tools</strong>: Compatible with Visual Studio and other standard tools.</li>
+<li><strong>Cross-platform hosting</strong>: Azure recommends Windows or Linux runtime based on your app’s language.</li>
+<li><strong>Integrated authentication</strong>: Easily link to Azure AD, Microsoft accounts, or social logins (e.g., Google, Facebook) without writing custom auth modules.</li>
+<li><strong>Automatic scalability</strong>: Cloud-native features like <strong>scaling</strong>, <strong>high availability</strong>, and <strong>geo-distribution</strong> are built-in, unlike traditional web hosting.</li>
+</ul>
+<p><strong>Use Cases</strong></p>
+<ul>
+<li>Hosting full web applications (frontend and backend)</li>
+<li>Serving mobile app backends</li>
+<li>Providing RESTful APIs for services and apps</li>
+</ul>
+<p> <strong>Deployment Process Example</strong></p>
+<ol>
+<li>Go to Azure Portal and choose <strong>App Services</strong>.</li>
+<li>Click <strong>Create App Service</strong>.</li>
+<li>Choose:<ul>
+<li><strong>Subscription &amp; Resource Group</strong></li>
+<li><strong>App Name</strong> (e.g., <code>az900-as1</code>)</li>
+<li><strong>Publish Type</strong>: Code (default)</li>
+<li><strong>Runtime Stack</strong>: e.g., .NET 7</li>
+<li><strong>OS</strong>: Auto-selected (Windows or Linux)</li>
+<li><strong>Region</strong>: E.g., South US</li>
+<li><strong>Pricing Plan</strong>: Default for test environments</li>
+</ul>
+</li>
+<li>Click <strong>Review + Create</strong> and deploy.</li>
+<li>Access your app via the provided <strong>URL</strong>. If no code is uploaded yet, you’ll see a <strong>default placeholder page</strong>.</li>
+</ol>
+<p><strong>Benefits over Traditional Web Hosting</strong></p>
+<ul>
+<li>App Service is cloud-native, offering:<ul>
+<li><strong>Elastic scaling</strong></li>
+<li><strong>Managed security</strong></li>
+<li><strong>Seamless integration with other Azure services</strong></li>
+<li><strong>Simplified deployment</strong></li>
+</ul>
+</li>
+<li>Traditional hosting lacks these features and often requires manual configuration and maintenance.</li>
+</ul>
+<h3 id="Azure-Container-Instances"><a href="#Azure-Container-Instances" class="headerlink" title="Azure Container Instances"></a>Azure Container Instances</h3><p><strong>Azure Container Instances (ACI)</strong> is a <strong>Platform as a Service (PaaS)</strong> offering that enables lightweight, fast, and isolated container-based application deployment without managing virtual machines or container orchestration infrastructure.</p>
+<p> <strong>Understanding the Evolution</strong></p>
+<ul>
+<li><strong>Virtual Machines (VMs)</strong> are part of <strong>Infrastructure as a Service (IaaS)</strong> and include a <strong>full OS for each app</strong>, making them <strong>heavy</strong> (~20GB per instance).</li>
+<li><strong>App Service</strong> is a <strong>PaaS</strong> solution for web apps and APIs but is still best suited for more traditional apps.</li>
+<li><strong>Container Instances</strong> strip away the full OS and package apps with only their <strong>dependencies</strong> (runtime, libraries) into <strong>containers</strong>, making them <strong>lightweight and faster to start</strong>.</li>
+</ul>
+<p><strong>How Containers Work</strong></p>
+<ul>
+<li>A <strong>single OS instance</strong> is shared using a <strong>containerization engine</strong> (like Docker).</li>
+<li><strong>Multiple containers</strong> run on this engine, each pretending to have its own OS (thanks to <strong>OS-level virtualization</strong>).</li>
+<li>These containers form a <strong>container group</strong> if they run on the same engine, sharing <strong>resources</strong> and <strong>lifecycle</strong>.</li>
+</ul>
+<p><strong>Key Features of ACI</strong></p>
+<ul>
+<li>Azure provisions the <strong>OS and container engine</strong>, while the <strong>user controls the containers</strong>.</li>
+<li>This makes ACI a <strong>PaaS solution</strong>.</li>
+<li>Supports both <strong>Linux</strong> and <strong>Windows containers</strong>, depending on your application needs.</li>
+<li>Does <strong>not include its own virtual hard disk</strong> – for <strong>persistent storage</strong>, you must integrate with <strong>Azure Storage</strong>.</li>
+</ul>
+<p> <strong>Use Case: Microservices</strong></p>
+<ul>
+<li>Containers are ideal for <strong>microservices architecture</strong>, where applications are broken into small, manageable, and independently deployable services.</li>
+<li>This contrasts with <strong>monolithic architectures</strong>, where everything is bundled into one large application.</li>
+</ul>
+<p> <strong>Caution</strong></p>
+<ul>
+<li>While containers and orchestration (like Kubernetes) are <strong>trending</strong>, use them only if your scenario truly requires it.</li>
+<li>ACI is a good entry point if you need <strong>quick, standalone containers without orchestration overhead</strong>.</li>
+</ul>
+<p><strong>Comparison to Other Azure Services</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>VM (IaaS)</th>
+<th>App Service (PaaS)</th>
+<th>Container Instances (PaaS)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OS Managed By</td>
+<td>Customer</td>
+<td>Microsoft</td>
+<td>Microsoft</td>
+</tr>
+<tr>
+<td>App Code Managed By</td>
+<td>Customer</td>
+<td>Customer</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td>Startup Time</td>
+<td>Slow</td>
+<td>Fast</td>
+<td>Very Fast</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Full control needed</td>
+<td>Web &amp; API hosting</td>
+<td>Microservices, fast deployments</td>
+</tr>
+<tr>
+<td>Resource Usage</td>
+<td>Heavy</td>
+<td>Medium</td>
+<td>Lightweight</td>
+</tr>
+</tbody></table>
+<h3 id="Azure-Functions"><a href="#Azure-Functions" class="headerlink" title="Azure Functions"></a>Azure Functions</h3><p><strong>Azure Functions</strong> is a <strong>Platform as a Service (PaaS)</strong> offering that provides <strong>serverless compute</strong>—a model where small blocks of code are executed <strong>on-demand</strong>, and you only pay for the <strong>actual computation time</strong>, not idle time.</p>
+<p> <strong>What Sets Azure Functions Apart</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Virtual Machines (VMs)</th>
+<th>Container Instances</th>
+<th>Azure Functions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Always-on resources</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Pay for idle time</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No (only during execution)</td>
+</tr>
+<tr>
+<td>Provisioned in advance</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No (on-demand)</td>
+</tr>
+<tr>
+<td>Control over infrastructure</td>
+<td>High</td>
+<td>Medium</td>
+<td>Low (fully managed)</td>
+</tr>
+<tr>
+<td>Ideal for</td>
+<td>Long-running workloads</td>
+<td>Microservices</td>
+<td>Event-driven or burst workloads</td>
+</tr>
+</tbody></table>
+<p> <strong>How Azure Functions Work</strong></p>
+<ul>
+<li>Code is broken into <strong>small blocks</strong> (functions).</li>
+<li>Each function is triggered <strong>on-demand</strong> (via a <strong>trigger</strong>, e.g. timer, event, HTTP call).</li>
+<li>At trigger time:<ul>
+<li>Dependencies, compute resources, and CPU are <strong>assigned dynamically</strong>.</li>
+<li>Once execution ends, resources are <strong>released immediately</strong>.</li>
+</ul>
+</li>
+<li>You only pay for the <strong>actual execution time</strong>, making it <strong>very cost-efficient</strong>.</li>
+</ul>
+<p> <strong>Why It’s Called Serverless</strong></p>
+<ul>
+<li>There <strong>is</strong> a server running in the background.</li>
+<li>But <strong>you don’t manage</strong> it—no need to start&#x2F;stop VMs or containers.</li>
+<li>This <strong>abstracts the infrastructure</strong>, allowing you to focus purely on your code.</li>
+</ul>
+<p> <strong>Development Support</strong></p>
+<ul>
+<li>Supports <strong>multiple programming languages</strong>:<br> <code>C#</code>, <code>Java</code>, <code>JavaScript</code>, <code>PowerShell</code>, <code>Python</code>, and more.</li>
+<li>You can choose either a <strong>Windows</strong> or <strong>Linux</strong> runtime stack for your functions.</li>
+</ul>
+<p><strong>Function Triggers</strong></p>
+<p>Azure Functions run <strong>based on triggers</strong>, such as:</p>
+<ul>
+<li><strong>Timer-based</strong> (e.g., every 5 minutes)</li>
+<li><strong>Event-based</strong> (e.g., file uploaded to Blob storage)</li>
+<li><strong>HTTP-based</strong> (e.g., API endpoint call)</li>
+<li><strong>Queue-based</strong>, etc.</li>
+</ul>
+<p> <strong>Use Case: Nano Services Architecture</strong></p>
+<ul>
+<li>Functions fit well into a <strong>nano services</strong> approach—very small, focused, isolated tasks.</li>
+<li>They are excellent for <strong>event-driven processing</strong>, <strong>real-time data pipelines</strong>, <strong>APIs</strong>, <strong>automation</strong>, and more.</li>
+</ul>
+<h4 id="How-Azure-Functions-Work-–-Step-by-Step"><a href="#How-Azure-Functions-Work-–-Step-by-Step" class="headerlink" title="How Azure Functions Work – Step-by-Step"></a><strong>How Azure Functions Work – Step-by-Step</strong></h4><ol>
+<li><strong>You write the function</strong></li>
+</ol>
+<ul>
+<li><p>A function is just a piece of code that performs one task.</p>
+</li>
+<li><p>Example (in Python):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">req: func.HttpRequest</span>) -&gt; func.HttpResponse:</span><br><span class="line">    name = req.params.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> func.HttpResponse(<span class="string">f&quot;Hello <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><strong>You define the trigger</strong></li>
+</ol>
+<ul>
+<li>Every function needs a <strong>trigger</strong> to run.</li>
+<li>Triggers could be:<ul>
+<li>HTTP request (like a mini web API)</li>
+<li>Timer (like a cron job)</li>
+<li>Blob storage event</li>
+<li>Message queue</li>
+<li>Event Grid &#x2F; Service Bus</li>
+</ul>
+</li>
+<li>You define this in a <code>function.json</code> or via a code annotation (depends on the language).</li>
+</ul>
+<ol start="3">
+<li><strong>You deploy it (or run locally)</strong></li>
+</ol>
+<ul>
+<li>You can <strong>run the function locally</strong> using the Azure Functions Core Tools.</li>
+<li>Or you can <strong>deploy</strong> it to Azure via:<ul>
+<li>Azure CLI</li>
+<li>GitHub Actions</li>
+<li>Azure Portal (manual)</li>
+<li>VS Code or Visual Studio</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Azure handles the rest (Serverless part)</strong></li>
+</ol>
+<p>When your function is triggered:</p>
+<ul>
+<li>Azure spins up just enough compute <strong>at runtime</strong> to run your function.</li>
+<li>Installs any required dependencies (if needed).</li>
+<li>Runs the function.</li>
+<li>Cleans up right after execution.</li>
+</ul>
+<p>You are <strong>billed only</strong> for:</p>
+<ul>
+<li>Execution time (in milliseconds)</li>
+<li>Memory used</li>
+</ul>
+<h4 id="Typical-Azure-Function-Project-Structure-Python-example"><a href="#Typical-Azure-Function-Project-Structure-Python-example" class="headerlink" title="Typical Azure Function Project Structure (Python example)"></a><strong>Typical Azure Function Project Structure (Python example)</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MyFunctionApp/</span><br><span class="line">│</span><br><span class="line">├── MyHttpTrigger/               # One function</span><br><span class="line">│   ├── __init__.py              # The actual function code</span><br><span class="line">│   └── function.json            # Trigger + bindings config</span><br><span class="line">│</span><br><span class="line">├── requirements.txt             # Dependencies</span><br><span class="line">└── host.json                    # Global settings</span><br></pre></td></tr></table></figure>
+
+<h4 id="Example-Workflow-HTTP-triggered-function"><a href="#Example-Workflow-HTTP-triggered-function" class="headerlink" title="Example Workflow: HTTP-triggered function"></a><strong>Example Workflow: HTTP-triggered function</strong></h4><ol>
+<li>User sends HTTP GET to <code>https://&lt;your-function&gt;.azurewebsites.net/api/hello?name=yao</code></li>
+<li>Azure sees this matches a trigger</li>
+<li>Azure:<ul>
+<li>Allocates compute</li>
+<li>Runs your <code>main()</code> code</li>
+<li>Sends back “Hello yao”</li>
+</ul>
+</li>
+<li>Resources are freed</li>
+</ol>
+<h3 id="Azure-OpenAI"><a href="#Azure-OpenAI" class="headerlink" title="Azure OpenAI"></a>Azure OpenAI</h3><p>Azure OpenAI is a <strong>cloud-based platform</strong> that provides <strong>secure, private, and scalable</strong> access to OpenAI’s powerful models like:</p>
+<ul>
+<li><strong>GPT-3.5 &#x2F; GPT-4</strong> → Natural language understanding &amp; generation</li>
+<li><strong>Codex</strong> → Code generation &amp; AI-assisted development</li>
+<li><strong>DALL·E</strong> → Image generation from text prompts</li>
+<li><strong>Whisper</strong> → Speech-to-text &#x2F; translation</li>
+</ul>
+<p><strong>Why Use Azure OpenAI Instead of ChatGPT?</strong></p>
+<table>
+<thead>
+<tr>
+<th>ChatGPT (browser)</th>
+<th>Azure OpenAI (via Azure)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Public interface</td>
+<td>Enterprise-grade private interface</td>
+</tr>
+<tr>
+<td>User inputs may be used for training</td>
+<td>Data is <strong>not</strong> used for training</td>
+</tr>
+<tr>
+<td>No fine control over identity&#x2F;access</td>
+<td>Integrated with <strong>Microsoft Entra ID</strong> (Azure AD)</td>
+</tr>
+<tr>
+<td>Limited integration options</td>
+<td>Seamless integration with apps, REST APIs, SDKs</td>
+</tr>
+<tr>
+<td>Less control over resource management</td>
+<td>Use the <strong>Azure Portal</strong>, monitor, log, scale as needed</td>
+</tr>
+</tbody></table>
+<p><strong>How It Works Technically</strong></p>
+<ol>
+<li><strong>You create a resource in Azure</strong></li>
+</ol>
+<ul>
+<li>Set up an Azure OpenAI resource from the Azure Portal.</li>
+<li>Choose models to deploy (e.g. GPT-4).</li>
+</ul>
+<ol start="2">
+<li><strong>You interact via API &#x2F; SDK</strong></li>
+</ol>
+<ul>
+<li>Send <strong>prompts</strong> using:<ul>
+<li>REST API</li>
+<li>Python SDK (<code>openai</code> with Azure credentials)</li>
+<li>Azure OpenAI Studio (GUI for testing)</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>You manage access securely</strong></li>
+</ol>
+<ul>
+<li>Use <strong>Azure Identity (Microsoft Entra ID)</strong> to control who can use it.</li>
+<li>Protect sensitive data and comply with company security policies.</li>
+</ul>
+<p><strong>How You Use It in an App</strong></p>
+<p>Example workflow:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Your App (Python backend) </span><br><span class="line">   ↓</span><br><span class="line">Azure OpenAI REST API</span><br><span class="line">   ↓</span><br><span class="line">GPT-4 generates a response (e.g., summarize a document)</span><br><span class="line">   ↓</span><br><span class="line">Your App renders response to user</span><br></pre></td></tr></table></figure>
+
+<p><strong>Common Use Cases</strong></p>
+<ul>
+<li>Internal enterprise chatbot</li>
+<li>Customer service automation</li>
+<li>Code generation or review tools (via Codex)</li>
+<li>Document summarization or Q&amp;A systems</li>
+<li>Speech-to-text or transcription tools (via Whisper)</li>
+</ul>
+<h2 id="Networking-Services"><a href="#Networking-Services" class="headerlink" title="Networking Services"></a>Networking Services</h2><h3 id="Azure-Virtual-Network-VNet"><a href="#Azure-Virtual-Network-VNet" class="headerlink" title="Azure Virtual Network (VNet)"></a>Azure Virtual Network (VNet)</h3><p>An <strong>Azure VNet</strong> is like a virtual version of a traditional on-prem network. It lets your Azure resources <strong>communicate securely with each other</strong>, with the internet, or with your on-premises environment.</p>
+<p> <strong>Underlying Infrastructure</strong></p>
+<p>Though you don’t see it, Azure runs physical <strong>routers, switches, and hubs</strong> in its data centers. These are virtualized and abstracted to you through:</p>
+<ul>
+<li><strong>Software-defined networking (SDN)</strong>: Azure uses SDN to isolate, route, and manage network traffic in the cloud.</li>
+<li><strong>Hypervisor-level isolation</strong>: Each tenant (user&#x2F;customer) has logically isolated networking — your VNet is yours alone, even though you’re sharing the physical hardware.</li>
+</ul>
+<p><strong>VNet Components</strong></p>
+<p>When you create a VNet, you’re defining a few things:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Address Space</strong></td>
+<td>A private IP address range using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>, like <code>10.1.0.0/16</code>.</td>
+</tr>
+<tr>
+<td><strong>Subnets</strong></td>
+<td>Logical divisions inside a VNet. Resources live inside subnets.</td>
+</tr>
+<tr>
+<td><strong>Network Interface (NIC)</strong></td>
+<td>Every VM has a NIC that’s assigned a private IP from a subnet.</td>
+</tr>
+<tr>
+<td><strong>NSGs (Network Security Groups)</strong></td>
+<td>Act as firewalls for subnets or NICs; define inbound&#x2F;outbound rules.</td>
+</tr>
+<tr>
+<td><strong>Route Tables</strong></td>
+<td>Optional custom route controls; by default, Azure auto-routes within a VNet.</td>
+</tr>
+<tr>
+<td><strong>Service Endpoints &#x2F; Private Endpoints</strong></td>
+<td>Allow access to PaaS services over the VNet — securely, without going over public internet.</td>
+</tr>
+</tbody></table>
+<p><strong>Key Features &amp; Concepts</strong></p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>VNet &#x3D; Logical Network Boundary</strong></td>
+<td>Each VNet is isolated from others by default (multi-tenant design).</td>
+</tr>
+<tr>
+<td><strong>Private IP Ranges</strong></td>
+<td>You define an IP address space (e.g., <code>10.0.0.0/16</code>) when creating a VNet. Each resource gets an IP within this range.</td>
+</tr>
+<tr>
+<td><strong>DHCP Built-in</strong></td>
+<td>Azure auto-assigns IPs — no need for your own DHCP server.</td>
+</tr>
+<tr>
+<td><strong>Automatic Routing</strong></td>
+<td>No need to manually configure routes within the same VNet.</td>
+</tr>
+<tr>
+<td><strong>Default Traffic Behavior</strong></td>
+<td>Outbound to the internet is open by default; inbound needs explicit setup (like a public IP or load balancer).</td>
+</tr>
+<tr>
+<td><strong>Region-bound</strong></td>
+<td>A VNet spans <strong>availability zones</strong> within a single <strong>region</strong> — all resources in that region can communicate through it.</td>
+</tr>
+<tr>
+<td><strong>No cost</strong></td>
+<td>VNets themselves are <strong>free</strong> — you’re only charged for add-ons like VPN Gateways or NAT gateways.</td>
+</tr>
+</tbody></table>
+<p><strong>Communication Scenarios</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>How VNet Handles It</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Within same VNet</strong></td>
+<td>All resources in the same VNet can talk to each other without special setup.</td>
+</tr>
+<tr>
+<td><strong>Between VNets (VNet Peering)</strong></td>
+<td>You can peer two VNets (same or different regions); traffic flows privately with low latency.</td>
+</tr>
+<tr>
+<td><strong>Internet-bound (Outbound)</strong></td>
+<td>All resources can go out to the internet by default (e.g., pull OS updates).</td>
+</tr>
+<tr>
+<td><strong>Internet-bound (Inbound)</strong></td>
+<td>Blocked by default. You need a <strong>Public IP</strong>, <strong>Load Balancer</strong>, or <strong>Application Gateway</strong>.</td>
+</tr>
+<tr>
+<td><strong>On-premises to Azure</strong></td>
+<td>Use <strong>VPN Gateway</strong> (IPsec tunnel) or <strong>ExpressRoute</strong> (private fiber link).</td>
+</tr>
+</tbody></table>
+<p><strong>Important to Remember</strong></p>
+<ul>
+<li><strong>Inbound internet access is blocked by default.</strong></li>
+<li>Each resource in a VNet must have a <strong>unique private IP</strong>.</li>
+<li>Use <strong>Network Security Groups (NSGs)</strong> to control inbound&#x2F;outbound rules.</li>
+<li>Avoid overlapping IP address ranges when doing <strong>VNet Peering</strong> or <strong>Hybrid Cloud</strong> setups.</li>
+</ul>
+<p><strong>IP Address Assignment</strong></p>
+<ul>
+<li>Azure acts as your <strong>built-in DHCP server</strong>.</li>
+<li>When you deploy a VM, Azure:<ul>
+<li>Chooses a private IP from the subnet range.</li>
+<li>Assigns it to the NIC.</li>
+<li>Optionally assigns a <strong>public IP</strong> if you enable that.</li>
+</ul>
+</li>
+</ul>
+<p>You can also:</p>
+<ul>
+<li>Use <strong>static private IPs</strong> for things like databases.</li>
+<li>Reserve <strong>public IPs</strong> if you want to maintain a consistent address.</li>
+</ul>
+<p><strong>Automatic Routing</strong></p>
+<p>Inside a VNet:</p>
+<ul>
+<li>All subnets are <strong>automatically routed</strong> — no routing tables needed.</li>
+<li>Azure maintains a <strong>default system route table</strong> with:<ul>
+<li>Local VNet routing</li>
+<li>Internet route (<code>0.0.0.0/0</code>)</li>
+<li>System routes for service endpoints and BGP (for hybrid setups)</li>
+</ul>
+</li>
+</ul>
+<p>If you want custom behavior (like forcing traffic through a firewall), you can attach a <strong>user-defined route (UDR)</strong>.</p>
+<p><strong>Security &amp; Isolation</strong></p>
+<ul>
+<li><strong>VNet itself is isolated</strong> — no traffic to other VNets or external networks unless you configure it.</li>
+<li><strong>NSGs</strong> help restrict traffic at subnet or NIC level.</li>
+<li>You can also use:<ul>
+<li><strong>Azure Firewall</strong></li>
+<li><strong>Azure DDoS Protection</strong></li>
+<li><strong>Web Application Firewall (WAF)</strong> with App Gateway</li>
+</ul>
+</li>
+</ul>
+<h3 id="Virtual-Subnet"><a href="#Virtual-Subnet" class="headerlink" title="Virtual Subnet"></a>Virtual Subnet</h3><p>A <strong>virtual subnet</strong> is a <strong>logical subdivision</strong> of a <strong>Virtual Network (VNet)</strong> in Azure. It’s just like a subnet in traditional networking, but virtualized and managed in the cloud.</p>
+<p>You define:</p>
+<ul>
+<li>A <strong>name</strong> for the subnet</li>
+<li>A <strong>CIDR address range</strong> (e.g., <code>10.0.1.0/24</code>)</li>
+<li>Optional settings: NSG (firewall), route table, NAT gateway, etc.</li>
+</ul>
+<p><strong>How Subnets Work (in Practice)</strong></p>
+<p>Imagine your VNet is like a building, and subnets are the <strong>individual floors</strong>. You put VMs or other resources on different floors based on purpose. That gives you:</p>
+<ol>
+<li><strong>Traffic isolation</strong><ul>
+<li>Different <strong>tiers</strong> of an app (web, app, DB) can live in separate subnets.</li>
+<li>You can control traffic between them using <strong>NSGs</strong>.</li>
+</ul>
+</li>
+<li><strong>Security control</strong><ul>
+<li>Subnet A can talk to Subnet B but not Subnet C — enforced via <strong>NSG rules</strong>.</li>
+</ul>
+</li>
+<li><strong>Performance tuning</strong><ul>
+<li>Spread workloads across subnets to load balance or apply different routing policies.</li>
+</ul>
+</li>
+<li><strong>Custom routing</strong><ul>
+<li>Attach a <strong>route table</strong> to a subnet to force traffic through specific appliances (like firewalls or proxies).</li>
+</ul>
+</li>
+<li><strong>Service-specific deployments</strong><ul>
+<li>For example, Microsoft suggests placing <strong>Azure Bastion</strong>, <strong>Application Gateway</strong>, or <strong>Database services</strong> in their own subnets.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Subnet Addressing (CIDR Example)</strong></p>
+<p>Let’s say your VNet has a <code>10.0.0.0/16</code> address space — that’s about 65,536 IPs.</p>
+<p>You might divide it like this:</p>
+<table>
+<thead>
+<tr>
+<th>Subnet Name</th>
+<th>CIDR Range</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>web-subnet</code></td>
+<td><code>10.0.1.0/24</code></td>
+<td>Web front-end</td>
+</tr>
+<tr>
+<td><code>app-subnet</code></td>
+<td><code>10.0.2.0/24</code></td>
+<td>Business logic</td>
+</tr>
+<tr>
+<td><code>db-subnet</code></td>
+<td><code>10.0.3.0/24</code></td>
+<td>Database</td>
+</tr>
+</tbody></table>
+<p>Each subnet is limited to 256 IPs (actually fewer because Azure reserves 5 in each).</p>
+<p> <strong>One Resource &#x3D; One Subnet</strong></p>
+<ul>
+<li>A <strong>VM or resource</strong> can be attached to only <strong>one subnet</strong> at a time.</li>
+<li>But multiple VMs can live in the same subnet.</li>
+<li>You <strong>cannot move</strong> a VM to a different subnet after deployment — you must delete and redeploy or detach&#x2F;reattach the NIC.</li>
+</ul>
+<p><strong>Optional Features per Subnet</strong></p>
+<p>You can configure each subnet with:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>NSG</strong></td>
+<td>Control what traffic is allowed in&#x2F;out</td>
+</tr>
+<tr>
+<td><strong>Route Table</strong></td>
+<td>Override default routing (e.g., force through firewall)</td>
+</tr>
+<tr>
+<td><strong>NAT Gateway</strong></td>
+<td>Allow outbound internet access with static IP</td>
+</tr>
+<tr>
+<td><strong>Service Endpoints</strong></td>
+<td>Securely access Azure services (like Storage)</td>
+</tr>
+<tr>
+<td><strong>Delegations</strong></td>
+<td>Allow PaaS services (like Azure App Service) to use the subnet</td>
+</tr>
+</tbody></table>
+<p> <strong>Cost Consideration</strong></p>
+<ul>
+<li><strong>Subnets are free.</strong></li>
+<li>Azure <strong>doesn’t charge</strong> for defining subnets — you’re billed for the resources inside them or the network features you enable (like NAT Gateway).</li>
+</ul>
+<h3 id="Virtual-Network-Peering"><a href="#Virtual-Network-Peering" class="headerlink" title="Virtual Network Peering"></a>Virtual Network Peering</h3><p>Virtual Network (VNet) Peering allows you to connect two Azure VNets so they can communicate with each other. It’s essential when you want traffic to flow between separate VNets, either in the same region or across different regions. Let’s break it down:</p>
+<p><strong>What is Virtual Network Peering?</strong></p>
+<p>VNet peering establishes a direct <strong>network connection</strong> between two VNets. This makes it possible for resources in one VNet to communicate with resources in another VNet, even though they’re separate networks.</p>
+<ul>
+<li><strong>Example use case</strong>: If you have an application with a public front-end and a private back-end, you could use VNet peering to allow the front-end in one VNet to securely connect to the back-end in another VNet, ensuring isolation and security.</li>
+</ul>
+<p><strong>Types of Virtual Network Peering</strong></p>
+<ol>
+<li><strong>Local VNet Peering</strong>:<ul>
+<li>Connects VNets in <strong>the same region</strong>.</li>
+<li><strong>Low latency</strong> and typically <strong>lower cost</strong>.</li>
+<li>This is the default type of peering when the VNets are in the same region.</li>
+</ul>
+</li>
+<li><strong>Global VNet Peering</strong>:<ul>
+<li>Connects VNets in <strong>different regions</strong>.</li>
+<li>Useful for cross-region data transfer or when you need to link VNets in different geographic areas.</li>
+<li><strong>Higher cost</strong> compared to local peering because of the data transfer between regions.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Important Considerations for VNet Peering</strong></p>
+<ol>
+<li><strong>IP Addressing</strong>:<ul>
+<li><strong>Unique IP address ranges</strong> are crucial. If the VNets you want to peer have overlapping address spaces (e.g., both use <code>10.0.0.0/16</code>), you will face conflicts and communication will fail.</li>
+<li>Ensure your VNets are <strong>properly planned</strong> with non-overlapping IP ranges to avoid problems.</li>
+</ul>
+</li>
+<li><strong>Security</strong>:<ul>
+<li>Peering allows communication, but you can <strong>control access</strong> using Network Security Groups (NSGs) and other security mechanisms.</li>
+<li>Resources in the peered VNets can communicate freely unless you explicitly restrict traffic via security rules.</li>
+</ul>
+</li>
+<li><strong>Resource Access</strong>:<ul>
+<li>Once peered, <strong>resources in each VNet can communicate</strong> with each other as if they were on the same network.</li>
+<li>This is useful for cross-tenant or cross-subscription communication.</li>
+</ul>
+</li>
+<li><strong>Cost</strong>:<ul>
+<li><strong>Nominal fees</strong> apply for data transfer when using peering, especially with <strong>Global VNet Peering</strong>.</li>
+<li>Local peering within the same region is typically <strong>free</strong>, but there could be charges for data transfer depending on your traffic levels.</li>
+</ul>
+</li>
+</ol>
+<p><strong>How to Set Up VNet Peering</strong></p>
+<p>When setting up VNet peering, the process is straightforward:</p>
+<ol>
+<li><strong>Create two VNets</strong> (either in the same or different regions).</li>
+<li><strong>Initiate the peering</strong> from one VNet, specifying the second VNet as the peer.</li>
+<li><strong>Configure routing</strong> between the VNets (if needed). In some cases, you may want to adjust routing tables to ensure traffic flows as desired.</li>
+</ol>
+<p><strong>Practical Use Cases for VNet Peering</strong></p>
+<ul>
+<li><strong>Cross-subscription communication</strong>: You can peer VNets in different subscriptions, useful for organizations that have multiple subscriptions (e.g., one for production, one for development).</li>
+<li><strong>Hybrid Cloud setups</strong>: In hybrid environments, you might peer an Azure VNet with your on-premises network via a VPN gateway.</li>
+<li><strong>Multi-tenant scenarios</strong>: If your organization is working with partners or clients, VNet peering enables secure communication without the need for exposing resources to the internet.</li>
+</ul>
+<h3 id="Service-Endpoints"><a href="#Service-Endpoints" class="headerlink" title="Service Endpoints"></a><strong>Service Endpoints</strong></h3><p>In Azure, compute resources like virtual machines often need to access platform services such as Azure Storage. While resources inside a Virtual Network (VNet) can communicate securely with each other, accessing platform services from within a VNet isn’t always straightforward.</p>
+<p>One option is to assign public IP addresses to both your VNet and the service instance. Although this works, it exposes the service to the public internet, allowing connections from both trusted and untrusted sources—including users from outside your tenant. This raises serious security concerns.</p>
+<p>To solve this, Azure provides a more secure approach: service endpoints and private endpoints.</p>
+<p><strong>What It Is</strong></p>
+<p>A service endpoint allows VNet resources to securely connect to Azure services over the Microsoft backbone network, rather than the public internet.</p>
+<p>It creates a direct path between a specific subnet in your VNet and a supported Azure service (like Storage, SQL Database, etc.), enabling private, secure communication without using public IP addresses.</p>
+<p>Think of it as a restricted-access gate between your VNet and the Azure service—it’s the only “endpoint” allowed for that access.</p>
+<p><strong>Key Characteristics of Service Endpoints</strong></p>
+<ul>
+<li>Improved Security:  Removes the need to expose services to the public internet.</li>
+<li>Regional Scope: The service endpoint and the VNet must be in the same Azure region.</li>
+<li>Direct Connection: Uses Azure’s internal backbone network to route traffic securely.</li>
+<li>Free to Use: There are no additional costs for enabling service endpoints.</li>
+<li>Easy to Configure: You don’t need to change your service’s IP address or DNS settings.</li>
+<li>Access Control: You can configure the Azure service to allow only traffic from specific subnets using this endpoint.</li>
+</ul>
+<p><strong>Private Endpoint</strong></p>
+<p>If you need even tighter security, you can use a private endpoint. This creates a private IP address within your VNet that maps to the Azure service.</p>
+<ul>
+<li>It deploys a network interface (NIC) in your subnet.</li>
+<li>Only resources in that subnet can access the service via this private IP.</li>
+<li>Unlike service endpoints, private endpoints don’t require being in the same region.</li>
+<li>Offers full isolation from the public internet.</li>
+<li>Often used in regulated or compliance-sensitive environments.</li>
+</ul>
+<p><strong>Summary and Best Practices</strong></p>
+<ul>
+<li>Use service endpoints when your service and VNet are in the same region and you need secure access with minimal setup.</li>
+<li>Use private endpoints when you need the highest level of isolation and control.</li>
+<li>Always avoid public IPs for internal communication between tiers (e.g., compute ↔ storage).</li>
+<li>Apply Network Security Groups (NSGs) and service firewall rules for extra control.</li>
+<li>Remember: service endpoints are free, while private endpoints may incur Private Link charges.</li>
+<li>Configure on Service side to make the service endpoint work</li>
+</ul>
+<h3 id="ExpressRoute"><a href="#ExpressRoute" class="headerlink" title="ExpressRoute"></a>ExpressRoute</h3><p>ExpressRoute is a service that establishes a private, dedicated connection between your on-premises network and Azure, bypassing the public internet. It is designed for organizations that require enhanced security, reliability, and performance for hybrid cloud deployments.</p>
+<p><strong>Why Use ExpressRoute?</strong></p>
+<ul>
+<li><strong>Avoid the Public Internet</strong>: Unlike traditional VPNs, ExpressRoute does not rely on the public internet, reducing security risks and performance issues.</li>
+<li><strong>High Performance &amp; Low Latency</strong>: It ensures better performance and more reliable connectivity compared to standard internet connections.</li>
+<li><strong>Security &amp; Compliance</strong>: Ideal for organizations with strict data sensitivity, internal policies, or regulatory requirements, as data transmission occurs through a private connection.</li>
+<li><strong>Redundancy</strong>: Dual ExpressRoute circuits offer backup in case of failure, ensuring continuous hybrid cloud connectivity.</li>
+</ul>
+<p><strong>How ExpressRoute Works</strong></p>
+<ol>
+<li><strong>Private Line</strong>: A dedicated line is established between your on-premises network and Azure, eliminating the use of public internet routes.</li>
+<li><strong>Integration with BGP</strong>: ExpressRoute uses Border Gateway Protocol (BGP) to exchange routing information between your on-premises network and the Azure Cloud. This makes routing seamless and dynamic.</li>
+<li><strong>Redundancy for Reliability</strong>: ExpressRoute allows for dual Microsoft Enterprise Edge (MSEE) routers in Azure, providing high availability and failover support in case of connection failure.</li>
+<li><strong>Global Connectivity</strong>: Once ExpressRoute is set up, it provides access to all regions in the Azure geography, simplifying multi-region access.</li>
+</ol>
+<p><strong>ExpressRoute Components</strong></p>
+<ul>
+<li><strong>Azure Virtual Network Gateway</strong>: The Azure component responsible for handling the connection between your network and Azure via ExpressRoute.</li>
+<li><strong>On-premises VPN Device</strong>: A compatible device that connects your on-premises network to the Azure Virtual Network Gateway. It must support BGP to ensure proper routing.</li>
+<li><strong>Connectivity Provider</strong>: ExpressRoute requires a third-party connectivity provider to establish the private link between your on-premises network and Azure.</li>
+</ul>
+<p><strong>Types of VPN Connections (Context for ExpressRoute)</strong></p>
+<p>While ExpressRoute provides a private connection, it’s important to know how it compares to VPN connections:</p>
+<ul>
+<li><strong>Point-to-Site VPN</strong>: Ideal for individual devices (e.g., a single computer). It’s typically used for testing or temporary scenarios.</li>
+<li><strong>Site-to-Site VPN</strong>: A permanent connection between an on-premises network and Azure, often used in production environments. Unlike ExpressRoute, this connection uses the public internet.</li>
+</ul>
+<p>ExpressRoute provides a more secure and stable option by avoiding the public internet, offering higher performance and privacy.</p>
+<p><strong>Cost Considerations</strong></p>
+<ul>
+<li><strong>Azure Charges</strong>: The cost of using ExpressRoute is based on the service plan selected. You’ll need to account for the ongoing monthly fee for the ExpressRoute circuit.</li>
+<li><strong>Connectivity Provider Fees</strong>: The connectivity provider charges for the dedicated private line.</li>
+<li><strong>On-premises VPN Device</strong>: There may also be hardware costs for the device that establishes the connection.</li>
+<li><strong>Data Transfer Fees</strong>: Ingress (data entering) and egress (data exiting) traffic are charged, so consider the volume of data that will be transferred between your on-premises network and Azure.</li>
+</ul>
+<p><strong>Redundancy and Failover</strong></p>
+<p>ExpressRoute supports dual connections via Microsoft Enterprise Edge (MSEE) routers to ensure high availability. If one connection fails, the other automatically takes over, maintaining uninterrupted hybrid cloud connectivity. This redundancy is critical for mission-critical workloads.</p>
+<p><strong>Key Benefits</strong></p>
+<ul>
+<li><strong>Enhanced Security</strong>: By using a private connection, ExpressRoute minimizes the exposure of data to the public internet, making it more secure.</li>
+<li><strong>Consistent and Reliable Performance</strong>: Offers predictable latency and better throughput, which is essential for enterprises with critical workloads.</li>
+<li><strong>Geographical Flexibility</strong>: Once configured, you can connect to Azure regions globally, simplifying the process of multi-region cloud setups.</li>
+<li><strong>Scalable</strong>: ExpressRoute allows organizations to scale their hybrid cloud architecture without compromising security or performance.</li>
+</ul>
+<h3 id="Virtual-Network-Gateway"><a href="#Virtual-Network-Gateway" class="headerlink" title="Virtual Network Gateway"></a><strong>Virtual Network Gateway</strong></h3><p>A <strong>Virtual Network Gateway</strong> is a crucial component in connecting your <strong>on-premises network</strong> to <strong>Azure’s Virtual Networks (VNets)</strong>. It acts as a secure entry point that allows data to be encrypted as it moves between your on-premises environment and the cloud.</p>
+<p>In simpler terms, it’s the <strong>bridge</strong> connecting your <strong>private network</strong> to Azure, ensuring secure, encrypted data transmission.</p>
+<p><strong>Key Benefits:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Secure Data Transmission</strong></td>
+<td>Ensures encryption of data during transit between on-premises and Azure, safeguarding sensitive data.</td>
+</tr>
+<tr>
+<td><strong>Hybrid Cloud Connectivity</strong></td>
+<td>Allows seamless connection between on-premises networks and Azure, enabling hybrid cloud solutions.</td>
+</tr>
+<tr>
+<td><strong>Redundancy and Reliability</strong></td>
+<td>Deployable across multiple <strong>Availability Zones</strong> to ensure high availability and fault tolerance.</td>
+</tr>
+</tbody></table>
+<p><strong>How It Works: Types of Connections</strong></p>
+<p>The Virtual Network Gateway supports various types of VPN connections, ensuring flexibility for different use cases. Here’s a breakdown:</p>
+<p><strong>1. Point-to-Site (P2S) VPN:</strong></p>
+<ul>
+<li><strong>Use Case</strong>: Typically for individual devices like laptops.</li>
+<li><strong>Protocol</strong>: Supported protocols are <strong>SSTP</strong>, <strong>OpenVPN</strong>, and <strong>IPSec</strong>.</li>
+</ul>
+<p><strong>2. Site-to-Site (S2S) VPN:</strong></p>
+<ul>
+<li><strong>Use Case</strong>: Connects an entire corporate network to Azure, used for production environments.</li>
+<li><strong>Protocol</strong>: Uses <strong>IPSec&#x2F;IKE</strong> for secure tunneling.</li>
+</ul>
+<p><strong>3. VNet-to-VNet Connection:</strong></p>
+<ul>
+<li><strong>Use Case</strong>: Used for connecting two separate Azure environments. This is common in scenarios like mergers or acquisitions.</li>
+</ul>
+<p><strong>Supported Protocols for Secure Connections</strong></p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Connection Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>SSTP</strong></td>
+<td>Point-to-Site (P2S)</td>
+<td>Secure tunneling via HTTPS.</td>
+</tr>
+<tr>
+<td><strong>OpenVPN</strong></td>
+<td>Point-to-Site (P2S)</td>
+<td>Open-source VPN solution for encrypted connections.</td>
+</tr>
+<tr>
+<td><strong>IPSec</strong></td>
+<td>Point-to-Site (P2S) &amp; Site-to-Site (S2S)</td>
+<td>Standard VPN protocol used for encryption and secure data transfer.</td>
+</tr>
+<tr>
+<td><strong>IPSec&#x2F;IKE</strong></td>
+<td>Site-to-Site (S2S)</td>
+<td>Used for establishing secure connections between networks.</td>
+</tr>
+</tbody></table>
+<p><strong>Redundancy and Availability</strong></p>
+<p>To ensure <strong>high availability</strong> and minimize potential downtime, the <strong>Virtual Network Gateway</strong> can be deployed across <strong>multiple Availability Zones</strong> in Azure. This guarantees that if one zone goes down, the connection remains intact via other zones.</p>
+<p><strong>Redundancy Features:</strong></p>
+<ul>
+<li><strong>Multiple Availability Zones</strong>: Ensures that your gateway remains available even in the case of a zone failure.</li>
+<li><strong>Dual VPN Gateways</strong>: In Azure, you can configure multiple virtual network gateways for <strong>failover</strong> and <strong>load balancing</strong>.</li>
+</ul>
+<p><strong>Cost Considerations</strong></p>
+<p>There are several costs to take into account when using a Virtual Network Gateway:</p>
+<table>
+<thead>
+<tr>
+<th>Cost Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Hourly Gateway Charges</strong></td>
+<td>The virtual network gateway itself incurs an hourly charge.</td>
+</tr>
+<tr>
+<td><strong>Egress Traffic</strong></td>
+<td>Charges apply for <strong>data leaving Azure</strong> (egress traffic).</td>
+</tr>
+<tr>
+<td><strong>Ingress Traffic</strong></td>
+<td>Traffic flowing into Azure is free (no cost for ingress).</td>
+</tr>
+<tr>
+<td><strong>Additional Costs</strong></td>
+<td>Includes costs for on-premises VPN devices and your provider’s connectivity fees.</td>
+</tr>
+</tbody></table>
+<h3 id="Azure-DNS"><a href="#Azure-DNS" class="headerlink" title="Azure DNS"></a><strong>Azure DNS</strong></h3><p><strong>Azure DNS</strong> is a cloud-based <strong>Domain Name System (DNS)</strong> service provided by Microsoft Azure. It is used to translate human-readable domain names (like <code>microsoft.com</code>) into machine-readable <strong>IP addresses</strong>, enabling your applications and websites to be accessible over the Internet.</p>
+<p>In simpler terms, <strong>Azure DNS</strong> allows for the <strong>management of domain names</strong> and <strong>DNS records</strong> in the cloud, providing a reliable and highly available solution for managing domain name resolution. It can resolve domain names for resources both within <strong>Azure</strong> and <strong>on-premises environments</strong>, as well as for external resources on the Internet.</p>
+<p><strong>Public vs. Private Domains</strong></p>
+<p><strong>Public Domains:</strong></p>
+<ul>
+<li><strong>Definition</strong>: These are domain names that are accessible from the <strong>Internet</strong>.</li>
+<li><strong>Use Case</strong>: Hosting a website or service that needs to be accessible globally.</li>
+<li><strong>Example</strong>: <code>microsoft.com</code>, <code>google.com</code>.</li>
+</ul>
+<p><strong>Private Domains:</strong></p>
+<ul>
+<li><strong>Definition</strong>: These domain names are only accessible within an organization’s <strong>private network</strong>.</li>
+<li><strong>Use Case</strong>: Internal resources, such as company servers or applications, that should not be exposed to the Internet.</li>
+<li><strong>Example</strong>: <code>companyinternal.local</code>.</li>
+</ul>
+<p><strong>Key Features of Azure DNS</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>High Availability</strong></td>
+<td>Provides DNS resolution with <strong>99.99% uptime</strong> and is backed by Azure’s global infrastructure.</td>
+</tr>
+<tr>
+<td><strong>Global Reach</strong></td>
+<td>Supports both public and private domains, allowing DNS resolution for Azure resources and external entities.</td>
+</tr>
+<tr>
+<td><strong>Integration with Azure</strong></td>
+<td>Fully integrates with Azure services like <strong>Azure AD</strong>, <strong>RBAC</strong>, and <strong>monitoring tools</strong> for security and management.</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Leverages Azure’s built-in security features to ensure DNS traffic is encrypted and protected from attacks.</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Scales automatically with increasing demand, providing high performance even during spikes in traffic.</td>
+</tr>
+</tbody></table>
+<p><strong>How to Use Azure DNS</strong></p>
+<ol>
+<li><strong>Create a DNS Zone</strong>: A DNS zone is a container for DNS records, like an address book for your domain names.<ul>
+<li>You can create a <strong>public DNS zone</strong> (for Internet-facing domains) or a <strong>private DNS zone</strong> (for internal network domains).</li>
+</ul>
+</li>
+<li><strong>Add DNS Records</strong>: Once the DNS zone is set up, you can add various types of records:<ul>
+<li><strong>A Record</strong>: Maps a domain to an IP address.</li>
+<li><strong>CNAME Record</strong>: Aliases one domain to another.</li>
+<li><strong>MX Record</strong>: Directs email traffic to the right mail server.</li>
+<li><strong>TXT Record</strong>: Allows for additional text-based information, often for verification or security purposes.</li>
+</ul>
+</li>
+<li><strong>Link DNS Zones to Virtual Networks</strong>: For <strong>private DNS zones</strong>, link the zone to one or more Azure virtual networks to allow name resolution for your internal resources.</li>
+<li><strong>Manage with Azure Tools</strong>: You can manage Azure DNS through the <strong>Azure Portal</strong>, <strong>Azure CLI</strong>, or <strong>Azure PowerShell</strong>, allowing for flexible and automated management.</li>
+</ol>
+<p><strong>Azure DNS vs. Third-Party DNS Services</strong></p>
+<p>While third-party DNS services (like <strong>GoDaddy</strong>, <strong>Cloudflare</strong>, or <strong>Route 53</strong>) are widely used, <strong>Azure DNS</strong> is integrated directly into Azure, offering the following advantages:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Azure DNS</th>
+<th>Third-Party DNS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Integration with Azure</strong></td>
+<td>Seamless integration with other Azure services like <strong>Azure AD</strong> and <strong>RBAC</strong></td>
+<td>May require additional configuration for Azure-specific services</td>
+</tr>
+<tr>
+<td><strong>Availability</strong></td>
+<td>Built-in <strong>99.99% uptime SLA</strong></td>
+<td>Varies, but may require extra setup for high availability</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Scales automatically with Azure infrastructure</td>
+<td>May require additional services to scale efficiently</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Built-in Azure security integration</td>
+<td>May require additional configuration to match Azure’s security standards</td>
+</tr>
+</tbody></table>
+<h2 id="Storage-Services"><a href="#Storage-Services" class="headerlink" title="Storage Services"></a>Storage Services</h2><h3 id="Storage-Account"><a href="#Storage-Account" class="headerlink" title="Storage Account"></a>Storage Account</h3><p>An Azure Storage Account is a container for various storage services used by cloud applications. It’s not a separate Azure subscription or login—just a managed grouping of storage resources within your Azure subscription.</p>
+<ul>
+<li>It adds statefulness to applications by storing persistent data.</li>
+<li>Every application that reads, writes, or modifies data likely needs a storage account.</li>
+</ul>
+<p><strong>Storage Account Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Underlying Disk</th>
+<th>Use Case</th>
+<th>Performance</th>
+<th>Services Supported</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standard General Purpose</td>
+<td>HDD (Virtual)</td>
+<td>Testing, dev, or low-priority apps</td>
+<td>Baseline</td>
+<td>Blobs, Files, Queues, Tables</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>SSD (Virtual)</td>
+<td>High-performance, latency-sensitive workloads</td>
+<td>High performance</td>
+<td>Specialized: Block Blobs, Page Blobs, or File only</td>
+</tr>
+</tbody></table>
+<p> Note: Premium accounts are more specialized—you must select which data service it will host.</p>
+<p><strong>Core Storage Services</strong></p>
+<p>Available through the storage account:</p>
+<ul>
+<li><strong>Blob Storage</strong> (for unstructured data like images, videos, backups)</li>
+<li><strong>File Storage</strong> (SMB file shares, replacement for traditional file servers)</li>
+<li><strong>Queue Storage</strong> (message-based communication between apps)</li>
+<li><strong>Table Storage</strong> (NoSQL key-value store)</li>
+</ul>
+<p>The term “Containers” here refers to Blob Containers, not Container Instances (from compute services).</p>
+<p><strong>Access &amp; Security</strong></p>
+<p>Storage accounts are accessed via <strong>Service Endpoints</strong> or <strong>Private Endpoints</strong>.</p>
+<ul>
+<li>Service Endpoints connect the storage service to your VNet securely over Azure’s backbone.</li>
+<li>Private Endpoints deploy a NIC in your VNet for tighter network isolation.</li>
+</ul>
+<p><strong>Redundancy (High-Level Preview)</strong></p>
+<p>Azure allows configuring replication for resiliency:</p>
+<ul>
+<li>Options like <strong>GRS (Geo-Redundant Storage)</strong>, which replicate data across regions.</li>
+<li>More on redundancy in upcoming modules.</li>
+</ul>
+<p><strong>How to create a storage account:</strong></p>
+<ol>
+<li>Go to the Storage Accounts blade.</li>
+<li>Click “Create Storage Account”.</li>
+<li>Choose:<ul>
+<li>Subscription</li>
+<li>Resource group</li>
+<li>Name (e.g., az900sa1 — no hyphens allowed)</li>
+<li>Region (e.g., South US)</li>
+<li>Performance tier (Standard or Premium)</li>
+<li>Redundancy option (default: GRS)</li>
+</ul>
+</li>
+<li>Click Review + Create.</li>
+</ol>
+<p>Once created, you can manage:</p>
+<ul>
+<li>Containers (blobs)</li>
+<li>File Shares</li>
+<li>Queues</li>
+<li>Tables</li>
+</ul>
+<h3 id="Data-Services"><a href="#Data-Services" class="headerlink" title="Data Services"></a>Data Services</h3><p>Different types of data need to be stored using different storage formats—just like different types of food are served in different dishes. Azure provides various storage options tailored to the nature of the data being stored.</p>
+<ol>
+<li><strong>Blob Storage (Binary Large Objects)</strong></li>
+</ol>
+<ul>
+<li><strong>Use Case</strong>: Storing large, unstructured data.</li>
+<li><strong>Examples</strong>: Videos, audio files, high-res images, executables.</li>
+<li><strong>Key Feature</strong>: No schema or structure; purely raw data.</li>
+<li><strong>Common in</strong>: Web apps, backups, media storage.</li>
+</ul>
+<ol start="2">
+<li><strong>Queue Storage</strong></li>
+</ol>
+<ul>
+<li><strong>Use Case</strong>: Temporary message storage between application components.</li>
+<li><strong>Why It Matters</strong>: Helps balance differing speeds between compute and storage layers by acting as a buffer.</li>
+<li><strong>Example</strong>: If the compute tier sends requests faster than storage can handle, the queue stores them temporarily.</li>
+<li><strong>Key Feature</strong>: Ensures reliable, ordered, asynchronous message passing.</li>
+</ul>
+<ol start="3">
+<li><strong>Table Storage</strong></li>
+</ol>
+<ul>
+<li><strong>Use Case</strong>: Storing semi-structured or NoSQL data.</li>
+<li><strong>Example</strong>: Contact list with varying formats—some entries have full names and phone numbers, others just email.</li>
+<li><strong>Key Feature</strong>: Schema-less structure, ideal for evolving data formats.</li>
+<li><strong>Good For</strong>: Applications needing quick key&#x2F;value lookup.</li>
+</ul>
+<ol start="4">
+<li><strong>Azure Files</strong></li>
+</ol>
+<ul>
+<li><strong>Use Case</strong>: Traditional file shares, cloud-hosted.</li>
+<li><strong>Protocols Supported</strong>: SMB (Windows), NFS (Linux), REST APIs.</li>
+<li><strong>Key Feature</strong>: Managed file shares accessible like local folders.</li>
+<li><strong>Good For</strong>: Legacy applications or shared network storage in the cloud.</li>
+</ul>
+<ol start="5">
+<li><strong>Azure Disks</strong></li>
+</ol>
+<ul>
+<li><strong>Use Case</strong>: Persistent virtual hard disks attached to VMs.</li>
+<li><strong>Stores</strong>: OS, apps, and user data for VMs.</li>
+<li><strong>Key Feature</strong>: Not part of storage accounts, but a separate data service.</li>
+<li><strong>Comparison</strong>: Like a virtual hard drive for your virtual machine.</li>
+</ul>
+<p><strong>Quick Recap Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Service</th>
+<th>Structured?</th>
+<th>Persistent?</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blobs</td>
+<td>Unstructured</td>
+<td>Yes</td>
+<td>Large files like videos, backups</td>
+</tr>
+<tr>
+<td>Queues</td>
+<td>N&#x2F;A (Messages)</td>
+<td>No (Temp)</td>
+<td>Buffering between app components</td>
+</tr>
+<tr>
+<td>Tables</td>
+<td>Semi-structured</td>
+<td>Yes</td>
+<td>NoSQL storage, app configs, logs</td>
+</tr>
+<tr>
+<td>Azure Files</td>
+<td>Structured (Files)</td>
+<td>Yes</td>
+<td>File shares for users or apps</td>
+</tr>
+<tr>
+<td>Azure Disks</td>
+<td>Structured (Disks)</td>
+<td>Yes</td>
+<td>VM operating systems and app data</td>
+</tr>
+</tbody></table>
+<h3 id="Access-Tiers-in-Azure-Blob-Storage"><a href="#Access-Tiers-in-Azure-Blob-Storage" class="headerlink" title="Access Tiers in Azure Blob Storage"></a>Access Tiers in Azure Blob Storage</h3><p>Blob storage can become expensive due to:</p>
+<ol>
+<li><strong>Storage cost</strong> – how much data you’re storing.</li>
+<li><strong>Access cost</strong> – how often and how quickly you need to access that data.</li>
+</ol>
+<p>To manage cost vs. performance, Azure offers <strong>three access tiers</strong>:<br> 🔴 <strong>Hot</strong> | 🟡 <strong>Cool</strong> | 🔵 <strong>Archive</strong></p>
+<p><strong>Tier Comparison Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Storage Cost</th>
+<th>Access Cost</th>
+<th>Access Speed</th>
+<th>Use Case</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hot</td>
+<td>🔺 High</td>
+<td>🔻 Low</td>
+<td>Milliseconds</td>
+<td>Frequently accessed data</td>
+<td>99.99%</td>
+</tr>
+<tr>
+<td>Cool</td>
+<td>⚖️ Moderate</td>
+<td>⚖️ Moderate</td>
+<td>Milliseconds (slower)</td>
+<td>Infrequently accessed data</td>
+<td>99.9%</td>
+</tr>
+<tr>
+<td>Archive</td>
+<td>🔻 Lowest</td>
+<td>🔺 Highest</td>
+<td>Hours (retrieval delay)</td>
+<td>Rarely accessed, long-term storage</td>
+<td>N&#x2F;A (offline)</td>
+</tr>
+</tbody></table>
+<p><strong>Analogy (Bike, SUV, Bus)</strong></p>
+<ul>
+<li><strong>Hot Tier → Bike</strong>: Small, fast, used daily.</li>
+<li><strong>Cool Tier → SUV</strong>: Medium capacity, slower, used occasionally.</li>
+<li><strong>Archive Tier → Bus</strong>: Huge capacity, very slow, used rarely.</li>
+</ul>
+<p><strong>Flexibility: Tier Transitions</strong></p>
+<ul>
+<li>You can <strong>move blobs between tiers</strong> as your access needs change:<ul>
+<li>Hot → Cool → Archive (to save costs)</li>
+<li>Archive → Hot (if suddenly needed again)</li>
+</ul>
+</li>
+<li>This gives you <strong>dynamic cost optimization</strong> based on your current needs.</li>
+</ul>
+<p><strong>Summary</strong></p>
+<ul>
+<li>Choose the <strong>Hot Tier</strong> if you access data frequently.</li>
+<li>Choose the <strong>Cool Tier</strong> for infrequent but still needed access.</li>
+<li>Choose the <strong>Archive Tier</strong> for rarely accessed data where cost matters more than speed.</li>
+</ul>
+<h3 id="File-Sync"><a href="#File-Sync" class="headerlink" title="File Sync"></a>File Sync</h3><p>Azure File Sync is a service that allows you to:</p>
+<ul>
+<li>Sync on-premises file servers with Azure Files (cloud-based file shares).</li>
+<li>Centralize your file management while keeping local access fast and seamless.</li>
+</ul>
+<p><strong>Why Use File Sync? (Use Case: Multiple Branch Offices)</strong></p>
+<p>Imagine your organization has 3 branch offices. Without File Sync, you face:</p>
+<ol>
+<li>❌ Complex networking setups between offices.</li>
+<li>❌ Difficulty keeping file versions consistent.</li>
+<li>❌ Separate and complex backup systems in each location.</li>
+</ol>
+<p>With Azure File Sync:</p>
+<ul>
+<li>You centralize all file shares in Azure.</li>
+<li>Users in any office can access files as if they were local.</li>
+<li>You simplify backups and disaster recovery.</li>
+</ul>
+<p><strong>How It Works</strong></p>
+<ol>
+<li>Your on-prem file server syncs its data with Azure Files.</li>
+<li>Files are locally cached on each branch’s file server.</li>
+<li>Users access and edit files locally for fast performance.</li>
+<li>Changes are synced to Azure and then to other branches — maintaining consistency.</li>
+</ol>
+<p><strong>Key Features</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Centralized cloud file share</td>
+<td>Azure acts as the “source of truth” for all files.</td>
+</tr>
+<tr>
+<td>Local caching</td>
+<td>Frequently used files are stored locally for faster access.</td>
+</tr>
+<tr>
+<td>Real-time sync</td>
+<td>File changes are automatically synced across all locations.</td>
+</tr>
+<tr>
+<td>Fault tolerance</td>
+<td>If a file server fails, just replace it and resync from Azure.</td>
+</tr>
+<tr>
+<td>Backup &amp; Recovery</td>
+<td>Use cloud snapshots to capture file states and recover when needed.</td>
+</tr>
+</tbody></table>
+<p><strong>Protocol Support</strong></p>
+<p>Azure File Sync supports multiple protocols:</p>
+<ul>
+<li><p><strong>SMB (Server Message Block)</strong></p>
+</li>
+<li><p><strong>What it is:</strong> A network file sharing protocol mainly used in Windows environments.</p>
+</li>
+<li><p><strong>Use case:</strong> Lets users or applications read, write, and request files on remote servers as if they were local.</p>
+</li>
+<li><p><strong>Typical use:</strong> Windows file sharing, shared drives (like <code>\\Server\SharedFolder</code>)</p>
+</li>
+<li><p><strong>Platform support:</strong> Native to Windows; also supported on Linux&#x2F;macOS using Samba.</p>
+</li>
+<li><p><strong>NFS (Network File System)</strong></p>
+<ul>
+<li><strong>What it is:</strong> A protocol developed by Sun Microsystems for sharing files over a network, mainly used in Unix&#x2F;Linux environments.</li>
+<li><strong>Use case:</strong> Allows users to mount a remote filesystem and interact with it like a local one.</li>
+<li><strong>Typical use:</strong> Linux servers sharing data with other Linux systems or with virtual machines.</li>
+<li><strong>Platform support:</strong> Native to Unix&#x2F;Linux; can be used on Windows with additional tools.</li>
+</ul>
+</li>
+<li><p><strong>FTPS (File Transfer Protocol Secure)</strong></p>
+<ul>
+<li><strong>What it is:</strong> An extension of traditional FTP that adds SSL&#x2F;TLS encryption for secure file transfers.</li>
+<li><strong>Use case:</strong> Securely uploading or downloading files to&#x2F;from a server over the internet.</li>
+<li><strong>Typical use:</strong> Used in businesses to securely transfer sensitive data between systems.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Storage-Redundancy"><a href="#Storage-Redundancy" class="headerlink" title="Storage Redundancy"></a>Storage Redundancy</h3><p>Azure automatically stores multiple copies of your data to protect against hardware failures and ensure high availability. You can choose how redundant your data should be, based on your needs and budget.</p>
+<p><strong>1. LRS (Locally Redundant Storage)</strong></p>
+<ul>
+<li><strong>Copies:</strong> 3</li>
+<li><strong>Location:</strong> All within a <strong>single data center</strong>.</li>
+<li><strong>Protection:</strong> Against <strong>local hardware failures</strong>.</li>
+<li><strong>Limitation:</strong> If that one data center fails (e.g. due to fire, power outage), your data becomes <strong>temporarily unavailable</strong>.</li>
+</ul>
+<p>✅ Cheapest<br> ❌ Least resilient</p>
+<p><strong>2. ZRS (Zone-Redundant Storage)</strong></p>
+<ul>
+<li><strong>Copies:</strong> 3</li>
+<li><strong>Location:</strong> Spread across <strong>three different Availability Zones</strong> in the <strong>same region</strong>.</li>
+<li><strong>Protection:</strong> Against the <strong>failure of an entire zone</strong>.</li>
+<li><strong>Limitation:</strong> Doesn’t protect against <strong>regional disasters</strong> (e.g., earthquake affecting all zones).</li>
+</ul>
+<p>✅ More resilient than LRS<br> ❌ Still vulnerable to regional outages</p>
+<p><strong>3. GRS (Geo-Redundant Storage)</strong></p>
+<ul>
+<li><strong>Copies:</strong> 6<ul>
+<li>3 in the <strong>primary region</strong> (LRS)</li>
+<li>3 in a <strong>paired secondary region</strong> (also LRS)</li>
+</ul>
+</li>
+<li><strong>Location:</strong> Two separate <strong>geographic regions</strong>.</li>
+<li><strong>Protection:</strong> Against <strong>regional disasters</strong> (e.g., major natural disaster, wide-scale outage).</li>
+<li><strong>Limitation:</strong> Secondary region is <strong>read-only</strong> until failover is manually initiated.</li>
+</ul>
+<p>✅ Most resilient of the standard options<br> ❌ Slightly higher cost<br> ❌ Not always immediately accessible from the secondary region</p>
+<p><strong>4. RA-GRS (Read-Access Geo-Redundant Storage)</strong></p>
+<ul>
+<li>Extends <strong>GRS</strong> by allowing <strong>read access</strong> to the secondary region.</li>
+<li>Useful for disaster-readiness and reporting apps.</li>
+<li>Data can be read even when the primary region is down.</li>
+</ul>
+<p><strong>5. GZRS (Geo-Zone Redundant Storage)</strong></p>
+<ul>
+<li>Combines <strong>ZRS</strong> and <strong>GRS</strong>.</li>
+<li>Stores data across <strong>Availability Zones</strong> in one region <strong>plus</strong> copies in a <strong>paired region</strong>.</li>
+<li>Protects against <strong>both zone and regional failures</strong>.</li>
+</ul>
+<p><strong>6. RA-GZRS (Read-Access Geo-Zone Redundant Storage)</strong></p>
+<ul>
+<li>Adds <strong>read access</strong> to the secondary region on top of <strong>GZRS</strong>.</li>
+<li>Best for mission-critical apps needing <strong>maximum durability and availability</strong>.</li>
+</ul>
+<p>**Summary Table</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Copies</th>
+<th>Spans</th>
+<th>Read Access</th>
+<th>Protects Against</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LRS</strong></td>
+<td>3</td>
+<td>Single data center</td>
+<td>No</td>
+<td>Local hardware failure</td>
+<td>Low-cost, non-critical data</td>
+</tr>
+<tr>
+<td><strong>ZRS</strong></td>
+<td>3</td>
+<td>Across 3 AZs in one region</td>
+<td>No</td>
+<td>Data center or AZ failure</td>
+<td>High availability within region</td>
+</tr>
+<tr>
+<td><strong>GRS</strong></td>
+<td>6</td>
+<td>LRS in primary + LRS in paired region</td>
+<td>No</td>
+<td>Regional disaster</td>
+<td>Business continuity, backup</td>
+</tr>
+<tr>
+<td><strong>RA-GRS</strong></td>
+<td>6</td>
+<td>Same as GRS</td>
+<td>Yes (read from secondary region)</td>
+<td>Regional disaster + read fallback</td>
+<td>Read-heavy apps needing resilience</td>
+</tr>
+<tr>
+<td><strong>GZRS</strong></td>
+<td>3+3</td>
+<td>ZRS in primary + LRS in paired region</td>
+<td>No</td>
+<td>AZ + regional disaster</td>
+<td>High availability + geo resilience</td>
+</tr>
+<tr>
+<td><strong>RA-GZRS</strong></td>
+<td>6</td>
+<td>Same as GZRS</td>
+<td>Yes</td>
+<td>AZ + regional disaster + read fallback</td>
+<td>Enterprise-critical apps</td>
+</tr>
+</tbody></table>
+<h3 id="Data-Management-Tools"><a href="#Data-Management-Tools" class="headerlink" title="Data Management Tools"></a>Data Management Tools</h3><p>When you store data in Azure, you need tools to manage it—whether you’re uploading files, moving them between containers, or automating operations.</p>
+<p>Azure provides two key tools:</p>
+<h4 id="AZCopy-Command-Line-Tool"><a href="#AZCopy-Command-Line-Tool" class="headerlink" title="AZCopy (Command-Line Tool)"></a><strong>AZCopy (Command-Line Tool)</strong></h4><ul>
+<li><strong>Type:</strong> Command-line interface (CLI)</li>
+<li><strong>Best for:</strong> Experienced users, developers, and automation</li>
+<li><strong>Use Cases:</strong><ul>
+<li>Uploading&#x2F;downloading blobs and files</li>
+<li>Copying data between storage accounts</li>
+<li>Scripting and automation at scale</li>
+</ul>
+</li>
+<li><strong>Advantages:</strong><ul>
+<li>Fast and efficient for large-scale data transfers</li>
+<li>Automatable with scripts</li>
+</ul>
+</li>
+<li><strong>Authentication Supported:</strong><ul>
+<li>Azure Active Directory (Azure AD)</li>
+<li>Shared Access Signature (SAS) tokens</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Great for repetitive tasks and large volumes of data where GUI tools become inefficient.</p>
+</blockquote>
+<h4 id="Storage-Explorer-Graphical-Tool"><a href="#Storage-Explorer-Graphical-Tool" class="headerlink" title="Storage Explorer (Graphical Tool)"></a><strong>Storage Explorer (Graphical Tool)</strong></h4><ul>
+<li><strong>Type:</strong> Graphical User Interface (GUI)</li>
+<li><strong>Best for:</strong> Beginners and visual users</li>
+<li><strong>Use Cases:</strong><ul>
+<li>Browsing containers and blobs</li>
+<li>Uploading&#x2F;downloading files manually</li>
+<li>Managing access and metadata visually</li>
+</ul>
+</li>
+<li><strong>Advantages:</strong><ul>
+<li>Intuitive and visual</li>
+<li>Easier to learn and use for small workloads</li>
+</ul>
+</li>
+<li><strong>Authentication Supported:</strong><ul>
+<li>Azure AD</li>
+<li>SAS strings&#x2F;URLs</li>
+<li>Account name and key</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Fun Fact: <strong>Storage Explorer uses AZCopy behind the scenes</strong> to perform actions. It’s basically a GUI wrapper for AZCopy.</p>
+</blockquote>
+<h3 id="Data-Migration"><a href="#Data-Migration" class="headerlink" title="Data Migration"></a>Data Migration</h3><p>If you’re planning to move your infrastructure to the cloud, Microsoft provides a set of tools under the umbrella of <strong>Azure Migrate</strong> to assess and execute that migration efficiently.</p>
+<h4 id="Azure-Migrate-Hub"><a href="#Azure-Migrate-Hub" class="headerlink" title="Azure Migrate Hub"></a><strong>Azure Migrate Hub</strong></h4><p>A centralized platform that helps evaluate and migrate various components of your on-premises environment. It contains several specialized tools:</p>
+<ol>
+<li><strong>Discovery and Assessment Tool</strong><ul>
+<li>Scans existing infrastructure and services.</li>
+<li>Determines which workloads are suitable for migration.</li>
+</ul>
+</li>
+<li><strong>Migration and Modernization Tool</strong><ul>
+<li>Evaluates <strong>physical servers</strong> and <strong>VMs on hypervisors</strong> (e.g., VMware, Hyper-V).</li>
+<li>Determines compatibility with Azure Virtual Machines.</li>
+</ul>
+</li>
+<li><strong>Web App Migration Assistant</strong><ul>
+<li>Checks <strong>.NET</strong> and <strong>PHP web applications</strong>.</li>
+<li>Assesses readiness for migration to <strong>Azure App Service</strong>.</li>
+</ul>
+</li>
+<li><strong>Data Migration Assistant (DMA)</strong><ul>
+<li>Analyzes Microsoft <strong>SQL Server databases</strong>.</li>
+<li>Reports on compatibility with <strong>Azure SQL Database</strong>.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>✅ These tools generate reports categorizing workloads as:</p>
+<ul>
+<li>Ready to move</li>
+<li>Need minor tweaks</li>
+<li>Require major changes</li>
+<li>Not suitable for migration</li>
+</ul>
+</blockquote>
+<h4 id="Azure-Data-Box"><a href="#Azure-Data-Box" class="headerlink" title="Azure Data Box"></a><strong>Azure Data Box</strong></h4><p>For massive data transfers (especially initial bulk migration), Microsoft offers a physical solution:</p>
+<ul>
+<li><strong>What It Is:</strong> A rugged, encrypted hard drive shipped to you.</li>
+<li><strong>Capacity:</strong> Up to 100 TB (or 1 PB with Data Box Heavy)</li>
+<li><strong>Use Case:</strong> When you have 40+ TB of data that would take too long or be too costly to transfer over the network.</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Request the box via the Azure portal.</li>
+<li>Copy your data to it (files, VMs, DBs, etc.).</li>
+<li>Ship it back to Microsoft.</li>
+<li>Azure uploads it into your tenant securely.</li>
+<li>Afterward, incremental updates can be synced over the internet.</li>
+</ol>
+<blockquote>
+<p>Data is encrypted in transit and at rest. The box is tamper-proof.</p>
+</blockquote>
+<p><strong>Migration Strategy Tip</strong></p>
+<p>After assessment:</p>
+<ul>
+<li>Migrate “ready” workloads first.</li>
+<li>Plan remediation for partial or incompatible systems.</li>
+<li>Use Azure Migrate + Data Box to streamline both evaluation and transfer.</li>
+</ul>
+<div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-3-Azure-Services/">http://dyingdown.github.io/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-3-Azure-Services/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="prev-post pull-left"><a id="prev" href="/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-4-Azure-Management-and-Governance/"><div class="img_fit imgL" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202507151535672.png"></div><div class="info il"><div class="label" id="label-l">PREVIOUS POST</div><div>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 4 Azure Management and Governance</div></div></a></div><div class="next-post pull-right"><a id="next" href="/2025/04/12/Microsoft-Azure-Fundamentals-AZ-900-Cert-Prep-2-Azure-Architecture-and-Security/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202505072227012.png"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Microsoft Azure Fundamentals (AZ-900) Cert Prep: 2 Azure Architecture and Security</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
+})</script><div id="sideButtons"><div id="back-to-top"><span>TOP</span></div><div id="go-to-comment"><span>COMMENT</span></div></div></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "&lt;p&gt;This note covers the compute, networking, and storage services sections of the AZ-900 exam. It includes key Azure services such as virtual machines, virtual networks, and storage accounts, along with modern tools like Azure Functions and Azure OpenAI. These sections account for about &lt;strong&gt;35–40%&lt;/strong&gt; of the exam and provide a solid understanding of Azure’s core service offerings.&lt;/p&gt;";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa-brands fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="X-Twitter"><i class="fa-brands fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa-brands fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></div><div id="incons"><a class="icon" href=" https://www.linkedin.com/in/yaogu0304/" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa-brands fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" https://www.instagram.com/o_oyao0304/" title="Instagram"><i class="fa-brands fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="TikTok"><i class="fa-brands fa-tiktok"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2025</span></div><br><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></spsan></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/local-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js" type="module"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
