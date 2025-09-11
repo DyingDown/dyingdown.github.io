@@ -280,7 +280,7 @@ body.post > #menu-outer a {
   width: calc(100vw - 40px);
   display: flex;
   height: 75px;
-  background-color: rgba(25,25,25,0);
+  background-color: rgba(32,32,32,0);
   padding: 0 20px;
   align-items: center;
   color: #fff;
@@ -299,6 +299,10 @@ body.post > #menu-outer {
 }
 body.home > #menu-outer {
   background-color: transparent;
+}
+body:not(.home):not(.post) > #menu-outer {
+  background-color: #202020;
+  transition: box-shadow 0.3s ease;
 }
 .newMenuOuter {
   left: 80vw;
@@ -348,7 +352,7 @@ body.post > #menu-outer .menu .menu-icon li {
 .menu #nav {
   position: fixed;
   top: 0px;
-  background-color: #191919;
+  background-color: #202020;
   left: calc(0vw - 80vw);
   width: 80vw;
   bottom: 0;
