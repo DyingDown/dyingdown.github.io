@@ -708,10 +708,13 @@
 <div class="highlight"><pre><span></span><code>hexo new page tags
 </code></pre></div>
 <h3 id="preview">Preview</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Overall Page</label><label for="__tabbed_3_2">Categories</label><label for="__tabbed_3_3">Tags</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Overall Page</label><label for="__tabbed_3_2">Overall Page with Alphabet Index</label><label for="__tabbed_3_3">Categories</label><label for="__tabbed_3_4">Tags</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="" src="../../assets/images/page/category-tag.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="../../assets/images/page/category-tag-alphabet.png" /></p>
 </div>
 <div class="tabbed-block">
 <p><img alt="" src="../../assets/images/page/category.png" /></p>
@@ -721,6 +724,14 @@
 </div>
 </div>
 </div>
+<div class="highlight"><pre><span></span><code>tagsPage:
+  category:
+    show_count: true # false
+  tag:
+    show_count: false # false
+    alphabet_index: false # true 
+</code></pre></div>
+<p><code>alphabet_index</code> tags are grouped by first letter with search and navigation（Support Only English）</p>
 <h2 id="friends-links">Friends Links</h2>
 <p>Create a friends links page.</p>
 <div class="highlight"><pre><span></span><code>hexo<span class="w"> </span>new<span class="w"> </span>page<span class="w"> </span>links

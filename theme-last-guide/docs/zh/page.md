@@ -42,6 +42,10 @@ hexo new page tags
 
     ![](../assets/images/page/category-tag.png)
 
+=== "带首字母索引的总页面"
+
+    ![](../assets/images/page/category-tag-alphabet.png)
+
 === "分类"
 
     ![](../assets/images/page/category.png)
@@ -49,6 +53,18 @@ hexo new page tags
 === "标签"
 
     ![](../assets/images/page/tag.png)
+
+
+```yml
+tagsPage:
+  category:
+    show_count: true # false
+  tag:
+    show_count: false # false
+    alphabet_index: false # true 
+```
+
+`alphabet_index` 根据首字母进行索引（目前只支持英文）
 
 ## 友链接
 

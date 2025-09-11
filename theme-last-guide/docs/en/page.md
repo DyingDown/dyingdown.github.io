@@ -42,6 +42,10 @@ hexo new page tags
 
     ![](../assets/images/page/category-tag.png)
 
+=== "Overall Page with Alphabet Index"
+
+    ![](../assets/images/page/category-tag-alphabet.png)
+
 === "Categories"
 
     ![](../assets/images/page/category.png)
@@ -49,6 +53,17 @@ hexo new page tags
 === "Tags"
 
     ![](../assets/images/page/tag.png)
+
+```yml
+tagsPage:
+  category:
+    show_count: true # false
+  tag:
+    show_count: false # false
+    alphabet_index: false # true 
+```
+
+`alphabet_index` tags are grouped by first letter with search and navigation（Support Only English）
 
 ## Friends Links
 
