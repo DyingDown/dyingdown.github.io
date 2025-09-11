@@ -6,36 +6,133 @@ toc:
 ```
 
 
-## 搜索功能(只有本地搜索)
+## 搜索功能
 
-### 本地搜索
+主题支持三种搜索引擎：本地搜索（local）、Lunr.js搜索和Algolia云搜索。根据您的需求选择合适的搜索方式。
 
-=== "配置"
+### 搜索引擎对比
+
+| 搜索引擎 | 性能 | 中文支持 | 部署难度 | 推荐场景 |
+|---------|------|----------|----------|----------|
+| **Local** | 较慢 | 基础支持 | 简单 | 小型站点，快速部署 |
+| **Lunr** | 快速 | 优秀 | 简单 | 中大型站点，最佳选择 |
+| **Algolia** | 极快 | 优秀 | 复杂 | 大型站点，需要高级搜索功能 |
+
+=== "配置示例"
 
     ```yml
-    localSearch:
-      on: true
-      placeholder: "Type to search"
+    search:
+      enable: true
+      engine: lunr
+      
+      local:
+        path: search.xml
+        
+      lunr:
+        path: search.json
+        maxResults: 30
+        minQueryLength: 1
+        debounceTime: 300
+        
+      algolia:
+        # Algolia 配置在站点根目录 _config.yml 中设置
     ```
-=== "预览"
+=== "本地 & Lunr 搜索"
+    
+    <img src="../assets/images/function/search.png" alt="本地搜索和Lunr搜索预览" style="zoom:67%;" />
 
-    <img src="../assets/images/function/search.png" alt="search preview" style="zoom:67%;" />
+=== "Algolia"
+    
+    <img src="../assets/images/function/search-algolia.png" alt="Algolia搜索预览" style="zoom:67%;" />
 
-该功能需要安装插件`hexo-generator-search`
 
-``` bash
-npm install hexo-generator-search
+### 配置参数说明
+
+| 参数 | 说明 | 默认值 | 适用引擎 |
+|------|------|--------|----------|
+| `enable` | 启用搜索功能 | `true` | 所有 |
+| `engine` | 搜索引擎类型：`local`, `lunr`, `algolia` | `lunr` | 所有 |
+| **Local 搜索参数** | | | |
+| `local.path` | 搜索文件路径，需与站点 `_config.yml` 中的 `search.path` 匹配 | `search.xml` | Local |
+| **Lunr 搜索参数** | | | |
+| `lunr.path` | 搜索文件路径，建议使用 JSON 格式提升性能 | `search.json` | Lunr |
+| `lunr.maxResults` | 最大搜索结果显示数量 | `30` | Lunr |
+| `lunr.minQueryLength` | 最小查询长度（1允许单字符搜索，适合中文/日文） | `1` | Lunr |
+| `lunr.debounceTime` | 搜索延迟（毫秒，减少服务器负载） | `300` | Lunr |
+| **Algolia 搜索参数** | | | |
+| `algolia.*` | Algolia 的所有配置需在站点根目录的 `_config.yml` 中设置 | - | Algolia |
+
+### 安装和配置
+
+#### 安装依赖插件
+
+根据选择的搜索引擎，安装对应的插件：
+
+=== "本地搜索 & Lunr 搜索"
+
+    ```bash
+    npm install hexo-generator-search
+    ```
+
+=== "Algolia 搜索"
+
+    ```bash
+    npm install hexo-algoliasearch --save
+    ```
+
+#### 配置站点搜索
+
+在站点根目录的 `_config.yml` 文件中添加搜索配置：
+
+=== "本地搜索 (Local)"
+
+    ```yaml
+    search:
+      path: search.xml
+      field: all
+      content: true
+    ```
+
+=== "Lunr 搜索 (推荐)"
+
+    ```yaml
+    search:
+      path: search.json  # 使用 JSON 格式提升性能
+      field: all
+      content: true
+    ```
+
+=== "Algolia 搜索"
+
+    ```yaml
+    algolia:
+      appId: "YOUR_APP_ID"
+      apiKey: "YOUR_SEARCH_ONLY_API_KEY" 
+      adminApiKey: "YOUR_ADMIN_API_KEY"
+      indexName: "YOUR_INDEX_NAME"
+      chunkSize: 5000
+      fields:
+        - content:strip:truncate,0,500
+        - excerpt:strip
+        - tags
+        - title
+        - path
+    ```
+
+#### Algolia 额外步骤
+
+如果使用 Algolia 搜索，每次更新内容后需要手动上传索引：
+
+```bash
+npx hexo algolia
 ```
-然后需要在根目录下的`_config.yml`文件中配置搜索
 
-```yaml
-search:
-  path: search.xml
-  field: all
-  content: true
-```
+注意：
 
-`hexo-generator-search`的使用说明： [https://github.com/wzpan/hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+- Algolia 需要单独的插件 `hexo-algoliasearch`，不是 `hexo-generator-search`
+- 每次发布新内容后，都需要运行 `npx hexo algolia` 命令更新搜索索引
+- 确保在 Algolia 控制台中已创建对应的索引
+
 
 ## 分享功能
 

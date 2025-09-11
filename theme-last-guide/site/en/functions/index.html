@@ -489,21 +489,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#search-function-local-search-only" class="md-nav__link">
+  <a href="#search-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Search Function (Local Search Only)
+      Search Function
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Search Function (Local Search Only)">
+    <nav class="md-nav" aria-label="Search Function">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#local-search" class="md-nav__link">
+  <a href="#search-engine-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      Local Search
+      Search Engine Comparison
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-required-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Required Plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-site-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Site Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-steps-for-algolia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Steps for Algolia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -613,21 +664,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#search-function-local-search-only" class="md-nav__link">
+  <a href="#search-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Search Function (Local Search Only)
+      Search Function
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Search Function (Local Search Only)">
+    <nav class="md-nav" aria-label="Search Function">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#local-search" class="md-nav__link">
+  <a href="#search-engine-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      Local Search
+      Search Engine Comparison
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation and Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-required-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Required Plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-site-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Site Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-steps-for-algolia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Steps for Algolia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -708,31 +810,210 @@
 <div class="highlight"><pre><span></span><code>toc:
   on: true
 </code></pre></div>
-<h2 id="search-function-local-search-only">Search Function (Local Search Only)</h2>
-<h3 id="local-search">Local Search</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration</label><label for="__tabbed_1_2">Preview</label></div>
+<h2 id="search-function">Search Function</h2>
+<p>The theme supports three search engines: Local search, Lunr.js search, and Algolia cloud search. Choose the appropriate search method based on your needs.</p>
+<h3 id="search-engine-comparison">Search Engine Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Search Engine</th>
+<th>Performance</th>
+<th>Chinese Support</th>
+<th>Deployment Difficulty</th>
+<th>Recommended Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local</strong></td>
+<td>Slower</td>
+<td>Basic support</td>
+<td>Simple</td>
+<td>Small sites, quick deployment</td>
+</tr>
+<tr>
+<td><strong>Lunr</strong></td>
+<td>Fast</td>
+<td>Excellent</td>
+<td>Simple</td>
+<td>Medium to large sites, best choice</td>
+</tr>
+<tr>
+<td><strong>Algolia</strong></td>
+<td>Very fast</td>
+<td>Excellent</td>
+<td>Complex</td>
+<td>Large sites, advanced search features</td>
+</tr>
+</tbody>
+</table>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration Example</label><label for="__tabbed_1_2">Local &amp; Lunr Search</label><label for="__tabbed_1_3">Algolia</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>localSearch:
-  on: true
-  placeholder: &quot;Type to search&quot;
+<div class="highlight"><pre><span></span><code>search:
+  enable: true
+  engine: lunr
+
+  local:
+    path: search.xml
+
+  lunr:
+    path: search.json
+    maxResults: 30
+    minQueryLength: 1
+    debounceTime: 300
+
+  algolia:
+    # Algolia configuration is set in site root _config.yml
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><img src="../assets/images/function/search.png" alt="search preview" style="zoom:67%;" /></p>
+<p><img src="../../assets/images/function/search.png" alt="Local and Lunr search preview" style="zoom:67%;" /></p>
+</div>
+<div class="tabbed-block">
+<p><img src="../../assets/images/function/search-algolia.png" alt="Algolia search preview" style="zoom:67%;" /></p>
 </div>
 </div>
 </div>
-<p>This feature requires the installation of the <code>hexo-generator-search</code> plugin.</p>
-<p><div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>hexo-generator-search
+<h3 id="configuration-parameters">Configuration Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+<th>Applicable Engine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable</code></td>
+<td>Enable search functionality</td>
+<td><code>true</code></td>
+<td>All</td>
+</tr>
+<tr>
+<td><code>engine</code></td>
+<td>Search engine type: <code>local</code>, <code>lunr</code>, <code>algolia</code></td>
+<td><code>lunr</code></td>
+<td>All</td>
+</tr>
+<tr>
+<td><strong>Local Search Parameters</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>local.path</code></td>
+<td>Search file path, must match <code>search.path</code> in site <code>_config.yml</code></td>
+<td><code>search.xml</code></td>
+<td>Local</td>
+</tr>
+<tr>
+<td><strong>Lunr Search Parameters</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lunr.path</code></td>
+<td>Search file path, JSON format recommended for better performance</td>
+<td><code>search.json</code></td>
+<td>Lunr</td>
+</tr>
+<tr>
+<td><code>lunr.maxResults</code></td>
+<td>Maximum number of search results to display</td>
+<td><code>30</code></td>
+<td>Lunr</td>
+</tr>
+<tr>
+<td><code>lunr.minQueryLength</code></td>
+<td>Minimum query length (1 allows single character search, good for Chinese/Japanese)</td>
+<td><code>1</code></td>
+<td>Lunr</td>
+</tr>
+<tr>
+<td><code>lunr.debounceTime</code></td>
+<td>Search delay in milliseconds (reduces server load)</td>
+<td><code>300</code></td>
+<td>Lunr</td>
+</tr>
+<tr>
+<td><strong>Algolia Search Parameters</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>algolia.*</code></td>
+<td>All Algolia configurations must be set in site root <code>_config.yml</code></td>
+<td>-</td>
+<td>Algolia</td>
+</tr>
+</tbody>
+</table>
+<h3 id="installation-and-configuration">Installation and Configuration</h3>
+<h4 id="install-required-plugins">Install Required Plugins</h4>
+<p>Install the corresponding plugin based on your chosen search engine:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Local Search &amp; Lunr Search</label><label for="__tabbed_2_2">Algolia Search</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>hexo-generator-search
 </code></pre></div>
-Then, you need to configure the search in the <code>_config.yml</code> file in the root directory.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>hexo-algoliasearch<span class="w"> </span>--save
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="configure-site-search">Configure Site Search</h4>
+<p>Add search configuration to the <code>_config.yml</code> file in your site's root directory:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Local Search</label><label for="__tabbed_3_2">Lunr Search (Recommended)</label><label for="__tabbed_3_3">Algolia Search</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">search</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.xml</span>
 <span class="w">  </span><span class="nt">field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
 <span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<p>For more information on using <code>hexo-generator-search</code>, please refer to <a href="https://github.com/wzpan/hexo-generator-search">https://github.com/wzpan/hexo-generator-search</a></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">search</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.json</span><span class="w">  </span><span class="c1"># Use JSON format for better performance</span>
+<span class="w">  </span><span class="nt">field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">algolia</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">appId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YOUR_APP_ID&quot;</span>
+<span class="w">  </span><span class="nt">apiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YOUR_SEARCH_ONLY_API_KEY&quot;</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">adminApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YOUR_ADMIN_API_KEY&quot;</span>
+<span class="w">  </span><span class="nt">indexName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YOUR_INDEX_NAME&quot;</span>
+<span class="w">  </span><span class="nt">chunkSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="w">  </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content:strip:truncate,0,500</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">excerpt:strip</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tags</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="additional-steps-for-algolia">Additional Steps for Algolia</h4>
+<p>If using Algolia search, you need to manually upload the index after each content update:</p>
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>hexo<span class="w"> </span>algolia
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Algolia requires a separate plugin <code>hexo-algoliasearch</code>, not <code>hexo-generator-search</code></li>
+<li>After publishing new content, you must run <code>npx hexo algolia</code> to update the search index</li>
+<li>Ensure the corresponding index is created in the Algolia console</li>
+</ul>
 <h2 id="share-function">Share Function</h2>
 <p>Using https://github.com/overtrue/share.js</p>
 <div class="highlight"><pre><span></span><code>Share:
