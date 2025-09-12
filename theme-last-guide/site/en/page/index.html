@@ -730,8 +730,20 @@
   tag:
     show_count: false # false
     alphabet_index: false # true 
+    korean:
+      enabled: true
 </code></pre></div>
-<p><code>alphabet_index</code> tags are grouped by first letter with search and navigation（Support Only English）</p>
+<p><code>alphabet_index</code> tags are grouped by first letter with search and navigation（Support Only English, Chinese, Japanese, Korean）</p>
+<p>Korean words are categorized differently from Chinese or English. In Korean dictionaries and indexes, words are grouped by their initial consonant (초성, Choseong). For example:</p>
+<ul>
+<li>
+<p>“가방” will be categorized under ㄱ</p>
+</li>
+<li>
+<p>“나무” will be categorized under ㄴ</p>
+</li>
+</ul>
+<p>enabled: false → Do not apply Choseong grouping; all Korean entries will be placed under the # section by default</p>
 <h2 id="friends-links">Friends Links</h2>
 <p>Create a friends links page.</p>
 <div class="highlight"><pre><span></span><code>hexo<span class="w"> </span>new<span class="w"> </span>page<span class="w"> </span>links

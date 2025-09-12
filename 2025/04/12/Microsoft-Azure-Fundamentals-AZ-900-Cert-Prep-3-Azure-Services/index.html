@@ -10,6 +10,7 @@ var i18n = {
 // Search configuration
 window.themeConfig = {
     search: {"enable":true,"engine":"algolia","local":{"path":"search.xml"},"lunr":{"path":"search.json","maxResults":30,"minQueryLength":1,"debounceTime":300},"algolia":null,"google":{"cx":null}},
+    tagsPage: {"category":{"show_count":true},"tag":{"show_count":false,"alphabet_index":true,"korean":{"enabled":false}}},
     i18n: {
         localSearch: {
             placeholder: "Type to search",
@@ -63,7 +64,7 @@ if (window.algolia) {
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>151</strong><span> days ago. The content of the article may be out of date.</span></div><p>This note covers the compute, networking, and storage services sections of the AZ-900 exam. It includes key Azure services such as virtual machines, virtual networks, and storage accounts, along with modern tools like Azure Functions and Azure OpenAI. These sections account for about <strong>35–40%</strong> of the exam and provide a solid understanding of Azure’s core service offerings.</p>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>152</strong><span> days ago. The content of the article may be out of date.</span></div><p>This note covers the compute, networking, and storage services sections of the AZ-900 exam. It includes key Azure services such as virtual machines, virtual networks, and storage accounts, along with modern tools like Azure Functions and Azure OpenAI. These sections account for about <strong>35–40%</strong> of the exam and provide a solid understanding of Azure’s core service offerings.</p>
 <span id="more"></span>
 
 <h2 id="Compute-Services"><a href="#Compute-Services" class="headerlink" title="Compute Services"></a>Compute Services</h2><h3 id="Virtual-Machine"><a href="#Virtual-Machine" class="headerlink" title="Virtual Machine"></a><strong>Virtual Machine</strong></h3><p>A <strong>Virtual Machine (VM)</strong> is a software-based emulation of a physical computer. It has:</p>
