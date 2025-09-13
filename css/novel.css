@@ -1,12 +1,9 @@
 .novel {
-  width: 70%;
-  height: auto;
-  min-height: 80vh;
+  width: 80%;
+  height: 80vh;
   margin: 100px auto 0;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
 #vcomment {
   width: 80%;
@@ -15,44 +12,12 @@
 .left-intro,
 .right-bookshell {
   width: 46%;
-  height: auto;
-  min-height: 600px;
-  margin: 1%;
-}
-.left-intro ul,
-.right-bookshell ul {
-  margin-top: 1rem;
-  margin-left: 2.2rem;
-}
-@media (max-width: 768px) {
-  .novel {
-    flex-direction: column;
-    width: 80%;
-    margin: 120px auto 0;
-    gap: 1rem;
-  }
-  .left-intro,
-  .right-bookshell {
-    width: 100%;
-    margin: 0;
-    min-height: auto;
-  }
-  .left-intro {
-    order: 1;
-  }
-  .right-bookshell {
-    order: 2;
-  }
-}
-@media (max-width: 480px) {
-  .novel {
-    width: 80%;
-    margin: 100px auto 0;
-  }
+  height: 600px;
+  margin: 2%;
 }
 .first-shell,
 .second-shell {
-  width: 70%;
+  width: 85%;
   height: 30%;
   margin: 40px auto 20px;
   background: url("/img/bookshell.png") center bottom no-repeat;
@@ -60,34 +25,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
-}
-@media (max-width: 768px) {
-  .first-shell,
-  .second-shell {
-    width: 100%;
-    margin: 30px auto 15px;
-    height: auto;
-    min-height: 120px;
-  }
-  .book-lost,
-  .book-sick {
-    width: 30%;
-    margin-bottom: 10%;
-  }
-}
-@media (max-width: 480px) {
-  .first-shell,
-  .second-shell {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    min-height: 100px;
-  }
-  .book-lost,
-  .book-sick {
-    width: 40%;
-    margin-bottom: 8%;
-  }
 }
 .book-lost,
 .book-sick {
@@ -117,7 +54,7 @@
   margin-top: 0.8em;
   background: #fff;
   border-radius: 30px;
-  border: solid 3.5px #4870ac;
+  border: solid 3.5px #d31a29;
   height: 5px;
   width: 5px;
 }
@@ -126,7 +63,6 @@
   font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
-  margin-top: 4rem;
 }
 .left-intro h3 {
   font-size: 1.5em;
@@ -135,33 +71,6 @@
 .left-intro div {
   margin: 1rem 0;
   font-size: 16px;
-}
-@media (max-width: 768px) {
-  .left-intro h2 {
-    font-size: 1.8em;
-  }
-  .left-intro h3 {
-    font-size: 1.3em;
-  }
-  .left-intro h2 {
-    margin-top: 1rem;
-  }
-  .left-intro div {
-    font-size: 14px;
-    margin: 0.8rem 0;
-  }
-}
-@media (max-width: 480px) {
-  .left-intro h2 {
-    font-size: 1.5em;
-  }
-  .left-intro h3 {
-    font-size: 1.2em;
-  }
-  .left-intro div {
-    font-size: 13px;
-    margin: 0.6rem 0;
-  }
 }
 body {
   background-color: #fff !important;

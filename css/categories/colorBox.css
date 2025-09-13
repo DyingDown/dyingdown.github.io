@@ -10,43 +10,84 @@
   font-size: 1px;
 }
 .cols {
-  float: left;
-  -moz-column-count: 4;
-  -moz-column-gap: 0%;
-  -moz-column-width: calc((100% - 40px) / 4);
-  -webkit-column-count: 4;
-  -webkit-column-gap: 0%;
-  -webkit-column-width: calc((100% - 40px) / 4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  align-items: flex-start;
+}
+.cols[data-count="1"] .box {
+  flex: 0 0 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.cols[data-count="2"] .box {
+  flex: 0 0 calc(50% - 7.5px);
+}
+.cols[data-count="3"] .box {
+  flex: 0 0 calc(33.333% - 10px);
+}
+.cols[data-count="4"] .box,
+.cols:not([data-count]) .box {
+  flex: 0 0 calc(25% - 11.25px);
+}
+.cols:not([data-count]),
+.cols[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+  display: block;
   column-count: 4;
-  column-gap: 0%;
-  column-width: calc((100% - 40px) / 4);
+  column-gap: 15px;
+  column-fill: balance;
+}
+.cols:not([data-count]) .box,
+.cols[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) .box {
+  flex: none;
+  width: 100%;
+  margin: 0 0 15px 0;
+  display: inline-block;
   break-inside: avoid;
-  margin-bottom: 20px;
+  page-break-inside: avoid;
 }
 @media (max-width: 1500px) {
   .cols {
-    -moz-column-count: 3;
-    -moz-column-gap: 0%;
-    -moz-column-width: calc((100% - 30px) / 3);
-    -webkit-column-count: 3;
-    -webkit-column-gap: 0%;
-    -webkit-column-width: calc((100% - 30px) / 3);
+    gap: 12px;
+  }
+  .cols[data-count="4"] .box,
+  .cols:not([data-count]) .box {
+    flex: 0 0 calc(33.333% - 8px);
+  }
+  .cols:not([data-count]),
+  .cols[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
     column-count: 3;
-    column-gap: 0%;
-    column-width: calc((100% - 30px) / 3);
+    column-gap: 12px;
   }
 }
 @media (max-width: 1000px) {
   .cols {
-    -moz-column-count: 1;
-    -moz-column-gap: 0%;
-    -moz-column-width: 100%;
-    -webkit-column-count: 1;
-    -webkit-column-gap: 0%;
-    -webkit-column-width: 100%;
+    gap: 15px;
+  }
+  .cols[data-count="3"] .box,
+  .cols[data-count="4"] .box,
+  .cols:not([data-count]) .box {
+    flex: 0 0 calc(50% - 7.5px);
+  }
+  .cols:not([data-count]),
+  .cols[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+    column-count: 2;
+    column-gap: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .cols {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .cols .box {
+    flex: 0 0 100% !important;
+  }
+  .cols:not([data-count]),
+  .cols[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
     column-count: 1;
-    column-gap: 0%;
-    column-width: 100%;
+    column-gap: 10px;
   }
 }
 /* Again, you’re free to use and define the classes: */
@@ -55,20 +96,21 @@
 }
 /* These are the classes that are going to be applied: */
 .box {
-  float: left;
-  break-inside: avoid;
-  margin: 0 5px 15px 5px;
-  display: inline-block;
+  width: 100%;
+  margin: 0 0 15px 0;
+  display: block;
   border-radius: 4px;
   box-shadow: 2px 2px 4px #aaa;
   -webkit-box-shadow: 2px 2px 4px #aaa;
   -moz-box-shadow: 2px 2px 4px #aaa;
   color: rgba(255,255,255,0.72);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 .box:hover {
   box-shadow: 3px 3px 6px #aaa;
   -webkit-box-shadow: 3px 3px 6px #aaa;
-  -webkit-box-shadow: 3px 3px 6px #aaa;
+  transform: translateY(-2px);
 }
 .feat-image {
   border-radius: 4px 4px 0 0;
