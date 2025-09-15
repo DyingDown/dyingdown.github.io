@@ -64,7 +64,7 @@ if (window.algolia) {
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>948</strong><span> days ago. The content of the article may be out of date.</span></div><p>Recently, I found valine has an error showing <code>Failed to load resource: net::ERR_NAME_NOT_RESOLVED</code>. And the anonymous user avatar is also not shown.</p>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="date-warning"><span>This article was written </span><strong>950</strong><span> days ago. The content of the article may be out of date.</span></div><p>Recently, I found valine has an error showing <code>Failed to load resource: net::ERR_NAME_NOT_RESOLVED</code>. And the anonymous user avatar is also not shown.</p>
 <span id="more"></span>
 
 <h2 id="Failed-to-load-resource"><a href="#Failed-to-load-resource" class="headerlink" title="Failed to load resource"></a>Failed to load resource</h2><p>After seeing the console, I found that I’m requesting the URL <code>https://us.leancloud.cn</code>. Because I used the national version of leancloud, but the <code>valine.min.js</code> uses <em>cn</em> as suffix. </p>
