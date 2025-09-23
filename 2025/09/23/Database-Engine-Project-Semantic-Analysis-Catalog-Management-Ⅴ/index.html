@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Database Engine Project: Semantic Analysis &amp; Catalog Management Ⅴ [ o_oyao's Blog ]</title><link rel="stylesheet" href="/css/reset.css"><link rel="stylesheet" href="/css/includes/header.css"><link rel="stylesheet" href="/css/includes/footer.css"><link rel="stylesheet" href="/css/includes/locate-button.css"><link rel="stylesheet" href="/css/includes/pagination.css"><link rel="stylesheet" href="/css/last.css"><link rel="stylesheet" href="/font-awesome/css/all.min.css"><link rel="stylesheet" href="/css/includes/alert/alert.css"><link rel="stylesheet" href="/css/post.css"><link rel="stylesheet" href="/css/third-party/share.min.css"><link rel="stylesheet" href="/css/article/simple.css"><link rel="stylesheet" href="/css/includes/side-user.css"><link rel="stylesheet" href="/css/includes/toc.css"><link rel="stylesheet" href="/css/includes/copyright.css"><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><link rel="stylesheet" href="/css/last.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'"></script><script src="/js/third-party/jquery-fallback.js"></script><script>var isHome = false;
+var isCenter = false;
+var i18n = {
+    copy: {
+        success: "Copy successful!",
+        error: "Copy failed, please try again!"
+    }
+};
+
+// Search configuration
+window.themeConfig = {
+    search: {"enable":true,"engine":"algolia","local":{"path":"search.xml"},"lunr":{"path":"search.json","maxResults":30,"minQueryLength":1,"debounceTime":300},"algolia":null,"google":{"cx":null}},
+    tagsPage: {"category":{"show_count":true},"tag":{"show_count":false,"alphabet_index":true,"korean":{"enabled":false}}},
+    i18n: {
+        localSearch: {
+            placeholder: "Type to search",
+            empty: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word",
+            firstSearch: "First Search, loading index file... please wait",
+            error: "Search temporarily unavailable, please try again later"
+        }
+    }
+};
+
+// Algolia configuration from site root _config.yml
+console.log('Debug: Setting up Algolia config from site root...');
+window.algolia = {"appId":"HZ8RKPY89N","apiKey":"48aec148e8fd2b0e954f40864f27d4a8","adminApiKey":"b0af130184bcf8a5982192eb237d5ec8","chunkSize":5000,"indexName":"o_oyao","fields":["content:strip:truncate,0,500","excerpt:strip","tags","title","path"]};
+if (window.algolia) {
+    console.log('✓ Algolia config loaded from site root:', window.algolia);
+} else {
+    console.log('✗ No Algolia config found in site root _config.yml');
+    console.log('Please add algolia configuration to your site root _config.yml');
+}
+</script><meta name="generator" content="Hexo 6.3.0"></head><body class="post"><!-- Mixins, used on or off of the page--><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"><div id="menu-outer"><div class="site-name"><a href=""> <?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="300.000000pt" height="125.000000pt" viewBox="0 0 300.000000 125.000000" preserveAspectRatio="xMidYMid meet"  id="site-logo">
+<metadata><Created>by potrace 1.10, written by Peter Selinger 2001-2011</Created></metadata>
+<g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"  stroke="none">
+<path class="rest-content" d="M70 635 c0 -340 4 -545 10 -545 5 0 335 27 734 60 399 33 730 60 736 60 6 0 10 28 10 70 0 56 -3 70 -15 70 -12 0 -15 -13 -15 -55 0 -48 -3 -55 -20 -55 -10 0 -320 -25 -688 -55 -368 -30 -679 -55 -691 -55 l-21 0 0 505 c0 474 1 505 18 505 9 0 316 -25 682 -55 366 -30 677 -55 693 -55 26 0 27 -2 27 -55 0 -42 3 -55 15 -55 12 0 15 14 15 70 0 55 -3 70 -15 70 -8 0 -341 27 -740 60 -399 33 -727 60 -730 60 -3 0 -5 -245 -5 -545z"/>
+<path class="rest-content" d="M301 858 c-62 -33 -94 -94 -88 -166 6 -81 51 -131 139 -154 85 -22 204 19 238 83 23 42 24 115 1 161 -32 66 -79 92 -170 96 -65 3 -83 0 -120 -20z m140 -97 c14 -46 5 -124 -17 -142 -12 -10 -18 -9 -32 5 -22 21 -24 135 -3 159 22 27 39 20 52 -22z"/>
+<path class="rest-content" d="M1230 858 c-24 -13 -53 -35 -64 -50 -24 -34 -33 -126 -16 -168 17 -42 72 -87 122 -101 82 -22 198 11 234 66 38 58 36 150 -4 204 -53 71 -182 94 -272 49z m127 -70 c27 -34 20 -151 -9 -169 -23 -15 -48 28 -48 81 0 81 28 124 57 88z"/>
+<path class="rest-content" d="M1633 872 c-22 -14 -33 -63 -33 -149 0 -69 4 -93 22 -124 30 -54 76 -74 139 -62 43 9 49 8 49 -7 0 -50 -60 -66 -128 -36 -70 32 -99 -5 -44 -56 37 -37 73 -48 146 -48 80 0 121 25 156 95 21 44 25 65 28 195 4 137 3 146 -18 173 -25 31 -72 37 -108 11 -20 -14 -22 -24 -22 -103 0 -99 -15 -135 -47 -115 -15 9 -18 27 -21 105 -2 81 -5 96 -23 112 -22 17 -75 23 -96 9z"/>
+<path class="rest-content" d="M2085 847 c-66 -66 -68 -213 -4 -277 38 -38 86 -47 146 -27 31 10 53 12 64 6 10 -5 36 -9 58 -9 62 0 71 20 71 168 0 117 -1 124 -25 147 -28 29 -70 32 -103 10 -19 -14 -24 -14 -51 0 -17 8 -51 15 -77 15 -39 0 -51 -5 -79 -33z m175 -138 c0 -65 -3 -81 -17 -86 -10 -4 -23 2 -36 18 -39 48 -8 170 39 152 10 -4 14 -26 14 -84z"/>
+<path class="rest-content" d="M2585 863 c-53 -28 -83 -63 -95 -113 -24 -100 32 -188 133 -210 101 -23 185 6 235 80 20 29 23 45 20 95 -5 74 -33 119 -92 146 -52 23 -158 25 -201 2z m125 -89 c15 -38 12 -117 -5 -141 -45 -64 -84 72 -43 150 13 25 37 21 48 -9z"/>
+<path class="rest-content" d="M666 624 c-19 -18 -21 -55 -4 -72 9 -9 69 -12 210 -12 185 0 198 1 208 19 14 27 13 47 -6 65 -23 24 -385 24 -408 0z"/>
+</g>
+</svg></a></div><div class="search"><input id="local-search-input" tpye="text" placeholder="Type to search"><span class="search-icon"><i class="fa fa-search"></i></span><div class="local-search-result-cls" id="local-search-result" data-empty="(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" data-first="localSearch.first"></div></div><div class="menu"><ul class="menu-icon"><li></li><li></li><li></li></ul><ul id="nav"><img class="menu-avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div class="menu-items"><li class="item-name"><a class="name-a" href="/"><i class="fas fa-home"></i> Home</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-list"></i> Category</a><ul class="submenu-items"><li class="subitem-name"><a href="/categories/Gallery"><i class="fas fa-camera"></i> Gallery</a></li><li class="subitem-name"><a href="/categories/ACM"><i class="fas fa-code"></i> OJ Prob</a></li><li class="subitem-name"><a href="/novel"><i class="fas fa-book-open"></i> Novel</a></li><li class="subitem-name"><a href="/categories/Essay"><i class="fas fa-feather"></i> Essay</a></li><li class="subitem-name"><a href="/categories/expn"><i class="fas fa-language"></i> English</a></li></ul></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-lightbulb"></i> About</a><ul class="submenu-items"><li class="subitem-name"><a href="/about"><i class="fas fa-heart"></i> Me</a></li><li class="subitem-name"><a href="/theme-last-guide/site/"><i class="fas fa-puzzle-piece"></i> Theme</a></li></ul></li><li class="item-name"><a class="name-a" href="/archives"><i class="fas fa-archive"></i> Archives</a></li><li class="item-name"><a class="name-a" href="#"><i class="fas fa-cog"></i> Lab</a><ul class="submenu-items"><li class="subitem-name"><a href="/project"><i class="fas fa-paperclip"></i> Project</a></li><li class="subitem-name"><a href="/project/RubikCube/index.html"><i class="fas fa-cube"></i> Rubik's Cube</a></li></ul></li><li class="item-name"><a class="name-a" href="/tags"><i class="fas fa-tag"></i> Tag</a></li><li class="item-name"><a class="name-a" href="/links"><i class="fas fa-link"></i> Friends</a></li></div></ul></div></div><div id="content-outer"><div id="content-inner"><div id="post-outer"><div id="share-col"><div id="shareButtons"><div id="shareButtonsInner"><span class="social-share" data-sites="facebook,twitter,qq,wechat,qzone,weibo"></span></div></div></div><div id="mid-col"><div id="post"><div id="titles"><span class="ribbon"><span class="ri">ORIGIN</span></span><div id="first-line"><h1>Database Engine Project: Semantic Analysis & Catalog Management Ⅴ</h1><div class="date"><span class="post-title-icons"><i class="fa fa-calendar"></i></span><time class="words" datetime="2025-09-23T19:51:46.000Z">2025-09-23</time></div></div><div id="post-information"><a class="category-post"><span class="post-title-icons"><i class="fa fa-book"></i></span><span class="words" href="/categories/Database-Engine-Project/">Database Engine Project</span></a><a class="post-tag"><span class="post-title-icons"><i class="fa fa-tag"></i></span><span class="words" href="/tags/SQL/">SQL  </span><span class="words" href="/tags/Semantic-Analysis/">Semantic Analysis  </span><span class="words" href="/tags/Visitor-Pattern/">Visitor Pattern  </span><span class="words" href="/tags/Catalog-Manager/">Catalog Manager  </span><span class="words" href="/tags/Function-Management/">Function Management  </span></a><span class="post-title-icons"> <i class="fa fa-clock"></i></span><span class="words">27 mins</span><span class="post-title-icons"><i class="fa fa-file-alt"></i></span><span class="words">4.4k words</span></div></div><div id="post-content"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    CommonHTML: {
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "HTML-CSS": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    },
+    "SVG": { 
+        linebreaks: { automatic: true, width: "90% container" }
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div style="all: unset; display: flex; flex-direction: column; align-items: flex-start; margin: 1rem 0;">
+  <a target="_blank" rel="noopener" href="https://github.com/DyingDown/LiteDatabase" style="all: unset; cursor: pointer;">
+    <img 
+      src="https://github-readme-stats.vercel.app/api/pin/?username=DyingDown&repo=LiteDatabase"
+      alt="LiteDatabase Repo Card"
+      style="
+        all: unset;
+        display: block;
+        max-width: 100%;
+      ">
+  </a>
+</div>
+
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Welcome back to our database engine series! In the previous articles, we’ve built a solid foundation:</p>
+<ul>
+<li><strong>Part 1</strong>: <a href="https://dyingdown.github.io/2025/09/18/Database-Engine-Project-SQL-Tokenizer-%E2%85%A1/">SQL Tokenizer</a> - Breaking SQL text into meaningful tokens</li>
+<li><strong>Part 2</strong>: <a href="https://dyingdown.github.io/2025/09/18/Database-Engine-Project-Abstract-Syntax-Tree-AST-%E2%85%A2/">AST Construction</a> - Building Abstract Syntax Trees  </li>
+<li><strong>Part 3</strong>: <a href="https://dyingdown.github.io/2025/09/18/Database-Engine-Project-SQL-Parser-%E2%85%A3/">SQL Parser</a> - Converting tokens into structured ASTs</li>
+</ul>
+<p>Now it’s time to add intelligence to our database engine. Having an AST is great, but we need to ensure it makes sense semantically. Can we actually execute this query? Do the referenced tables and columns exist? Are the types compatible?</p>
+<p>In this article, we’ll build several critical components organized into a clean architecture:</p>
+<ol>
+<li><strong>Catalog Manager</strong> - The “brain” that remembers what tables, columns, and functions exist</li>
+<li><strong>Semantic Analysis Package</strong> - A well-structured module containing:<ul>
+<li><code>SemanticAnalyzer.cs</code> - The main validator that ensures SQL queries are meaningful</li>
+<li><code>ExpressionType.cs</code> - Type system definitions for scalars, row sets, and unknowns</li>
+<li><code>ExpressionTypeInferrer.cs</code> - The smart engine that automatically determines expression types</li>
+</ul>
+</li>
+</ol>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>In earlier iterations, semantic analysis was handled by a single monolithic file. As our database engine grew more sophisticated, we refactored it into a clean package structure:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Sql/Semantic/</span><br><span class="line">├── SemanticAnalyzer.cs      # Main validation logic using Visitor pattern</span><br><span class="line">├── ExpressionType.cs        # Type system: Scalar, RowSet, Unknown types  </span><br><span class="line">└── ExpressionTypeInferrer.cs # Automatic type inference for expressions</span><br></pre></td></tr></table></figure>
+
+<p><strong>Why the refactor?</strong></p>
+<ul>
+<li><strong>Separation of Concerns</strong>: Each file has a single, clear responsibility</li>
+<li><strong>Better Maintainability</strong>: Easier to modify type inference without touching validation logic</li>
+<li><strong>Extensibility</strong>: Adding new expression types or validation rules is much cleaner</li>
+<li><strong>Testability</strong>: Each component can be tested independently</li>
+</ul>
+<p>This modular approach makes our semantic analysis system both powerful and maintainable.</p>
+<p>By the end of this article, our database engine will be able to catch errors like:</p>
+<ul>
+<li><code>SELECT name FROM nonexistent_table</code> ❌ </li>
+<li><code>SELECT age + &quot;hello&quot;</code> ❌ (can’t add number and string)</li>
+<li><code>SELECT COUNT(name, age)</code> ❌ (COUNT takes only one argument)</li>
+</ul>
+<p>Let’s explore each component!</p>
+<h2 id="Schema-Catalog"><a href="#Schema-Catalog" class="headerlink" title="Schema Catalog"></a>Schema Catalog</h2><p>Think of the Catalog Manager as the database’s “memory system.” Just like how we remember what friends we have and their phone numbers, our database needs to remember what tables exist, what columns they have, and what functions are available.</p>
+<h3 id="Why-Do-We-Need-a-Catalog"><a href="#Why-Do-We-Need-a-Catalog" class="headerlink" title="Why Do We Need a Catalog?"></a>Why Do We Need a Catalog?</h3><p>Consider this simple query:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, age <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+
+<p>To validate this query, we need to answer:</p>
+<ul>
+<li>✅ Does the <code>users</code> table exist?</li>
+<li>✅ Does <code>users</code> have <code>name</code> and <code>age</code> columns?</li>
+<li>✅ What type is the <code>age</code> column? (to validate <code>age &gt; 18</code>)</li>
+</ul>
+<p>Without a catalog, our database would be like a librarian with amnesia - unable to help anyone find anything!</p>
+<h3 id="Catalog-Manager-Architecture"><a href="#Catalog-Manager-Architecture" class="headerlink" title="Catalog Manager Architecture"></a>Catalog Manager Architecture</h3><p>Let’s start with the interface that defines what our catalog should do:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ICatalogManager</span> &#123;</span><br><span class="line">    <span class="comment">// Table schema management</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CreateTable</span>(<span class="params"><span class="built_in">string</span> tableName, List&lt;ColumnDefinition&gt; columns</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">DropTable</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span>;</span><br><span class="line">    <span class="function"><span class="built_in">bool</span> <span class="title">TableExists</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span>;</span><br><span class="line">    <span class="function">Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt; <span class="title">GetTableColumns</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span>;</span><br><span class="line">    <span class="function">TableSchema <span class="title">GetTable</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Table ID management (for storage layer)</span></span><br><span class="line">    <span class="function"><span class="built_in">int</span> <span class="title">GetTableId</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span>;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">GetTableName</span>(<span class="params"><span class="built_in">int</span> tableId</span>)</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Function registry</span></span><br><span class="line">    <span class="function"><span class="built_in">bool</span> <span class="title">FunctionExists</span>(<span class="params"><span class="built_in">string</span> functionName</span>)</span>;</span><br><span class="line">    FunctionDefinition? GetFunction(<span class="built_in">string</span> functionName);</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">RegisterFunction</span>(<span class="params">FunctionDefinition function</span>)</span>;</span><br><span class="line">    <span class="function">IEnumerable&lt;FunctionDefinition&gt; <span class="title">GetAllFunctions</span>()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s implement it:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CatalogManager</span> : <span class="title">ICatalogManager</span> &#123;</span><br><span class="line">    <span class="comment">// Table name mapping (case-insensitive for SQL compliance)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">int</span>&gt; tableNameToId = <span class="keyword">new</span>(StringComparer.OrdinalIgnoreCase);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt; tableIdToName = <span class="keyword">new</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Schema storage</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> Dictionary&lt;<span class="built_in">string</span>, TableSchema&gt; tables = <span class="keyword">new</span>(StringComparer.OrdinalIgnoreCase);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Function registry</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> Dictionary&lt;<span class="built_in">string</span>, FunctionDefinition&gt; functions = <span class="keyword">new</span>(StringComparer.OrdinalIgnoreCase);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> nextTableId = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CatalogManager</span>()</span> &#123;</span><br><span class="line">        RegisterBuiltinFunctions();  <span class="comment">// We&#x27;ll add SQL functions like COUNT, SUM, etc.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Key Design Decisions:</strong></p>
+<ul>
+<li><strong>Case-insensitive lookups</strong>: SQL is traditionally case-insensitive for identifiers</li>
+<li><strong>Table ID mapping</strong>: Useful for storage layer optimizations</li>
+<li><strong>Function registry</strong>: Built-in and user-defined functions in one place</li>
+</ul>
+<h3 id="Table-Management-Operations"><a href="#Table-Management-Operations" class="headerlink" title="Table Management Operations"></a>Table Management Operations</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateTable</span>(<span class="params"><span class="built_in">string</span> tableName, List&lt;ColumnDefinition&gt; columns</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (tableNameToId.ContainsKey(tableName))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">$&quot;Table &#x27;<span class="subst">&#123;tableName&#125;</span>&#x27; already exists.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> id = nextTableId++;</span><br><span class="line">    tableNameToId[tableName] = id;</span><br><span class="line">    tableIdToName[id] = tableName;</span><br><span class="line">    tables[tableName] = <span class="keyword">new</span> TableSchema(id, tableName, columns);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DropTable</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!tableNameToId.ContainsKey(tableName)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">$&quot;Table &#x27;<span class="subst">&#123;tableName&#125;</span>&#x27; does not exist.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">int</span> id = tableNameToId[tableName];</span><br><span class="line">    tableIdToName.Remove(id);</span><br><span class="line">    tableNameToId.Remove(tableName);</span><br><span class="line">    tables.Remove(tableName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt; <span class="title">GetTableColumns</span>(<span class="params"><span class="built_in">string</span> tableName</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!tableNameToId.ContainsKey(tableName)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">$&quot;Table &#x27;<span class="subst">&#123;tableName&#125;</span>&#x27; does not exist.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tables[tableName].Columns;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Schema-Storage-Structure"><a href="#Schema-Storage-Structure" class="headerlink" title="Schema Storage Structure"></a>Schema Storage Structure</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TableSchema</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> TableId &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> TableName &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt; Columns &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TableSchema</span>(<span class="params"><span class="built_in">int</span> tableId, <span class="built_in">string</span> tableName, IEnumerable&lt;ColumnDefinition&gt; columns</span>)</span> &#123;</span><br><span class="line">        TableId = tableId;</span><br><span class="line">        TableName = tableName;</span><br><span class="line">        Columns = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt;(StringComparer.OrdinalIgnoreCase);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> col <span class="keyword">in</span> columns) &#123;</span><br><span class="line">            Columns[col.ColumnName] = col;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Function-Registry-System"><a href="#Function-Registry-System" class="headerlink" title="Function Registry System"></a>Function Registry System</h3><p>Our database needs to know about SQL functions like <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, etc. Let’s build a flexible function registry:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">FunctionParameter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> List&lt;ColumnType&gt; AcceptedTypes &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> IsOptional &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Factory methods for common parameter patterns</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FunctionParameter <span class="title">NumericType</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">bool</span> isOptional = <span class="literal">false</span></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FunctionParameter(name, <span class="keyword">new</span> List&lt;ColumnType&gt; &#123; ColumnType.Int, ColumnType.Float &#125;, isOptional);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FunctionParameter <span class="title">ComparableType</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">bool</span> isOptional = <span class="literal">false</span></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FunctionParameter(name, <span class="keyword">new</span> List&lt;ColumnType&gt; &#123; </span><br><span class="line">            ColumnType.Int, ColumnType.Float, ColumnType.String </span><br><span class="line">        &#125;, isOptional);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FunctionParameter <span class="title">AnyType</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">bool</span> isOptional = <span class="literal">false</span></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FunctionParameter(name, <span class="keyword">new</span> List&lt;ColumnType&gt; &#123; </span><br><span class="line">            ColumnType.Int, ColumnType.Float, ColumnType.String, ColumnType.Bool </span><br><span class="line">        &#125;, isOptional);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">AcceptsType</span>(<span class="params">ColumnType type</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> AcceptedTypes.Contains(type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">FunctionDefinition</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> IReadOnlyList&lt;FunctionParameter&gt; Parameters &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ColumnType ReturnType &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> IsAggregate &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> AcceptsStarArgument &#123; <span class="keyword">get</span>; &#125; <span class="comment">// For COUNT(*)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Constructor for functions with parameters</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FunctionDefinition</span>(<span class="params"><span class="built_in">string</span> name, List&lt;FunctionParameter&gt; parameters, ColumnType returnType, </span></span></span><br><span class="line"><span class="params"><span class="function">                            <span class="built_in">bool</span> isAggregate = <span class="literal">false</span>, <span class="built_in">bool</span> acceptsStarArgument = <span class="literal">false</span></span>)</span> &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">        Parameters = parameters.AsReadOnly();</span><br><span class="line">        ReturnType = returnType;</span><br><span class="line">        IsAggregate = isAggregate;</span><br><span class="line">        AcceptsStarArgument = acceptsStarArgument;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Constructor for single-parameter functions (common case)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FunctionDefinition</span>(<span class="params"><span class="built_in">string</span> name, FunctionParameter parameter, ColumnType returnType, </span></span></span><br><span class="line"><span class="params"><span class="function">                            <span class="built_in">bool</span> isAggregate = <span class="literal">false</span>, <span class="built_in">bool</span> acceptsStarArgument = <span class="literal">false</span></span>) </span></span><br><span class="line"><span class="function">        : <span class="title">this</span>(<span class="params">name, <span class="keyword">new</span> List&lt;FunctionParameter&gt; &#123; parameter &#125;, returnType, isAggregate, acceptsStarArgument</span>)</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Special factory for COUNT function (accepts * and any type)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FunctionDefinition <span class="title">CreateCountFunction</span>()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FunctionDefinition(</span><br><span class="line">            <span class="string">&quot;COUNT&quot;</span>, </span><br><span class="line">            <span class="keyword">new</span> List&lt;FunctionParameter&gt; &#123;</span><br><span class="line">                FunctionParameter.AnyType(<span class="string">&quot;expression&quot;</span>, isOptional: <span class="literal">true</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            ColumnType.Int, </span><br><span class="line">            isAggregate: <span class="literal">true</span>, </span><br><span class="line">            acceptsStarArgument: <span class="literal">true</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Registering-Built-in-Functions"><a href="#Registering-Built-in-Functions" class="headerlink" title="Registering Built-in Functions"></a>Registering Built-in Functions</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RegisterBuiltinFunctions</span>()</span> &#123;</span><br><span class="line">    <span class="comment">// COUNT - special function accepting any type and * parameter</span></span><br><span class="line">    RegisterFunction(FunctionDefinition.CreateCountFunction());</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// SUM - accepts numeric types, returns numeric</span></span><br><span class="line">    RegisterFunction(<span class="keyword">new</span> FunctionDefinition(</span><br><span class="line">        <span class="string">&quot;SUM&quot;</span>, </span><br><span class="line">        FunctionParameter.NumericType(<span class="string">&quot;expression&quot;</span>), </span><br><span class="line">        ColumnType.Int, </span><br><span class="line">        isAggregate: <span class="literal">true</span></span><br><span class="line">    ));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// AVG - accepts numeric types, returns Float</span></span><br><span class="line">    RegisterFunction(<span class="keyword">new</span> FunctionDefinition(</span><br><span class="line">        <span class="string">&quot;AVG&quot;</span>, </span><br><span class="line">        FunctionParameter.NumericType(<span class="string">&quot;expression&quot;</span>), </span><br><span class="line">        ColumnType.Float, </span><br><span class="line">        isAggregate: <span class="literal">true</span></span><br><span class="line">    ));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// MIN/MAX - accept comparable types</span></span><br><span class="line">    RegisterFunction(<span class="keyword">new</span> FunctionDefinition(</span><br><span class="line">        <span class="string">&quot;MIN&quot;</span>, </span><br><span class="line">        FunctionParameter.ComparableType(<span class="string">&quot;expression&quot;</span>), </span><br><span class="line">        ColumnType.Int, </span><br><span class="line">        isAggregate: <span class="literal">true</span></span><br><span class="line">    ));</span><br><span class="line">    </span><br><span class="line">    RegisterFunction(<span class="keyword">new</span> FunctionDefinition(</span><br><span class="line">        <span class="string">&quot;MAX&quot;</span>, </span><br><span class="line">        FunctionParameter.ComparableType(<span class="string">&quot;expression&quot;</span>), </span><br><span class="line">        ColumnType.Int, </span><br><span class="line">        isAggregate: <span class="literal">true</span></span><br><span class="line">    ));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Expression-Type-System"><a href="#Expression-Type-System" class="headerlink" title="Expression Type System"></a>Expression Type System</h2><p>Before we can validate queries, we need a way to represent and work with different types of expressions. SQL has some interesting type complexities:</p>
+<ul>
+<li><strong>Scalar values</strong>: <code>42</code>, <code>&quot;hello&quot;</code>, <code>age + 5</code></li>
+<li><strong>Row sets</strong>: <code>SELECT name FROM users</code> (returns multiple rows)</li>
+<li><strong>Unknown types</strong>: Sometimes we can’t figure out the type!</li>
+</ul>
+<h3 id="Type-Hierarchy"><a href="#Type-Hierarchy" class="headerlink" title="Type Hierarchy"></a>Type Hierarchy</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">enum</span> TypeKind &#123; Scalar, RowSet, Unknown &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ExpressionType</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TypeKind Kind &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ColumnType? BaseType &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;      <span class="comment">// For scalar types (INT, FLOAT, STRING, BOOL)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> IsNullable &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;           <span class="comment">// Can this be NULL?</span></span><br><span class="line">    <span class="keyword">public</span> IReadOnlyList&lt;ExpressionType&gt;? RowSchema &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;  <span class="comment">// For subquery results</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Factory methods for easy creation</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExpressionType <span class="title">Scalar</span>(<span class="params">ColumnType baseType, <span class="built_in">bool</span> isNullable</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ExpressionType &#123; </span><br><span class="line">            Kind = TypeKind.Scalar, </span><br><span class="line">            BaseType = baseType, </span><br><span class="line">            IsNullable = isNullable </span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExpressionType <span class="title">RowSet</span>(<span class="params">IReadOnlyList&lt;ExpressionType&gt; schema</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ExpressionType &#123; </span><br><span class="line">            Kind = TypeKind.RowSet, </span><br><span class="line">            RowSchema = schema </span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExpressionType <span class="title">Unknown</span>()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ExpressionType &#123; </span><br><span class="line">            Kind = TypeKind.Unknown, </span><br><span class="line">            BaseType = <span class="literal">null</span>, </span><br><span class="line">            IsNullable = <span class="literal">true</span> </span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><code>42</code> → <code>Scalar(Int, false)</code></li>
+<li><code>&quot;hello&quot;</code> → <code>Scalar(String, false)</code></li>
+<li><code>SELECT name FROM users</code> → <code>RowSet([Scalar(String, true)])</code></li>
+<li>Invalid expression → <code>Unknown()</code></li>
+</ul>
+<p>This type system is defined in <code>ExpressionType.cs</code> and forms the foundation for our type inference engine.</p>
+<h2 id="Semantic-Analyzer"><a href="#Semantic-Analyzer" class="headerlink" title="Semantic Analyzer"></a>Semantic Analyzer</h2><p>Now that we have our catalog to store schema information and our type system to represent expression types, let’s explore the semantic analysis package. This is where the magic happens - we traverse our AST and validate that everything makes semantic sense.</p>
+<h3 id="Component-Overview"><a href="#Component-Overview" class="headerlink" title="Component Overview"></a>Component Overview</h3><p>Our semantic analysis is now cleanly organized into three specialized files:</p>
+<h4 id="1-SemanticAnalyzer-cs-The-Main-Validator"><a href="#1-SemanticAnalyzer-cs-The-Main-Validator" class="headerlink" title="1. SemanticAnalyzer.cs - The Main Validator"></a>1. <code>SemanticAnalyzer.cs</code> - The Main Validator</h4><p>The core validation engine that implements the Visitor pattern to traverse AST nodes and validate:</p>
+<ul>
+<li>Table and column existence</li>
+<li>Type compatibility for operations</li>
+<li>Function call validation</li>
+<li>Expression semantic correctness</li>
+</ul>
+<h4 id="2-ExpressionType-cs-The-Type-Foundation"><a href="#2-ExpressionType-cs-The-Type-Foundation" class="headerlink" title="2. ExpressionType.cs - The Type Foundation"></a>2. <code>ExpressionType.cs</code> - The Type Foundation</h4><p>Defines our three-tier type system with factory methods for easy type creation:</p>
+<ul>
+<li><code>Scalar</code> types for single values</li>
+<li><code>RowSet</code> types for subquery results  </li>
+<li><code>Unknown</code> types for inference failures</li>
+</ul>
+<h4 id="3-ExpressionTypeInferrer-cs-The-Smart-Detective"><a href="#3-ExpressionTypeInferrer-cs-The-Smart-Detective" class="headerlink" title="3. ExpressionTypeInferrer.cs - The Smart Detective"></a>3. <code>ExpressionTypeInferrer.cs</code> - The Smart Detective</h4><p>The automatic type inference engine that determines result types for:</p>
+<ul>
+<li>Binary and unary expressions</li>
+<li>Function calls with special handling for aggregates</li>
+<li>Column references with nullability tracking</li>
+<li>Complex subquery expressions</li>
+</ul>
+<h3 id="The-Visitor-Pattern-Approach"><a href="#The-Visitor-Pattern-Approach" class="headerlink" title="The Visitor Pattern Approach"></a>The Visitor Pattern Approach</h3><p>Our semantic analyzer in <code>SemanticAnalyzer.cs</code> implements the visitor pattern to traverse AST nodes:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">SemanticAnalyzer</span> : <span class="title">IVisitor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> ICatalogManager catalog;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="built_in">string</span>, Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt;&gt; _currentTableSchemas = <span class="keyword">new</span>();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SemanticAnalyzer</span>(<span class="params">ICatalogManager catalogManager</span>)</span> &#123;</span><br><span class="line">        catalog = catalogManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ExpressionTypeInferrer <span class="title">CreateTypeInferrer</span>()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ExpressionTypeInferrer(catalog, _currentTableSchemas);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Key Design Points:</strong></p>
+<ul>
+<li><strong>Current table context</strong>: We track which tables are available in the current query scope</li>
+<li><strong>Type inferrer</strong>: We create type inference objects on-demand for type checking</li>
+<li><strong>Catalog integration</strong>: We leverage our catalog for all schema lookups</li>
+</ul>
+<h3 id="Validating-Table-Operations"><a href="#Validating-Table-Operations" class="headerlink" title="Validating Table Operations"></a>Validating Table Operations</h3><p>Let’s start with the simpler statement types - each has its own specific validation challenges:</p>
+<h4 id="CREATE-TABLE-Statement-Validation"><a href="#CREATE-TABLE-Statement-Validation" class="headerlink" title="CREATE TABLE Statement Validation"></a>CREATE TABLE Statement Validation</h4><p>CREATE TABLE statements require validating the rationality of table structure definitions:</p>
+<p><strong>Table Existence Check</strong><br>First, check whether the table name to be created already exists. Databases don’t allow creating tables with the same name, as this would cause schema conflicts.</p>
+<p><strong>Column Definition Validation</strong></p>
+<ul>
+<li><strong>Column Name Uniqueness</strong>: No duplicate column names within a table, such as defining two <code>name</code> columns simultaneously</li>
+<li><strong>Data Type Validity</strong>: Each column’s data type must be a system-supported type (Int, Float, String, Bool)</li>
+<li><strong>Constraint Condition Check</strong>: Validate syntax correctness of constraints like PRIMARY KEY, NOT NULL, etc.</li>
+</ul>
+<p><strong>Constraint Logic Consistency</strong></p>
+<ul>
+<li>A table can have only one primary key column</li>
+<li>Primary key columns automatically imply NOT NULL constraint</li>
+<li>Check for logical conflicts between constraints</li>
+</ul>
+<h4 id="DROP-TABLE-Statement-Validation"><a href="#DROP-TABLE-Statement-Validation" class="headerlink" title="DROP TABLE Statement Validation"></a>DROP TABLE Statement Validation</h4><p>DROP TABLE is relatively simple but still requires key checks:</p>
+<p><strong>Table Existence Verification</strong><br>For each table name listed in the DROP statement, the validator ensures that the table actually exists in the catalog. Attempting to delete non-existent tables produces errors.</p>
+<p><strong>Batch Operation Handling</strong><br>Supports batch deletion like <code>DROP TABLE users, products, orders</code>, with the validator checking each table name’s existence individually.</p>
+<h4 id="INSERT-Statement-Validation"><a href="#INSERT-Statement-Validation" class="headerlink" title="INSERT Statement Validation"></a>INSERT Statement Validation</h4><p>INSERT statement validation is most complex because it involves type matching:</p>
+<p><strong>Target Table Validation</strong><br>Ensure the table for data insertion exists in the database.</p>
+<p><strong>Column-Value Matching Strategy</strong><br>Handle two INSERT syntaxes:</p>
+<ul>
+<li><strong>Explicit Column Names</strong>: <code>INSERT INTO users (name, age) VALUES (...)</code></li>
+<li><strong>Implicit All Columns</strong>: <code>INSERT INTO users VALUES (...)</code> (following table definition column order)</li>
+</ul>
+<p><strong>Quantity Consistency Check</strong><br>The number of values in each row must exactly match the specified number of columns. <code>INSERT INTO users (name, age) VALUES (&#39;John&#39;, 25, &#39;extra&#39;)</code> will be rejected.</p>
+<p><strong>Type Compatibility Validation</strong><br>This is the most critical part:</p>
+<ul>
+<li>String values cannot be inserted into numeric columns</li>
+<li>Numeric values cannot be inserted into <code>boolean</code> columns  </li>
+<li>NULL values can only be inserted into columns that allow NULL</li>
+<li>Perform necessary type promotion (Int can be inserted into Float columns)</li>
+</ul>
+<h4 id="UPDATE-Statement-Validation"><a href="#UPDATE-Statement-Validation" class="headerlink" title="UPDATE Statement Validation"></a>UPDATE Statement Validation</h4><p>UPDATE statements require multi-layer validation:</p>
+<p><strong>Target Table Existence</strong><br>Verify that the table being updated actually exists.</p>
+<p><strong>SET Clause Validation</strong><br>For each <code>column = value</code> pair:</p>
+<ul>
+<li><strong>Column Existence</strong>: Ensure the column being updated exists in the target table</li>
+<li><strong>Type Compatibility</strong>: New value type must be compatible with column definition</li>
+<li><strong>Constraint Check</strong>: Cannot assign NULL to NOT NULL columns</li>
+</ul>
+<p><strong>WHERE Clause Handling</strong><br>If a WHERE clause exists, must:</p>
+<ul>
+<li>Recursively validate all expressions in the WHERE clause</li>
+<li>Ensure the WHERE clause ultimately returns <code>boolean</code> values</li>
+<li>Verify that column references in the WHERE clause all exist</li>
+</ul>
+<p><strong>Update Constraint Check</strong></p>
+<ul>
+<li>Cannot update primary key columns (though some databases allow it, we choose to prohibit it)</li>
+<li>Check for potential unique constraint conflicts</li>
+</ul>
+<h4 id="DELETE-Statement-Validation"><a href="#DELETE-Statement-Validation" class="headerlink" title="DELETE Statement Validation"></a>DELETE Statement Validation</h4><p>DELETE statement validation focuses on:</p>
+<p><strong>Target Table Validation</strong><br>Ensure the table from which data is to be deleted exists.</p>
+<p><strong>WHERE Clause Criticality</strong></p>
+<ul>
+<li>If there’s no WHERE clause, this is a full table deletion operation (requires special attention)</li>
+<li>If there’s a WHERE clause, validate expression correctness and <code>boolean</code> return type</li>
+<li>Column references in the WHERE clause must all exist in the target table</li>
+</ul>
+<p><strong>Referential Integrity Considerations</strong><br>Although our system hasn’t implemented foreign keys yet, the DELETE validator reserves extension points for future referential integrity checks.</p>
+<h4 id="SELECT-Statement-Validation"><a href="#SELECT-Statement-Validation" class="headerlink" title="SELECT Statement Validation"></a>SELECT Statement Validation</h4><p>SELECT statements are where the Visitor pattern really shows its power. Here’s how our <code>SemanticAnalyzer</code> tackles this multi-layered validation challenge:</p>
+<p><strong>The Visitor’s Journey Through SELECT</strong></p>
+<p>When our visitor encounters a SELECT node, it follows a carefully orchestrated five-phase approach:</p>
+<p><strong>Phase 1: Building Table Context</strong><br>The visitor first clears its current table context and processes the FROM clause. For each table or alias mentioned, it validates that:</p>
+<ul>
+<li>The table actually exists in our catalog</li>
+<li>No duplicate aliases are used (like <code>FROM users u, products u</code>)</li>
+<li>Each alias maps to a valid table schema</li>
+</ul>
+<p>This phase builds up the <code>_currentTableSchemas</code> dictionary that becomes our reference for all subsequent column validation.</p>
+<p><strong>Phase 2: SELECT List Validation</strong><br>Here’s where things get interesting. The visitor handles three scenarios:</p>
+<ul>
+<li><strong>Star expressions (<code>*</code>)</strong>: Always valid if we have tables in FROM</li>
+<li><strong>Qualified stars (<code>table.*</code>)</strong>: Must verify the table exists in our FROM clause</li>
+<li><strong>Regular expressions</strong>: Each expression gets recursively validated, and we ensure the result type is scalar (no subqueries that return multiple rows in SELECT list)</li>
+</ul>
+<p><strong>Phase 3: WHERE Clause Logic</strong><br>If a WHERE clause exists, the visitor recursively validates all its expressions, then applies a critical constraint: the final result must be a boolean expression. You can’t have <code>WHERE name</code> (string) or <code>WHERE age</code> (int) - it must be something that evaluates to true&#x2F;false.</p>
+<p><strong>Phase 4 &amp; 5: Column Reference Validation</strong><br>For GROUP BY and ORDER BY clauses, the visitor ensures every referenced column actually exists and is unambiguous within our current table context.</p>
+<p><strong>The Key Insight</strong>: Notice how the visitor maintains state (<code>_currentTableSchemas</code>) as it traverses the tree. This context allows later validation phases to reference what was learned in earlier phases.</p>
+<h3 id="Expression-Validation"><a href="#Expression-Validation" class="headerlink" title="Expression Validation"></a>Expression Validation</h3><p>This is where our Visitor pattern truly shines. Each expression type has its own validation rules, and the visitor applies them recursively as it traverses the expression tree.</p>
+<h4 id="Column-Reference"><a href="#Column-Reference" class="headerlink" title="Column Reference"></a>Column Reference</h4><p>Column references present two classic database validation scenarios:</p>
+<p><strong>Qualified References (<code>users.name</code>)</strong><br>When a column reference specifies a table name, the validator ensures:</p>
+<ul>
+<li>The table&#x2F;alias exists in our current FROM clause context</li>
+<li>The specific column exists in that table’s schema</li>
+</ul>
+<p><strong>Unqualified References (<code>name</code>)</strong><br>This is where it gets tricky. The validator must:</p>
+<ul>
+<li>Search through all available tables to find columns with that name</li>
+<li>Reject the reference if no table has that column</li>
+<li><strong>Critically important</strong>: Reject if multiple tables have that column (ambiguity error)</li>
+</ul>
+<p>The ambiguity check is crucial - <code>SELECT name FROM users, products</code> fails because both tables might have a <code>name</code> column. SQL requires you to be explicit: <code>users.name</code> or <code>products.name</code>.</p>
+<h4 id="Binary-Operations"><a href="#Binary-Operations" class="headerlink" title="Binary Operations"></a>Binary Operations</h4><p>Binary expressions require a two-stage validation approach:</p>
+<p><strong>Stage 1: Recursive Validation</strong><br>The visitor first validates both operands by calling <code>Accept()</code> on the left and right expressions. This ensures the operands themselves are valid before checking compatibility.</p>
+<p><strong>Stage 2: Type Compatibility Logic</strong><br>Here’s where our type system rules come into play:</p>
+<p><strong>Equality Operations (<code>=</code>, <code>!=</code>)</strong></p>
+<ul>
+<li>Both operands must have the same base type</li>
+<li>String &#x3D; String ✓, Int &#x3D; Int ✓, String &#x3D; Int ✗</li>
+</ul>
+<p><strong>Comparison Operations (<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>)</strong></p>
+<ul>
+<li>Requires orderable types (Int, Float, String)</li>
+<li>Both operands must be comparable to each other</li>
+<li>Boolean comparisons are rejected (what does <code>true &gt; false</code> mean?)</li>
+</ul>
+<p><strong>Logical Operations (<code>AND</code>, <code>OR</code>)</strong></p>
+<ul>
+<li>Both operands must be <code>boolean</code> expressions</li>
+<li>This is stricter than some databases - we don’t allow implicit <code>boolean</code> conversion</li>
+</ul>
+<p><strong>Arithmetic Operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>)</strong></p>
+<ul>
+<li>Both operands must be numeric (Int or Float)</li>
+<li>String concatenation requires explicit CONCAT function</li>
+<li>Mixed operations (Int + Float) are allowed with type promotion rules</li>
+</ul>
+<h4 id="Unary-Expression"><a href="#Unary-Expression" class="headerlink" title="Unary Expression"></a>Unary Expression</h4><p>Unary expressions, while simple, have important validation rules:</p>
+<p><strong>NOT Operator Validation</strong></p>
+<ul>
+<li>The operand must be a <code>boolean</code> expression</li>
+<li><code>NOT name</code> (String) or <code>NOT age</code> (Int) are both illegal</li>
+<li>Only <code>boolean</code> expressions like <code>NOT (age &gt; 18)</code> are valid</li>
+</ul>
+<p><strong>Numeric Negation Operator (<code>-</code>)</strong></p>
+<ul>
+<li>The operand must be a numeric type (Int or Float)</li>
+<li>Strings or <code>boolean</code> values cannot be numerically negated</li>
+<li>The result maintains the original numeric type</li>
+</ul>
+<h4 id="BETWEEN-Expression"><a href="#BETWEEN-Expression" class="headerlink" title="BETWEEN Expression"></a>BETWEEN Expression</h4><p>BETWEEN expressions require coordination of three operand types:</p>
+<p><strong>Ternary Type Consistency</strong><br>For <code>column BETWEEN value1 AND value2</code>:</p>
+<ul>
+<li>All three operands must be comparable types</li>
+<li>Numeric types can be mixed (Int BETWEEN Float AND Int)</li>
+<li>String types support lexicographic comparison</li>
+<li>Boolean types don’t support range comparison</li>
+</ul>
+<p><strong>Boundary Value Logic Check</strong><br>While semantic analysis doesn’t validate <code>value1 &lt;= value2</code>, it ensures the type system supports such comparison operations.</p>
+<h4 id="IN-Expression"><a href="#IN-Expression" class="headerlink" title="IN Expression"></a>IN Expression</h4><p>IN expressions handle set membership checks:</p>
+<p><strong>Value List Type Consistency</strong><br>For <code>column IN (value1, value2, value3)</code>:</p>
+<ul>
+<li>The left operand must be type-compatible with each element in the value list</li>
+<li>Types within the value list don’t need to be identical (supports type promotion)</li>
+<li>For example: <code>age IN (18, 25.5, 30)</code> is legal (Int and Float mixed)</li>
+</ul>
+<p><strong>Subquery IN Operations</strong><br>For <code>column IN (SELECT ...)</code>:</p>
+<ul>
+<li>The subquery must return a single-column result</li>
+<li>The subquery column type must be compatible with the left operand</li>
+<li>The subquery is specially marked for “scalar context” usage</li>
+</ul>
+<h4 id="Literal-Expression"><a href="#Literal-Expression" class="headerlink" title="Literal Expression"></a>Literal Expression</h4><p>Literal expressions are the simplest but most important foundation:</p>
+<p><strong>Type Determinism</strong><br>Each literal has a clear type mapping:</p>
+<ul>
+<li>Integer literals → Int type</li>
+<li>Floating-point literals → Float type  </li>
+<li>String literals → String type</li>
+<li>Boolean literals → Bool type</li>
+<li>NULL literals → Unknown type (requires context inference)</li>
+</ul>
+<p><strong>NULL Value Special Handling</strong><br>NULL literal type inference depends on usage context, providing important information for the type inferrer.</p>
+<h4 id="Subquery-Expression"><a href="#Subquery-Expression" class="headerlink" title="Subquery Expression"></a>Subquery Expression</h4><p>Subquery expressions are the most complex because they create nested scopes:</p>
+<p><strong>Context Isolation</strong></p>
+<ul>
+<li>Subqueries have their own table scope, independent of outer queries</li>
+<li>Column name resolution within subqueries prioritizes the subquery’s tables</li>
+<li>Prevents column name conflicts between inner and outer queries</li>
+</ul>
+<p><strong>Usage Context Constraints</strong><br>Different constraints are imposed based on subquery usage location:</p>
+<ul>
+<li><strong>Scalar Context</strong> (like <code>WHERE age &gt; (SELECT ...)</code>): Must return single row, single column</li>
+<li><strong>Row Context</strong> (like <code>WHERE (a,b) IN (SELECT ...)</code>): Can return multiple rows but column count must match</li>
+<li><strong>Table Context</strong> (like <code>FROM (SELECT ...)</code>): Can return arbitrary row-column structure</li>
+</ul>
+<h4 id="Star-Expression"><a href="#Star-Expression" class="headerlink" title="Star Expression"></a>Star Expression</h4><p>Star expressions have special usage rules:</p>
+<p><strong>Context Restrictions</strong></p>
+<ul>
+<li>Can only be used in SELECT lists (<code>SELECT *</code>)</li>
+<li>Can only be used in COUNT functions (<code>COUNT(*)</code>) </li>
+<li>Cannot be used in other expressions (<code>WHERE *</code> is illegal)</li>
+</ul>
+<p><strong>Table Qualification Check</strong></p>
+<ul>
+<li><code>table.*</code> requires verifying the table name exists in the FROM clause</li>
+<li>Bare <code>*</code> is always legal when there’s a table context</li>
+</ul>
+<h4 id="Function-Call"><a href="#Function-Call" class="headerlink" title="Function Call"></a>Function Call</h4><p>Function calls present the most complex validation scenario because they involve multiple interdependent constraints that must all be satisfied.</p>
+<p><strong>Layer 1: Existence and Semantic Rules</strong><br>The visitor first ensures the function exists in our catalog and applies special semantic rules. The most important rule: only <code>COUNT(*)</code> is allowed to use the star argument - expressions like <code>SUM(*)</code> or <code>AVG(*)</code> are rejected because they don’t make mathematical sense.</p>
+<p><strong>Layer 2: Recursive Argument Validation</strong><br>Each function argument is recursively validated by calling <code>Accept()</code> on it. This ensures that complex expressions like <code>UPPER(users.name || products.description)</code> have all their sub-expressions properly validated before we check the function-specific rules.</p>
+<p><strong>Layer 3: Arity Checking (Argument Count)</strong><br>Functions have both required and optional parameters. The validator ensures:</p>
+<ul>
+<li>At least the required number of arguments are provided</li>
+<li>No more than the total number of parameters are provided</li>
+<li>Special exception for <code>COUNT(*)</code> which bypasses normal parameter counting</li>
+</ul>
+<p><strong>Layer 4: Type Compatibility Matrix</strong><br>This is the most sophisticated part. For each argument, the validator:</p>
+<ul>
+<li>Infers the argument’s type using our <code>ExpressionTypeInferrer</code></li>
+<li>Handles the special case of subquery arguments (they must be scalar subqueries)</li>
+<li>Checks if the argument type is accepted by the corresponding parameter</li>
+</ul>
+<p><strong>The Subquery Challenge</strong>: When a function argument is a subquery (like <code>WHERE age &gt; (SELECT AVG(age) FROM users)</code>), the validator must ensure:</p>
+<ul>
+<li>The subquery returns exactly one row and one column (scalar subquery)</li>
+<li>The column type matches what the function parameter expects</li>
+<li>This prevents errors like passing a multi-row result where a single value is expected</li>
+</ul>
+<p><strong>Parameter Type Matching</strong>: Each function parameter has an “accepted types” list. For example:</p>
+<ul>
+<li><code>UPPER()</code> only accepts String types</li>
+<li><code>ABS()</code> only accepts numeric types (Int, Float)  </li>
+<li><code>COALESCE()</code> can accept any type, but all arguments must be the same type</li>
+</ul>
+<p>This layered approach ensures that by the time we finish validating a function call, we know with certainty that it will execute successfully at runtime.</p>
+<h2 id="Type-Inference"><a href="#Type-Inference" class="headerlink" title="Type Inference"></a>Type Inference</h2><p>Now that we can validate semantics, we need a way to automatically figure out what type each expression will produce. This is crucial for query planning and execution.</p>
+<p>In our refactored architecture, I’ve separated the type inference logic into its own dedicated class: <code>ExpressionTypeInferrer</code>. This gives us better separation of concerns - the <code>SemanticAnalyzer</code> focuses on validation while the <code>ExpressionTypeInferrer</code> specializes in determining result types.</p>
+<p>Our <code>ExpressionTypeInferrer</code> acts like a detective, examining expressions and deducing their types:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ExpressionTypeInferrer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> ICatalogManager catalog;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> Dictionary&lt;<span class="built_in">string</span>, Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt;&gt; tableSchemas;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExpressionTypeInferrer</span>(<span class="params">ICatalogManager catalogManager, </span></span></span><br><span class="line"><span class="params"><span class="function">                                Dictionary&lt;<span class="built_in">string</span>, Dictionary&lt;<span class="built_in">string</span>, ColumnDefinition&gt;&gt; tableSchemas</span>)</span> &#123;</span><br><span class="line">        catalog = catalogManager;</span><br><span class="line">        <span class="keyword">this</span>.tableSchemas = tableSchemas;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ExpressionType <span class="title">InferType</span>(<span class="params">Expression expression</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// Use cached type if we&#x27;ve already figured it out</span></span><br><span class="line">        <span class="keyword">if</span> (expression.InferredType != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> expression.InferredType;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">var</span> inferredType = expression <span class="keyword">switch</span> &#123;</span><br><span class="line">            BetweenExpression between =&gt; InferBetweenExpression(between),</span><br><span class="line">            BinaryExpression binary =&gt; InferBinaryExpression(binary),</span><br><span class="line">            ColumnRefExpression colRef =&gt; InferColumnRefExpression(colRef),</span><br><span class="line">            FunctionCallExpression function =&gt; InferFunctionCallExpression(function),</span><br><span class="line">            InExpression inExp =&gt; InferInExpression(inExp),</span><br><span class="line">            LiteralExpression literal =&gt; InferLiteralExpression(literal),</span><br><span class="line">            SubqueryExpression subquery =&gt; InferSubqueryExpression(subquery),</span><br><span class="line">            UnaryExpression unary =&gt; InferUnaryExpression(unary),</span><br><span class="line">            _ =&gt; ExpressionType.Unknown()</span><br><span class="line">        &#125;;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// Cache the result for performance</span></span><br><span class="line">        expression.InferredType = inferredType;</span><br><span class="line">        <span class="keyword">return</span> inferredType;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Type-Inference-Strategy"><a href="#Type-Inference-Strategy" class="headerlink" title="Type Inference Strategy"></a>Type Inference Strategy</h3><p>Our <code>ExpressionTypeInferrer</code> works like a smart detective, using a recursive pattern-matching approach to determine result types. Here’s how it tackles each expression category:</p>
+<h4 id="Literal-Values"><a href="#Literal-Values" class="headerlink" title="Literal Values"></a>Literal Values</h4><p>Literals are the simplest case - the inferrer directly maps C# runtime types to our database types:</p>
+<ul>
+<li>Numeric literals (int, float, decimal) → Int or Float types  </li>
+<li>String literals → String type</li>
+<li>Boolean literals → Bool type</li>
+<li>NULL literals → Unknown type (special handling needed)</li>
+</ul>
+<p><strong>Key insight</strong>: NULL values have “unknown” type initially, but get resolved based on context later.</p>
+<h4 id="Column-References"><a href="#Column-References" class="headerlink" title="Column References"></a>Column References</h4><p>For column references, the inferrer performs a schema lookup:</p>
+<ul>
+<li><strong>Qualified columns</strong> (<code>users.name</code>): Direct table + column lookup in our schema dictionary</li>
+<li><strong>Unqualified columns</strong> (<code>name</code>): Search through all available table schemas (semantic analyzer already ensured uniqueness)</li>
+</ul>
+<p><strong>Nullability determination</strong>: A column is nullable unless it has an explicit NOT NULL constraint. This affects all downstream type calculations.</p>
+<h4 id="Binary-Operations-1"><a href="#Binary-Operations-1" class="headerlink" title="Binary Operations"></a>Binary Operations</h4><p>This is where our type system’s logic really shines. The inferrer applies different rules based on operator category:</p>
+<p><strong>Comparison Operators</strong> (<code>=</code>, <code>&lt;</code>, <code>&gt;=</code>, etc.)</p>
+<ul>
+<li>Always produce <code>boolean</code> results regardless of operand types</li>
+<li>Nullability propagates: if either operand is nullable, result is nullable</li>
+</ul>
+<p><strong>Logical Operators</strong> (<code>AND</code>, <code>OR</code>)</p>
+<ul>
+<li>Both operands must be boolean (validation already checked this)</li>
+<li>Result is boolean with nullability propagation</li>
+</ul>
+<p><strong>Arithmetic Operators</strong> (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>)</p>
+<ul>
+<li>Type promotion rules: Int + Int &#x3D; Int, but Int + Float &#x3D; Float</li>
+<li>Nullability propagates from either operand</li>
+</ul>
+<h4 id="Function-Calls"><a href="#Function-Calls" class="headerlink" title="Function Calls"></a>Function Calls</h4><p>Function type inference involves several sophisticated rules:</p>
+<p><strong>COUNT(*) Exception</strong>: Always returns non-nullable Int, regardless of input nullability (empty tables return 0, not NULL).</p>
+<p><strong>Aggregate Functions</strong>: Generally return nullable results if any input columns are nullable (empty result sets produce NULL).</p>
+<p><strong>MIN&#x2F;MAX Special Case</strong>: These functions return the exact same type as their input argument, preserving both base type and nullability.</p>
+<p><strong>Type-Preserving Functions</strong>: Functions like <code>UPPER()</code>, <code>LOWER()</code> return the same base type as input but may affect nullability.</p>
+<p><strong>Parameter Type Resolution</strong>: For functions with subquery arguments, the inferrer extracts the scalar type from single-column result sets.</p>
+<h3 id="Subquery-Type-Inference"><a href="#Subquery-Type-Inference" class="headerlink" title="Subquery Type Inference"></a>Subquery Type Inference</h3><p>Subqueries present the most sophisticated type inference challenge because they return row sets (multiple columns) rather than scalar values. Here’s how our <code>ExpressionTypeInferrer</code> handles this complexity:</p>
+<p><strong>Context Isolation Strategy</strong><br>The inferrer creates an isolated context for each subquery:</p>
+<ul>
+<li>Builds a separate table schema dictionary for the subquery’s FROM clause</li>
+<li>Creates a nested type inferrer that operates within this isolated scope  </li>
+<li>This prevents column name conflicts between outer and inner queries</li>
+</ul>
+<p><strong>SELECT List Analysis</strong><br>For each item in the subquery’s SELECT list, the inferrer determines:</p>
+<ul>
+<li><strong>Star expansion</strong> (<code>*</code>): Expands to all columns from all tables in the subquery’s scope</li>
+<li><strong>Qualified star</strong> (<code>table.*</code>): Expands to all columns from the specified table only</li>
+<li><strong>Regular expressions</strong>: Recursively infers the type of each expression using the nested context</li>
+</ul>
+<p><strong>Row Schema Construction</strong><br>The final result is a <code>RowSet</code> type containing a schema (list of column types) that represents what the subquery will produce. This schema becomes critical when the subquery is used in different contexts:</p>
+<ul>
+<li>In a scalar context (like <code>WHERE age &gt; (SELECT AVG(age) ...)</code>) it must be a single-column, single-row result</li>
+<li>In a row context (like <code>WHERE (name, age) IN (SELECT ...)</code>) it can be multi-column</li>
+</ul>
+<p><strong>The Nested Scope Challenge</strong>: The trickiest part is handling column references that might exist in both outer and inner query scopes. Our approach ensures that column resolution within the subquery only sees tables from the subquery’s own FROM clause, maintaining proper SQL scoping rules.</p>
+<h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next?"></a>What’s Next?</h2><p>With semantic analysis complete, our database engine now has a solid understanding of what queries mean and whether they’re valid. Our refactored modular architecture with three specialized components (<code>SemanticAnalyzer</code>, <code>ExpressionType</code>, and <code>ExpressionTypeInferrer</code>) provides a clean, maintainable foundation that will serve us well as the system grows.</p>
+<p>In the next article, we’ll tackle the <strong>Query Planner</strong> - the component that decides HOW to execute these validated queries efficiently.</p>
+<p>The query planner will:</p>
+<ul>
+<li>Transform ASTs into executable plans</li>
+<li>Choose optimal algorithms for joins, sorts, and filters</li>
+<li>Estimate costs and optimize query execution order</li>
+<li>Handle index selection and access methods</li>
+</ul>
+<div id="copyright"> <div id="fullCopyright"> <div id="postAuthor"> <span class="copyright-key">Author</span>: o_oyao</div><div id="postLink"><span class="copyright-key">Link</span>: <a href="/2025/09/23/Database-Engine-Project-Semantic-Analysis-Catalog-Management-%E2%85%A4/">http://dyingdown.github.io/2025/09/23/Database-Engine-Project-Semantic-Analysis-Catalog-Management-%E2%85%A4/</a></div><div id="postLicense"><span class="copyright-key">License</span>: All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</div></div></div></div></div><nav id="pagination"><div class="next-post pull-right"><a id="next" href="/2025/09/18/Database-Engine-Project-SQL-Parser-%E2%85%A3/"><div class="img_fit imgR" style="background-color:#undefined"><img src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202509181408825.jpg"></div><div class="info ir"><div class="label" id="label-r">NEXT POST</div><div>Database Engine Project: SQL Parser Ⅳ</div></div></a></div></nav><div id="vcomment"></div><script src="https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI',
+  appKey:'nTzjKIWYitgRpJ4AyX6i3Wyy',
+  placeholder:'Leave your email address so you can get reply from me!',
+  avatar:'mp',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'en',
+  serverURLs: 'https://l3oy62wr.api.lncldglobal.com',
+})</script><div id="sideButtons"><div id="back-to-top"><span>TOP</span></div><div id="go-to-comment"><span>COMMENT</span></div></div></div><div id="toc-col"><div class="side-user"><ul class="top-bar"><li class="me">ABOUT</li><li class="mid">|</li><li class="link">DONATE</li></ul><div class="clearfix" id="author-info"><?xml version="1.0" encoding="UTF-8"?>
+<svg class="qrButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70px" height="70px" viewBox="0 0 70 70" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 0.664062 0.53125 C 0.664062 0.796875 1.664062 1.996094 2.929688 3.160156 L 5.15625 5.289062 L 13.007812 5.324219 C 18.632812 5.324219 20.925781 5.421875 21.226562 5.722656 C 21.527344 6.023438 21.625 8.316406 21.625 13.972656 L 21.660156 21.792969 L 23.789062 24.085938 C 24.953125 25.320312 26.015625 26.285156 26.183594 26.183594 C 26.316406 26.082031 26.417969 20.160156 26.351562 13.007812 L 26.285156 0 L 13.472656 0 C 2.097656 0 0.664062 0.0664062 0.664062 0.53125 Z M 0.664062 0.53125 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 2.394531 C 32.140625 3.757812 32.238281 4.925781 32.4375 5.058594 C 32.636719 5.191406 33.601562 5.324219 34.601562 5.324219 C 35.597656 5.324219 36.597656 5.191406 36.761719 5.058594 C 36.964844 4.925781 37.0625 3.757812 36.996094 2.394531 L 36.863281 0 L 32.339844 0 Z M 32.207031 2.394531 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 42.917969 13.472656 L 42.917969 26.949219 L 69.867188 26.949219 L 69.867188 0 L 42.917969 0 Z M 64.476562 13.441406 C 64.542969 18.996094 64.445312 21.527344 64.179688 21.824219 C 63.644531 22.457031 48.605469 22.523438 47.976562 21.890625 C 47.410156 21.324219 47.410156 6.289062 47.976562 5.722656 C 48.273438 5.421875 50.4375 5.324219 56.394531 5.390625 L 64.378906 5.488281 Z M 64.476562 13.441406 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 52.867188 10.347656 C 52.667969 10.445312 52.601562 12.011719 52.632812 13.839844 L 52.734375 17.132812 L 59.652344 17.132812 L 59.652344 10.480469 L 56.425781 10.3125 C 54.628906 10.214844 53.03125 10.246094 52.867188 10.347656 Z M 52.867188 10.347656 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.148438 10.246094 C 10.046875 10.378906 16.234375 16.636719 16.46875 16.636719 C 16.734375 16.636719 16.636719 10.3125 16.402344 10.3125 C 11.945312 10.179688 10.246094 10.179688 10.148438 10.246094 Z M 10.148438 10.246094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.605469 11.609375 C 32.238281 11.84375 32.140625 12.410156 32.207031 13.941406 L 32.339844 16.003906 L 34.667969 15.902344 L 36.996094 15.804688 L 37.03125 13.742188 C 37.097656 11.945312 37.03125 11.644531 36.429688 11.511719 C 35.398438 11.210938 33.171875 11.3125 32.605469 11.609375 Z M 32.605469 11.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 32.207031 22.523438 C 32.140625 22.65625 32.171875 24.984375 32.273438 27.679688 L 32.4375 32.605469 L 34.933594 35.101562 L 37.394531 37.59375 L 39.757812 37.59375 C 41.15625 37.59375 42.285156 37.761719 42.519531 37.996094 C 42.75 38.226562 42.917969 39.359375 42.917969 40.789062 L 42.917969 43.183594 L 45.480469 45.714844 L 48.042969 48.242188 L 55.761719 48.242188 C 60.019531 48.242188 63.710938 48.339844 64.011719 48.441406 C 64.476562 48.605469 64.542969 49.671875 64.542969 56.691406 L 64.578125 64.710938 L 66.671875 66.9375 C 67.835938 68.203125 69.035156 69.203125 69.335938 69.203125 C 69.800781 69.203125 69.867188 68.003906 69.867188 56.394531 L 69.867188 43.582031 L 67.304688 43.582031 C 65.875 43.582031 64.511719 43.449219 64.246094 43.285156 C 63.945312 43.085938 63.777344 42.253906 63.746094 40.890625 C 63.644531 37.894531 63.976562 37.59375 67.273438 37.59375 L 69.867188 37.59375 L 69.867188 32.9375 L 64.476562 33.003906 L 59.054688 33.105469 L 59.152344 35 C 59.320312 37.894531 58.988281 38.261719 56.226562 38.261719 C 53.664062 38.261719 53.765625 38.160156 53.898438 40.65625 C 53.996094 43.183594 53.597656 43.582031 50.902344 43.582031 C 47.574219 43.582031 47.574219 43.582031 47.574219 40.753906 C 47.574219 39.160156 47.710938 38.195312 48.007812 38.027344 C 48.207031 37.894531 49.472656 37.695312 50.738281 37.59375 L 53.066406 37.429688 L 53.066406 33.105469 L 48.109375 33.003906 C 44.980469 32.9375 42.953125 32.769531 42.683594 32.539062 C 42.351562 32.273438 42.21875 31.507812 42.285156 30.109375 C 42.320312 28.976562 42.253906 27.914062 42.152344 27.714844 C 42.054688 27.546875 41.15625 27.449219 40.15625 27.546875 C 39.09375 27.613281 38.0625 27.515625 37.628906 27.28125 C 36.929688 26.914062 36.894531 26.683594 36.996094 24.6875 L 37.097656 22.457031 L 34.699219 22.355469 C 33.402344 22.289062 32.273438 22.390625 32.207031 22.523438 Z M 32.207031 22.523438 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 53.230469 53.363281 C 53.230469 53.53125 59.488281 59.886719 59.652344 59.886719 C 59.71875 59.886719 59.71875 58.421875 59.6875 56.625 L 59.652344 53.398438 L 56.425781 53.296875 C 54.664062 53.265625 53.230469 53.265625 53.230469 53.363281 Z M 53.230469 53.363281 "/>
+</g>
+</svg><div class="au-info"><img class="avatar" src="https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202409161940288.png"><div id="side-author">o_oyao</div><div id="author-description">&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piece. And I want to be the last piece to make the puzzle complete.</div></div><div id="payment-code"><div class="qr-description">Like my post?</div><img class="pay-code" src="/img/zelle.jpg" alt="Default QR Code"><div class="payButtons"><button class="paymentButtons " id="alipay">Alipay</button><button class="paymentButtons selected" id="zelle">Zelle®</button></div></div></div></div><div id="toc-outer"><div id="sidebar-toc"><div id="catalog"><span>Catalog</span></div><div id="tocs"></div></div></div></div></div><script>var desc = "";
+var $config = {
+    description         : desc,
+    wechatQrcodeTitle   : "微信扫一扫：Share", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+};
+//- socialShare('.social-share', $config);</script></div></div><div id="bottom-outer"><div id="bottom-inner"><div id="incons"><a class="icon" href=" mailto:o_oyao@outlook.com " title="E-mail"><i class=" fas fa-fw fa-envelope"></i></a></div><div id="incons"><a class="icon" href=" " title="Wechat"><i class="fa-brands fa-weixin"></i></a></div><div id="incons"><a class="icon" href=" " title="X-Twitter"><i class="fa-brands fa-twitter"></i></a></div><div id="incons"><a class="icon" href=" " title="QQ"><i class="fa-brands fa-qq"></i></a></div><div id="incons"><a class="icon" href=" " title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></div><div id="incons"><a class="icon" href=" https://www.linkedin.com/in/yaogu0304/" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a></div><div id="incons"><a class="icon" href=" https://github.com/DyingDown " title="GitHub"><i class="fa-brands fa-github"></i></a></div><div id="incons"><a class="icon" href=" " title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div><div id="incons"><a class="icon" href=" https://www.instagram.com/o_oyao0304/" title="Instagram"><i class="fa-brands fa-instagram"></i></a></div><div id="incons"><a class="icon" href=" " title="TikTok"><i class="fa-brands fa-tiktok"></i></a></div><div id="author"><a id="theme_name" target="_blank" rel="noopener" href="https://github.com/DyingDown/hexo-theme-last"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="900.000000pt" height="288.000000pt" viewBox="0 0 900.000000 288.000000" preserveAspectRatio="xMidYMid meet" id="last-icon">
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)" stroke="none">
+<path class="blue a right" d="M3815 2435 c-45 -12 -134 -28 -220 -41 -16 -2 -64 -11 -105 -19 -41 -8 -96 -17 -122 -20 -45 -6 -48 -8 -48 -34 0 -16 13 -59 29 -97 16 -38 39 -94 51 -124 11 -30 25 -64 29 -75 5 -11 16 -40 26 -65 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 30 -75 7 -16 20 -50 30 -75 9 -25 23 -58 31 -73 8 -16 14 -33 14 -39 0 -5 6 -24 14 -41 20 -48 44 -110 51 -132 3 -11 12 -28 19 -38 13 -17 17 -17 60 -3 25 9 54 20 63 25 10 5 38 17 63 26 25 9 59 23 75 30 17 7 52 21 79 32 26 10 50 24 53 30 3 7 -2 39 -11 70 -10 32 -23 81 -30 108 -19 70 -41 151 -59 215 -9 30 -23 84 -32 120 -9 36 -23 89 -31 118 -8 28 -21 77 -29 107 -44 165 -64 239 -88 325 -9 30 -23 84 -32 120 -10 36 -19 71 -21 78 -4 14 -5 14 -69 -3z"/>
+<path class="yellow s left" d="M4247 2443 c-14 -4 -17 -11 -13 -28 3 -13 10 -270 16 -572 5 -301 13 -577 16 -611 4 -35 9 -240 13 -455 l6 -392 58 -3 c32 -2 108 4 170 12 61 9 135 16 164 16 29 0 99 6 155 14 57 8 148 17 203 21 112 6 157 15 163 33 2 6 -9 14 -25 18 -74 19 -217 134 -271 219 -74 117 -116 259 -110 375 l3 65 265 0 265 0 6 -60 c13 -119 78 -198 172 -210 142 -18 240 78 223 219 -6 57 -44 103 -111 137 -22 11 -47 24 -55 28 -17 10 -79 38 -125 57 -16 6 -48 20 -70 30 -22 9 -53 23 -70 30 -143 61 -252 131 -323 209 -28 31 -58 68 -66 83 -39 73 -54 114 -71 195 -17 83 -17 91 -1 175 10 48 24 101 31 117 8 17 16 37 19 45 6 16 28 52 36 60 3 3 21 25 39 48 43 55 38 59 -88 66 -53 4 -148 13 -211 21 -63 9 -140 15 -171 15 -30 0 -82 5 -115 10 -90 16 -107 17 -127 13z"/>
+<path class="pink t" d="M8655 2428 c-22 -5 -71 -15 -110 -23 -38 -7 -104 -20 -145 -29 -114 -23 -231 -45 -274 -51 -70 -11 -26 -20 127 -25 l152 -5 3 -179 c2 -121 -1 -183 -9 -192 -8 -10 -51 -14 -168 -16 l-156 -3 -3 -645 c-1 -354 -6 -648 -11 -653 -6 -6 -277 -11 -408 -7 -10 0 -13 141 -15 653 l-3 652 -160 3 c-112 2 -161 6 -167 15 -4 6 -8 60 -8 120 l0 107 -27 0 c-15 0 -52 -6 -82 -14 -72 -18 -164 -37 -221 -45 -54 -7 -59 -24 -37 -104 23 -81 38 -139 46 -182 5 -22 14 -62 21 -90 7 -27 18 -72 25 -100 7 -27 18 -70 25 -95 6 -25 15 -63 19 -85 4 -22 12 -56 18 -75 6 -19 17 -57 23 -85 7 -27 19 -77 26 -110 8 -33 18 -78 23 -100 4 -22 12 -56 18 -75 12 -36 30 -108 43 -170 12 -55 30 -131 45 -185 8 -27 17 -67 20 -87 3 -22 14 -42 25 -48 10 -6 65 -15 122 -20 57 -6 144 -16 193 -22 50 -6 135 -14 190 -18 120 -10 277 -26 440 -45 148 -19 219 -19 233 -2 6 7 16 62 21 122 11 108 21 197 43 345 5 41 14 113 18 160 5 47 13 123 20 170 6 47 18 139 26 205 8 66 19 154 25 195 6 41 15 113 19 160 8 87 20 178 46 356 7 56 14 119 14 140 0 22 6 71 14 111 7 40 11 75 8 78 -7 7 -38 5 -87 -7z"/>
+<path class="yellow l right" d="M1215 2334 c-63 -53 -115 -100 -115 -105 0 -5 39 -9 86 -9 139 0 124 70 124 -595 l0 -575 204 0 c112 0 211 -3 220 -6 12 -5 16 -21 16 -75 0 -81 7 -85 65 -31 23 20 92 82 155 137 169 146 155 132 139 151 -7 9 -18 24 -24 35 -11 19 -88 143 -117 188 -9 14 -23 36 -30 48 -47 80 -102 169 -108 173 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -37 60 -61 100 -24 40 -47 75 -51 78 -4 3 -10 12 -13 20 -4 8 -15 27 -25 42 -9 15 -43 70 -75 122 -32 53 -64 96 -72 96 -8 0 -66 -43 -130 -96z"/>
+<path class="blue a right" d="M2815 2255 c-51 -13 -144 -30 -246 -45 -31 -4 -79 -12 -105 -18 -84 -18 -166 -33 -239 -43 -101 -13 -101 -13 -87 -166 7 -71 12 -171 12 -223 1 -52 5 -142 10 -200 5 -58 14 -207 20 -333 5 -125 14 -267 20 -315 5 -48 10 -134 10 -192 1 -148 16 -320 29 -333 7 -7 20 -6 46 6 45 22 88 40 145 62 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 59 23 75 30 17 7 50 20 75 30 25 9 58 23 73 31 16 8 33 14 39 14 5 0 24 6 41 14 18 7 57 23 87 35 84 34 91 37 150 64 l55 26 -76 1 c-50 0 -80 5 -87 13 -6 7 -22 48 -37 92 -14 43 -31 83 -38 87 -6 4 -117 8 -245 8 l-232 0 -19 -42 c-42 -95 -51 -119 -51 -133 0 -23 -32 -26 -215 -23 -190 3 -193 5 -161 73 9 18 16 38 16 43 0 6 6 23 14 39 16 32 26 55 57 133 11 30 27 69 34 85 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 7 17 21 50 30 75 10 25 23 59 30 75 8 17 28 66 45 110 18 44 38 94 45 110 7 17 20 47 29 68 26 60 22 67 -31 66 -27 0 -70 -7 -98 -14z"/>
+<path class="yellow s right" d="M6180 2246 c0 -9 4 -24 9 -34 36 -69 69 -246 49 -269 -8 -11 -65 -13 -260 -11 l-250 3 -22 55 c-40 106 -72 130 -170 130 -114 0 -176 -57 -176 -164 0 -91 45 -123 400 -289 120 -55 168 -81 240 -128 62 -40 120 -95 165 -154 76 -101 95 -167 95 -330 0 -163 -21 -236 -100 -350 -49 -71 -49 -71 -110 -122 l-55 -46 65 7 c36 3 126 11 200 16 74 6 159 14 189 20 30 5 82 10 115 10 34 1 122 9 196 19 l135 17 -3 135 c-1 74 -9 224 -17 334 -22 303 -35 511 -45 715 -10 202 -27 371 -39 383 -4 4 -69 12 -145 17 -75 5 -140 11 -145 14 -4 3 -70 10 -147 15 -77 5 -147 13 -157 17 -12 4 -17 1 -17 -10z"/>
+<path class="yellow l left" d="M854 2034 c-16 -14 -60 -51 -99 -82 -38 -31 -86 -71 -105 -88 -19 -18 -60 -51 -90 -75 -51 -40 -88 -70 -114 -94 -6 -6 -36 -30 -66 -55 -30 -25 -60 -49 -66 -55 -6 -5 -42 -35 -79 -65 -37 -30 -82 -68 -99 -83 l-31 -28 120 -116 c66 -64 232 -224 370 -357 324 -313 474 -457 495 -476 9 -8 33 -30 53 -49 l36 -34 28 23 c24 19 62 52 194 171 14 13 52 46 83 73 32 27 54 52 49 57 -5 5 -146 10 -313 11 l-305 3 -3 673 c-2 732 1 698 -58 646z"/>
+<path class="blue a middle" d="M3142 1880 c-5 -14 -15 -43 -21 -65 -7 -22 -17 -53 -23 -70 -5 -16 -14 -46 -18 -65 -8 -33 -16 -59 -41 -132 -19 -55 -23 -108 -8 -108 97 -3 252 0 257 5 3 3 0 20 -7 38 -7 18 -16 48 -21 67 -4 19 -12 46 -17 60 -6 14 -18 52 -28 85 -9 33 -23 78 -31 100 -8 23 -14 50 -14 60 0 11 -4 27 -10 35 -7 12 -11 10 -18 -10z"/>
+</g>
+</svg></a><span> made with </span><span id="heart">❤️</span><span> by </span><a id="theme_author" href="http://dyingdown.github.io">o_oyao</a><br><span>©o_oyao 2019-2025</span></div><br><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/bchiang7/busuanzi@gh-pages/bsz.pure.mini.js'"></script><span class="visits" id="busuanzi_container_site_pv"><div class="visits"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>  | <i class="fa fa-fw fa-eye"></i> <span id="busuanzi_value_page_pv"></span></div></span></div></div><script src="/js/third-party/tools.js"></script><script src="/js/third-party/multi-search.js"></script><script src="/js/Message.js"></script><script src="/js/last.js"></script><script src="/js/third-party/social-share.js"></script><script src="/js/third-party/qrcode.js"></script><script src="/js/third-party/tools.js"></script><script src="/js/third-party/clipboard.js"></script><script src="/js/post.js" type="module"></script><script src="https://use.typekit.net/bkt6ydm.js"></script></body></html>
