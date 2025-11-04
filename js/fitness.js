@@ -586,14 +586,11 @@ class FitnessTracker {
             if (element) {
                 element.addEventListener('input', () => {
                     this.updateNutritionDisplay();
-                    // 延迟更新热力图，避免频繁更新
+                    // 延迟保存和更新热力图，避免频繁更新
                     clearTimeout(nutritionUpdateTimeout);
                     nutritionUpdateTimeout = setTimeout(() => {
-                        // 只有当有卡路里数据时才更新热力图
-                        const calories = parseFloat(document.getElementById('calories-input')?.value) || 0;
-                        if (calories > 0) {
-                            this.saveNutritionData();
-                        }
+                        // 保存营养数据并更新热力图
+                        this.saveNutritionData();
                     }, 1000); // 1秒后更新
                 });
             }
@@ -636,10 +633,13 @@ class FitnessTracker {
 
     // 生成热力图
     generateHeatmap() {
+        console.log('🔥 正在重新生成热力图...');
         const heatmapGrid = document.getElementById('heatmap-grid');
         heatmapGrid.innerHTML = '';
         
         const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
+        console.log('📊 热力图数据包含', Object.keys(data).length, '天的记录');
+        
         const currentDate = new Date();
         const oneYearAgo = new Date(currentDate.getFullYear() - 1, currentDate.getMonth(), currentDate.getDate());
         
@@ -979,9 +979,15 @@ class FitnessTracker {
     
     // 初始化云端同步（LeanCloud）
     initCloudSync() {
+        console.log('🔧 开始初始化云端同步...');
+        console.log('AV 对象存在:', typeof AV !== 'undefined');
+        console.log('配置存在:', !!window.LEANCLOUD_CONFIG);
+        
         // 检查是否有 LeanCloud 配置
         if (typeof AV !== 'undefined' && window.LEANCLOUD_CONFIG) {
             try {
+                console.log('📡 正在连接 LeanCloud...', window.LEANCLOUD_CONFIG);
+                
                 // 使用和 Valine 相同的配置
                 AV.init(window.LEANCLOUD_CONFIG);
                 this.cloudSync.enabled = true;
@@ -989,16 +995,22 @@ class FitnessTracker {
                 // 生成用户唯一标识（基于浏览器指纹）
                 this.cloudSync.userId = this.generateUserId();
                 
-                console.log('云端同步已启用');
+                console.log('✅ 云端同步已启用，用户ID:', this.cloudSync.userId);
                 this.updateSyncStatus('syncing');
                 this.syncFromCloud();
             } catch (error) {
-                console.warn('云端同步初始化失败:', error);
+                console.error('❌ 云端同步初始化失败:', error);
                 this.cloudSync.enabled = false;
                 this.updateSyncStatus('offline');
             }
         } else {
-            console.log('未检测到 LeanCloud 配置，使用本地存储');
+            if (typeof AV === 'undefined') {
+                console.log('⚠️ LeanCloud SDK 未加载');
+            }
+            if (!window.LEANCLOUD_CONFIG) {
+                console.log('⚠️ LeanCloud 配置未找到');
+            }
+            console.log('📱 使用本地存储模式');
             this.updateSyncStatus('offline');
         }
     }
@@ -1059,6 +1071,8 @@ class FitnessTracker {
         if (!this.cloudSync.enabled) return;
         
         try {
+            console.log('🔄 正在从云端同步数据...');
+            
             const FitnessData = AV.Object.extend('FitnessData');
             const query = new AV.Query(FitnessData);
             query.equalTo('userId', this.cloudSync.userId);
@@ -1066,10 +1080,14 @@ class FitnessTracker {
             query.limit(1);
             
             const results = await query.find();
+            console.log('📥 云端查询结果数量:', results.length);
             
             if (results.length > 0) {
                 const cloudData = results[0].get('data');
                 const cloudTimestamp = results[0].updatedAt.getTime();
+                
+                console.log('☁️ 云端数据时间戳:', new Date(cloudTimestamp));
+                console.log('💾 本地数据时间戳:', new Date(parseInt(localStorage.getItem('fitness-last-update') || '0')));
                 
                 // 比较本地和云端的时间戳
                 const localTimestamp = parseInt(localStorage.getItem('fitness-last-update') || '0');
@@ -1078,24 +1096,48 @@ class FitnessTracker {
                     // 云端数据更新，覆盖本地数据
                     localStorage.setItem('fitness-data', JSON.stringify(cloudData));
                     localStorage.setItem('fitness-last-update', cloudTimestamp.toString());
-                    console.log('已从云端同步数据');
+                    console.log('✅ 已从云端同步数据');
                     this.updateSyncStatus('synced');
                     
                     // 刷新页面显示
                     this.refreshPageData();
                 } else if (localTimestamp > cloudTimestamp) {
                     // 本地数据更新，上传到云端
+                    console.log('📤 本地数据较新，准备上传');
                     this.syncToCloud();
+                } else {
+                    console.log('📊 数据已是最新');
+                    this.updateSyncStatus('synced');
                 }
             } else {
+                console.log('☁️ 云端暂无数据');
                 // 云端没有数据，上传本地数据
                 const localData = localStorage.getItem('fitness-data');
                 if (localData && localData !== '{}') {
+                    console.log('📤 准备上传本地数据到云端');
                     this.syncToCloud();
+                } else {
+                    console.log('📱 本地也无数据，等待用户操作');
+                    this.updateSyncStatus('synced');
                 }
             }
         } catch (error) {
-            console.warn('从云端同步数据失败:', error);
+            // 处理 404 错误 - Class 不存在是正常情况
+            if (error.message && error.message.includes('404')) {
+                console.log('📋 FitnessData 表尚不存在，这是正常情况');
+                // 检查是否有本地数据需要上传
+                const localData = localStorage.getItem('fitness-data');
+                if (localData && localData !== '{}') {
+                    console.log('📤 准备创建表并上传本地数据');
+                    this.syncToCloud();
+                } else {
+                    console.log('📱 等待用户操作后创建数据');
+                    this.updateSyncStatus('synced');
+                }
+            } else {
+                console.error('❌ 从云端同步数据失败:', error);
+                this.updateSyncStatus('offline');
+            }
         }
     }
     
@@ -1105,33 +1147,50 @@ class FitnessTracker {
         
         try {
             const localData = JSON.parse(localStorage.getItem('fitness-data') || '{}');
+            console.log('📤 准备上传数据:', Object.keys(localData).length, '天的记录');
             
             const FitnessData = AV.Object.extend('FitnessData');
-            const query = new AV.Query(FitnessData);
-            query.equalTo('userId', this.cloudSync.userId);
-            
-            const results = await query.find();
             let fitnessData;
             
-            if (results.length > 0) {
-                // 更新现有记录
-                fitnessData = results[0];
-            } else {
-                // 创建新记录
-                fitnessData = new FitnessData();
-                fitnessData.set('userId', this.cloudSync.userId);
+            try {
+                // 尝试查询现有记录
+                const query = new AV.Query(FitnessData);
+                query.equalTo('userId', this.cloudSync.userId);
+                
+                const results = await query.find();
+                
+                if (results.length > 0) {
+                    // 更新现有记录
+                    console.log('🔄 更新现有记录');
+                    fitnessData = results[0];
+                } else {
+                    // 没有现有记录，创建新记录
+                    console.log('➕ 创建新记录');
+                    fitnessData = new FitnessData();
+                    fitnessData.set('userId', this.cloudSync.userId);
+                }
+            } catch (queryError) {
+                // 如果查询失败（比如 Class 不存在），直接创建新记录
+                if (queryError.message && queryError.message.includes('404')) {
+                    console.log('📋 Class 不存在，直接创建新记录');
+                    fitnessData = new FitnessData();
+                    fitnessData.set('userId', this.cloudSync.userId);
+                } else {
+                    throw queryError; // 重新抛出其他错误
+                }
             }
             
             fitnessData.set('data', localData);
-            await fitnessData.save();
+            const savedObject = await fitnessData.save();
             
             // 更新本地同步时间戳
             localStorage.setItem('fitness-last-update', Date.now().toString());
             
-            console.log('数据已上传到云端');
+            console.log('✅ 数据已上传到云端，记录ID:', savedObject.id);
             this.updateSyncStatus('synced');
         } catch (error) {
-            console.warn('上传数据到云端失败:', error);
+            console.error('❌ 上传数据到云端失败:', error);
+            this.updateSyncStatus('offline');
         }
     }
     
