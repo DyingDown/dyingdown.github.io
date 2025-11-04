@@ -1,0 +1,683 @@
+/* 健身打卡页面样式 */
+.fitness-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+.page-title h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2.5rem;
+  margin: 0;
+  color: #2c3e50;
+}
+.page-title i {
+  color: #e74c3c;
+}
+/* 健身仪表板 */
+.fitness-dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+@media (min-width: 1024px) {
+  .fitness-dashboard {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* 今日部分 */
+.today-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e1e8ed;
+}
+/* 日期头部 */
+.date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.date-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#date-picker {
+  padding: 8px 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+#date-picker:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+#today-btn {
+  padding: 8px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#today-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+#today-btn:active {
+  transform: translateY(0);
+}
+/* 同步状态指示器 */
+.sync-status {
+  padding: 8px;
+  font-size: 16px;
+  color: #6c757d;
+  cursor: help;
+}
+.sync-status.syncing {
+  color: #ffc107;
+  animation: pulse 1s infinite;
+}
+.sync-status.synced {
+  color: #28a745;
+}
+.sync-status.offline {
+  color: #dc3545;
+}
+.today-section h2 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+.date-display {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+/* 计划头部 */
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.plan-header h3 {
+  margin: 0;
+  color: #34495e;
+}
+/* 活动容器 */
+.activity-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 250px;
+}
+/* 活动水平选择器 */
+.activity-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.activity-selector label {
+  font-size: 0.9rem;
+  color: #34495e;
+  font-weight: 500;
+}
+.activity-selector select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+}
+.activity-selector select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+/* 基础消耗显示 */
+.daily-consumption {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.consumption-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.consumption-item .label {
+  color: #7f8c8d;
+  font-weight: 500;
+}
+.consumption-item .value {
+  color: #27ae60;
+  font-weight: 600;
+}
+/* 运动列表 */
+.exercise-list {
+  margin-bottom: 30px;
+}
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  transition: all 0.3s ease;
+}
+.exercise-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(52,152,219,0.2);
+}
+.exercise-info {
+  flex: 1;
+}
+.exercise-name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+.exercise-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  flex-wrap: wrap;
+}
+.exercise-details span {
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #ecf0f1;
+}
+.check-btn {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.check-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+.check-btn[data-completed="true"] {
+  background: #27ae60;
+}
+.check-btn[data-completed="true"]:hover {
+  background: #229954;
+}
+/* 运动总结 */
+.exercise-summary {
+  background: #e8f5e8;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  border-left: 4px solid #27ae60;
+}
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.summary-item .label {
+  color: #2c3e50;
+  font-weight: 600;
+}
+.summary-item .value {
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* 营养追踪 */
+.nutrition-tracking {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.nutrition-tracking h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+}
+.nutrition-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-group label {
+  font-size: 0.9rem;
+  color: #34495e;
+  font-weight: 500;
+}
+.form-group input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+.nutrition-item .value.positive {
+  color: #27ae60;
+}
+.nutrition-item .value.negative {
+  color: #e74c3c;
+}
+.nutrition-item .value.neutral {
+  color: #f39c12;
+}
+.save-nutrition-btn {
+  background: #e67e22;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  grid-column: 1/-1;
+}
+.save-nutrition-btn:hover {
+  background: #d68910;
+  transform: translateY(-1px);
+}
+.nutrition-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.nutrition-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #ecf0f1;
+}
+.nutrition-item .label {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+.nutrition-item .value {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.nutrition-item .value.positive {
+  color: #27ae60;
+}
+.nutrition-item .value.negative {
+  color: #e74c3c;
+}
+/* 统计部分 */
+.statistics-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e1e8ed;
+}
+.statistics-section h2 {
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+}
+/* 选项卡 */
+.stats-tabs {
+  display: flex;
+  border-bottom: 1px solid #ecf0f1;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #7f8c8d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 0.9rem;
+}
+.tab-btn:hover {
+  color: #3498db;
+}
+.tab-btn.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+.tab-content {
+  min-height: 400px;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+/* 热力图 */
+.heatmap-container h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+.legend-scale {
+  display: flex;
+  gap: 2px;
+}
+.legend-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+.legend-item.level-0 {
+  background: #ebedf0;
+}
+.legend-item.level-1 {
+  background: #c6e48b;
+}
+.legend-item.level-2 {
+  background: #7bc96f;
+}
+.legend-item.level-3 {
+  background: #239a3b;
+}
+.legend-item.level-4 {
+  background: #196127;
+}
+.heatmap-grid {
+  display: flex;
+  gap: 2px;
+  padding: 20px;
+  overflow-x: auto;
+  justify-content: center;
+}
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.heatmap-day {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.heatmap-day:hover {
+  transform: scale(1.2);
+}
+.heatmap-day.level-0 {
+  background: #ebedf0;
+}
+.heatmap-day.level-1 {
+  background: #c6e48b;
+}
+.heatmap-day.level-2 {
+  background: #7bc96f;
+}
+.heatmap-day.level-3 {
+  background: #239a3b;
+}
+.heatmap-day.level-4 {
+  background: #196127;
+}
+/* 进度统计卡片 */
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.stat-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+}
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.stat-card:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.stat-card:nth-child(4) {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+.stat-title {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* 营养图表 */
+.nutrition-charts {
+  text-align: center;
+}
+.chart-container {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.nutrition-trends h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.trend-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .fitness-container {
+    padding: 15px;
+  }
+  .page-title h1 {
+    font-size: 2rem;
+  }
+  .exercise-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .exercise-controls {
+    width: 100%;
+  }
+  .check-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .plan-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .calories-info {
+    width: 100%;
+  }
+  .progress-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nutrition-form {
+    grid-template-columns: 1fr;
+  }
+  .heatmap-grid {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 480px) {
+  .progress-stats {
+    grid-template-columns: 1fr;
+  }
+  .stats-tabs {
+    flex-direction: column;
+  }
+  .tab-btn {
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    border-right: none;
+  }
+  .tab-btn.active {
+    border-bottom-color: #ecf0f1;
+    border-left: 2px solid #3498db;
+  }
+}
+/* 动画效果 */
+.check-btn[data-completed="true"] {
+  animation: pulse 0.6s ease-in-out;
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .date-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .date-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  #date-picker {
+    flex: 1;
+    min-width: 0;
+  }
+}
+/* 打印样式 */
+@media print {
+  .fitness-container {
+    box-shadow: none;
+    border: none;
+  }
+  .check-btn,
+  .save-nutrition-btn,
+  .date-controls {
+    display: none;
+  }
+  .heatmap-day {
+    border: 1px solid #ccc;
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-o-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
