@@ -4,6 +4,66 @@
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+/* 确保在移动设备上不会出现水平滚动 */
+}
+/* 全局防止水平溢出 */
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+/* 确保所有子元素使用 border-box */
+.fitness-container *,
+.fitness-container *::before,
+.fitness-container *::after {
+  box-sizing: border-box;
+}
+/* 移动端全局优化 */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  .activity-container {
+    min-width: 0;
+    width: 100%;
+  }
+  .nutrition-form {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .nutrition-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .progress-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .fitness-container,
+  .today-section,
+  .statistics-section,
+  .nutrition-form,
+  .progress-stats,
+  .nutrition-summary {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 .page-title {
   text-align: center;
@@ -63,6 +123,8 @@
   background: #fff;
   cursor: pointer;
   transition: border-color 0.2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 #date-picker:focus {
   outline: none;
@@ -107,11 +169,6 @@
   color: #2c3e50;
   margin: 0 0 10px 0;
   font-size: 1.5rem;
-}
-.date-display {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
 }
 /* 计划头部 */
 .plan-header {
@@ -548,18 +605,24 @@
   border-radius: 6px;
   border-left: 4px solid #3498db;
 }
-/* 响应式设计 */
+/* 响应式设计 - 平板 */
 @media (max-width: 768px) {
   .fitness-container {
-    padding: 15px;
+    padding: 15px 10px;
   }
   .page-title h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .today-section,
+  .statistics-section {
+    padding: 20px 15px;
+    margin-bottom: 20px;
   }
   .exercise-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 15px;
   }
   .exercise-controls {
     width: 100%;
@@ -567,51 +630,37 @@
   .check-btn {
     width: 100%;
     justify-content: center;
+    padding: 12px;
+    font-size: 16px; /* 避免iOS缩放 */
   }
-  .plan-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .calories-info {
+  .activity-container {
+    min-width: auto;
     width: 100%;
   }
   .progress-stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   .nutrition-form {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .nutrition-form input {
+    font-size: 16px; /* 避免iOS缩放 */
+    padding: 12px;
   }
   .heatmap-grid {
     padding: 10px;
     justify-content: flex-start;
+    overflow-x: auto;
   }
-}
-@media (max-width: 480px) {
-  .progress-stats {
-    grid-template-columns: 1fr;
+  .heatmap-container {
+    overflow-x: auto;
   }
-  .stats-tabs {
-    flex-direction: column;
-  }
-  .tab-btn {
-    text-align: left;
-    border-bottom: 1px solid #ecf0f1;
-    border-right: none;
-  }
-  .tab-btn.active {
-    border-bottom-color: #ecf0f1;
-    border-left: 2px solid #3498db;
-  }
-}
-/* 动画效果 */
-.check-btn[data-completed="true"] {
-  animation: pulse 0.6s ease-in-out;
-}
-/* 响应式设计 */
-@media (max-width: 768px) {
   .date-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
   }
   .date-controls {
     width: 100%;
@@ -620,6 +669,203 @@
   #date-picker {
     flex: 1;
     min-width: 0;
+    font-size: 16px;
+    padding: 10px;
+  }
+  #today-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+    white-space: nowrap;
+  }
+}
+/* 响应式设计 - 手机 */
+@media (max-width: 480px) {
+  .fitness-container {
+    padding: 10px 5px;
+    padding-bottom: 100px; /* 增加底部空间 */
+    min-height: calc(100vh - 40px);
+    overflow-y: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .today-section,
+  .statistics-section {
+    padding: 15px 10px;
+    border-radius: 8px;
+  }
+  .page-title h1 {
+    font-size: 1.5rem;
+  }
+  .exercise-item {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  .exercise-name {
+    font-size: 0.9rem;
+  }
+  .exercise-details {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+  .progress-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 15px 10px;
+    text-align: center;
+  }
+  .stats-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+  .tab-btn {
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    border-right: none;
+    border-radius: 0;
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  .tab-btn.active {
+    border-bottom-color: #ecf0f1;
+    border-left: 3px solid #3498db;
+    background: #f8f9fa;
+  }
+  .date-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #date-picker,
+  #today-btn {
+    width: 100%;
+  }
+  .sync-status {
+    align-self: center;
+  }
+  .nutrition-summary {
+    gap: 10px;
+  }
+  .nutrition-item {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+  .heatmap-legend {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .legend-scale {
+    justify-content: center;
+  }
+  .chart-container canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  .heatmap-grid {
+    padding: 10px 5px;
+    gap: 1px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .heatmap-day,
+  .legend-item {
+    width: 10px;
+    height: 10px;
+  }
+  .nutrition-tracking {
+    padding: 15px 10px;
+  }
+  .save-nutrition-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .exercise-summary {
+    padding: 10px;
+    margin-top: 15px;
+  }
+  .summary-item {
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+}
+/* 动画效果 */
+.check-btn[data-completed="true"] {
+  animation: pulse 0.6s ease-in-out;
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .fitness-container {
+    padding: 15px 10px;
+    padding-bottom: 80px; /* 增加底部空间 */
+    min-height: calc(100vh - 60px); /* 考虑导航栏高度 */
+  }
+  .date-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .date-controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  #date-picker {
+    flex: 1;
+    min-width: 0;
+    font-size: 16px; /* 防止iOS缩放 */
+  }
+  .fitness-dashboard {
+    gap: 20px;
+  }
+  .today-section,
+  .statistics-section {
+    margin-bottom: 20px;
+  }
+}
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+  .fitness-container {
+    padding: 8px 3px;
+    padding-bottom: 120px; /* 超小屏幕需要更多底部空间 */
+    min-height: calc(100vh - 30px);
+  }
+  .today-section,
+  .statistics-section {
+    padding: 12px 8px;
+  }
+  .exercise-item {
+    padding: 10px 8px;
+  }
+  .exercise-details {
+    font-size: 0.75rem;
+  }
+  .check-btn {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  .tab-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .stat-card {
+    padding: 12px 8px;
+  }
+  .heatmap-day,
+  .legend-item {
+    width: 8px;
+    height: 8px;
   }
 }
 /* 打印样式 */
