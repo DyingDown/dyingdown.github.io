@@ -437,14 +437,19 @@ class FitnessTracker {
             const proteinCheck = document.getElementById('protein-powder-check');
             
             if (caloriesInput) caloriesInput.value = nutrition.calories || '';
-            if (waterInput) waterInput.value = nutrition.water || 2.0; // 默认最低值2L
+            if (waterInput) waterInput.value = nutrition.water !== undefined ? nutrition.water : ''; // 只在有记录时显示
             if (proteinCheck) proteinCheck.checked = nutrition.proteinPowder || false;
             
             this.updateNutritionDisplay();
         } else {
-            // 设置默认值
+            // 清空所有输入框，不设置默认值
+            const caloriesInput = document.getElementById('calories-input');
             const waterInput = document.getElementById('water-input');
-            if (waterInput) waterInput.value = 2.0;
+            const proteinCheck = document.getElementById('protein-powder-check');
+            
+            if (caloriesInput) caloriesInput.value = '';
+            if (waterInput) waterInput.value = '';
+            if (proteinCheck) proteinCheck.checked = false;
         }
     }
 
@@ -458,10 +463,17 @@ class FitnessTracker {
         }
 
         const calories = parseFloat(document.getElementById('calories-input').value) || 0;
-        const water = parseFloat(document.getElementById('water-input').value) || 2.0;
+        const waterValue = document.getElementById('water-input').value;
+        const water = waterValue ? parseFloat(waterValue) : undefined; // 只有输入了才保存
         const proteinPowder = document.getElementById('protein-powder-check')?.checked || false;
 
-        data[dateStr].nutrition = { calories, water, proteinPowder };
+        // 构建营养数据对象，只保存有值的字段
+        const nutritionData = { calories, proteinPowder };
+        if (water !== undefined) {
+            nutritionData.water = water;
+        }
+
+        data[dateStr].nutrition = nutritionData;
         
         // 使用新的同步保存方法
         this.saveDataWithSync('fitness-data', data);
@@ -481,7 +493,8 @@ class FitnessTracker {
         const proteinCheck = document.getElementById('protein-powder-check');
         
         const calories = parseFloat(caloriesInput?.value) || 0;
-        const water = parseFloat(waterInput?.value) || 2.0;
+        const waterValue = waterInput?.value;
+        const water = waterValue ? parseFloat(waterValue) : null; // 没有输入时为null
         const proteinPowder = proteinCheck?.checked || false;
 
         // 计算实际完成的运动消耗
@@ -526,8 +539,13 @@ class FitnessTracker {
         }
         
         if (waterStatusElement) {
-            waterStatusElement.textContent = water + 'L';
-            waterStatusElement.className = `value ${water >= 2.5 ? 'positive' : 'neutral'}`;
+            if (water !== null) {
+                waterStatusElement.textContent = water + 'L';
+                waterStatusElement.className = `value ${water >= 2.5 ? 'positive' : 'neutral'}`;
+            } else {
+                waterStatusElement.textContent = '未记录';
+                waterStatusElement.className = 'value neutral';
+            }
         }
     }
 
@@ -841,6 +859,7 @@ class FitnessTracker {
         let totalWater = 0;
         let proteinDays = 0;
         let daysWithNutrition = 0;
+        let daysWithWater = 0;
         
         last30Days.forEach(dateStr => {
             const dayData = data[dateStr];
@@ -869,7 +888,12 @@ class FitnessTracker {
                     
                     const calorieGap = totalBurned - dayData.nutrition.calories;
                     totalCalorieGap += calorieGap;
-                    totalWater += dayData.nutrition.water || 0;
+                    
+                    // 只计算有记录的饮水量
+                    if (dayData.nutrition.water !== undefined) {
+                        totalWater += dayData.nutrition.water;
+                        daysWithWater++;
+                    }
                     
                     if (dayData.nutrition.proteinPowder) {
                         proteinDays++;
@@ -882,7 +906,7 @@ class FitnessTracker {
         
         const avgCalorieGap = daysWithNutrition > 0 ? Math.round(totalCalorieGap / daysWithNutrition) : 0;
         const proteinRate = daysWithNutrition > 0 ? Math.round((proteinDays / daysWithNutrition) * 100) : 0;
-        const avgWater = daysWithNutrition > 0 ? (totalWater / daysWithNutrition).toFixed(1) : 0;
+        const avgWater = daysWithWater > 0 ? (totalWater / daysWithWater).toFixed(1) : 0;
         
         const avgGapElement = document.getElementById('avg-calorie-gap');
         const avgProteinElement = document.getElementById('avg-protein');
