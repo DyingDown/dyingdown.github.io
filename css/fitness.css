@@ -132,7 +132,7 @@
   box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
 }
 #today-btn {
-  padding: 8px 16px;
+  padding: 8px 8px;
   background: #007bff;
   color: #fff;
   border: none;
@@ -170,6 +170,65 @@
   margin: 0 0 10px 0;
   font-size: 1.5rem;
 }
+/* 用户信息按钮 */
+.user-info {
+  display: inline-block;
+}
+#user-info-btn {
+  background: #34495e;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+/* 未设置用户ID的提醒状态 */
+/* 已设置用户ID的正常状态 */
+/* 加载状态 */
+}
+#user-info-btn:hover {
+  background: #2c3e50;
+}
+#user-info-btn.user-need-setup {
+  background: #e74c3c;
+  animation: pulse-reminder 2s infinite;
+}
+#user-info-btn.user-need-setup:hover {
+  background: #c0392b;
+}
+#user-info-btn.user-need-setup::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: #f39c12;
+  border-radius: 50%;
+  animation: blink-dot 1.5s infinite;
+}
+#user-info-btn.user-ready {
+  background: #27ae60;
+}
+#user-info-btn.user-ready:hover {
+  background: #229954;
+}
+#user-info-btn.user-loading {
+  background: #3498db;
+  opacity: 0.8;
+}
+#user-info-btn.user-loading i {
+  animation: spin 1s linear infinite;
+}
+#user-info-btn.user-loading:hover {
+  background: #2980b9;
+}
+#user-info-btn i {
+  margin: 0;
+}
+/* 提醒动画 */
 /* 计划头部 */
 .plan-header {
   display: flex;
@@ -287,6 +346,26 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  min-width: 90px; /* 固定最小宽度防止列宽变化 */
+  justify-content: center; /* 居中对齐 */
+  position: relative;
+}
+/* 按钮更新动画效果 */
+.check-btn.updating {
+  opacity: 0.7;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+/* 按钮文本固定宽度 */
+.check-btn .btn-text {
+  text-align: center;
+  white-space: nowrap;
+}
+/* 禁用状态样式 */
+.check-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 .check-btn:hover {
   background: #2980b9;
@@ -881,6 +960,447 @@
   }
   .heatmap-day {
     border: 1px solid #ccc;
+  }
+}
+/* ==================== 训练计划管理样式 ==================== */
+#plans-panel .plans-management {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+#plans-panel .plans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+#plans-panel .plans-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+#plans-panel .plans-header .plan-actions {
+  display: flex;
+  gap: 10px;
+}
+#plans-panel .btn-primary,
+#plans-panel .btn-secondary,
+#plans-panel .btn-outline {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+#plans-panel .btn-primary:hover,
+#plans-panel .btn-secondary:hover,
+#plans-panel .btn-outline:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#plans-panel .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+#plans-panel .btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+#plans-panel .btn-outline {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+#plans-panel .current-plan-section {
+  margin-bottom: 30px;
+}
+#plans-panel .current-plan-section h4 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2em;
+}
+#plans-panel .plan-card {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+#plans-panel .plan-card.active {
+  background: linear-gradient(135deg, rgba(102,126,234,0.125), rgba(118,75,162,0.125));
+  border-color: #667eea;
+}
+#plans-panel .plan-card .plan-info {
+  margin-bottom: 15px;
+}
+#plans-panel .plan-card .plan-info .plan-name {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+#plans-panel .plan-card .plan-info .plan-details {
+  display: flex;
+  gap: 20px;
+}
+#plans-panel .plan-card .plan-info .plan-details span {
+  font-size: 14px;
+  color: #666;
+}
+#plans-panel .plan-card .plan-info .plan-details .start-date::before {
+  content: "📅 ";
+}
+#plans-panel .plan-card .plan-info .plan-details .plan-status::before {
+  content: "🎯 ";
+}
+#plans-panel .plan-card .plan-controls {
+  display: flex;
+  gap: 10px;
+}
+#plans-panel .plans-history {
+  margin-bottom: 30px;
+}
+#plans-panel .plans-history h4 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2em;
+}
+#plans-panel .plans-history .plans-list {
+  display: grid;
+  gap: 15px;
+}
+#plans-panel .plans-history .plans-list .plan-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+}
+#plans-panel .plans-history .plans-list .plan-card:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+#plans-panel .plans-history .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-style: italic;
+}
+#plans-panel .plan-editor {
+  background: #fff;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 20px;
+}
+#plans-panel .plan-editor .editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+#plans-panel .plan-editor .editor-header h4 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3em;
+}
+#plans-panel .plan-editor .editor-header .editor-actions {
+  display: flex;
+  gap: 10px;
+}
+#plans-panel .plan-editor .plan-basic-info {
+  margin-bottom: 30px;
+}
+#plans-panel .plan-editor .plan-basic-info .form-group {
+  margin-bottom: 20px;
+}
+#plans-panel .plan-editor .plan-basic-info .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+#plans-panel .plan-editor .plan-basic-info .form-group input,
+#plans-panel .plan-editor .plan-basic-info .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+#plans-panel .plan-editor .plan-basic-info .form-group input:focus,
+#plans-panel .plan-editor .plan-basic-info .form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+#plans-panel .plan-editor .plan-basic-info .form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+#plans-panel .plan-editor .weekly-schedule-editor h5 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.1em;
+}
+#plans-panel .plan-editor .weekly-schedule-editor .days-container {
+  display: grid;
+  gap: 20px;
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+  #plans-panel .plans-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  #plans-panel .plans-header .plan-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  #plans-panel .plan-card .plan-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #plans-panel .plan-card .plan-controls {
+    flex-wrap: wrap;
+  }
+  #plans-panel .btn-primary,
+  #plans-panel .btn-secondary,
+  #plans-panel .btn-outline {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  #plans-panel .plan-editor {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  #plans-panel .plan-editor .editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  #plans-panel .plan-editor .editor-header .editor-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+/* 周计划编辑器样式 */
+.days-container .day-editor {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.days-container .day-editor .day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+.days-container .day-editor .day-header h6 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #495057;
+}
+.days-container .day-editor .day-type input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.days-container .day-editor .exercises-list {
+  margin-bottom: 15px;
+}
+.days-container .day-editor .exercises-list .exercise-editor {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.days-container .day-editor .exercises-list .exercise-editor .exercise-inputs {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+.days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.days-container .day-editor .exercises-list .exercise-editor button {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.days-container .day-editor .day-water {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.days-container .day-editor .day-water label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  white-space: nowrap;
+}
+.days-container .day-editor .day-water input {
+  width: 100px;
+  padding: 6px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+/* 移动端适配 - 周计划编辑器 */
+@media (max-width: 768px) {
+  .days-container .day-editor {
+    padding: 15px;
+  }
+  .days-container .day-editor .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor button {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+  .days-container .day-editor .day-water {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .days-container .day-editor .day-water input {
+    width: 100%;
+  }
+}
+@-moz-keyframes pulse-reminder {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+@-webkit-keyframes pulse-reminder {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+@-o-keyframes pulse-reminder {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+@keyframes pulse-reminder {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+@-moz-keyframes blink-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@-webkit-keyframes blink-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@-o-keyframes blink-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes blink-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@-moz-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 @-moz-keyframes pulse {

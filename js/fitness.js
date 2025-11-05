@@ -1020,7 +1020,7 @@ class FitnessTracker {
                 <div class="exercise-controls">
                     <button class="check-btn" data-exercise="${index}" ${this.isExerciseCompleted(index) ? 'data-completed="true"' : ''}>
                         <i class="fas fa-${this.isExerciseCompleted(index) ? 'check-circle' : 'circle'}"></i>
-                        ${this.isExerciseCompleted(index) ? '已完成' : '完成'}
+                        <span class="btn-text" style="min-width: 60px; display: inline-block;">${this.isExerciseCompleted(index) ? '已完成' : '完成'}</span>
                     </button>
                 </div>
             `;
@@ -1059,8 +1059,14 @@ class FitnessTracker {
         
         // 使用新的同步保存方法
         this.saveDataWithSync('fitness-data', data);
-        this.updateExerciseCaloriesDisplay();
-        this.updateStatistics();
+        
+        // 批量更新界面，减少重复渲染
+        requestAnimationFrame(() => {
+            this.updateExerciseCaloriesDisplay();
+            this.updateNutritionDisplay(); // 更新营养显示（包含热量缺口）
+            this.updateStatistics();
+        });
+        
         // 异步更新热力图，不阻塞当前操作
         this.generateHeatmap().catch(console.error);
     }
@@ -1279,16 +1285,35 @@ class FitnessTracker {
                 const exerciseIndex = btn.dataset.exercise;
                 const isCompleted = btn.dataset.completed === 'true';
                 
-                this.saveExerciseCompletion(exerciseIndex, !isCompleted);
+                // 防止重复点击
+                if (btn.disabled) {
+                    return;
+                }
                 
-                // 更新按钮状态
-                btn.dataset.completed = !isCompleted;
+                // 先禁用按钮，防止重复点击
+                btn.disabled = true;
+                btn.classList.add('updating');
+                
+                // 立即更新按钮UI状态，提供即时反馈
+                const newCompleted = !isCompleted;
+                btn.dataset.completed = newCompleted;
+                
                 const icon = btn.querySelector('i');
-                icon.className = `fas fa-${!isCompleted ? 'check-circle' : 'circle'}`;
-                btn.innerHTML = `<i class="${icon.className}"></i> ${!isCompleted ? '已完成' : '完成'}`;
+                icon.className = `fas fa-${newCompleted ? 'check-circle' : 'circle'}`;
                 
-                // 实时更新热量缺口显示
-                this.updateNutritionDisplay();
+                // 使用requestAnimationFrame优化DOM更新
+                requestAnimationFrame(() => {
+                    btn.innerHTML = `<i class="${icon.className}"></i> <span class="btn-text">${newCompleted ? '已完成' : '完成'}</span>`;
+                    
+                    // 延迟恢复按钮状态
+                    setTimeout(() => {
+                        btn.classList.remove('updating');
+                        btn.disabled = false;
+                    }, 200);
+                });
+                
+                // 保存运动完成状态（已包含必要的界面更新）
+                this.saveExerciseCompletion(exerciseIndex, newCompleted);
             }
         });
 
@@ -3125,6 +3150,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 防止重复初始化
     if (window.fitnessTrackerInstance) {
         console.warn('⚠️ FitnessTracker 实例已存在，跳过重复初始化');
+        return;
+    }
+    
+    // 检查DOM是否包含健身打卡相关元素
+    const fitnessContainer = document.querySelector('.fitness-container');
+    if (!fitnessContainer) {
+        console.log('📋 当前页面不包含健身打卡组件，跳过初始化');
         return;
     }
     
