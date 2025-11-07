@@ -96,15 +96,11 @@ class FitnessTracker {
     
     // 创建默认训练计划
     createDefaultTrainingPlan() {
-        const startDate = this.getDateString(new Date());
-        const endDate = this.getDateString(new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)); // 默认一年后
-        
         return {
             id: this.generatePlanId(),
             name: '默认健身计划',
             description: '适合初中级训练者的全身训练计划',
-            startDate: startDate,
-            endDate: endDate,
+            startDate: this.getDateString(new Date()),
             isActive: true,
             createdAt: new Date().toISOString(),
             weeklySchedule: {
@@ -209,23 +205,32 @@ class FitnessTracker {
     getActivePlanForDate(date) {
         const dateStr = this.getDateString(date);
         let activePlan = null;
+        let latestStartDate = null;
         
-        // 查找在指定日期生效的计划（必须在开始和结束日期范围内）
+        // 查找在指定日期生效的最新计划
         Object.values(this.trainingPlans).forEach(plan => {
             if (plan.isActive) {
-                // 检查日期是否在计划的有效期内
-                if (plan.startDate <= dateStr && plan.endDate >= dateStr) {
-                    // 如果找到多个符合条件的计划，选择最新的（这种情况理论上不应该发生，因为有重叠检查）
-                    if (!activePlan || plan.startDate > activePlan.startDate) {
+                // 如果计划开始日期在指定日期之前或当天，则该计划在指定日期生效
+                if (plan.startDate <= dateStr) {
+                    if (!latestStartDate || plan.startDate > latestStartDate) {
+                        latestStartDate = plan.startDate;
                         activePlan = plan;
                     }
                 }
             }
         });
         
-        // 如果没找到符合条件的计划，说明该日期没有对应的训练计划
+        // 如果没找到符合条件的计划，尝试使用最新的活跃计划（向前兼容）
         if (!activePlan) {
-            console.log(`📅 日期 ${dateStr} 没有对应的训练计划`);
+            console.warn('⚠️ 未找到在指定日期生效的计划，使用最新的活跃计划');
+            Object.values(this.trainingPlans).forEach(plan => {
+                if (plan.isActive) {
+                    if (!latestStartDate || plan.startDate > latestStartDate) {
+                        latestStartDate = plan.startDate;
+                        activePlan = plan;
+                    }
+                }
+            });
         }
         
         return activePlan;
@@ -233,12 +238,6 @@ class FitnessTracker {
     
     // 保存训练计划
     async saveTrainingPlan(plan) {
-        // 检查日期重叠（跳过自身）
-        const conflict = this.checkPlanDateConflict(plan.startDate, plan.endDate, plan.id);
-        if (conflict) {
-            throw new Error(`计划日期与现有计划"${conflict.name}"冲突！\n冲突计划时间段：${conflict.startDate} ~ ${conflict.endDate}`);
-        }
-        
         this.trainingPlans[plan.id] = plan;
         this.saveTrainingPlansToStorage();
         
@@ -250,50 +249,6 @@ class FitnessTracker {
                 console.warn('⚠️ 云端同步失败，数据已保存到本地:', error.message);
             }
         }
-    }
-    
-    // 检查计划日期是否与现有计划冲突
-    checkPlanDateConflict(startDate, endDate, excludePlanId = null) {
-        // 将日期字符串转换为Date对象用于比较
-        const newStart = new Date(startDate);
-        const newEnd = new Date(endDate);
-        
-        // 检查所有现有计划
-        for (const plan of Object.values(this.trainingPlans)) {
-            // 跳过自身（编辑模式）
-            if (excludePlanId && plan.id === excludePlanId) {
-                continue;
-            }
-            
-            const existingStart = new Date(plan.startDate);
-            const existingEnd = new Date(plan.endDate);
-            
-            // 检查是否有重叠：新计划的开始日期在现有计划期间内，或现有计划的开始日期在新计划期间内
-            const hasOverlap = (
-                (newStart >= existingStart && newStart <= existingEnd) ||  // 新计划开始在现有计划期间
-                (newEnd >= existingStart && newEnd <= existingEnd) ||      // 新计划结束在现有计划期间
-                (existingStart >= newStart && existingStart <= newEnd) ||  // 现有计划开始在新计划期间
-                (existingEnd >= newStart && existingEnd <= newEnd)         // 现有计划结束在新计划期间
-            );
-            
-            if (hasOverlap) {
-                return plan;
-            }
-        }
-        
-        return null; // 无冲突
-    }
-    
-    // 检查计划是否为历史计划（已过期）
-    isPlanHistorical(plan) {
-        const today = new Date();
-        const planEndDate = new Date(plan.endDate);
-        return planEndDate < today;
-    }
-    
-    // 检查计划是否可编辑（当前或未来计划）
-    isPlanEditable(plan) {
-        return !this.isPlanHistorical(plan);
     }
     
     // 保存训练计划到本地存储
@@ -327,15 +282,11 @@ class FitnessTracker {
     
     // 创建新的训练计划
     async createNewTrainingPlan(planData) {
-        const defaultEndDate = new Date();
-        defaultEndDate.setFullYear(defaultEndDate.getFullYear() + 1); // 默认一年后
-        
         const newPlan = {
             id: this.generatePlanId(),
             name: planData.name || '新训练计划',
             description: planData.description || '',
             startDate: planData.startDate || this.getDateString(new Date()),
-            endDate: planData.endDate || this.getDateString(defaultEndDate),
             isActive: planData.isActive !== undefined ? planData.isActive : true,
             createdAt: new Date().toISOString(),
             weeklySchedule: planData.weeklySchedule || this.createEmptyWeeklySchedule()
@@ -1454,48 +1405,22 @@ class FitnessTracker {
 
     // 初始化选项卡
     initTabs() {
-        console.log('🔧 初始化Tab系统...');
         const tabs = document.querySelectorAll('.tab-btn');
         const panels = document.querySelectorAll('.tab-panel');
-        
-        console.log('📝 找到Tab按钮:', tabs.length, Array.from(tabs).map(t => t.dataset.tab));
-        console.log('📝 找到Tab面板:', panels.length, Array.from(panels).map(p => p.id));
 
         tabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
+            tab.addEventListener('click', () => {
                 const targetTab = tab.dataset.tab;
-                console.log('🎯 用户点击切换到标签:', targetTab);
                 
-                // 移除所有活跃状态
                 tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => {
-                    p.classList.remove('active');
-                    // 强制设置显示样式
-                    p.style.display = 'none';
-                });
+                panels.forEach(p => p.classList.remove('active'));
                 
-                // 添加活跃状态
                 tab.classList.add('active');
-                const targetPanel = document.getElementById(`${targetTab}-panel`);
+                document.getElementById(`${targetTab}-panel`).classList.add('active');
                 
-                if (targetPanel) {
-                    targetPanel.classList.add('active');
-                    // 强制设置显示样式
-                    targetPanel.style.display = 'block';
-                    console.log('✅ 成功切换到面板:', `${targetTab}-panel`);
-                } else {
-                    console.error('❌ 找不到面板:', `${targetTab}-panel`);
-                    console.log('📋 可用的面板:', Array.from(panels).map(p => p.id));
-                }
-                
-                // 特定标签的处理
                 if (targetTab === 'nutrition') {
                     this.generateNutritionChart();
                 } else if (targetTab === 'plans') {
-                    console.log('📋 加载训练计划管理界面...');
                     this.loadPlansManagement();
                 }
             });
@@ -1591,25 +1516,13 @@ class FitnessTracker {
         
         if (currentPlan) {
             const planInfo = currentPlanDisplay.querySelector('.plan-info');
-            const today = this.getDateString(new Date());
-            const isEditable = this.isPlanEditable(currentPlan);
-            const status = currentPlan.endDate < today ? '已过期' : 
-                          currentPlan.startDate > today ? '未开始' : '进行中';
-            
             planInfo.querySelector('.plan-name').textContent = currentPlan.name;
-            planInfo.querySelector('.start-date').textContent = `${currentPlan.startDate} ~ ${currentPlan.endDate}`;
-            planInfo.querySelector('.plan-status').textContent = `状态: ${status}${isEditable ? '' : ' (不可编辑)'}`;
-            
-            // 更新按钮状态
-            const editBtn = currentPlanDisplay.querySelector('#edit-current-plan-btn');
-            if (editBtn) {
-                editBtn.disabled = !isEditable;
-                editBtn.title = isEditable ? '编辑当前计划' : '历史计划不可编辑';
-            }
+            planInfo.querySelector('.start-date').textContent = `生效日期: ${currentPlan.startDate}`;
+            planInfo.querySelector('.plan-status').textContent = `状态: 活跃`;
         } else {
             const planInfo = currentPlanDisplay.querySelector('.plan-info');
             planInfo.querySelector('.plan-name').textContent = '暂无活跃计划';
-            planInfo.querySelector('.start-date').textContent = '日期范围: --';
+            planInfo.querySelector('.start-date').textContent = '生效日期: --';
             planInfo.querySelector('.plan-status').textContent = '状态: 无';
         }
     }
@@ -1621,7 +1534,6 @@ class FitnessTracker {
         
         const allPlans = Object.values(this.trainingPlans);
         const currentPlan = this.getActivePlanForDate(new Date());
-        const today = this.getDateString(new Date());
         
         // 过滤出历史计划（非当前活跃的计划）
         const historyPlans = allPlans.filter(plan => plan.id !== (currentPlan ? currentPlan.id : null));
@@ -1631,31 +1543,22 @@ class FitnessTracker {
             return;
         }
         
-        historyList.innerHTML = historyPlans.map(plan => {
-            const isEditable = this.isPlanEditable(plan);
-            const isPast = plan.endDate < today;
-            const isFuture = plan.startDate > today;
-            const statusText = isPast ? '已过期' : isFuture ? '未开始' : '备用';
-            
-            return `
-                <div class="plan-card" data-plan-id="${plan.id}">
-                    <div class="plan-info">
-                        <div class="plan-name">${plan.name}</div>
-                        <div class="plan-details">
-                            <span class="start-date">${plan.startDate} ~ ${plan.endDate}</span>
-                            <span class="plan-status">状态: ${statusText}${isEditable ? '' : ' (不可编辑)'}</span>
-                        </div>
-                    </div>
-                    <div class="plan-controls">
-                        <button class="btn-outline plan-activate-btn" data-plan-id="${plan.id}" 
-                                ${isPast ? 'disabled title="已过期的计划不能激活"' : ''}>激活</button>
-                        <button class="btn-outline plan-edit-btn" data-plan-id="${plan.id}" 
-                                ${isEditable ? '' : 'disabled title="历史计划不可编辑"'}>编辑</button>
-                        <button class="btn-secondary plan-delete-btn" data-plan-id="${plan.id}">删除</button>
+        historyList.innerHTML = historyPlans.map(plan => `
+            <div class="plan-card" data-plan-id="${plan.id}">
+                <div class="plan-info">
+                    <div class="plan-name">${plan.name}</div>
+                    <div class="plan-details">
+                        <span class="start-date">生效日期: ${plan.startDate}</span>
+                        <span class="plan-status">状态: ${plan.isActive ? '备用' : '已停用'}</span>
                     </div>
                 </div>
-            `;
-        }).join('');
+                <div class="plan-controls">
+                    <button class="btn-outline plan-activate-btn" data-plan-id="${plan.id}">激活</button>
+                    <button class="btn-outline plan-edit-btn" data-plan-id="${plan.id}">编辑</button>
+                    <button class="btn-secondary plan-delete-btn" data-plan-id="${plan.id}">删除</button>
+                </div>
+            </div>
+        `).join('');
     }
     
     // 显示创建计划编辑器
@@ -1677,14 +1580,6 @@ class FitnessTracker {
                 startDateInput.value = this.getDateString(new Date());
             }
             
-            // 设置默认截止日期为一年后
-            const endDateInput = document.getElementById('plan-end-date-input');
-            if (endDateInput) {
-                const defaultEndDate = new Date();
-                defaultEndDate.setFullYear(defaultEndDate.getFullYear() + 1);
-                endDateInput.value = this.getDateString(defaultEndDate);
-            }
-            
             // 生成周计划编辑器
             this.generateWeeklyScheduleEditor();
         }
@@ -1694,11 +1589,6 @@ class FitnessTracker {
     editCurrentPlan() {
         const currentPlan = this.getActivePlanForDate(new Date());
         if (currentPlan) {
-            // 检查是否可编辑
-            if (!this.isPlanEditable(currentPlan)) {
-                alert('无法编辑已过期的计划！\n请创建新计划或激活其他计划。');
-                return;
-            }
             this.editPlan(currentPlan.id);
         }
     }
@@ -1707,12 +1597,6 @@ class FitnessTracker {
     editPlan(planId) {
         const plan = this.trainingPlans[planId];
         if (!plan) return;
-        
-        // 检查是否可编辑
-        if (!this.isPlanEditable(plan)) {
-            alert(`无法编辑已过期的计划"${plan.name}"！\n计划截止日期：${plan.endDate}\n请创建新计划或编辑其他计划。`);
-            return;
-        }
         
         const editor = document.getElementById('plan-editor');
         const title = document.getElementById('editor-title');
@@ -1744,15 +1628,10 @@ class FitnessTracker {
             editor.style.display = 'block';
             editor.dataset.mode = 'create';
             
-            // 填充原计划数据，但修改名称和日期
+            // 填充原计划数据，但修改名称
             const duplicatedPlan = JSON.parse(JSON.stringify(currentPlan));
             duplicatedPlan.name += ' (副本)';
             duplicatedPlan.startDate = this.getDateString(new Date());
-            
-            // 设置默认截止日期为一年后
-            const defaultEndDate = new Date();
-            defaultEndDate.setFullYear(defaultEndDate.getFullYear() + 1);
-            duplicatedPlan.endDate = this.getDateString(defaultEndDate);
             
             this.fillPlanEditor(duplicatedPlan);
             this.generateWeeklyScheduleEditor(duplicatedPlan.weeklySchedule);
@@ -1764,7 +1643,6 @@ class FitnessTracker {
         document.getElementById('plan-name-input').value = '';
         document.getElementById('plan-description-input').value = '';
         document.getElementById('plan-start-date-input').value = '';
-        document.getElementById('plan-end-date-input').value = '';
     }
     
     // 填充计划编辑器
@@ -1772,25 +1650,12 @@ class FitnessTracker {
         document.getElementById('plan-name-input').value = plan.name || '';
         document.getElementById('plan-description-input').value = plan.description || '';
         document.getElementById('plan-start-date-input').value = plan.startDate || '';
-        document.getElementById('plan-end-date-input').value = plan.endDate || '';
     }
     
     // 生成周计划编辑器
     generateWeeklyScheduleEditor(weeklySchedule = null) {
-        // 确保使用计划编辑器中的容器，而不是左边的周训练安排编辑器
-        const editor = document.getElementById('plan-editor');
-        if (!editor) {
-            console.error('❌ 找不到计划编辑器');
-            return;
-        }
-        
-        const container = editor.querySelector('#days-editor-container');
-        if (!container) {
-            console.error('❌ 找不到计划编辑器中的days-editor-container');
-            return;
-        }
-        
-        console.log('📝 在计划编辑器中生成周计划编辑器');
+        const container = document.getElementById('days-editor-container');
+        if (!container) return;
         
         const days = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
         const schedule = weeklySchedule || this.createEmptyWeeklySchedule();
@@ -1851,31 +1716,23 @@ class FitnessTracker {
         const plan = this.trainingPlans[planId];
         if (!plan) return;
         
-        // 检查计划是否已过期
-        const today = this.getDateString(new Date());
-        if (plan.endDate < today) {
-            alert(`无法激活已过期的计划"${plan.name}"！\n计划截止日期：${plan.endDate}\n请创建新计划或选择其他计划。`);
-            return;
-        }
-        
-        if (confirm(`确定要激活计划"${plan.name}"吗？\n\n计划时间段：${plan.startDate} ~ ${plan.endDate}\n注意：这将成为当前使用的计划。`)) {
-            try {
-                // 更新计划状态
-                plan.isActive = true;
-                
-                await this.saveTrainingPlan(plan);
-                this.currentPlanId = planId;
-                this.saveCurrentPlanId();
-                
-                // 刷新显示
-                this.loadPlansManagement();
-                await this.refreshPageData();
-                
-                alert('✅ 计划已激活！');
-            } catch (error) {
-                console.error('❌ 激活计划失败:', error);
-                alert('激活计划失败：' + error.message);
-            }
+        if (confirm(`确定要激活计划"${plan.name}"吗？\n\n新计划将从今天开始生效。`)) {
+            // 更新计划的生效日期和状态
+            plan.startDate = this.getDateString(new Date());
+            plan.isActive = true;
+            
+            // 将其他计划设为非活跃状态（如果需要的话）
+            // 这里我们允许多个计划同时活跃，系统会自动选择最新的
+            
+            await this.saveTrainingPlan(plan);
+            this.currentPlanId = planId;
+            this.saveCurrentPlanId();
+            
+            // 刷新显示
+            this.loadPlansManagement();
+            await this.refreshPageData();
+            
+            alert('✅ 计划已激活！');
         }
     }
     
@@ -1911,7 +1768,6 @@ class FitnessTracker {
         const name = document.getElementById('plan-name-input').value.trim();
         const description = document.getElementById('plan-description-input').value.trim();
         const startDate = document.getElementById('plan-start-date-input').value;
-        const endDate = document.getElementById('plan-end-date-input').value;
         
         if (!name) {
             alert('请输入计划名称');
@@ -1923,54 +1779,35 @@ class FitnessTracker {
             return;
         }
         
-        if (!endDate) {
-            alert('请选择截止日期');
-            return;
-        }
-        
-        // 验证日期逻辑
-        if (startDate >= endDate) {
-            alert('截止日期必须晚于生效日期！');
-            return;
-        }
-        
         // 收集周计划数据
         const weeklySchedule = this.collectWeeklyScheduleFromEditor();
         
-        try {
-            if (mode === 'create') {
-                // 创建新计划
-                const newPlan = await this.createNewTrainingPlan({
-                    name,
-                    description,
-                    startDate,
-                    endDate,
-                    isActive: true,
-                    weeklySchedule
-                });
+        if (mode === 'create') {
+            // 创建新计划
+            const newPlan = await this.createNewTrainingPlan({
+                name,
+                description,
+                startDate,
+                isActive: true,
+                weeklySchedule
+            });
+            
+            this.currentPlanId = newPlan.id;
+            this.saveCurrentPlanId();
+            
+            alert('✅ 新计划已创建！');
+        } else if (mode === 'edit') {
+            // 更新现有计划
+            const plan = this.trainingPlans[planId];
+            if (plan) {
+                plan.name = name;
+                plan.description = description;
+                plan.startDate = startDate;
+                plan.weeklySchedule = weeklySchedule;
                 
-                this.currentPlanId = newPlan.id;
-                this.saveCurrentPlanId();
-                
-                alert('✅ 新计划已创建！');
-            } else if (mode === 'edit') {
-                // 更新现有计划
-                const plan = this.trainingPlans[planId];
-                if (plan) {
-                    plan.name = name;
-                    plan.description = description;
-                    plan.startDate = startDate;
-                    plan.endDate = endDate;
-                    plan.weeklySchedule = weeklySchedule;
-                    
-                    await this.saveTrainingPlan(plan);
-                    alert('✅ 计划已更新！');
-                }
+                await this.saveTrainingPlan(plan);
+                alert('✅ 计划已更新！');
             }
-        } catch (error) {
-            console.error('❌ 保存计划失败:', error);
-            alert('保存计划失败：' + error.message);
-            return;
         }
         
         this.cancelPlanEdit();
@@ -1983,15 +1820,8 @@ class FitnessTracker {
         const schedule = {};
         const days = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
         
-        // 确保从计划编辑器中收集数据
-        const editor = document.getElementById('plan-editor');
-        if (!editor) {
-            console.error('❌ 找不到计划编辑器');
-            return schedule;
-        }
-        
         days.forEach(day => {
-            const dayEditor = editor.querySelector(`[data-day="${day}"]`);
+            const dayEditor = document.querySelector(`[data-day="${day}"]`);
             if (!dayEditor) return;
             
             const typeInput = dayEditor.querySelector('.day-type input');
@@ -2036,11 +1866,7 @@ class FitnessTracker {
     
     // 添加运动到指定日期
     addExerciseToDay(day) {
-        // 确保在计划编辑器中查找
-        const editor = document.getElementById('plan-editor');
-        if (!editor) return;
-        
-        const exercisesList = editor.querySelector(`[data-day="${day}"] .exercises-list`);
+        const exercisesList = document.querySelector(`[data-day="${day}"] .exercises-list`);
         if (!exercisesList) return;
         
         const exerciseIndex = exercisesList.children.length;
@@ -2053,11 +1879,7 @@ class FitnessTracker {
     
     // 移除运动项目
     removeExercise(day, index) {
-        // 确保在计划编辑器中查找
-        const editor = document.getElementById('plan-editor');
-        if (!editor) return;
-        
-        const exerciseEditor = editor.querySelector(`[data-day="${day}"] .exercise-editor[data-index="${index}"]`);
+        const exerciseEditor = document.querySelector(`[data-day="${day}"] .exercise-editor[data-index="${index}"]`);
         if (exerciseEditor) {
             exerciseEditor.remove();
             
@@ -2119,124 +1941,94 @@ class FitnessTracker {
         try {
             console.log('🔥 正在重新生成热力图...');
             const heatmapGrid = document.getElementById('heatmap-grid');
-            const heatmapMonths = document.getElementById('heatmap-months');
             if (!heatmapGrid) {
                 console.warn('热力图容器未找到');
                 return;
             }
+            
+            // 创建新的热力图内容，CSS已确保容器尺寸稳定
+            const newHeatmapContent = document.createDocumentFragment();
             
             // 先尝试从云端加载历史数据（如果启用了云端同步）
             if (this.cloudSync.enabled && this.cloudSync.username) {
                 await this.loadHistoryDataForHeatmap();
             }
         
-            const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
-            console.log('📊 热力图数据包含', Object.keys(data).length, '天的记录');
-            console.log('📊 热力图数据详情:', Object.keys(data).slice(0, 10)); // 显示前10天的日期
+        const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
+        console.log('📊 热力图数据包含', Object.keys(data).length, '天的记录');
+        console.log('📊 热力图数据详情:', Object.keys(data).slice(0, 10)); // 显示前10天的日期
+        
+        // 调试：显示当前用户名和云端同步状态
+        console.log('🔍 热力图调试信息:');
+        console.log('- 云端同步启用:', this.cloudSync.enabled);
+        console.log('- 当前用户名:', this.cloudSync.username);
+        console.log('- localStorage用户名:', localStorage.getItem('fitness-username'));
+        
+        const currentDate = new Date();
+        const oneYearAgo = new Date(currentDate.getFullYear() - 1, currentDate.getMonth(), currentDate.getDate());
+        
+        // 创建一年的日期网格
+        for (let week = 0; week < 53; week++) {
+            const weekElement = document.createElement('div');
+            weekElement.className = 'heatmap-week';
             
-            // 调试：显示当前用户名和云端同步状态
-            console.log('🔍 热力图调试信息:');
-            console.log('- 云端同步启用:', this.cloudSync.enabled);
-            console.log('- 当前用户名:', this.cloudSync.username);
-            console.log('- localStorage用户名:', localStorage.getItem('fitness-username'));
-            
-            const currentDate = new Date();
-            
-            // 找到一年前的周一作为起始点（确保第一行是周一）
-            const startDate = new Date(currentDate);
-            startDate.setDate(startDate.getDate() - 365);
-            
-            // 调整到最近的周一 
-            const dayOfWeek = startDate.getDay(); // 0=周日, 1=周一, ..., 6=周六
-            const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // 计算需要向前调整几天到周一
-            startDate.setDate(startDate.getDate() - daysToSubtract);
-            
-            console.log('🗓️ 热力图起始日期(周一):', startDate.toLocaleDateString(), '星期', startDate.getDay());
-            
-            // 生成月份标注
-            if (heatmapMonths) {
-                this.generateMonthLabels(heatmapMonths, startDate, currentDate);
-            }
-            
-            // 创建新的热力图内容
-            const newHeatmapContent = document.createDocumentFragment();
-            
-            console.log('🗓️ 热力图起始日期(周一):', startDate.toLocaleDateString(), '星期', startDate.getDay());
-            
-            // 创建53周的完整网格
-            for (let week = 0; week < 53; week++) {
-                const weekElement = document.createElement('div');
-                weekElement.className = 'heatmap-week';
+            for (let day = 0; day < 7; day++) {
+                const date = new Date(oneYearAgo);
+                date.setDate(date.getDate() + (week * 7) + day);
                 
-                // 每周从周一到周日（day: 0=周一, 1=周二, ..., 6=周日）
-                for (let day = 0; day < 7; day++) {
-                    const date = new Date(startDate);
-                    date.setDate(date.getDate() + (week * 7) + day);
-                    
-                    // 如果日期超过今天，则创建空的格子
-                    const dayElement = document.createElement('div');
-                    dayElement.className = 'heatmap-day';
-                    
-                    if (date > currentDate) {
-                        // 未来的日期显示为空格子
-                        dayElement.className = 'heatmap-day level-0';
-                        dayElement.style.opacity = '0.3';
-                        weekElement.appendChild(dayElement);
-                        continue;
-                    }
+                if (date > currentDate) continue;
                 
-                    const dateStr = this.getRawDateString(date);
-                    const dayData = data[dateStr];
+                const dayElement = document.createElement('div');
+                dayElement.className = 'heatmap-day';
+                
+                const dateStr = this.getRawDateString(date);
+                const dayData = data[dateStr];
+                
+                let level = 0;
+                let calorieGap = 0;
+                
+                if (dayData && dayData.nutrition && dayData.nutrition.calories > 0) {
+                    const weekday = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()];
+                    const activePlan = this.getActivePlanForDate(date);
+                    const plan = activePlan ? activePlan.weeklySchedule[weekday] : null;
                     
-                    let level = 0;
-                    let calorieGap = 0;
-                    
-                    if (dayData && dayData.nutrition && dayData.nutrition.calories > 0) {
-                        // 重新计算星期几（确保对应正确）
-                        const jsDay = date.getDay(); // JavaScript的getDay: 0=周日, 1=周一, ..., 6=周六
-                        const weekdayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-                        const weekday = weekdayNames[jsDay];
+                    if (plan) {
+                        // 计算当天实际完成的运动消耗
+                        let actualExerciseCalories = 0;
+                        if (dayData.exercises) {
+                            Object.keys(dayData.exercises).forEach(index => {
+                                // 只计算已打卡完成的运动
+                                if (dayData.exercises[index] === true && plan.exercises[index]) {
+                                    actualExerciseCalories += plan.exercises[index].calories;
+                                }
+                            });
+                        }
                         
-                        const activePlan = this.getActivePlanForDate(date);
-                        const plan = activePlan ? activePlan.weeklySchedule[weekday] : null;
+                        // 获取当天的活动水平，如果没有保存则使用默认值
+                        const savedActivityLevel = dayData.activityLevel || 'moderately';
+                        const tdee = this.calculateTDEE(savedActivityLevel);
                         
-                        if (plan) {
-                            // 计算当天实际完成的运动消耗
-                            let actualExerciseCalories = 0;
-                            if (dayData.exercises) {
-                                Object.keys(dayData.exercises).forEach(index => {
-                                    // 只计算已打卡完成的运动
-                                    if (dayData.exercises[index] === true && plan.exercises[index]) {
-                                        actualExerciseCalories += plan.exercises[index].calories;
-                                    }
-                                });
-                            }
-                            
-                            // 获取当天的活动水平，如果没有保存则使用默认值
-                            const savedActivityLevel = dayData.activityLevel || 'moderately';
-                            const tdee = this.calculateTDEE(savedActivityLevel);
-                            
-                            // 总消耗 = TDEE + 额外运动消耗
-                            const totalBurned = tdee + actualExerciseCalories;
-                            
-                            // 计算热量缺口 = 总消耗 - 摄入
-                            calorieGap = totalBurned - dayData.nutrition.calories;
-                            
-                            // 根据热量缺口设置等级 (0-200: 1级, 200-400: 2级, 400-600: 3级, 600+: 4级)
-                            if (calorieGap > 0) {
-                                level = Math.min(4, Math.floor(calorieGap / 200) + 1);
-                            }
+                        // 总消耗 = TDEE + 额外运动消耗
+                        const totalBurned = tdee + actualExerciseCalories;
+                        
+                        // 计算热量缺口 = 总消耗 - 摄入
+                        calorieGap = totalBurned - dayData.nutrition.calories;
+                        
+                        // 根据热量缺口设置等级 (0-200: 1级, 200-400: 2级, 400-600: 3级, 600+: 4级)
+                        if (calorieGap > 0) {
+                            level = Math.min(4, Math.floor(calorieGap / 200) + 1);
                         }
                     }
-                    
-                    dayElement.className = `heatmap-day level-${level}`;
-                    dayElement.title = `${date.toLocaleDateString()} (${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]}) - 热量缺口: ${calorieGap}kcal`;
-                    
-                    weekElement.appendChild(dayElement);
                 }
                 
-                newHeatmapContent.appendChild(weekElement);
+                dayElement.className = `heatmap-day level-${level}`;
+                dayElement.title = `${date.toLocaleDateString()} - 热量缺口: ${calorieGap}kcal`;
+                
+                weekElement.appendChild(dayElement);
             }
+            
+            newHeatmapContent.appendChild(weekElement);
+        }
         
         // 一次性替换所有内容，减少重排
         heatmapGrid.innerHTML = '';
@@ -2245,45 +2037,6 @@ class FitnessTracker {
             console.error('热力图生成失败:', error);
         } finally {
             this.heatmapGenerating = false;
-        }
-    }
-
-    // 生成月份标签（GitHub风格）
-    generateMonthLabels(container, startDate, endDate) {
-        container.innerHTML = '';
-        
-        const monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', 
-                           '7月', '8月', '9月', '10月', '11月', '12月'];
-        
-        // 计算每周的宽度（12px + 2px gap）
-        const weekWidth = 14;
-        
-        // 找到第一周是从什么时候开始的
-        const firstSunday = new Date(startDate);
-        const daysToSubtract = firstSunday.getDay(); // 0是周日，6是周六
-        firstSunday.setDate(firstSunday.getDate() - daysToSubtract);
-        
-        // 遍历53周，为每个月的第一次出现添加标签
-        let displayedMonths = new Set();
-        
-        for (let week = 0; week < 53; week++) {
-            const weekDate = new Date(firstSunday);
-            weekDate.setDate(weekDate.getDate() + (week * 7));
-            
-            if (weekDate > endDate) break;
-            
-            const month = weekDate.getMonth();
-            
-            // 如果这个月还没有显示过，并且这一周包含这个月的开始几天
-            if (!displayedMonths.has(month)) {
-                const monthLabel = document.createElement('div');
-                monthLabel.className = 'month-label';
-                monthLabel.style.left = `${week * weekWidth}px`;
-                monthLabel.textContent = monthNames[month];
-                
-                container.appendChild(monthLabel);
-                displayedMonths.add(month);
-            }
         }
     }
 
@@ -4161,116 +3914,77 @@ class FitnessTracker {
         }
     }
     
-    // 生成完整的时间轴数据
-    generateTimeAxisData(period, healthData) {
-        const now = new Date();
-        const labels = [];
-        const weights = [];
-        const recordsMap = new Map();
+    // 准备年度数据（按月）
+    prepareYearlyData(healthData, currentYear) {
+        const months = [
+            '1月', '2月', '3月', '4月', '5月', '6月',
+            '7月', '8月', '9月', '10月', '11月', '12月'
+        ];
         
-        // 创建健康数据的快速查找映射
-        const healthMap = new Map();
+        const weights = new Array(12).fill(null);
+        
+        // 按月分组数据，取每月最后一次记录
         healthData.forEach(record => {
-            const dateKey = new Date(record.recordDate).toDateString();
-            healthMap.set(dateKey, record);
+            const recordDate = new Date(record.recordDate);
+            if (recordDate.getFullYear() === currentYear.getFullYear()) {
+                const month = recordDate.getMonth(); // 0-11
+                weights[month] = record.weight; // 后面的记录会覆盖前面的
+            }
         });
         
-        if (period === '365') {
-            // 年视图：显示12个月
-            for (let month = 0; month < 12; month++) {
-                const date = new Date(now.getFullYear(), month, 1);
-                const label = date.toLocaleDateString('zh-CN', { month: 'short' });
-                labels.push(label);
-                
-                // 查找该月的最后一条记录
-                let monthRecord = null;
-                for (let day = 31; day >= 1; day--) {
-                    const checkDate = new Date(now.getFullYear(), month, day);
-                    const dateKey = checkDate.toDateString();
-                    if (healthMap.has(dateKey)) {
-                        monthRecord = healthMap.get(dateKey);
-                        break;
-                    }
-                }
-                
-                if (monthRecord) {
-                    weights.push(monthRecord.weight);
-                    recordsMap.set(month, monthRecord);
-                } else {
-                    weights.push(null);
-                }
-            }
-        } else if (period === '30' || period === '90') {
-            // 月视图或季度视图：显示每一天
-            const days = parseInt(period);
-            for (let i = days - 1; i >= 0; i--) {
-                const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
-                const label = date.toLocaleDateString('zh-CN', { 
-                    month: 'short', 
-                    day: 'numeric' 
-                });
-                labels.push(label);
-                
-                const dateKey = date.toDateString();
-                if (healthMap.has(dateKey)) {
-                    const record = healthMap.get(dateKey);
-                    weights.push(record.weight);
-                    recordsMap.set(labels.length - 1, record);
-                } else {
-                    weights.push(null);
-                }
-            }
-        } else if (period === '7') {
-            // 周视图：显示7天
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
-                const label = date.toLocaleDateString('zh-CN', { 
-                    month: 'short', 
-                    day: 'numeric' 
-                });
-                labels.push(label);
-                
-                const dateKey = date.toDateString();
-                if (healthMap.has(dateKey)) {
-                    const record = healthMap.get(dateKey);
-                    weights.push(record.weight);
-                    recordsMap.set(labels.length - 1, record);
-                } else {
-                    weights.push(null);
-                }
-            }
-        } else {
-            // 全部数据：按实际记录显示
-            const sortedData = healthData.sort((a, b) => new Date(a.recordDate) - new Date(b.recordDate));
-            sortedData.forEach((record, index) => {
-                const date = new Date(record.recordDate);
-                const label = date.toLocaleDateString('zh-CN', { 
-                    month: 'short', 
-                    day: 'numeric' 
-                });
-                labels.push(label);
-                weights.push(record.weight);
-                recordsMap.set(index, record);
-            });
-        }
-        
-        return { labels, weights, recordsMap };
+        return {
+            labels: months,
+            weights: weights
+        };
     }
     
-    // 获取时间段标题
-    getPeriodTitle(period) {
-        const now = new Date();
-        switch(period) {
-            case '7':
-                return '体重趋势 (7天)';
-            case '30':
-                return '体重趋势 (30天)';
-            case '90':
-                return '体重趋势 (90天)';
+    // 准备指定期间数据
+    preparePeriodData(healthData, period, now) {
+        const periodDays = parseInt(period);
+        const labels = [];
+        const weights = [];
+        
+        // 生成日期标签
+        for (let i = periodDays - 1; i >= 0; i--) {
+            const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+            labels.push(date.toLocaleDateString('zh-CN', { 
+                month: 'short', 
+                day: 'numeric' 
+            }));
+        }
+        
+        // 初始化权重数组
+        weights.fill(null, 0, labels.length);
+        
+        // 填入实际数据
+        healthData.forEach(record => {
+            const recordDate = new Date(record.recordDate);
+            const daysDiff = Math.floor((now - recordDate) / (24 * 60 * 60 * 1000));
+            
+            if (daysDiff >= 0 && daysDiff < periodDays) {
+                const index = periodDays - 1 - daysDiff;
+                weights[index] = record.weight;
+            }
+        });
+        
+        return {
+            labels: labels,
+            weights: weights
+        };
+    }
+    
+    // 获取图表标题
+    getChartTitle(period) {
+        switch (period) {
             case '365':
-                return `体重趋势 (${now.getFullYear()}年)`;
             case 'all':
-                return '体重趋势 (全部)';
+                return '体重趋势 (年视图)';
+            case '90':
+                return '体重趋势 (季度)';
+            case '30':
+                return '体重趋势 (月视图)';
+            case '7':
+                return '体重趋势 (周视图)';
             default:
                 return `体重趋势 (${period}天)`;
         }
@@ -4282,24 +3996,45 @@ class FitnessTracker {
         if (!canvas) return;
         
         try {
-            // 获取健康数据
-            const limit = period === 'all' ? 1000 : parseInt(period);
-            const healthData = await this.getUserHealthInfo(limit);
+            // 获取健康数据和目标体重
+            const healthData = await this.getUserHealthInfo(1000); // 获取足够多的数据
+            const userGoal = await this.getUserGoal();
             
-            if (healthData.length === 0) {
-                this.showEmptyChart(canvas, '暂无体重数据');
-                return;
+            console.log('🎯 开始创建体重趋势图...');
+            console.log('📊 原始健康数据条数:', healthData.length);
+            console.log('📊 时间段:', period);
+            
+            // 销毁现有图表
+            if (this.weightChart) {
+                this.weightChart.destroy();
             }
             
-            // 按日期排序（从旧到新）
-            const sortedData = healthData.sort((a, b) => new Date(a.recordDate) - new Date(b.recordDate));
-            
-            // 根据时间段筛选数据
+            let chartData;
             const now = new Date();
-            let filteredData = sortedData;
             
-            if (period !== 'all') {
-                const periodDays = parseInt(period);
+            if (period === '365' || period === 'all') {
+                // 年视图：按月显示
+                chartData = this.prepareYearlyData(healthData, now);
+            } else {
+                // 月/周/日视图：按指定期间显示
+                chartData = this.preparePeriodData(healthData, period, now);
+            }
+            
+            const chartLabels = chartData.labels;
+            const weights = chartData.weights;
+            const hasData = weights.some(w => w !== null);
+            
+            console.log('📊 图表标签:', chartLabels);
+            console.log('📊 权重数据:', weights);
+            console.log('📊 是否有数据:', hasData);
+            
+            // 设置目标体重
+            let targetWeight = 48.0; // 默认目标
+            if (userGoal && userGoal.targetWeight) {
+                targetWeight = userGoal.targetWeight;
+            }
+            
+            console.log('🎯 目标体重:', targetWeight, 'kg');
                 const cutoffDate = new Date(now.getTime() - periodDays * 24 * 60 * 60 * 1000);
                 filteredData = sortedData.filter(item => new Date(item.recordDate) >= cutoffDate);
             }
@@ -4328,37 +4063,28 @@ class FitnessTracker {
                 this.weightChart.destroy();
             }
             
-            // 创建渐变色 - 使用更好看的蓝色系
+            // 创建渐变色
             const canvas2d = canvas.getContext('2d');
             const gradient = canvas2d.createLinearGradient(0, 0, 0, canvas.height);
-            gradient.addColorStop(0, 'rgba(74, 144, 226, 0.6)');
-            gradient.addColorStop(0.5, 'rgba(74, 144, 226, 0.3)');
-            gradient.addColorStop(1, 'rgba(74, 144, 226, 0.05)');
-            
-            // 获取用户目标并生成完整时间轴
-            const timeAxisData = this.generateTimeAxisData(period, healthData);
+            gradient.addColorStop(0, 'rgba(52, 168, 83, 0.6)');
+            gradient.addColorStop(0.5, 'rgba(52, 168, 83, 0.3)');
+            gradient.addColorStop(1, 'rgba(52, 168, 83, 0.05)');
             
             // 准备数据集
             const datasets = [{
                 label: '体重',
-                data: timeAxisData.weights,
-                borderColor: '#4A90E2',
+                data: weights,
+                borderColor: '#34a853',
                 backgroundColor: gradient,
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#4A90E2',
+                pointBackgroundColor: '#34a853',
                 pointBorderColor: '#ffffff',
                 pointBorderWidth: 2,
-                pointRadius: function(context) {
-                    // 有数据的点显示，没数据的不显示
-                    return context.parsed.y !== null ? 5 : 0;
-                },
-                pointHoverRadius: function(context) {
-                    return context.parsed.y !== null ? 7 : 0;
-                },
-                spanGaps: true, // 连接空数据点，形成连续曲线
-                order: 2
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointHoverBorderWidth: 3
             }];
             
             // 强制添加目标体重参考线
@@ -4373,27 +4099,35 @@ class FitnessTracker {
                 console.log('📊 使用默认目标体重:', targetWeight, 'kg');
             }
             
-            console.log('📊 图表标签数量:', timeAxisData.labels.length);
-            console.log('📊 图表标签内容:', timeAxisData.labels);
+            console.log('📊 图表标签数量:', labels.length);
+            console.log('📊 图表标签内容:', labels);
             
-            // 添加目标体重线
-            const targetData = new Array(timeAxisData.labels.length).fill(targetWeight);
-            datasets.push({
-                label: '目标体重',
-                data: targetData,
-                borderColor: '#FF6B6B',
-                backgroundColor: 'rgba(255, 107, 107, 0)',
-                borderWidth: 2,
-                borderDash: [8, 4],
-                fill: false,
-                pointRadius: 0,
-                pointHoverRadius: 0,
-                tension: 0,
-                order: 1
-            });
-            
-            console.log('✅ 目标体重线强制添加完成，数据集总数:', datasets.length);
-            console.log('📊 时间轴标签:', timeAxisData.labels);
+            if (labels.length === 0) {
+                console.warn('⚠️ 没有数据点，无法创建目标线');
+            } else {
+                const targetData = new Array(labels.length).fill(targetWeight);
+                console.log('📊 目标数据数组:', targetData);
+                console.log('📊 目标数据数组长度:', targetData.length);
+                
+                const targetDataset = {
+                    label: '目标体重',
+                    data: targetData,
+                    borderColor: '#ff6b6b', // 红色虚线
+                    backgroundColor: 'transparent',
+                    borderWidth: 3,
+                    borderDash: [10, 5], // 虚线样式
+                    fill: false,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    tension: 0,
+                    order: 1 // 确保目标线在前面绘制
+                };
+                
+                console.log('📊 目标数据集配置:', targetDataset);
+                datasets.push(targetDataset);
+                console.log('✅ 目标体重线强制添加完成，数据集总数:', datasets.length);
+                console.log('📊 所有数据集:', datasets);
+            }
             
             // 创建新图表
             const ctx = canvas2d;
@@ -4410,8 +4144,37 @@ class FitnessTracker {
             this.weightChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: timeAxisData.labels,
-                    datasets: datasets
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: '体重',
+                            data: weights,
+                            borderColor: '#34a853',
+                            backgroundColor: gradient,
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#34a853',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            pointHoverBorderWidth: 3
+                        },
+                        {
+                            label: '目标体重',
+                            data: new Array(labels.length).fill(targetWeight),
+                            borderColor: '#FF0000',
+                            backgroundColor: 'rgba(0,0,0,0)',
+                            borderWidth: 4,
+                            fill: false,
+                            pointRadius: 0,
+                            pointHoverRadius: 0,
+                            tension: 0,
+                            type: 'line',
+                            order: 1
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -4448,18 +4211,16 @@ class FitnessTracker {
                                 afterLabel: function(context) {
                                     if (context.dataset.label === '体重') {
                                         const dataIndex = context.dataIndex;
-                                        const data = timeAxisData.recordsMap.get(dataIndex);
+                                        const data = filteredData[dataIndex];
                                         const afterLabels = [];
                                         
-                                        if (data && data.bodyFat) {
+                                        if (data.bodyFat) {
                                             afterLabels.push(`📊 体脂率: ${data.bodyFat}%`);
                                         }
                                         
-                                        if (data) {
-                                            // 计算BMI
-                                            const bmi = (data.weight / Math.pow(data.height / 100, 2)).toFixed(1);
-                                            afterLabels.push(`📈 BMI: ${bmi}`);
-                                        }
+                                        // 计算BMI
+                                        const bmi = (data.weight / Math.pow(data.height / 100, 2)).toFixed(1);
+                                        afterLabels.push(`📈 BMI: ${bmi}`);
                                         
                                         return afterLabels;
                                     }
@@ -4467,16 +4228,13 @@ class FitnessTracker {
                                 },
                                 title: function(context) {
                                     const dataIndex = context[0].dataIndex;
-                                    const data = timeAxisData.recordsMap.get(dataIndex);
-                                    if (data) {
-                                        const date = new Date(data.recordDate);
-                                        return date.toLocaleDateString('zh-CN', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        });
-                                    }
-                                    return timeAxisData.labels[dataIndex];
+                                    const data = filteredData[dataIndex];
+                                    const date = new Date(data.recordDate);
+                                    return date.toLocaleDateString('zh-CN', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    });
                                 }
                             }
                         }
@@ -4504,19 +4262,13 @@ class FitnessTracker {
                             beginAtZero: false,
                             // 动态调整Y轴范围，强制包含目标体重
                             min: function(context) {
-                                const validWeights = timeAxisData.weights.filter(w => w !== null);
-                                if (validWeights.length === 0) return Math.max(0, targetWeight - 10);
-                                
-                                const minWeight = Math.min(...validWeights);
+                                const minWeight = Math.min(...weights);
                                 // 强制包含目标体重
                                 const min = Math.min(minWeight, targetWeight);
                                 return Math.max(0, min - 5);
                             },
                             max: function(context) {
-                                const validWeights = timeAxisData.weights.filter(w => w !== null);
-                                if (validWeights.length === 0) return targetWeight + 10;
-                                
-                                const maxWeight = Math.max(...validWeights);
+                                const maxWeight = Math.max(...weights);
                                 // 强制包含目标体重
                                 const max = Math.max(maxWeight, targetWeight);
                                 return max + 5;
@@ -4553,7 +4305,7 @@ class FitnessTracker {
             this.weightChart.update();
             console.log(`🔄 图表更新完成`);
             
-            console.log(`✅ 体重趋势图更新完成 (${healthData.length}条数据)`);
+            console.log(`✅ 体重趋势图更新完成 (${filteredData.length}条数据)`);
             
         } catch (error) {
             console.error('更新体重趋势图失败:', error);

@@ -98,8 +98,11 @@
   background: #fff;
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.today-section:hover {
+  border-color: #4a90e2;
 }
 /* 日期头部 */
 .date-header {
@@ -341,7 +344,7 @@
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, opacity 0.15s ease;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -349,27 +352,23 @@
   min-width: 90px; /* 固定最小宽度防止列宽变化 */
   justify-content: center; /* 居中对齐 */
   position: relative;
-}
-/* 按钮更新动画效果 */
-.check-btn.updating {
-  opacity: 0.7;
-  transform: scale(0.98);
-  pointer-events: none;
+  will-change: auto; /* 减少不必要的合成层 */
 }
 /* 按钮文本固定宽度 */
 .check-btn .btn-text {
   text-align: center;
   white-space: nowrap;
+  display: inline-block;
+  min-width: 48px; /* 固定文本宽度，防止"完成"和"已完成"切换时宽度跳动 */
 }
-/* 禁用状态样式 */
+/* 禁用状态样式 - 优化为更轻微的视觉反馈 */
 .check-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.8;
   cursor: not-allowed;
-  transform: none;
+  pointer-events: none;
 }
-.check-btn:hover {
+.check-btn:hover:not(:disabled) {
   background: #2980b9;
-  transform: translateY(-1px);
 }
 .check-btn[data-completed="true"] {
   background: #27ae60;
@@ -511,8 +510,11 @@
   background: #fff;
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.statistics-section:hover {
+  border-color: #4a90e2;
 }
 .statistics-section h2 {
   color: #2c3e50;
@@ -594,9 +596,69 @@
 .heatmap-grid {
   display: flex;
   gap: 2px;
-  padding: 20px;
   overflow-x: auto;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.heatmap-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+.heatmap-container:hover {
+  border-color: #4a90e2;
+}
+.heatmap-wrapper {
+  position: relative;
+}
+.heatmap-months {
+  display: flex;
+  position: relative;
+  margin-left: 20px; /* 对齐星期标签的偏移 */
+  margin-bottom: 5px;
+  height: 15px;
+  font-size: 10px;
+  color: #7f8c8d;
+  overflow: hidden;
+}
+.month-label {
+  position: absolute;
+  text-align: left;
+  font-weight: 400;
+  white-space: nowrap;
+  font-size: 10px;
+  color: #7f8c8d;
+}
+.heatmap-content {
+  display: flex;
+  gap: 2px;
+}
+.heatmap-weekdays {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 15px;
+  margin-right: 5px;
+  font-size: 8px;
+  color: #7f8c8d;
+  align-items: center;
+}
+.weekday-label {
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
 }
 .heatmap-week {
   display: flex;
@@ -640,7 +702,6 @@
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
 }
 .stat-card:nth-child(2) {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -1298,6 +1359,796 @@
   .days-container .day-editor .day-water input {
     width: 100%;
   }
+}
+/* ==================== 新增健康数据面板样式 ==================== */
+/* 数据面板整体布局 */
+#dashboard-panel {
+  display: grid;
+  gap: 25px;
+}
+#dashboard-panel .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#dashboard-panel .section-header h4 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+#dashboard-panel .section-header .btn-small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#dashboard-panel .section-header .btn-small:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+/* 营养摄入进度显示 */
+.nutrition-summary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+}
+.nutrition-summary .nutrition-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  padding: 12px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+.nutrition-summary .nutrition-item .label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+.nutrition-summary .nutrition-item .value {
+  font-weight: 600;
+  font-size: 1rem;
+}
+/* 日常统计两列布局 */
+.daily-stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .daily-stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* 卡路里摄入进度区域 */
+.calorie-progress-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.calorie-progress-section h4 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+}
+.calorie-progress-section .progress-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.calorie-progress-section .progress-container .circular-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#27ae60 0deg, #27ae60 var(--progress-degree, 0deg), #ecf0f1 var(--progress-degree, 0deg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: #fff;
+  border-radius: 50%;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-text {
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-text .current-intake {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-text .recommended {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  line-height: 1;
+}
+.calorie-progress-section .progress-container .circular-progress .progress-text .unit {
+  font-size: 0.8rem;
+  color: #95a5a6;
+}
+.calorie-progress-section .progress-container .progress-info {
+  flex: 1;
+}
+.calorie-progress-section .progress-container .progress-info .info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+.calorie-progress-section .progress-container .progress-info .info-item:last-child {
+  border-bottom: none;
+}
+.calorie-progress-section .progress-container .progress-info .info-item .label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+.calorie-progress-section .progress-container .progress-info .info-item .value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+.calorie-progress-section:hover {
+  border-color: #4a90e2;
+}
+/* 运动统计区域 */
+.workout-stats-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.workout-stats-section h4 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+}
+.workout-stats-section .workout-progress {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.workout-stats-section .workout-progress .circular-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+.workout-stats-section .workout-progress .circular-progress .progress-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#3498db 0deg, #3498db var(--progress-degree, 0deg), #ecf0f1 var(--progress-degree, 0deg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.workout-stats-section .workout-progress .circular-progress .progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: #fff;
+  border-radius: 50%;
+}
+.workout-stats-section .workout-progress .circular-progress .progress-text {
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+.workout-stats-section .workout-progress .circular-progress .progress-text .completion-rate {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+}
+.workout-stats-section .workout-progress .circular-progress .progress-text .subtitle {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+.workout-stats-section .workout-progress .workout-info {
+  flex: 1;
+}
+.workout-stats-section .workout-progress .workout-info .info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+.workout-stats-section .workout-progress .workout-info .info-item:last-child {
+  border-bottom: none;
+}
+.workout-stats-section .workout-progress .workout-info .info-item .label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+.workout-stats-section .workout-progress .workout-info .info-item .value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+.workout-stats-section:hover {
+  border-color: #4a90e2;
+}
+/* 健康信息区域 */
+.health-info-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.health-info-section .health-display .no-data {
+  text-align: center;
+  color: #95a5a6;
+  padding: 40px 20px;
+  font-style: italic;
+}
+.health-info-section .health-display .health-info-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.health-info-section .health-display .health-info-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.health-info-section .health-display .health-info-grid .health-item {
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.health-info-section .health-display .health-info-grid .health-item .health-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+.health-info-section .health-display .health-info-grid .health-item .health-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+.health-info-section .health-display .health-info-grid .health-item .health-unit {
+  font-size: 0.8rem;
+  color: #95a5a6;
+}
+.health-info-section .health-display .bmi-indicator {
+  width: 140px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+.health-info-section .health-display .bmi-indicator .bmi-meter {
+  position: relative;
+  height: 11px;
+  background: linear-gradient(to right, #3498db 0% 23%, #27ae60 23% 62%, #f39c12 62% 85%, #e74c3c 85% 100% /* 肥胖 */);
+  border-radius: 3px;
+  margin: 8px 0 12px 0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer {
+  position: absolute;
+  top: -6px;
+  width: 2px;
+  height: 23px;
+  background: #333;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  z-index: 2;
+}
+.health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 6px;
+  height: 2px;
+  background: #333;
+  border-radius: 1px;
+}
+.health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  width: 6px;
+  height: 2px;
+  background: #333;
+  border-radius: 1px;
+}
+.health-info-section .health-display .bmi-indicator .bmi-status {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  color: #000;
+}
+.health-info-section .health-form {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+}
+.health-info-section .health-form .form-group {
+  margin-bottom: 15px;
+}
+.health-info-section .health-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #2c3e50;
+/* 可选项标识样式 */
+}
+.health-info-section .health-form .form-group label:contains('可选') {
+  color: #7f8c8d;
+}
+.health-info-section .health-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.health-info-section .health-form .form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+.health-info-section .health-form .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.health-info-section .health-form .form-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.health-info-section .health-form .form-actions button.btn-primary {
+  background: #3498db;
+  color: #fff;
+}
+.health-info-section .health-form .form-actions button.btn-primary:hover {
+  background: #2980b9;
+}
+.health-info-section .health-form .form-actions button.btn-secondary {
+  background: #95a5a6;
+  color: #fff;
+}
+.health-info-section .health-form .form-actions button.btn-secondary:hover {
+  background: #7f8c8d;
+}
+.health-info-section:hover {
+  border-color: #4a90e2;
+}
+/* 目标设定区域 */
+.goal-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.goal-section .goal-display .no-goal {
+  text-align: center;
+  color: #95a5a6;
+  padding: 40px 20px;
+  font-style: italic;
+}
+.goal-section .goal-display .goal-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.goal-section .goal-display .goal-info .goal-item {
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.goal-section .goal-display .goal-info .goal-item .goal-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+.goal-section .goal-display .goal-info .goal-item .goal-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #e74c3c;
+}
+.goal-section .goal-display .progress-to-goal {
+  margin-top: 20px;
+  text-align: center;
+}
+.goal-section .goal-display .progress-to-goal .progress-bar {
+  height: 12px;
+  background: #ecf0f1;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.goal-section .goal-display .progress-to-goal .progress-bar .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+.goal-section .goal-display .progress-to-goal .progress-text {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+.goal-section .goal-form {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+}
+.goal-section .goal-form .form-group {
+  margin-bottom: 15px;
+}
+.goal-section .goal-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+.goal-section .goal-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.goal-section .goal-form .form-group input:focus {
+  outline: none;
+  border-color: #e74c3c;
+}
+.goal-section .goal-form .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.goal-section .goal-form .form-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.goal-section .goal-form .form-actions button#save-goal-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+.goal-section .goal-form .form-actions button#save-goal-btn:hover {
+  background: #c0392b;
+}
+.goal-section .goal-form .form-actions button#cancel-goal-btn {
+  background: #95a5a6;
+  color: #fff;
+}
+.goal-section .goal-form .form-actions button#cancel-goal-btn:hover {
+  background: #7f8c8d;
+}
+.goal-section:hover {
+  border-color: #4a90e2;
+}
+/* 体重趋势图区域 */
+.weight-trend-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.weight-trend-section .section-header {
+  margin-bottom: 20px;
+}
+.weight-trend-section .section-header .trend-controls {
+  display: flex;
+  gap: 5px;
+}
+.weight-trend-section .section-header .trend-controls .trend-btn {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #7f8c8d;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+.weight-trend-section .section-header .trend-controls .trend-btn:hover {
+  background: #f8f9fa;
+}
+.weight-trend-section .section-header .trend-controls .trend-btn.active {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+.weight-trend-section .chart-container {
+  height: 300px;
+  position: relative;
+}
+.weight-trend-section .chart-container canvas {
+  max-width: 100%;
+  height: auto;
+}
+.weight-trend-section:hover {
+  border-color: #4a90e2;
+}
+/* 热力图区域 */
+.heatmap-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e1e8ed;
+  transition: border-color 0.3s ease;
+}
+.heatmap-section:hover {
+  border-color: #4a90e2;
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+  #dashboard-panel {
+    gap: 20px;
+  }
+  #dashboard-panel .calorie-progress-section .progress-container,
+  #dashboard-panel .workout-stats-section .progress-container,
+  #dashboard-panel .calorie-progress-section .workout-progress,
+  #dashboard-panel .workout-stats-section .workout-progress {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  #dashboard-panel .goal-section .goal-display .goal-info {
+    grid-template-columns: 1fr;
+  }
+  #dashboard-panel .weight-trend-section .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  #dashboard-panel .weight-trend-section .section-header .trend-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 480px) {
+  #dashboard-panel {
+    gap: 15px;
+  }
+  #dashboard-panel .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  #dashboard-panel .section-header .btn-small {
+    align-self: stretch;
+    text-align: center;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-grid {
+    grid-template-columns: 1fr;
+  }
+  #dashboard-panel .circular-progress {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+/* 健康记录管理模态框样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.modal .modal-content .modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e1e8ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modal-content .modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+.modal .modal-content .modal-header .modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.modal .modal-content .modal-header .modal-close:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.modal .modal-content .modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+.modal .modal-content .modal-body .records-list {
+  margin-bottom: 20px;
+}
+.modal .modal-content .modal-body .records-list .record-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.modal .modal-content .modal-body .records-list .record-item:hover {
+  background: #e9ecef;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info {
+  flex: 1;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info .record-date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info .record-data {
+  display: flex;
+  gap: 16px;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info .record-data .data-item {
+  font-size: 13px;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info .record-data .data-item .label {
+  color: #666;
+  margin-right: 4px;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-info .record-data .data-item .value {
+  color: #333;
+  font-weight: 500;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-actions {
+  display: flex;
+  gap: 8px;
+}
+.modal .modal-content .modal-body .records-list .record-item .record-actions .btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.modal .modal-content .modal-body .records-list .loading,
+.modal .modal-content .modal-body .records-list .no-records {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+}
+.modal .modal-content .modal-body .records-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+.modal .modal-content .edit-record-form {
+  padding: 20px 24px;
+  border-top: 1px solid #e1e8ed;
+  background: #f8f9fa;
+}
+.modal .modal-content .edit-record-form h4 {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #333;
+}
+.modal .modal-content .edit-record-form .form-group {
+  margin-bottom: 16px;
+}
+.modal .modal-content .edit-record-form .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+.modal .modal-content .edit-record-form .form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+.modal .modal-content .edit-record-form .form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+.modal .modal-content .edit-record-form .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.modal .modal-content .edit-record-form .form-actions .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: auto;
+}
+.modal .modal-content .edit-record-form .form-actions .btn-danger:hover {
+  background-color: #c82333;
+}
+/* 体重趋势图按钮布局 */
+.weight-trend-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.weight-trend-section .section-header h4 {
+  margin: 0;
+  flex: 1;
+}
+.weight-trend-section .section-header .trend-controls {
+  display: flex;
+  gap: 4px;
+  margin-right: 12px;
+}
+.weight-trend-section .section-header .view-records-btn .btn-small {
+  white-space: nowrap;
 }
 @-moz-keyframes pulse-reminder {
   0%, 100% {
