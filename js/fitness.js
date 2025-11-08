@@ -68,15 +68,25 @@ class FitnessTracker {
             'extremely': { name: '极高强度', factor: 1.9, description: '体力工作+高强度训练' }
         };
         
-        // 初始化默认训练计划（兼容旧数据）
-        this.initDefaultPlan();
+        // 初始化训练计划（仅加载现有数据，不自动创建默认计划）
+        this.initTrainingPlans();
         
         this.init();
     }
     
     // ==================== 训练计划管理 ====================
     
-    // 初始化默认训练计划
+    // 初始化训练计划（仅加载现有数据）
+    initTrainingPlans() {
+        // 加载现有计划数据
+        const savedPlans = this.loadTrainingPlans();
+        this.trainingPlans = savedPlans;
+        this.currentPlanId = this.loadCurrentPlanId();
+        
+        console.log(`📋 加载训练计划: ${Object.keys(savedPlans).length} 个计划`);
+    }
+    
+    // 初始化默认训练计划（保留此方法供手动调用）
     initDefaultPlan() {
         // 检查是否已有计划数据
         const savedPlans = this.loadTrainingPlans();
@@ -87,6 +97,7 @@ class FitnessTracker {
             this.saveTrainingPlan(defaultPlan);
             this.currentPlanId = defaultPlan.id;
             this.saveCurrentPlanId();
+            console.log('✅ 创建了默认训练计划');
         } else {
             // 加载现有计划
             this.trainingPlans = savedPlans;
@@ -190,19 +201,13 @@ class FitnessTracker {
     getCurrentWeeklyPlan() {
         let currentPlan = this.getActivePlanForDate(this.selectedDate);
         
+        // 如果没有找到计划，直接返回空对象，不再尝试创建默认计划
         if (!currentPlan) {
-            console.warn('⚠️ 未找到有效的训练计划，尝试初始化默认计划');
-            this.initDefaultPlan();
-            currentPlan = this.getActivePlanForDate(this.selectedDate);
+            console.log(`📅 日期 ${this.getDateString(this.selectedDate)} 没有对应的训练计划`);
+            return {};
         }
         
-        // 如果还是没有计划，尝试获取任何一个活跃的计划
-        if (!currentPlan) {
-            console.warn('⚠️ 仍未找到计划，尝试使用任何活跃计划');
-            currentPlan = Object.values(this.trainingPlans).find(plan => plan.isActive);
-        }
-        
-        return currentPlan ? currentPlan.weeklySchedule || {} : {};
+        return currentPlan.weeklySchedule || {};
     }
     
     // 根据日期获取有效的训练计划
@@ -363,12 +368,48 @@ class FitnessTracker {
 
     // 计算基础代谢率 BMR (使用 Mifflin-St Jeor 公式)
     calculateBMR() {
-        const { weight, height, age, gender } = this.userInfo;
-        if (gender === 'female') {
-            return (10 * weight) + (6.25 * height) - (5 * age) - 161;
-        } else {
-            return (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        // 获取用户资料
+        const userProfile = this.getUserProfile();
+        
+        // 使用用户资料中的数据
+        let weight = userProfile.weight || 55; // 默认55kg
+        let height = userProfile.height || 160; // 默认160cm
+        let gender = userProfile.gender || 'female';
+        let age = 25; // 默认年龄
+        
+        // 根据出生日期计算真实年龄
+        if (userProfile.birthDate) {
+            try {
+                const today = new Date();
+                const birth = new Date(userProfile.birthDate);
+                age = today.getFullYear() - birth.getFullYear();
+                const monthDiff = today.getMonth() - birth.getMonth();
+                
+                // 精确计算年龄
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                    age--;
+                }
+                
+                // 确保年龄合理范围
+                age = Math.max(age, 16); // 最小16岁
+                age = Math.min(age, 80); // 最大80岁
+            } catch (error) {
+                console.warn('计算年龄失败，使用默认年龄25岁', error);
+                age = 25;
+            }
         }
+        
+        // 使用Mifflin-St Jeor方程计算BMR
+        let bmr;
+        if (gender === 'male') {
+            // 男性: BMR = (10 × 体重kg) + (6.25 × 身高cm) - (5 × 年龄) + 5
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        } else {
+            // 女性: BMR = (10 × 体重kg) + (6.25 × 身高cm) - (5 × 年龄) - 161
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        }
+        
+        return Math.round(bmr);
     }
 
     // 计算每日总消耗 TDEE
@@ -426,14 +467,14 @@ class FitnessTracker {
         const today = this.getTodayWeekday();
         const weeklyPlan = this.getCurrentWeeklyPlan();
         const plan = weeklyPlan[today];
-        if (!plan) return;
 
         const dateStr = this.getDateString();
         const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
         const todayData = data[dateStr] || {};
         
         let actualExerciseCalories = 0;
-        if (todayData.exercises) {
+        // 只有在有计划且有运动记录的情况下才计算运动消耗
+        if (plan && todayData.exercises) {
             Object.keys(todayData.exercises).forEach(index => {
                 if (todayData.exercises[index] === true && plan.exercises[index]) {
                     actualExerciseCalories += plan.exercises[index].calories;
@@ -477,6 +518,268 @@ class FitnessTracker {
         }, 100);
         
         this.updateStatistics();
+        
+        // 初始化用户卡片显示
+        this.updateUserProfileDisplay();
+    }
+    
+    // ==================== 用户信息卡片管理 ====================
+    
+    // 初始化用户卡片事件监听
+    initUserProfileListeners() {
+        // 用户卡片点击事件
+        const userProfileCard = document.getElementById('user-profile-card');
+        if (userProfileCard) {
+            userProfileCard.addEventListener('click', () => {
+                this.toggleUserDetailCard();
+            });
+        }
+        
+        // 登录按钮
+        const userLoginBtn = document.getElementById('user-login-btn');
+        if (userLoginBtn) {
+            userLoginBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.promptForUsername();
+            });
+        }
+        
+        // 关闭详细卡片按钮
+        const closeUserDetailBtn = document.getElementById('close-user-detail');
+        if (closeUserDetailBtn) {
+            closeUserDetailBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.hideUserDetailCard();
+            });
+        }
+        
+        // 保存用户信息按钮
+        const saveUserInfoBtn = document.getElementById('save-user-info-btn');
+        if (saveUserInfoBtn) {
+            saveUserInfoBtn.addEventListener('click', () => {
+                this.saveUserProfileInfo();
+            });
+        }
+        
+        // 退出登录按钮
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                this.handleLogout();
+            });
+        }
+        
+        // 点击其他地方关闭详细卡片
+        document.addEventListener('click', (e) => {
+            const userDetailCard = document.getElementById('user-detail-card');
+            const userProfileCard = document.getElementById('user-profile-card');
+            
+            if (userDetailCard && userDetailCard.style.display !== 'none' && 
+                !userDetailCard.contains(e.target) && !userProfileCard.contains(e.target)) {
+                this.hideUserDetailCard();
+            }
+        });
+    }
+    
+    // 更新用户卡片显示
+    updateUserProfileDisplay() {
+        const username = localStorage.getItem('fitness-username');
+        const userProfile = this.getUserProfile();
+        
+        const avatarElement = document.querySelector('.avatar-circle');
+        const userNameElement = document.getElementById('user-display-name');
+        const userActionsElement = document.getElementById('user-actions');
+        
+        // 调试信息
+        console.log('🔍 用户卡片更新调试:', {
+            username: username,
+            avatarElement: !!avatarElement,
+            userNameElement: !!userNameElement,
+            userActionsElement: !!userActionsElement
+        });
+        
+        if (username && avatarElement && userNameElement && userActionsElement) {
+            // 已登录状态
+            console.log('✅ 更新为已登录状态');
+            avatarElement.classList.add('logged-in');
+            avatarElement.innerHTML = username.charAt(0).toUpperCase();
+            
+            userNameElement.textContent = username;
+            
+            userActionsElement.innerHTML = '';
+        } else if (avatarElement && userNameElement && userActionsElement) {
+            // 未登录状态
+            console.log('❌ 更新为未登录状态');
+            avatarElement.classList.remove('logged-in');
+            avatarElement.innerHTML = '<i class="fas fa-user"></i>';
+            
+            userNameElement.textContent = '未登录';
+            userActionsElement.innerHTML = '<button id="user-login-btn" class="btn-small">登录</button>';
+            
+            // 重新绑定登录按钮事件
+            const newLoginBtn = document.getElementById('user-login-btn');
+            if (newLoginBtn) {
+                newLoginBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.promptForUsername();
+                });
+            }
+        }
+    }
+    
+    // 获取用户资料
+    getUserProfile() {
+        const defaultProfile = {
+            name: '',
+            gender: 'female',
+            birthDate: '1999-01-01',
+            height: 160,
+            weight: 55
+        };
+        
+        const savedProfile = localStorage.getItem('fitness-user-profile');
+        if (savedProfile) {
+            try {
+                return { ...defaultProfile, ...JSON.parse(savedProfile) };
+            } catch (error) {
+                console.error('解析用户资料失败:', error);
+                return defaultProfile;
+            }
+        }
+        
+        return defaultProfile;
+    }
+    
+    // 保存用户资料
+    saveUserProfile(profile) {
+        localStorage.setItem('fitness-user-profile', JSON.stringify(profile));
+        
+        // 更新 userInfo 对象
+        this.userInfo = {
+            ...this.userInfo,
+            age: this.calculateAge(profile.birthDate),
+            gender: profile.gender,
+            height: profile.height,
+            weight: profile.weight
+        };
+    }
+    
+    // 计算年龄
+    calculateAge(birthDate) {
+        if (!birthDate) return 25; // 默认年龄
+        
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        
+        return Math.max(age, 1); // 至少1岁
+    }
+    
+    // 切换用户详细卡片显示
+    toggleUserDetailCard() {
+        const username = localStorage.getItem('fitness-username');
+        if (!username) {
+            this.promptForUsername();
+            return;
+        }
+        
+        const userDetailCard = document.getElementById('user-detail-card');
+        if (userDetailCard) {
+            if (userDetailCard.style.display === 'none' || !userDetailCard.style.display) {
+                this.showUserDetailCard();
+            } else {
+                this.hideUserDetailCard();
+            }
+        }
+    }
+    
+    // 显示用户详细卡片
+    showUserDetailCard() {
+        const userDetailCard = document.getElementById('user-detail-card');
+        if (!userDetailCard) return;
+        
+        // 填充当前用户信息
+        const userProfile = this.getUserProfile();
+        
+        const genderInput = document.getElementById('user-gender-input');
+        const birthDateInput = document.getElementById('user-birth-date-input');
+        
+        if (genderInput) genderInput.value = userProfile.gender || 'female';
+        if (birthDateInput) birthDateInput.value = userProfile.birthDate || '';
+        
+        userDetailCard.style.display = 'block';
+    }
+    
+    // 隐藏用户详细卡片
+    hideUserDetailCard() {
+        const userDetailCard = document.getElementById('user-detail-card');
+        if (userDetailCard) {
+            userDetailCard.style.display = 'none';
+        }
+    }
+    
+    // 保存用户资料信息
+    saveUserProfileInfo() {
+        const genderInput = document.getElementById('user-gender-input');
+        const birthDateInput = document.getElementById('user-birth-date-input');
+        
+        if (!genderInput || !birthDateInput) {
+            alert('表单元素未找到');
+            return;
+        }
+        
+        const profile = {
+            name: '', // 不再使用自定义名称，直接使用用户名
+            gender: genderInput.value,
+            birthDate: birthDateInput.value,
+            height: 160, // 使用固定默认值
+            weight: 55 // 使用固定默认值，不从表单获取
+        };
+        
+        // 验证必填字段
+        if (!profile.birthDate) {
+            alert('请选择出生日期');
+            return;
+        }
+        
+        // 保存资料
+        this.saveUserProfile(profile);
+        
+        // 更新显示
+        this.updateUserProfileDisplay();
+        this.updateDailyConsumption();
+        
+        // 隐藏详细卡片
+        this.hideUserDetailCard();
+        
+        alert('个人信息保存成功！');
+    }
+    
+    // 处理退出登录
+    handleLogout() {
+        const confirmed = confirm('确定要退出登录吗？\n\n退出后您的数据将仍然保存在本地。');
+        if (confirmed) {
+            // 清除登录状态
+            localStorage.removeItem('fitness-username');
+            
+            // 重置云端同步状态
+            this.cloudSync.enabled = false;
+            this.cloudSync.username = '';
+            
+            // 更新用户显示
+            this.updateUserProfileDisplay();
+            this.updateUserButtonStatus('');
+            
+            // 隐藏详细卡片
+            this.hideUserDetailCard();
+            
+            alert('已退出登录');
+        }
     }
     
     // 刷新页面数据（日期改变时调用）
@@ -987,6 +1290,9 @@ class FitnessTracker {
         // 更新用户按钮状态
         this.updateUserButtonStatus(cleanUsername);
         
+        // 更新用户卡片显示
+        this.updateUserProfileDisplay();
+        
         // 设置云端同步的用户名
         this.cloudSync.username = cleanUsername;
         
@@ -1042,12 +1348,7 @@ class FitnessTracker {
         const weeklyPlan = this.getCurrentWeeklyPlan();
         const plan = weeklyPlan[today];
         
-        if (!plan) {
-            console.warn('⚠️ 未找到今日计划:', today, '可用计划:', Object.keys(weeklyPlan));
-            return;
-        }
-
-        // 添加活动水平选择器和基础消耗显示
+        // 添加活动水平选择器和基础消耗显示（不管有没有计划都要显示）
         const planHeader = document.querySelector('.plan-header');
         const existingSelector = planHeader.querySelector('.activity-selector');
         if (!existingSelector) {
@@ -1087,6 +1388,26 @@ class FitnessTracker {
         const exerciseList = document.getElementById('exercise-list');
         exerciseList.innerHTML = '';
 
+        if (!plan) {
+            // 没有找到训练计划时显示提示信息
+            console.warn('⚠️ 未找到今日计划:', today, '可用计划:', Object.keys(weeklyPlan));
+            
+            exerciseList.innerHTML = `
+                <div class="no-plan-message">
+                    <div class="message-content">
+                        <i class="fas fa-calendar-times" style="font-size: 36px; color: #ccc; margin-bottom: 12px;"></i>
+                        <h3 style="color: #666; margin: 0 0 8px 0;">暂无训练计划</h3>
+                        <p style="color: #999; margin: 0; line-height: 1.4;">
+                            当前日期（${this.getDateString()}）没有对应的训练计划<br>
+                            请前往"训练计划"页面创建或激活计划
+                        </p>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        // 有训练计划时正常显示运动项目
         plan.exercises.forEach((exercise, index) => {
             const exerciseItem = document.createElement('div');
             exerciseItem.className = 'exercise-item';
@@ -1161,7 +1482,6 @@ class FitnessTracker {
         const today = this.getTodayWeekday();
         const weeklyPlan = this.getCurrentWeeklyPlan();
         const plan = weeklyPlan[today];
-        if (!plan) return;
 
         // 计算实际完成的运动消耗
         let actualExerciseCalories = 0;
@@ -1169,7 +1489,8 @@ class FitnessTracker {
         const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
         const todayData = data[dateStr] || {};
 
-        if (todayData.exercises) {
+        // 只有在有计划且有运动记录的情况下才计算运动消耗
+        if (plan && todayData.exercises) {
             Object.keys(todayData.exercises).forEach(index => {
                 // 只计算已打卡完成的运动
                 if (todayData.exercises[index] === true && plan.exercises[index]) {
@@ -1178,7 +1499,7 @@ class FitnessTracker {
             });
         }
 
-        // 更新实际运动消耗显示
+        // 更新实际运动消耗显示（即使没有计划也要更新，显示0）
         const actualExerciseElement = document.getElementById('actual-exercise-calories');
         if (actualExerciseElement) {
             actualExerciseElement.textContent = actualExerciseCalories + ' kcal';
@@ -1261,7 +1582,6 @@ class FitnessTracker {
         const today = this.getTodayWeekday();
         const weeklyPlan = this.getCurrentWeeklyPlan();
         const plan = weeklyPlan[today];
-        if (!plan) return;
 
         const caloriesInput = document.getElementById('calories-input');
         const waterInput = document.getElementById('water-input');
@@ -1278,7 +1598,8 @@ class FitnessTracker {
         const todayData = data[dateStr] || {};
         
         let actualExerciseCalories = 0;
-        if (todayData.exercises) {
+        // 只有在有计划且有运动记录的情况下才计算运动消耗
+        if (plan && todayData.exercises) {
             Object.keys(todayData.exercises).forEach(index => {
                 // 只计算已完成（打卡）的运动
                 if (todayData.exercises[index] === true && plan.exercises[index]) {
@@ -1445,6 +1766,9 @@ class FitnessTracker {
             });
         }
         
+        // 初始化用户卡片事件
+        this.initUserProfileListeners();
+        
         // 训练计划管理按钮
         this.initPlanManagementListeners();
         
@@ -1510,6 +1834,12 @@ class FitnessTracker {
         const createPlanBtn = document.getElementById('create-plan-btn');
         if (createPlanBtn) {
             createPlanBtn.addEventListener('click', () => this.showCreatePlanEditor());
+        }
+        
+        // 使用默认计划按钮
+        const useDefaultPlanBtn = document.getElementById('use-default-plan-btn');
+        if (useDefaultPlanBtn) {
+            useDefaultPlanBtn.addEventListener('click', () => this.createDefaultPlanForUser());
         }
         
         // 编辑当前计划按钮
@@ -1580,6 +1910,28 @@ class FitnessTracker {
     loadPlansManagement() {
         this.displayCurrentPlan();
         this.displayPlansHistory();
+        this.updateDefaultPlanButtonStatus();
+    }
+    
+    // 更新默认计划按钮状态
+    updateDefaultPlanButtonStatus() {
+        const useDefaultPlanBtn = document.getElementById('use-default-plan-btn');
+        if (!useDefaultPlanBtn) return;
+        
+        // 检查是否已有活跃计划
+        const currentPlan = this.getActivePlanForDate(new Date());
+        
+        if (currentPlan) {
+            // 有活跃计划时禁用按钮
+            useDefaultPlanBtn.disabled = true;
+            useDefaultPlanBtn.title = '当前已有活跃计划，无需创建默认计划';
+            useDefaultPlanBtn.textContent = '已有计划';
+        } else {
+            // 没有活跃计划时启用按钮
+            useDefaultPlanBtn.disabled = false;
+            useDefaultPlanBtn.title = '创建为期一个月的默认训练计划';
+            useDefaultPlanBtn.textContent = '使用默认计划';
+        }
     }
     
     // 显示当前活跃计划
@@ -1656,6 +2008,56 @@ class FitnessTracker {
                 </div>
             `;
         }).join('');
+    }
+    
+    // 为用户创建默认计划
+    async createDefaultPlanForUser() {
+        try {
+            // 检查是否已经有活跃计划
+            const currentPlan = this.getActivePlanForDate(new Date());
+            if (currentPlan) {
+                alert('当前已有活跃的训练计划，无需创建默认计划。\n\n您可以在历史计划中查看或编辑现有计划。');
+                return;
+            }
+            
+            // 确认创建默认计划
+            const confirmed = confirm('确定要创建默认训练计划吗？\n\n• 计划名称：默认健身计划\n• 生效日期：今天\n• 持续时间：一个月\n• 包含完整的周训练安排');
+            if (!confirmed) return;
+            
+            // 创建默认计划，生效日期为今天，持续一个月
+            const today = new Date();
+            const nextMonth = new Date(today);
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            
+            const defaultPlan = this.createDefaultTrainingPlan();
+            // 修改生效日期
+            defaultPlan.startDate = this.getDateString(today);
+            defaultPlan.endDate = this.getDateString(nextMonth);
+            defaultPlan.name = '默认健身计划';
+            defaultPlan.description = '系统预设的全身训练计划，适合初中级训练者';
+            
+            await this.saveTrainingPlan(defaultPlan);
+            
+            // 激活这个计划
+            this.currentPlanId = defaultPlan.id;
+            this.saveCurrentPlanId();
+            
+            alert('✅ 默认训练计划创建成功！\n\n计划已激活，您可以开始使用了。\n生效期间：' + 
+                  defaultPlan.startDate + ' 至 ' + defaultPlan.endDate);
+            
+            // 刷新计划管理界面
+            this.loadPlansManagement();
+            
+            // 如果当前在今天，刷新今日计划显示
+            const isToday = this.getRawDateString(this.selectedDate) === this.getRawDateString(new Date());
+            if (isToday) {
+                this.loadTodayPlan();
+            }
+            
+        } catch (error) {
+            console.error('创建默认计划失败:', error);
+            alert('创建默认计划失败：' + error.message);
+        }
     }
     
     // 显示创建计划编辑器
@@ -2132,7 +2534,17 @@ class FitnessTracker {
         
             const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
             console.log('📊 热力图数据包含', Object.keys(data).length, '天的记录');
-            console.log('📊 热力图数据详情:', Object.keys(data).slice(0, 10)); // 显示前10天的日期
+            console.log('📊 所有日期:', Object.keys(data).sort());
+            
+            // 调试：显示最近几天的数据详情
+            const recentDates = Object.keys(data).sort().slice(-7);
+            console.log('📊 最近一周的数据详情:', recentDates.map(date => ({
+                date,
+                hasExercises: data[date].exercises ? Object.keys(data[date].exercises).length > 0 : false,
+                hasNutrition: data[date].nutrition ? data[date].nutrition.calories > 0 : false,
+                exerciseKeys: data[date].exercises ? Object.keys(data[date].exercises) : [],
+                calories: data[date].nutrition?.calories || 0
+            })));
             
             // 调试：显示当前用户名和云端同步状态
             console.log('🔍 热力图调试信息:');
@@ -2191,46 +2603,80 @@ class FitnessTracker {
                     let level = 0;
                     let calorieGap = 0;
                     
+                    // 调试：显示当前正在处理的日期和数据
+                    if (dateStr >= '2025-11-01') { // 只显示最近的日期调试信息
+                        console.log(`🔍 处理日期 ${dateStr}:`, {
+                            hasData: !!dayData,
+                            hasNutrition: dayData?.nutrition?.calories > 0,
+                            calories: dayData?.nutrition?.calories,
+                            hasExercises: dayData?.exercises ? Object.keys(dayData.exercises).length > 0 : false,
+                            exerciseKeys: dayData?.exercises ? Object.keys(dayData.exercises) : []
+                        });
+                    }
+                    
                     if (dayData && dayData.nutrition && dayData.nutrition.calories > 0) {
                         // 重新计算星期几（确保对应正确）
                         const jsDay = date.getDay(); // JavaScript的getDay: 0=周日, 1=周一, ..., 6=周六
                         const weekdayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                         const weekday = weekdayNames[jsDay];
                         
+                        // 获取当天的活动水平，如果没有保存则使用默认值
+                        const savedActivityLevel = dayData.activityLevel || 'moderately';
+                        const tdee = this.calculateTDEE(savedActivityLevel);
+                        
+                        // 计算当天实际完成的运动消耗
+                        let actualExerciseCalories = 0;
+                        
                         const activePlan = this.getActivePlanForDate(date);
                         const plan = activePlan ? activePlan.weeklySchedule[weekday] : null;
                         
-                        if (plan) {
-                            // 计算当天实际完成的运动消耗
-                            let actualExerciseCalories = 0;
-                            if (dayData.exercises) {
-                                Object.keys(dayData.exercises).forEach(index => {
-                                    // 只计算已打卡完成的运动
-                                    if (dayData.exercises[index] === true && plan.exercises[index]) {
-                                        actualExerciseCalories += plan.exercises[index].calories;
-                                    }
-                                });
-                            }
-                            
-                            // 获取当天的活动水平，如果没有保存则使用默认值
-                            const savedActivityLevel = dayData.activityLevel || 'moderately';
-                            const tdee = this.calculateTDEE(savedActivityLevel);
-                            
-                            // 总消耗 = TDEE + 额外运动消耗
-                            const totalBurned = tdee + actualExerciseCalories;
-                            
-                            // 计算热量缺口 = 总消耗 - 摄入
-                            calorieGap = totalBurned - dayData.nutrition.calories;
-                            
-                            // 根据热量缺口设置等级 (0-200: 1级, 200-400: 2级, 400-600: 3级, 600+: 4级)
-                            if (calorieGap > 0) {
-                                level = Math.min(4, Math.floor(calorieGap / 200) + 1);
-                            }
+                        if (plan && dayData.exercises) {
+                            // 如果有训练计划，则计算实际完成的运动消耗
+                            Object.keys(dayData.exercises).forEach(index => {
+                                // 只计算已打卡完成的运动
+                                if (dayData.exercises[index] === true && plan.exercises[index]) {
+                                    actualExerciseCalories += plan.exercises[index].calories;
+                                }
+                            });
+                        }
+                        
+                        // 总消耗 = TDEE + 额外运动消耗
+                        const totalBurned = tdee + actualExerciseCalories;
+                        
+                        // 计算热量缺口 = 总消耗 - 摄入
+                        calorieGap = totalBurned - dayData.nutrition.calories;
+                        
+                        // 根据热量缺口设置等级，支持负数显示
+                        if (calorieGap > 0) {
+                            // 正数缺口：绿色等级 (0-200: 1级, 200-400: 2级, 400-600: 3级, 600+: 4级)
+                            level = Math.min(4, Math.floor(calorieGap / 200) + 1);
+                        } else {
+                            // 负数缺口（超过摄入）：红色等级，使用负级别表示
+                            level = Math.max(-4, Math.floor(calorieGap / 200) - 1);
                         }
                     }
                     
-                    dayElement.className = `heatmap-day level-${level}`;
-                    dayElement.title = `${date.toLocaleDateString()} (${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]}) - 热量缺口: ${calorieGap}kcal`;
+                    // 生成对应的CSS类名
+                    let levelClass;
+                    if (level > 0) {
+                        levelClass = `level-${level}`;
+                    } else if (level < 0) {
+                        levelClass = `level-${level}`; // JavaScript会自动处理负号，如level--1
+                    } else {
+                        levelClass = 'level-0';
+                    }
+                    
+                    dayElement.className = `heatmap-day ${levelClass}`;
+                    
+                    // 构建更友好的tooltip文本
+                    let tooltipText = `${date.toLocaleDateString()} (${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]})`;
+                    if (dayData && dayData.nutrition && dayData.nutrition.calories > 0) {
+                        const gapText = calorieGap >= 0 ? `热量缺口: +${calorieGap}kcal` : `热量超出: ${calorieGap}kcal`;
+                        tooltipText += ` - ${gapText}`;
+                    } else {
+                        tooltipText += ' - 无记录';
+                    }
+                    dayElement.title = tooltipText;
                     
                     weekElement.appendChild(dayElement);
                 }
@@ -2979,10 +3425,9 @@ class FitnessTracker {
             // 步骤1: 迁移现有记录的字段
             await this.migrateTrainingPlansFields();
             
-            // 步骤2: 确保本地有训练计划
+            // 步骤2: 确保本地有训练计划（仅在用户明确需要时才创建）
             if (Object.keys(this.trainingPlans).length === 0) {
-                console.log('📋 本地无训练计划，创建默认计划');
-                this.initDefaultPlan();
+                console.log('📋 本地无训练计划，请用户手动创建计划');
             }
             
             // 步骤3: 重新同步数据
@@ -3099,12 +3544,7 @@ class FitnessTracker {
                     console.log('📤 准备上传本地训练计划到云端');
                     await this.syncTrainingPlansToCloud();
                 } else {
-                    console.log('📋 本地也无训练计划，为用户创建默认计划');
-                    this.initDefaultPlan();
-                    // 创建默认计划后上传到云端
-                    if (Object.keys(this.trainingPlans).length > 0) {
-                        await this.syncTrainingPlansToCloud();
-                    }
+                    console.log('📋 本地和云端都没有训练计划，请用户手动创建');
                 }
             }
         } catch (error) {
@@ -3117,12 +3557,7 @@ class FitnessTracker {
                     console.log('📤 准备创建表并上传本地训练计划');
                     await this.syncTrainingPlansToCloud();
                 } else {
-                    console.log('📋 本地也无训练计划，为用户创建默认计划');
-                    this.initDefaultPlan();
-                    // 创建默认计划后上传到云端
-                    if (Object.keys(this.trainingPlans).length > 0) {
-                        await this.syncTrainingPlansToCloud();
-                    }
+                    console.log('📋 本地和云端都没有训练计划，请用户手动创建');
                 }
             } else {
                 console.error('❌ 从云端同步训练计划失败:', error);
@@ -3196,13 +3631,27 @@ class FitnessTracker {
                 results.forEach(result => {
                     const dayData = result.get('dayData');
                     const recordId = result.get('recordId');
+                    const cloudDate = result.get('date'); // 直接使用云端的date字段
                     const cloudTimestamp = result.updatedAt.getTime();
                     
-                    // 从recordId提取日期 (格式: username_YYYY-MM-DD)
-                    const dateKey = recordId.split('_').slice(1).join('_'); // 处理用户名中可能包含下划线的情况
+                    console.log('🔍 处理云端记录:', {
+                        recordId,
+                        cloudDate,
+                        dayData: dayData ? Object.keys(dayData) : null,
+                        cloudTimestamp: new Date(cloudTimestamp).toISOString()
+                    });
+                    
+                    // 优先使用date字段，如果没有则从recordId提取
+                    let dateKey = cloudDate;
+                    if (!dateKey && recordId) {
+                        // 从recordId提取日期 (格式: username_YYYY-MM-DD)
+                        dateKey = recordId.split('_').slice(1).join('_'); // 处理用户名中可能包含下划线的情况
+                    }
                     
                     if (dateKey && dateKey.match(/\d{4}-\d{2}-\d{2}/)) {
                         const localTimestamp = localData[dateKey]?.lastUpdate || 0;
+                        
+                        console.log(`📅 日期 ${dateKey}: 云端时间戳=${cloudTimestamp}, 本地时间戳=${localTimestamp}`);
                         
                         // 只有云端数据更新时才覆盖本地数据
                         if (cloudTimestamp > localTimestamp) {
@@ -3211,7 +3660,12 @@ class FitnessTracker {
                                 lastUpdate: cloudTimestamp
                             };
                             updatedCount++;
+                            console.log(`✅ 更新本地数据: ${dateKey}`);
+                        } else {
+                            console.log(`⏭️ 跳过旧数据: ${dateKey}`);
                         }
+                    } else {
+                        console.warn(`⚠️ 无效日期格式: dateKey=${dateKey}, recordId=${recordId}`);
                     }
                 });
                 
@@ -3246,12 +3700,13 @@ class FitnessTracker {
         const data = JSON.parse(localStorage.getItem('fitness-data') || '{}');
         console.log('🔍 本地数据调试信息:');
         console.log('- 数据总天数:', Object.keys(data).length);
-        console.log('- 所有日期:', Object.keys(data));
-        console.log('- 最近5天的数据:', Object.keys(data).slice(-5).map(date => ({
-            date: date,
-            hasNutrition: !!(data[date]?.nutrition?.calories),
-            hasExercises: !!(data[date]?.exercises),
-            calories: data[date]?.nutrition?.calories || 0
+        console.log('- 所有日期:', Object.keys(data).sort());
+        console.log('- 最近5天的数据:', Object.keys(data).sort().slice(-5).map(date => ({
+            date,
+            exercises: data[date].exercises ? Object.keys(data[date].exercises).length : 0,
+            calories: data[date].nutrition?.calories || 0,
+            exerciseDetails: data[date].exercises,
+            nutritionDetails: data[date].nutrition
         })));
         
         // 检查是否有非零的卡路里数据
@@ -3264,43 +3719,24 @@ class FitnessTracker {
         return data;
     }
     
-    // 完整的热力图调试
+    // 调试：强制重新生成热力图
     async debugHeatmap() {
-        console.log('🔥 完整热力图调试开始...');
+        console.log('� 调试模式：强制重新生成热力图...');
         
-        // 1. 检查用户认证
-        console.log('1️⃣ 检查用户认证状态:');
-        const currentUser = AV.User.current();
-        console.log('- 当前用户:', currentUser);
-        console.log('- 用户名:', currentUser?.get('username'));
+        // 先显示本地数据
+        this.showLocalDataDebug();
         
-        // 2. 显示本地数据
-        console.log('\n2️⃣ 检查本地数据:');
-        const localData = this.showLocalDataDebug();
+        // 强制重新加载云端数据
+        if (this.cloudSync.enabled) {
+            console.log('🔄 重新从云端加载数据...');
+            await this.loadHistoryDataForHeatmap();
+        }
         
-        // 3. 手动同步云端数据
-        console.log('\n3️⃣ 同步云端历史数据:');
-        await this.loadHistoryDataForHeatmap();
-        
-        // 4. 重新生成热力图
-        console.log('\n4️⃣ 重新生成热力图:');
+        // 重新生成热力图
+        this.heatmapGenerating = false; // 重置标志
         await this.generateHeatmap();
         
-        // 5. 检查同步后的数据
-        console.log('\n5️⃣ 同步后的本地数据:');
-        const updatedData = this.showLocalDataDebug();
-        
-        console.log('\n🎯 调试总结:');
-        console.log('- 用户认证:', !!currentUser);
-        console.log('- 同步前数据天数:', Object.keys(localData).length);
-        console.log('- 同步后数据天数:', Object.keys(updatedData).length);
-        console.log('- 数据有变化:', Object.keys(localData).length !== Object.keys(updatedData).length);
-        
-        return {
-            user: currentUser,
-            beforeSync: Object.keys(localData).length,
-            afterSync: Object.keys(updatedData).length
-        };
+        console.log('✅ 调试完成');
     }
     
     // 获取当前用户名
