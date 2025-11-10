@@ -4782,7 +4782,7 @@ class FitnessTracker {
                 backgroundColor: gradient,
                 borderWidth: 3,
                 fill: true,
-                tension: 0.4,
+                tension: 0.6, // 增加平滑度，从0.4改为0.6
                 pointBackgroundColor: '#4A90E2',
                 pointBorderColor: '#ffffff',
                 pointBorderWidth: 2,
@@ -4794,6 +4794,7 @@ class FitnessTracker {
                     return context.parsed.y !== null ? 7 : 0;
                 },
                 spanGaps: true, // 连接空数据点，形成连续曲线
+                cubicInterpolationMode: 'monotone', // 使用单调三次插值，确保平滑且不会产生过度振荡
                 order: 2
             }];
             
@@ -4824,7 +4825,8 @@ class FitnessTracker {
                 fill: false,
                 pointRadius: 0,
                 pointHoverRadius: 0,
-                tension: 0,
+                tension: 0.2, // 给目标线也添加轻微的平滑效果
+                cubicInterpolationMode: 'monotone',
                 order: 1
             });
             
@@ -4920,20 +4922,20 @@ class FitnessTracker {
                     scales: {
                         x: {
                             display: true,
-                            title: {
-                                display: true,
-                                text: '日期'
-                            },
+                            // title: {
+                            //     display: true,
+                            //     text: '日期'
+                            // },
                             grid: {
                                 color: 'rgba(0,0,0,0.1)'
                             }
                         },
                         y: {
                             display: true,
-                            title: {
-                                display: true,
-                                text: '体重 (kg)'
-                            },
+                            // title: {
+                            //     display: true,
+                            //     text: '体重 (kg)'
+                            // },
                             grid: {
                                 color: 'rgba(0,0,0,0.1)'
                             },
@@ -4962,7 +4964,20 @@ class FitnessTracker {
                     elements: {
                         point: {
                             hitRadius: 8
+                        },
+                        line: {
+                            tension: 0.6 // 全局线条平滑度
                         }
+                    },
+                    animation: {
+                        duration: 1500, // 动画持续时间
+                        easing: 'easeInOutQuart', // 平滑的缓动效果
+                        animateRotate: true,
+                        animateScale: true
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
                     }
                 }
             });

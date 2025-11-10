@@ -1,18 +1,18 @@
 /* 健身打卡页面样式 */
 .fitness-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-/* 确保在移动设备上不会出现水平滚动 */
+  box-sizing: border-box;
+  overflow-x: hidden; /* 防止水平滚动 */
+  width: 100%;
 }
-/* 全局防止水平溢出 */
+/* 移动端优化 - 仅在fitness页面生效 */
 @media (max-width: 768px) {
-  html {
+  .fitness-container {
     overflow-x: hidden;
-  }
-  body {
-    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
   }
 }
@@ -22,18 +22,13 @@
 .fitness-container *::after {
   box-sizing: border-box;
 }
-/* 移动端全局优化 */
+/* 移动端优化 - 仅限fitness页面 */
 @media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-  body {
+  .fitness-container {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
-  .activity-container {
+  .fitness-container .activity-container {
     min-width: 0;
     width: 100%;
   }
@@ -85,8 +80,19 @@
 /* 健身仪表板 */
 .fitness-dashboard {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr; /* 减小左侧固定宽度到300px */
+  gap: 20px; /* 减小间距 */
+  align-items: start; /* 顶部对齐 */
+/* 确保在小屏幕上也有最小宽度 */
+}
+.fitness-dashboard .today-section {
+  min-width: 0; /* 允许收缩 */
+  max-width: 100%; /* 不超过容器 */
+}
+.fitness-dashboard .statistics-section {
+  min-width: 0; /* 允许收缩 */
+  max-width: 100%; /* 不超过容器 */
+  overflow: hidden; /* 防止内容超出 */
 }
 /* ==================== 用户信息卡片样式 ==================== */
 .user-profile-card {
@@ -263,9 +269,22 @@
     right: -10px;
   }
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fitness-dashboard {
+    grid-template-columns: 280px 1fr; /* 平板尺寸进一步减少左侧宽度 */
+    gap: 15px;
+  }
+}
 @media (min-width: 1024px) {
   .fitness-dashboard {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 320px 1fr; /* 大屏幕稍微增加但仍然保持合理 */
+    gap: 25px;
+  }
+}
+@media (min-width: 1200px) {
+  .fitness-dashboard {
+    grid-template-columns: 350px 1fr; /* 超大屏幕可以稍微宽一些 */
+    gap: 30px;
   }
 }
 /* 今日部分 */
@@ -310,7 +329,7 @@
   box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
 }
 #today-btn {
-  padding: 8px 8px;
+  padding: 8px 15px;
   background: #007bff;
   color: #fff;
   border: none;
@@ -714,6 +733,9 @@
   padding: 25px;
   border: 1px solid #e1e8ed;
   transition: border-color 0.3s ease;
+  min-width: 0; /* 允许收缩 */
+  overflow: hidden; /* 防止内容超出 */
+  box-sizing: border-box;
 }
 .statistics-section:hover {
   border-color: #4a90e2;
@@ -961,7 +983,6 @@
 .chart-container {
   margin-bottom: 30px;
   padding: 20px;
-  background: #f8f9fa;
   border-radius: 8px;
 }
 .nutrition-trends h4 {
@@ -1065,7 +1086,7 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-  * {
+  .fitness-container * {
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -1199,6 +1220,7 @@
     font-size: 16px; /* 防止iOS缩放 */
   }
   .fitness-dashboard {
+    grid-template-columns: 1fr; /* 移动端单列布局 */
     gap: 20px;
   }
   .today-section,
@@ -1412,6 +1434,10 @@
   border: 1px solid #ddd;
   padding: 20px;
   margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* 防止内容超出 */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 #plans-panel .plan-editor .editor-header {
   display: flex;
@@ -1445,10 +1471,12 @@
 #plans-panel .plan-editor .plan-basic-info .form-group input,
 #plans-panel .plan-editor .plan-basic-info .form-group textarea {
   width: 100%;
+  max-width: 500px; /* 限制最大宽度 */
   padding: 10px 12px;
   border: 2px solid #e9ecef;
   border-radius: 6px;
   font-size: 14px;
+  box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
 #plans-panel .plan-editor .plan-basic-info .form-group input:focus,
@@ -1459,6 +1487,7 @@
 }
 #plans-panel .plan-editor .plan-basic-info .form-group textarea {
   min-height: 80px;
+  max-width: 600px; /* 文本域稍微宽一些 */
   resize: vertical;
 }
 #plans-panel .plan-editor .weekly-schedule-editor h5 {
@@ -1514,6 +1543,8 @@
   border: 1px solid #ddd;
   padding: 15px;
   margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden; /* 防止内容超出 */
 }
 .days-container .day-editor .day-header {
   display: flex;
@@ -1531,8 +1562,17 @@
 }
 .days-container .day-editor .day-type input {
   width: 100%;
+  max-width: 300px; /* 限制最大宽度 */
   margin-bottom: 12px;
-  padding: 6px 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.days-container .day-editor .exercises-list {
+  overflow-x: auto; /* 允许水平滚动 */
+  -webkit-overflow-scrolling: touch;
   border: 1px solid #ddd;
 }
 .days-container .day-editor .exercises-list {
@@ -1546,28 +1586,50 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  border-radius: 4px;
 }
 .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr; /* 稍微调整比例 */
   gap: 8px;
   flex: 1;
+  max-width: 100%; /* 防止超出 */
 }
 .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input {
   padding: 6px 8px;
   border: 1px solid #ddd;
   font-size: 13px;
+  border-radius: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0; /* 允许收缩 */
+/* 为不同类型的输入设置合理宽度 */
+}
+.days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input:first-child {
+  min-width: 120px; /* 运动名称最小宽度 */
+}
+.days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input:not(:first-child) {
+  min-width: 50px; /* 数字输入最小宽度 */
 }
 .days-container .day-editor .exercises-list .exercise-editor button {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: 1px solid #e74c3c;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.days-container .day-editor .exercises-list .exercise-editor button:hover {
+  background: #c0392b;
+  border-color: #c0392b;
 }
 .days-container .day-editor .day-water {
   display: flex;
@@ -1587,32 +1649,92 @@
 /* 移动端适配 - 周计划编辑器 */
 @media (max-width: 768px) {
   .days-container .day-editor {
-    padding: 15px;
+    padding: 12px;
+    margin-bottom: 15px;
+    overflow: hidden; /* 防止内容超出 */
   }
   .days-container .day-editor .day-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* 保持水平布局 */
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
   }
+  .days-container .day-editor .day-header h6 {
+    flex: 1;
+    font-size: 16px;
+  }
+  .days-container .day-editor .day-type input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .days-container .day-editor .exercises-list {
+    overflow-x: auto; /* 允许水平滚动查看完整内容 */
+    -webkit-overflow-scrolling: touch;
+  }
   .days-container .day-editor .exercises-list .exercise-editor {
-    flex-direction: column;
-    align-items: stretch;
+    min-width: 100%; /* 确保完整显示 */
+    display: block; /* 改为块级布局 */
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+/* 删除按钮样式 */
   }
   .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr; /* 改为单列布局 */
     gap: 8px;
+    margin-bottom: 10px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
   }
   .days-container .day-editor .exercises-list .exercise-editor button {
-    align-self: flex-end;
-    margin-top: 10px;
+    width: 100%;
+    height: 36px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor button:hover {
+    background: #c0392b;
   }
   .days-container .day-editor .day-water {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+    margin-top: 15px;
   }
   .days-container .day-editor .day-water input {
     width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .plan-editor {
+    padding: 15px 10px;
+    overflow: hidden;
+  }
+  .plan-editor .plan-basic-info .form-group {
+    margin-bottom: 15px;
+  }
+  .plan-editor .plan-basic-info .form-group input,
+  .plan-editor .plan-basic-info .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px;
   }
 }
 /* ==================== 新增健康数据面板样式 ==================== */
@@ -1674,11 +1796,18 @@
 .daily-stats-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 15px; /* 减小间距 */
+  min-width: 0; /* 允许收缩 */
 }
 @media (max-width: 768px) {
   .daily-stats-container {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1200px) {
+  .daily-stats-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 /* 卡路里摄入进度区域 */
@@ -1888,7 +2017,7 @@
   color: #95a5a6;
 }
 .health-info-section .health-display .bmi-indicator {
-  width: 140px;
+  min-width: 140px;
   padding: 12px;
   border-radius: 8px;
   text-align: center;
@@ -2148,6 +2277,7 @@
 .weight-trend-section .chart-container {
   height: 300px;
   position: relative;
+  padding: 0;
 }
 .weight-trend-section .chart-container canvas {
   max-width: 100%;
@@ -2170,19 +2300,29 @@
 /* 移动端适配 */
 @media (max-width: 768px) {
   #dashboard-panel {
-    gap: 20px;
+    gap: 15px; /* 已在上面统一设置 */
   }
-  #dashboard-panel .calorie-progress-section .progress-container,
-  #dashboard-panel .workout-stats-section .progress-container,
-  #dashboard-panel .calorie-progress-section .workout-progress,
-  #dashboard-panel .workout-stats-section .workout-progress {
-    flex-direction: column;
+  #dashboard-panel .health-info-section {
+/* 移动端重置整个健康信息区域 */
+    padding: 15px;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container {
+    display: block; /* 移除flex布局 */
+    width: 100%;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container .health-info-grid {
+    width: 100% !important; /* 强制占满宽度 */
+    flex: none !important; /* 移除flex属性 */
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* 强制单列显示 */
+    gap: 12px;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container .health-info-grid .health-item {
+    width: 100%; /* 占满容器宽度 */
+    box-sizing: border-box;
+    padding: 20px; /* 增加内边距让内容更舒适 */
     text-align: center;
-    gap: 20px;
-  }
-  #dashboard-panel .health-info-section .health-display .health-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    margin: 0; /* 移除任何外边距 */
   }
   #dashboard-panel .goal-section .goal-display .goal-info {
     grid-template-columns: 1fr;
@@ -2210,8 +2350,27 @@
     align-self: stretch;
     text-align: center;
   }
-  #dashboard-panel .health-info-section .health-display .health-info-grid {
-    grid-template-columns: 1fr;
+  #dashboard-panel .health-info-section {
+/* 小屏幕健康信息区域优化 */
+    padding: 12px;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container {
+    display: block; /* 移除flex布局 */
+    width: 100%;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container .health-info-grid {
+    width: 100% !important; /* 强制占满宽度 */
+    flex: none !important; /* 移除flex属性 */
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* 强制单列显示 */
+    gap: 10px;
+  }
+  #dashboard-panel .health-info-section .health-display .health-info-container .health-info-grid .health-item {
+    width: 100%; /* 占满容器宽度 */
+    box-sizing: border-box;
+    padding: 18px; /* 小屏幕稍微减少内边距 */
+    text-align: center;
+    margin: 0; /* 移除任何外边距 */
   }
   #dashboard-panel .circular-progress {
     width: 100px !important;
@@ -2401,6 +2560,278 @@
 }
 .weight-trend-section .section-header .view-records-btn .btn-small {
   white-space: nowrap;
+}
+/* 补充移动端适配 */
+@media (max-width: 768px) {
+  .fitness-container {
+    padding: 15px 10px;
+    overflow-x: hidden; /* 防止水平滚动 */
+  }
+  .statistics-section {
+    padding: 15px 10px;
+    box-sizing: border-box;
+    overflow: hidden; /* 防止内容超出 */
+  }
+  .statistics-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .tab-content {
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .tab-panel {
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #dashboard-panel {
+    gap: 15px;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+/* 确保所有子元素不超出 */
+  }
+  #dashboard-panel > * {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .daily-stats-container {
+    grid-template-columns: 1fr; /* 强制单列 */
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .daily-stats-container .calorie-progress-section,
+  .daily-stats-container .workout-stats-section {
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container,
+  .daily-stats-container .workout-stats-section .progress-container,
+  .daily-stats-container .calorie-progress-section .workout-progress,
+  .daily-stats-container .workout-stats-section .workout-progress {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    overflow-x: hidden;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container .circular-progress,
+  .daily-stats-container .workout-stats-section .progress-container .circular-progress,
+  .daily-stats-container .calorie-progress-section .workout-progress .circular-progress,
+  .daily-stats-container .workout-stats-section .workout-progress .circular-progress {
+    flex-shrink: 0;
+    margin: 0 auto;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container .progress-info,
+  .daily-stats-container .workout-stats-section .progress-container .progress-info,
+  .daily-stats-container .calorie-progress-section .workout-progress .progress-info,
+  .daily-stats-container .workout-stats-section .workout-progress .progress-info,
+  .daily-stats-container .calorie-progress-section .progress-container .workout-info,
+  .daily-stats-container .workout-stats-section .progress-container .workout-info,
+  .daily-stats-container .calorie-progress-section .workout-progress .workout-info,
+  .daily-stats-container .workout-stats-section .workout-progress .workout-info {
+    width: 100%;
+    max-width: 100%;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container .progress-info .info-item,
+  .daily-stats-container .workout-stats-section .progress-container .progress-info .info-item,
+  .daily-stats-container .calorie-progress-section .workout-progress .progress-info .info-item,
+  .daily-stats-container .workout-stats-section .workout-progress .progress-info .info-item,
+  .daily-stats-container .calorie-progress-section .progress-container .workout-info .info-item,
+  .daily-stats-container .workout-stats-section .progress-container .workout-info .info-item,
+  .daily-stats-container .calorie-progress-section .workout-progress .workout-info .info-item,
+  .daily-stats-container .workout-stats-section .workout-progress .workout-info .info-item {
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container .progress-info .info-item:last-child,
+  .daily-stats-container .workout-stats-section .progress-container .progress-info .info-item:last-child,
+  .daily-stats-container .calorie-progress-section .workout-progress .progress-info .info-item:last-child,
+  .daily-stats-container .workout-stats-section .workout-progress .progress-info .info-item:last-child,
+  .daily-stats-container .calorie-progress-section .progress-container .workout-info .info-item:last-child,
+  .daily-stats-container .workout-stats-section .progress-container .workout-info .info-item:last-child,
+  .daily-stats-container .calorie-progress-section .workout-progress .workout-info .info-item:last-child,
+  .daily-stats-container .workout-stats-section .workout-progress .workout-info .info-item:last-child {
+    border-bottom: none;
+  }
+  .daily-stats-container .calorie-progress-section .progress-container .progress-info .info-item .label,
+  .daily-stats-container .workout-stats-section .progress-container .progress-info .info-item .label,
+  .daily-stats-container .calorie-progress-section .workout-progress .progress-info .info-item .label,
+  .daily-stats-container .workout-stats-section .workout-progress .progress-info .info-item .label,
+  .daily-stats-container .calorie-progress-section .progress-container .workout-info .info-item .label,
+  .daily-stats-container .workout-stats-section .progress-container .workout-info .info-item .label,
+  .daily-stats-container .calorie-progress-section .workout-progress .workout-info .info-item .label,
+  .daily-stats-container .workout-stats-section .workout-progress .workout-info .info-item .label,
+  .daily-stats-container .calorie-progress-section .progress-container .progress-info .info-item .value,
+  .daily-stats-container .workout-stats-section .progress-container .progress-info .info-item .value,
+  .daily-stats-container .calorie-progress-section .workout-progress .progress-info .info-item .value,
+  .daily-stats-container .workout-stats-section .workout-progress .progress-info .info-item .value,
+  .daily-stats-container .calorie-progress-section .progress-container .workout-info .info-item .value,
+  .daily-stats-container .workout-stats-section .progress-container .workout-info .info-item .value,
+  .daily-stats-container .calorie-progress-section .workout-progress .workout-info .info-item .value,
+  .daily-stats-container .workout-stats-section .workout-progress .workout-info .info-item .value {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  button,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-small {
+    min-height: 44px; /* 确保触摸友好 */
+    font-size: 14px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .heatmap-section .heatmap-legend {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .heatmap-section .heatmap-legend .legend-scale {
+    transform: scale(0.8);
+    margin: 0 -10px;
+  }
+  .heatmap-section .heatmap-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .heatmap-section .heatmap-wrapper .heatmap-content {
+    min-width: 300px;
+  }
+  .heatmap-section .heatmap-wrapper .heatmap-weekdays .weekday-label {
+    font-size: 10px;
+  }
+  .heatmap-section .heatmap-wrapper .heatmap-grid .heatmap-day {
+    width: 10px;
+    height: 10px;
+  }
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* 防止iOS缩放 */
+    padding: 10px;
+    border-radius: 6px;
+  }
+  #today-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .date-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  .date-controls input,
+  .date-controls button {
+    flex: 1;
+    min-width: 80px;
+  }
+  .nutrition-tracking .nutrition-form .form-group {
+    margin-bottom: 15px;
+  }
+  .nutrition-tracking .nutrition-form .form-group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .nutrition-tracking .nutrition-form .form-group input {
+    width: 100%;
+  }
+  .stats-tabs {
+    margin-bottom: 20px;
+  }
+  .stats-tabs .tab-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+    min-height: 44px;
+  }
+}
+@media (max-width: 480px) {
+  .fitness-container {
+    padding: 10px 8px;
+  }
+  .days-container .day-editor {
+    padding: 10px;
+  }
+  .days-container .day-editor .day-header h6 {
+    font-size: 14px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor {
+    padding: 10px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor .exercise-inputs input {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .days-container .day-editor .exercises-list .exercise-editor button {
+    height: 32px;
+    font-size: 12px;
+  }
+  .plan-editor {
+    padding: 12px 8px;
+  }
+  .plan-editor .plan-basic-info .form-group input,
+  .plan-editor .plan-basic-info .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .daily-stats-container .calorie-progress-section .circular-progress,
+  .daily-stats-container .workout-stats-section .circular-progress {
+    width: 120px;
+    height: 120px;
+  }
+  .daily-stats-container .calorie-progress-section .circular-progress .progress-text .current-intake,
+  .daily-stats-container .workout-stats-section .circular-progress .progress-text .current-intake,
+  .daily-stats-container .calorie-progress-section .circular-progress .progress-text .completion-rate,
+  .daily-stats-container .workout-stats-section .circular-progress .progress-text .completion-rate {
+    font-size: 18px;
+  }
+  .daily-stats-container .calorie-progress-section .circular-progress .progress-text .recommended,
+  .daily-stats-container .workout-stats-section .circular-progress .progress-text .recommended,
+  .daily-stats-container .calorie-progress-section .circular-progress .progress-text .subtitle,
+  .daily-stats-container .workout-stats-section .circular-progress .progress-text .subtitle {
+    font-size: 11px;
+  }
+  .plans-management .plans-header .plan-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .plans-management .plans-header .plan-actions button {
+    width: 100%;
+  }
+  .plans-management .plan-card .plan-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .plans-management .plan-card .plan-controls button {
+    width: 100%;
+  }
+  .heatmap-section .heatmap-legend {
+    font-size: 10px;
+  }
+  .heatmap-section .heatmap-legend .legend-scale {
+    transform: scale(0.7);
+    margin: 0 -15px;
+  }
+  .user-detail-card {
+    left: 5px;
+    right: 5px;
+    width: auto;
+  }
+  .user-detail-card .detail-content {
+    padding: 15px;
+  }
 }
 @-moz-keyframes pulse-reminder {
   0%, 100% {
