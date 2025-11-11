@@ -2554,16 +2554,24 @@ class FitnessTracker {
             
             const currentDate = new Date();
             
-            // 找到一年前的周一作为起始点（确保第一行是周一）
-            const startDate = new Date(currentDate);
-            startDate.setDate(startDate.getDate() - 365);
+            // 计算需要显示多少周才能包含从一年前到今天的所有数据
+            const oneYearAgo = new Date(currentDate);
+            oneYearAgo.setDate(oneYearAgo.getDate() - 365);
             
-            // 调整到最近的周一 
+            // 找到一年前的周一作为起始点（确保第一行是周一）
+            const startDate = new Date(oneYearAgo);
             const dayOfWeek = startDate.getDay(); // 0=周日, 1=周一, ..., 6=周六
             const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // 计算需要向前调整几天到周一
             startDate.setDate(startDate.getDate() - daysToSubtract);
             
+            // 计算从起始周一到今天需要多少周（确保包含今天）
+            const timeDiff = currentDate.getTime() - startDate.getTime();
+            const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            const weeksNeeded = Math.ceil(daysDiff / 7) + 1; // 多加一周确保完整覆盖
+            
             console.log('🗓️ 热力图起始日期(周一):', startDate.toLocaleDateString(), '星期', startDate.getDay());
+            console.log('🗓️ 热力图结束日期:', currentDate.toLocaleDateString(), '星期', currentDate.getDay());
+            console.log('🗓️ 需要显示周数:', weeksNeeded);
             
             // 生成月份标注
             if (heatmapMonths) {
@@ -2573,10 +2581,8 @@ class FitnessTracker {
             // 创建新的热力图内容
             const newHeatmapContent = document.createDocumentFragment();
             
-            console.log('🗓️ 热力图起始日期(周一):', startDate.toLocaleDateString(), '星期', startDate.getDay());
-            
-            // 创建53周的完整网格
-            for (let week = 0; week < 53; week++) {
+            // 使用计算出的周数而不是固定的53周
+            for (let week = 0; week < weeksNeeded; week++) {
                 const weekElement = document.createElement('div');
                 weekElement.className = 'heatmap-week';
                 
@@ -2677,6 +2683,14 @@ class FitnessTracker {
                         tooltipText += ' - 无记录';
                     }
                     dayElement.title = tooltipText;
+                    
+                    // 移动端支持：添加点击显示信息
+                    dayElement.addEventListener('click', () => {
+                        // 移动端点击显示详细信息
+                        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                            alert(tooltipText);
+                        }
+                    });
                     
                     weekElement.appendChild(dayElement);
                 }
@@ -4189,12 +4203,12 @@ class FitnessTracker {
     
     // 更新卡路里进度
     async updateCalorieProgress() {
-        const currentCaloriesElement = document.getElementById('current-calories');
-        const recommendedCaloriesElement = document.getElementById('recommended-calories');
+        const baseMetabolismElement = document.getElementById('base-metabolism');
+        const calorieGapElement = document.getElementById('calorie-gap');
         const remainingCaloriesElement = document.getElementById('remaining-calories');
         const calorieProgressElement = document.getElementById('calorie-progress');
         
-        if (!currentCaloriesElement) return;
+        if (!baseMetabolismElement) return;
         
         // 获取今日数据
         const dateStr = this.getDateString();
@@ -4203,7 +4217,7 @@ class FitnessTracker {
         
         const currentCalories = todayData.nutrition?.calories || 0;
         
-        // 计算推荐摄入
+        // 计算基础消耗（已乘过活动系数的TDEE）
         const bmr = this.calculateBMR();
         const activityLevel = todayData.activityLevel || 'moderately';
         const tdee = Math.round(bmr * (this.activityLevels[activityLevel]?.factor || 1.55));
@@ -4222,15 +4236,21 @@ class FitnessTracker {
             });
         }
         
-        // 计算推荐摄入 = 基础消耗 + 运动消耗 - 目标热量缺口
+        // 计算今日热量缺口 = 基础消耗 + 运动消耗 - 摄入
+        const totalBurned = tdee + exerciseCalories;
+        const calorieGap = totalBurned - currentCalories;
+        
+        // 计算推荐摄入（为了进度条显示）
         const targetDeficit = await this.calculateTargetCalorieDeficit();
         const recommendedCalories = Math.max(1200, tdee + exerciseCalories - targetDeficit);
         const remainingCalories = Math.max(0, recommendedCalories - currentCalories);
         
         // 更新显示
-        currentCaloriesElement.textContent = `${currentCalories} kcal`;
-        if (recommendedCaloriesElement) {
-            recommendedCaloriesElement.textContent = `${recommendedCalories} kcal`;
+        baseMetabolismElement.textContent = `${tdee} kcal`;
+        if (calorieGapElement) {
+            calorieGapElement.textContent = `${calorieGap >= 0 ? '+' : ''}${calorieGap} kcal`;
+            // 根据热量缺口设置颜色
+            calorieGapElement.className = calorieGap >= 0 ? 'value positive' : 'value negative';
         }
         if (remainingCaloriesElement) {
             remainingCaloriesElement.textContent = `${remainingCalories} kcal`;
@@ -4413,6 +4433,21 @@ class FitnessTracker {
         // 计算剩余天数
         const remainingDays = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
         
+        // 计算推荐每日热量缺口
+        const weightToLose = currentWeight - targetWeight;
+        const totalCaloriesNeeded = weightToLose * 7700;
+        const dailyDeficit = Math.round(totalCaloriesNeeded / Math.max(remainingDays, 1));
+        
+        // 安全范围检查
+        let recommendedDeficit = dailyDeficit;
+        if (dailyDeficit < 300 && weightToLose > 0) {
+            recommendedDeficit = 300;
+        } else if (dailyDeficit > 800) {
+            recommendedDeficit = 800;
+        } else if (weightToLose <= 0) {
+            recommendedDeficit = 0;
+        }
+        
         goalDisplay.innerHTML = `
             <div class="goal-info">
                 <div class="goal-item">
@@ -4427,8 +4462,15 @@ class FitnessTracker {
                     <div class="goal-label">剩余天数</div>
                     <div class="goal-value">${Math.max(0, remainingDays)} 天</div>
                 </div>
+                <div class="goal-item">
+                    <div class="goal-label">推荐热量缺口</div>
+                    <div class="goal-value">${recommendedDeficit} kcal</div>
+                </div>
             </div>
         `;
+        
+        // 更新全局的目标热量缺口变量
+        this.targetCalorieDeficit = recommendedDeficit;
     }
     
     // 初始化数据面板事件监听

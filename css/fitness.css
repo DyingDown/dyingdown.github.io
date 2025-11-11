@@ -2144,7 +2144,7 @@
 }
 .goal-section .goal-display .goal-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
 }
 .goal-section .goal-display .goal-info .goal-item {
