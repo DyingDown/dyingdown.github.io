@@ -450,12 +450,51 @@ class FitnessTracker {
         this.debounceHeatmapUpdate();
     }
 
+    // 更新活动水平选择器（支持日期切换）
+    updateActivitySelector() {
+        const select = document.getElementById('activity-level');
+        if (!select) return;
+        
+        const currentActivityLevel = this.getTodayActivityLevel();
+        console.log('🔄 更新活动水平选择器:', {
+            currentDate: this.getDateString(),
+            activityLevel: currentActivityLevel
+        });
+        
+        // 设置选择器的值
+        select.value = currentActivityLevel;
+        
+        // 如果设置后的值和预期不匹配，强制设置
+        if (select.value !== currentActivityLevel) {
+            console.warn('⚠️ 活动水平设置不匹配，强制设置:', currentActivityLevel);
+            // 尝试找到对应的选项
+            const option = select.querySelector(`option[value="${currentActivityLevel}"]`);
+            if (option) {
+                select.value = currentActivityLevel;
+            } else {
+                console.error('❌ 找不到对应的活动水平选项:', currentActivityLevel);
+                // 设置为默认值并保存
+                select.value = 'moderately';
+                this.saveTodayActivityLevel('moderately');
+            }
+        }
+    }
+
     // 更新基础消耗显示
     updateDailyConsumption() {
         const activityLevel = this.getTodayActivityLevel();
         const bmr = this.calculateBMR();
         const activityFactor = this.activityLevels[activityLevel]?.factor || 1.55;
         const dailyConsumption = Math.round(bmr * activityFactor);
+        
+        // 调试信息
+        console.log('🔍 左面板基础消耗计算调试:', {
+            bmr,
+            activityLevel,
+            factor: activityFactor,
+            dailyConsumption,
+            dateStr: this.getDateString()
+        });
         
         const consumptionElement = document.getElementById('daily-consumption');
         if (consumptionElement) {
@@ -1355,7 +1394,7 @@ class FitnessTracker {
         
         // 添加活动水平选择器和基础消耗显示（不管有没有计划都要显示）
         const planHeader = document.querySelector('.plan-header');
-        const existingSelector = planHeader.querySelector('.activity-selector');
+        let existingSelector = planHeader.querySelector('.activity-selector');
         if (!existingSelector) {
             const activityContainer = document.createElement('div');
             activityContainer.className = 'activity-container';
@@ -1377,19 +1416,22 @@ class FitnessTracker {
             `;
             planHeader.appendChild(activityContainer);
             
-            // 设置当前值并添加事件监听
+            // 绑定事件监听（只需要绑定一次）
             const select = document.getElementById('activity-level');
-            select.value = this.getTodayActivityLevel();
             select.addEventListener('change', (e) => {
+                console.log('🔄 活动水平变更:', e.target.value);
                 this.saveTodayActivityLevel(e.target.value);
                 this.updateDailyConsumption(); // 更新基础消耗显示
                 this.updateNutritionDisplay(); // 实时更新热量缺口显示
             });
-            
-            // 初始化基础消耗显示
-            this.updateDailyConsumption();
         }
         
+        // 每次加载计划时都要更新活动水平选择器的值（支持日期切换）
+        this.updateActivitySelector();
+        
+        // 初始化基础消耗显示
+        this.updateDailyConsumption();
+
         const exerciseList = document.getElementById('exercise-list');
         exerciseList.innerHTML = '';
 
@@ -4224,8 +4266,17 @@ class FitnessTracker {
         
         // 计算基础消耗（已乘过活动系数的TDEE）
         const bmr = this.calculateBMR();
-        const activityLevel = todayData.activityLevel || 'moderately';
+        const activityLevel = this.getTodayActivityLevel(); // 使用统一的获取方法
         const tdee = Math.round(bmr * (this.activityLevels[activityLevel]?.factor || 1.55));
+        
+        // 调试信息
+        console.log('🔍 右面板基础消耗计算调试:', {
+            bmr,
+            activityLevel,
+            factor: this.activityLevels[activityLevel]?.factor,
+            tdee,
+            dateStr
+        });
         
         // 获取运动消耗
         let exerciseCalories = 0;
@@ -4367,19 +4418,20 @@ class FitnessTracker {
         const bmiStatus = this.getBMIStatus(bmi);
         
         // 计算BMI指针位置，根据不同区间映射到对应的百分比位置
+        // 重新分配比例：偏瘦35%，正常30%，超重20%，肥胖15%
         let bmiPercentage;
         if (bmi < 18.5) {
-            // 偏瘦区间：0% - 23%
-            bmiPercentage = Math.max(0, (bmi / 18.5) * 23);
+            // 偏瘦区间：0% - 35% (BMI范围: 0-18.5，跨度18.5)
+            bmiPercentage = Math.max(0, (bmi / 18.5) * 20);
         } else if (bmi < 25) {
-            // 正常区间：23% - 62%
-            bmiPercentage = 23 + ((bmi - 18.5) / (25 - 18.5)) * 39;
+            // 正常区间：35% - 65% (BMI范围: 18.5-25，跨度6.5)
+            bmiPercentage = 20 + ((bmi - 18.5) / (25 - 18.5)) * 30;
         } else if (bmi < 30) {
-            // 超重区间：62% - 85%
-            bmiPercentage = 62 + ((bmi - 25) / (30 - 25)) * 23;
+            // 超重区间：65% - 85% (BMI范围: 25-30，跨度5)
+            bmiPercentage = 50 + ((bmi - 25) / (30 - 25)) * 25;
         } else {
-            // 肥胖区间：85% - 100%
-            bmiPercentage = Math.min(100, 85 + ((bmi - 30) / 10) * 15);
+            // 肥胖区间：85% - 100% (BMI范围: 30-40+，跨度10+)
+            bmiPercentage = Math.min(100, 75 + ((bmi - 30) / 10) * 25);
         }
         
         healthDisplay.innerHTML = `
@@ -4403,6 +4455,13 @@ class FitnessTracker {
                     </div>
                 </div>
                 <div class="bmi-indicator">
+                    <div class="bmi-labels">
+                        <span class="bmi-label" style="left: 0%">15</span>
+                        <span class="bmi-label" style="left: 25%">18.5</span>
+                        <span class="bmi-label" style="left: 50%">25</span>
+                        <span class="bmi-label" style="left: 75%">30</span>
+                        <span class="bmi-label" style="left: 100%">35+</span>
+                    </div>
                     <div class="bmi-meter">
                         <div class="bmi-pointer" style="left: ${bmiPercentage}%"></div>
                     </div>

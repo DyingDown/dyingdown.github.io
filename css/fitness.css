@@ -2017,55 +2017,123 @@
   color: #95a5a6;
 }
 .health-info-section .health-display .bmi-indicator {
-  min-width: 140px;
-  padding: 12px;
-  border-radius: 8px;
+  min-width: 230px;
+  padding: 16px;
   text-align: center;
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels {
+  position: relative;
+  height: 20px;
+  margin-bottom: 8px;
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label {
+  position: absolute;
+  font-size: 11px;
+  font-weight: 700;
+  transform: translateX(-50%);
+  line-height: 1.2;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.9));
+  padding: 3px 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  z-index: 3;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:first-child {
+  transform: translateX(0%);
+  color: #2980b9;
+  border: 1px solid rgba(52,152,219,0.3);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:nth-child(2) {
+  color: #27ae60;
+  border: 1px solid rgba(39,174,96,0.3);
+  font-weight: 800;
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:nth-child(3) {
+  color: #f39c12;
+  border: 1px solid rgba(243,156,18,0.3);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:nth-child(4) {
+  color: #e67e22;
+  border: 1px solid rgba(230,126,34,0.3);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:last-child {
+  transform: translateX(-100%);
+  color: #c0392b;
+  border: 1px solid rgba(192,57,43,0.3);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:hover {
+  transform: translateX(-50%) translateY(-1px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:hover:first-child {
+  transform: translateX(0%) translateY(-1px) scale(1.05);
+}
+.health-info-section .health-display .bmi-indicator .bmi-labels .bmi-label:hover:last-child {
+  transform: translateX(-100%) translateY(-1px) scale(1.05);
 }
 .health-info-section .health-display .bmi-indicator .bmi-meter {
   position: relative;
-  height: 11px;
-  background: linear-gradient(to right, #3498db 0% 23%, #27ae60 23% 62%, #f39c12 62% 85%, #e74c3c 85% 100% /* 肥胖 */);
-  border-radius: 3px;
-  margin: 8px 0 12px 0;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  height: 14px;
+  background: linear-gradient(to right, #3498db 0% 20%, #27ae60 20% 50%, #f39c12 50% 75%, #e74c3c 75% 100%);
+  border-radius: 7px;
+  margin: 8px 0 16px 0;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 .health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer {
   position: absolute;
-  top: -6px;
-  width: 2px;
-  height: 23px;
-  background: #333;
+  top: -8px;
+  width: 3px;
+  height: 30px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   transform: translateX(-50%);
-  border-radius: 1px;
+  border-radius: 2px;
   z-index: 2;
 }
 .health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -2px;
-  width: 6px;
-  height: 2px;
-  background: #333;
-  border-radius: 1px;
+  top: -1px;
+  left: -3px;
+  width: 9px;
+  height: 3px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 .health-info-section .health-display .bmi-indicator .bmi-meter .bmi-pointer::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: -2px;
-  width: 6px;
-  height: 2px;
-  background: #333;
-  border-radius: 1px;
+  bottom: -1px;
+  left: -3px;
+  width: 9px;
+  height: 3px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 .health-info-section .health-display .bmi-indicator .bmi-status {
-  font-size: 15px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 10px;
-  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+.health-info-section .health-display .bmi-indicator .bmi-status.underweight {
+  color: #2980b9;
+  border-color: rgba(52,152,219,0.2);
+}
+.health-info-section .health-display .bmi-indicator .bmi-status.normal {
+  color: #27ae60;
+  border-color: rgba(39,174,96,0.2);
+}
+.health-info-section .health-display .bmi-indicator .bmi-status.overweight {
+  color: #f39c12;
+  border-color: rgba(243,156,18,0.2);
+}
+.health-info-section .health-display .bmi-indicator .bmi-status.obese {
+  color: #e74c3c;
+  border-color: rgba(231,76,60,0.2);
 }
 .health-info-section .health-form {
   background: #f8f9fa;
