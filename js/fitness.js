@@ -61,10 +61,15 @@ class FitnessTracker {
         
         // 活动量系数
         this.activityLevels = {
+            'minimal': { name: '极少活动', factor: 1.1, description: '长期学习，极少走动' },
             'sedentary': { name: '久坐不动', factor: 1.2, description: '办公室工作，很少运动' },
+            'light_sedentary': { name: '轻微活动', factor: 1.3, description: '偶尔散步，轻度家务' },
             'lightly': { name: '轻度活动', factor: 1.375, description: '轻度运动，每周1-3次' },
+            'light_moderate': { name: '轻中度活动', factor: 1.45, description: '规律轻运动，每周3-4次' },
             'moderately': { name: '中度活动', factor: 1.55, description: '中度运动，每周3-5次' },
+            'moderate_active': { name: '中高度活动', factor: 1.65, description: '较强运动，每周5-6次' },
             'very': { name: '高强度活动', factor: 1.725, description: '高强度运动，每周6-7次' },
+            'very_active': { name: '超高强度', factor: 1.8, description: '高强度运动+部分体力工作' },
             'extremely': { name: '极高强度', factor: 1.9, description: '体力工作+高强度训练' }
         };
         
