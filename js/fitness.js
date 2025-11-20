@@ -76,6 +76,9 @@ class FitnessTracker {
         // 初始化训练计划（仅加载现有数据，不自动创建默认计划）
         this.initTrainingPlans();
         
+        // 数据更新事件监听器
+        this.updateEventListeners = new Set();
+        
         this.init();
     }
     
@@ -555,6 +558,9 @@ class FitnessTracker {
         this.initEventListeners();
         this.initTabs();
         
+        // 注册自动更新监听器
+        this.registerAutoUpdateListeners();
+        
         // 延迟生成热力图和更新数据面板
         setTimeout(() => {
             this.generateHeatmap().catch(console.error);
@@ -798,6 +804,9 @@ class FitnessTracker {
         this.updateUserProfileDisplay();
         this.updateDailyConsumption();
         
+        // 用户信息变化会影响基础代谢率，立即更新所有相关数据
+        this.triggerDataUpdate(true);
+        
         // 隐藏详细卡片
         this.hideUserDetailCard();
         
@@ -831,10 +840,12 @@ class FitnessTracker {
         this.updateTodayDisplay();
         this.loadTodayPlan();
         this.loadTodayData();
-        // 用户主动刷新页面时立即更新热力图和数据面板
-        await this.generateHeatmap();
+        
+        // 日期切换是重要操作，立即更新所有相关数据
+        this.triggerDataUpdate(true);
+        
+        // 同时更新数据面板
         await this.updateDashboard();
-        this.updateStatistics();
         
         // 如果计划管理界面正在显示，也刷新它
         const planTab = document.getElementById('plans-tab');
@@ -1423,6 +1434,8 @@ class FitnessTracker {
                 this.saveTodayActivityLevel(e.target.value);
                 this.updateDailyConsumption(); // 更新基础消耗显示
                 this.updateNutritionDisplay(); // 实时更新热量缺口显示
+                // 活动水平变更会影响基础代谢率，立即更新所有数据
+                this.triggerDataUpdate(true);
             });
         }
         
@@ -1520,8 +1533,8 @@ class FitnessTracker {
             this.updateStatistics();
         });
         
-        // 异步更新热力图，使用防抖机制但保持实时性
-        this.debounceHeatmapUpdate();
+        // 运动打卡完成是重要操作，立即更新热力图和所有相关数据
+        this.triggerDataUpdate(true);
     }
 
     // 更新实际运动消耗显示
@@ -1620,8 +1633,9 @@ class FitnessTracker {
         this.updateNutritionSummary(); // 更新营养摘要
         this.updateCalorieProgress(); // 更新卡路里进度
         this.updateStatistics();
-        // 营养数据变化时也延迟更新热力图，避免频繁重绘
-        this.debounceHeatmapUpdate();
+        
+        // 营养数据变化时使用统一的数据更新系统，采用防抖机制
+        this.triggerDataUpdate(false);
     }
 
     // 更新营养显示
@@ -1782,11 +1796,14 @@ class FitnessTracker {
             const element = document.getElementById(id);
             if (element) {
                 element.addEventListener('input', () => {
+                    // 立即更新显示（用户需要即时反馈）
                     this.updateNutritionDisplay();
+                    this.updateCalorieProgress(); // 立即更新卡路里进度
+                    
                     // 延迟保存和更新热力图，避免频繁更新
                     clearTimeout(nutritionUpdateTimeout);
                     nutritionUpdateTimeout = setTimeout(() => {
-                        // 保存营养数据并更新热力图
+                        // 保存营养数据并触发统一更新
                         this.saveNutritionData();
                     }, 1000); // 1秒后更新
                 });
@@ -1797,8 +1814,11 @@ class FitnessTracker {
         const proteinCheck = document.getElementById('protein-powder-check');
         if (proteinCheck) {
             proteinCheck.addEventListener('change', () => {
+                // 立即更新显示
                 this.updateNutritionDisplay();
-                // 蛋白粉状态改变时立即保存并更新热力图
+                this.updateCalorieProgress();
+                
+                // 蛋白粉状态改变时立即保存并更新
                 setTimeout(() => {
                     this.saveNutritionData();
                 }, 100);
@@ -2541,6 +2561,83 @@ class FitnessTracker {
     // 更新目标饮水量
     updateTargetWater(day, value) {
         // 实时更新，保存时统一处理
+    }
+
+    // ==================== 数据更新事件系统 ====================
+    
+    // 注册自动更新监听器
+    registerAutoUpdateListeners() {
+        console.log('📡 注册自动更新监听器...');
+        
+        // 注册统计数据更新监听器
+        this.addUpdateListener(() => {
+            this.updateStatistics();
+        });
+        
+        // 注册卡路里进度更新监听器
+        this.addUpdateListener(() => {
+            this.updateCalorieProgress();
+        });
+        
+        // 注册运动统计更新监听器
+        this.addUpdateListener(() => {
+            this.updateWorkoutStats();
+        });
+        
+        // 注册营养摘要更新监听器
+        this.addUpdateListener(() => {
+            this.updateNutritionSummary();
+        });
+        
+        // 注册基础消耗更新监听器（用户信息变化时）
+        this.addUpdateListener(() => {
+            this.updateDailyConsumption();
+        });
+        
+        console.log('✅ 自动更新监听器注册完成，共', this.updateEventListeners.size, '个监听器');
+    }
+    
+    // 添加数据更新监听器
+    addUpdateListener(callback) {
+        this.updateEventListeners.add(callback);
+    }
+    
+    // 移除数据更新监听器
+    removeUpdateListener(callback) {
+        this.updateEventListeners.delete(callback);
+    }
+    
+    // 触发数据更新事件
+    triggerDataUpdate(immediate = false) {
+        console.log(`🔄 触发数据更新事件 (${immediate ? '立即' : '防抖'}), 监听器数量:`, this.updateEventListeners.size);
+        
+        // 触发所有监听器
+        this.updateEventListeners.forEach(callback => {
+            try {
+                callback();
+            } catch (error) {
+                console.error('数据更新监听器执行错误:', error);
+            }
+        });
+        
+        // 更新热力图
+        if (immediate) {
+            this.immediateHeatmapUpdate();
+        } else {
+            this.debounceHeatmapUpdate();
+        }
+    }
+    
+    // 立即更新热力图（用于重要操作如运动打卡完成）
+    immediateHeatmapUpdate() {
+        // 取消防抖定时器
+        if (this.heatmapUpdateTimer) {
+            clearTimeout(this.heatmapUpdateTimer);
+            this.heatmapUpdateTimer = null;
+        }
+        
+        // 立即生成热力图
+        this.generateHeatmap().catch(console.error);
     }
 
     // 防抖更新热力图 - 平衡实时性和性能
@@ -4298,7 +4395,7 @@ class FitnessTracker {
         
         // 计算推荐摄入（为了进度条显示）
         const targetDeficit = await this.calculateTargetCalorieDeficit();
-        const recommendedCalories = Math.max(1200, tdee + exerciseCalories - targetDeficit);
+        const recommendedCalories = tdee + exerciseCalories - targetDeficit;
         const remainingCalories = Math.max(0, recommendedCalories - currentCalories);
         
         // 更新显示
@@ -4573,6 +4670,9 @@ class FitnessTracker {
                     healthForm.style.display = 'none';
                     await this.updateDashboard();
                     
+                    // 体重身高数据变化会影响BMI和目标计算，立即更新所有相关数据
+                    this.triggerDataUpdate(true);
+                    
                     // 清空表单
                     document.getElementById('weight-input').value = '';
                     document.getElementById('height-input').value = '';
@@ -4613,6 +4713,9 @@ class FitnessTracker {
                 if (success) {
                     goalForm.style.display = 'none';
                     await this.updateDashboard();
+                    
+                    // 目标变化会影响推荐热量缺口，立即更新所有相关数据
+                    this.triggerDataUpdate(true);
                     
                     // 清空表单
                     document.getElementById('target-weight-input').value = '';
